@@ -37,3 +37,7 @@ next-env.d.ts
 # ulazni materijal za migraciju sadržaja (reference, ne deploy-uje se;
 # optimizovane verzije slika već žive u public/assets/defence-tech/)
 /servoteh_content_migration_pack/
+
+# poverljivi radni dokumenti spušteni u koren (ponude, tehničke specifikacije).
+# NE komitovati — javni deploy/git istorija. Zvanična brošura je u public/assets/brochures/.
+/*.pdf
