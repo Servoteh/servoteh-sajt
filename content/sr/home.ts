@@ -1,0 +1,149 @@
+import type { HomeContent } from "@/lib/types";
+
+export const home: HomeContent = {
+  meta: {
+    title: "SERVOTEH — Specijalne mašine i sistemi za industriju odbrane",
+    description:
+      "Servoteh — Inženjerska kompanija iz Dobanovaca. Specijalne mašine, proizvodne linije i automatizacija sa fokusom na industriju odbrane. Projekti po meri kupca od 2002. godine.",
+  },
+
+  hero: {
+    eyebrow: "Beograd, Srbija — porodična inženjerska kompanija od 2002.",
+    title: "Specijalne mašine, proizvodne linije i automatizovani sistemi",
+    subtitle:
+      "Projektujemo, razvijamo i isporučujemo rešenja za zahtevne industrijske procese, sa posebnim fokusom na industriju odbrane — od prvog crteža do montaže, puštanja u rad i dugoročne tehničke podrške.",
+    primaryCta: { label: "Pošaljite upit", href: "/#cta" },
+    secondaryCta: { label: "Pogledajte rešenja", href: "/#solutions" },
+    scrollLabel: "Skroluj",
+  },
+
+  stats: [
+    { value: "24", suffix: "+", label: "Godina iskustva" },
+    { value: "100", suffix: "+", label: "Mašina i sistema" },
+    { value: "25", suffix: "+", label: "Razvojnih inženjera" },
+    { value: "Odbrana", label: "Strateški fokus", variant: "defence" },
+  ],
+
+  defenceIntro: {
+    label: "Strateški fokus",
+    titleLead: "Fokus na ",
+    titleLink: { label: "industriju odbrane", href: "/defence" },
+    titleAfterLink: ".",
+    titleSecond: "Kompetencija za mnogo više.",
+    body: "Tokom poslednjih pet godina, najveći deo razvoja i realizacije Servoteh sistema vezan je za industriju odbrane — sektor u kome su pouzdanost, preciznost i kontrola procesa presudan uslov, a ne opcija. Isti razvojni kapacitet i inženjerska logika primenjuju se i u drugim zahtevnim industrijskim projektima, tamo gde standardna oprema nije dovoljna i gde se sistem mora razviti od nule.",
+    cta: { label: "Pogledajte reference", href: "/reference" },
+    cards: [
+      { title: "Preciznost i pouzdanost", desc: "Sistemi projektovani za zahteve industrije odbrane", accent: true },
+      { title: "Pristup po meri kupca", desc: "Svaki sistem razvijen prema konkretnom zahtevu" },
+      { title: "24+ godina iskustva", desc: "Dokazana kompetencija u kompleksnim projektima" },
+      { title: "Postprodajna podrška", desc: "Podrška tokom celokupnog životnog veka sistema" },
+    ],
+  },
+
+  about: {
+    label: "O kompaniji",
+    title: "Inženjering koji prati zahtev kupca",
+    body: "Servoteh je porodična inženjerska kompanija iz Dobanovaca, aktivna od 2002. godine. Razvijamo specijalne mašine, proizvodne linije i automatizovane sisteme, prvenstveno za industriju odbrane i druge zahtevne industrijske procese, uz integrisan mašinski, elektro i softverski razvoj u okviru jednog tima.",
+    cta: { label: "Pošaljite upit", href: "/#cta" },
+    features: [
+      { title: "Mašinski razvoj", desc: "Mašinsko projektovanje i izrada sistema prilagođenih konkretnom procesu." },
+      { title: "Elektro i upravljanje", desc: "Električna rešenja, upravljačke ormane, instalacije i instrumentacija." },
+      { title: "Softver i automatizacija", desc: "PLC, SCADA, HMI i softverska rešenja za upravljanje procesima." },
+      { title: "Proizvodnja i montaža", desc: "Sopstveni proizvodni i montažni kapaciteti — kontrola kvaliteta u celom procesu." },
+    ],
+  },
+
+  kapaciteti: {
+    label: "Kapaciteti",
+    title: "Sopstveni razvojni i proizvodni kapaciteti",
+    body: "Servoteh razvija, proizvodi, sklapa i integriše sisteme u sopstvenim kapacitetima u Dobanovcima. Ovakav pristup omogućava bolju kontrolu kvaliteta, kraće rokove i pouzdaniju realizaciju složenih projekata — od projektovanja, preko proizvodnje i montaže, do integracije sistema i pripreme za puštanje u rad.",
+    points: [
+      "10.000 m² razvojnih i proizvodnih kapaciteta",
+      "Razvojni biro za mašinsko i elektro projektovanje",
+      "Sopstvena proizvodnja, montaža i integracija",
+      "Kontrola kvaliteta sa savremenom mernom opremom",
+    ],
+    slides: [
+      { src: "/assets/about-exterior-facility.jpg", alt: "Spoljašnji pogled na razvojne i proizvodne hale Servoteh u Dobanovcima", caption: "Upravna i proizvodna lokacija" },
+      { src: "/assets/about-production-hall-wide.jpg", alt: "Glavna proizvodna hala Servoteh", caption: "Proizvodna hala" },
+      { src: "/assets/about-robotic-cell.jpg", alt: "Robotizovana ćelija i automatizacija u Servoteh pogonu", caption: "Robotizovana ćelija" },
+      { src: "/assets/about-heat-treatment-line.jpg", alt: "Linija za termičku obradu u Servoteh pogonu", caption: "Linija termičke obrade" },
+      { src: "/assets/about-heavy-machining.jpg", alt: "Teška mašinska obrada u Servoteh pogonu", caption: "Teška mašinska obrada" },
+      { src: "/assets/about-precision-machining-room.jpg", alt: "Prostor za preciznu mašinsku obradu u Servoteh pogonu", caption: "Prostor za preciznu obradu" },
+      { src: "/assets/about-boring-machine-night.jpg", alt: "Mašina za duboku obradu u Servoteh pogonu", caption: "Mašina za duboku obradu" },
+    ],
+  },
+
+  solutions: {
+    label: "Šta radimo",
+    title: "Naša rešenja",
+    body: "Projektujemo, razvijamo i izrađujemo industrijske sisteme po zahtevu kupca — od specijalnih mašina i automatizacije procesa do kompletnih proizvodnih linija.",
+    cards: [
+      { tag: "01 — Proizvodne linije", title: "Proizvodne linije", desc: "Kompletna rešenja za organizaciju i automatizaciju proizvodnje — od idejnog rešenja do puštanja sistema u rad.", href: "/proizvodne-linije", img: "/assets/proizvodne-linije.jpg", alt: "Kompletna proizvodna linija — Servoteh" },
+      { tag: "02 — Industrijska automatizacija", title: "Industrijska automatizacija", desc: "Integracija upravljanja, pogona, senzora i procesne logike u stabilne i pouzdane industrijske sisteme.", href: "/industrijska-automatizacija", img: "/assets/industrijska-automatizacija.jpg", alt: "Upravljanje i automatizacija — Servoteh" },
+      { tag: "03 — Specijalne mašine", title: "Specijalne mašine", desc: "Namenska tehnička rešenja razvijena za precizno definisane operacije, proizvode i uslove rada.", href: "/specijalne-masine", img: "/assets/specijalne-masine.jpg", alt: "Specijalne mašine po meri — Servoteh" },
+    ],
+  },
+
+  aftersales: {
+    label: "Podrška nakon puštanja u rad",
+    title: "Podrška i nakon puštanja u rad",
+    body: "Servoteh ostaje tehnički partner i nakon isporuke sistema. Podrška obuhvata puštanje u rad, obuku, dijagnostiku, intervencije, rezervne delove i unapređenja tokom eksploatacije.",
+    cta: { label: "Pošaljite upit", href: "/#cta" },
+    items: [
+      { title: "Puštanje u rad i obuka", desc: "Naš tim prisustvuje prvom pokretanju i obučava vaše operatere." },
+      { title: "Dijagnostika i intervencije", desc: "Brza reakcija i tehnička podrška na licu mesta ili daljinski." },
+      { title: "Rezervni delovi i unapređenja", desc: "Originalni rezervni delovi i moguća unapređenja sistema tokom eksploatacije." },
+    ],
+    why: [
+      { title: "Princip ključ u ruke", desc: "Vodimo projekat od ideje do isporuke, uz jednu odgovornu tačku komunikacije." },
+      { title: "Integrisan razvoj i realizacija", desc: "Razvoj, proizvodnja, montaža i integracija povezani su u jedan sistem realizacije." },
+      { title: "Dugoročna tehnička odgovornost", desc: "Ostajemo uključeni i nakon isporuke kroz podršku i unapređenja sistema." },
+    ],
+  },
+
+  industries: {
+    label: "Oblasti primene",
+    title: "Industrije",
+    body: "Naš današnji fokus je industrija odbrane, ali iste inženjerske kompetencije primenjujemo i u drugim složenim industrijskim sistemima.",
+    cards: [
+      { title: "Industrija odbrane", desc: "Namenske mašine, linije i sistemi za industriju odbrane", href: "/defence", featured: true },
+      { title: "Automobilska industrija", desc: "Linije sklapanja, testni stolovi, manipulatori" },
+      { title: "Avio industrija", desc: "Precizna oprema i sistemi za vazduhoplovnu proizvodnju" },
+      { title: "Prehrambena industrija", desc: "Mašine i linije za preradu i pakovanje hrane" },
+      { title: "Pakovanje i manipulacija", desc: "Automatizovani sistemi za pakovanje, sortiranje i transport" },
+      { title: "Opšta industrijska proizvodnja", desc: "Namenska rešenja za različite grane opšte industrijske proizvodnje" },
+    ],
+  },
+
+  trust: {
+    label: "Reference",
+    title: "Rešenja za zahtevne proizvodne procese",
+    body: "Svaki projekat koji realizujemo nastaje kao odgovor na konkretan tehnički zahtev koji standardna oprema ne može da ispuni. Naše reference obuhvataju sisteme za industriju odbrane, kao i složene mašine i linije u drugim sektorima — u svim slučajevima, pouzdanost, preciznost i dugoročna eksploatabilnost bili su primarni projektni zahtevi.",
+    cta: { label: "Pogledajte reference", href: "/reference" },
+    points: [
+      { title: "24+ godina iskustva", desc: "Višedecenijsko iskustvo u razvoju i realizaciji specijalnih inženjerskih sistema" },
+      { title: "ISO 9001 sertifikovan", desc: "Sistem menadžmenta kvalitetom po međunarodnom standardu" },
+      { title: "Globalni tehnološki partneri", desc: "Siemens, ABB, Rexroth, SKF, Aventics — provereni tehnički partneri" },
+      { title: "Razvojni i proizvodni centar", desc: "Integrisani prostor za razvoj, proizvodnju, montažu i pripremu sistema" },
+    ],
+  },
+
+  cta: {
+    label: "Sledeći korak",
+    title: "Razgovarajmo o vašem projektu",
+    body: "Pošaljite nam osnovne informacije o procesu, proizvodnoj potrebi ili tehničkom zahtevu, a naš tim će vam predložiti sledeće korake.",
+    primaryCta: { label: "Pošaljite upit", href: "mailto:office@servoteh.com" },
+    phoneCta: { label: "+381 (11) 31-41-564", href: "tel:+381113141564" },
+    contactHeading: "Kontakt",
+    contacts: [
+      { label: "Adresa", lines: ["Ugrinovačka 163, 11272 Dobanovci", "Beograd, Srbija"] },
+      { label: "Email", lines: ["office@servoteh.com"], href: "mailto:office@servoteh.com" },
+      { label: "Telefon", lines: ["+381 (11) 31-41-564"], href: "tel:+381113141564" },
+    ],
+    mapButtons: [
+      { label: "Otvorite mapu", href: "https://www.google.com/maps/search/?api=1&query=Ugrinova%C4%8Dka%20163%2C%2011272%20Dobanovci%2C%20Beograd%2C%20Srbija" },
+      { label: "Kako do nas", href: "https://www.google.com/maps/dir/?api=1&destination=Ugrinova%C4%8Dka%20163%2C%2011272%20Dobanovci%2C%20Beograd%2C%20Srbija" },
+    ],
+  },
+};

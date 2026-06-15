@@ -1,0 +1,645 @@
+SERVOTEH — OPŠTA PRAVILA ZA CLAUDE PROJEKAT
+Verzija: 1.0
+Jezik dokumenta: srpski
+Namena: bazna pravila za sve HTML stranice, sadržaj, dizajn, terminologiju i razvojne odluke na SERVOTEH sajtu
+
+==================================================
+1. OPŠTI CILJ SAJTA
+==================================================
+
+SERVOTEH sajt mora da izgleda kao ozbiljan, moderan i tehnički ubedljiv B2B sajt za inženjersku kompaniju.
+
+Primarna poslovna pozicija:
+- specijalne mašine
+- proizvodne linije
+- industrijska automatizacija
+- fokus na industriju odbrane
+- ali ne isključivo samo industrija odbrane
+
+Brend pozicija:
+SERVOTEH je inženjerska kompanija koja razvija, projektuje, proizvodi, sklapa i integriše specijalne mašine i sisteme po meri kupca, sa fokusom na industriju odbrane i druge zahtevne industrijske procese.
+
+Osnovna arhitektura:
+- jedna jaka homepage strana (`index.html`)
+- nekoliko dubinskih stranica za ključna rešenja i reference
+- nema previše lutanja kroz desetine podstranica
+
+==================================================
+2. ARHITEKTURA SAJTA
+==================================================
+
+Glavna struktura:
+- index.html
+- reference.html
+- defence.html
+- specijalne-masine.html
+- proizvodne-linije.html
+- industrijska-automatizacija.html
+
+Sekcije koje ostaju na homepage-u kao anchor:
+- #hero
+- #about
+- #capacities (ako postoji)
+- #solutions
+- #aftersales
+- #advantages
+- #industries
+- #trust
+- #cta
+
+Ne praviti posebne stranice za:
+- O nama
+- Kontakt
+- Aftersales podršku
+- Industrije
+- opšti pregled rešenja
+
+Ta logika ostaje na početnoj strani.
+
+==================================================
+3. HERO PRAVILO
+==================================================
+
+Vrlo važno:
+- Video hero ostaje samo na homepage-u (`index.html`)
+- Sve ostale stranice koriste statičan premium dark hero
+- Ne koristiti isti looping video na svakoj stranici
+
+Pravila:
+1. `index.html`
+- koristi `hero1.mp4`
+- jedina stranica sa video background-om
+
+2. Sve dubinske stranice
+- koriste statičan dark hero
+- mogu imati:
+  - tamnu pozadinu sa teksturom
+  - poster kadar iz videa
+  - kvalitetnu statičnu hero sliku
+- bez autoplay videa
+
+Hero mora da bude:
+- čist
+- snažan
+- pregledan
+- bez previše teksta
+- sa jasnim H1 i kratkim lead pasusom
+
+==================================================
+4. DIZAJN SISTEM
+==================================================
+
+Vizuelni pravac:
+- premium industrial
+- dark / light ritam sekcija
+- čist i ozbiljan B2B izgled
+- bez prenatrpanosti
+- bez generičkog “corporate template” osećaja
+
+Osnovna pravila:
+- rounded corners, ali umereno
+- diskretne senke
+- jasan kontrast
+- dovoljno praznog prostora
+- konzistentan sistem kartica, sekcija i CTA dugmadi
+
+Dark sekcije:
+- hero
+- solutions
+- trust
+- CTA
+- defence / reference dubinski blokovi
+
+Light sekcije:
+- about
+- capacities
+- industries
+- process sekcije gde više odgovara čitljivosti
+
+Ne koristiti:
+- previše boja
+- previše animacija
+- prenaglašene hover efekte
+- jarke gradijente koji kvare ozbiljnost
+
+Akcent boja:
+- narandžasto-crvena Servoteh boja kao jedini glavni akcenat
+- koristiti je za:
+  - CTA primary dugmad
+  - aktivne linije i markere
+  - male ikone i naglaske
+  - ključne tačke / dot indikatore
+
+==================================================
+5. TIPOGRAFIJA I FONTOVI
+==================================================
+
+Primarni font:
+- Figtree
+
+Ne uvoditi dodatne fontove osim ako nije izričito dogovoreno.
+
+Pravila tipografije:
+- jedan glavni font za ceo sajt
+- jasan hijerarhijski sistem
+- dovoljno vazduha između redova
+- ne koristiti previše različitih težina bez potrebe
+
+Preporučene težine:
+- 300 / 400 za duže pasuse
+- 600 za manje naglaske
+- 700 / 800 za naslove
+
+Preporučene veličine:
+- H1: clamp(34px, 5vw, 72px)
+- H2: clamp(28px, 3.2vw, 48px)
+- H3: 19px do 24px
+- body: 15px do 16px
+- mali opisni tekst: 12px do 14px
+- section label: oko 11px uppercase
+
+Line-height:
+- H1/H2: 1.05 do 1.15
+- body: 1.65 do 1.8
+
+==================================================
+6. SPACING / PADDING / LAYOUT
+==================================================
+
+Globalno:
+- koristiti konzistentne vertikalne razmake
+- sekcije moraju da dišu
+- ne zbijati sadržaj
+
+Preporuke:
+- veliki section padding desktop: 100px do 120px gore/dole
+- srednji section padding: 80px do 100px
+- mobile section padding: 72px do 88px
+
+Container:
+- max-width približno 1280px
+- desktop bočni padding: 32px
+- mobile bočni padding: 20px
+
+Grid pravila:
+- desktop: 2 kolone ili 3 kolone kada ima smisla
+- tablet: lagano prelamanje
+- mobile: jedna kolona ili kontrolisane 2 kolone samo gde je opravdano
+
+Ne raditi:
+- predugačke pasuse bez razmaka
+- kartice bez dovoljno unutrašnjeg paddinga
+- sekcije koje izgledaju “nabacano”
+
+==================================================
+7. JEZIČKA PRAVILA — SRPSKI / ENGLESKI
+==================================================
+
+Sajt mora biti dvojezičan:
+- srpski kao osnovna verzija
+- engleski u `/en/` folderu
+
+Struktura:
+SR:
+- index.html
+- reference.html
+- defence.html
+
+EN:
+- en/index.html
+- en/reference.html
+- en/defence.html
+
+Ne koristiti JS language swap za kompletan sadržaj.
+Koristiti dve paralelne verzije fajlova.
+
+Na srpskoj verziji:
+- sve što je vidljivo korisniku mora biti na srpskom
+- bez poluengleskih, polusrpskih formulacija
+
+Na engleskoj verziji:
+- prirodan poslovni i tehnički engleski
+- ne bukvalan prevod srpskog
+
+==================================================
+8. SRPSKI STIL I TERMINOLOGIJA
+==================================================
+
+Na srpskoj verziji koristiti prirodan i stručan srpski jezik.
+Ne mešati engleski i srpski u istoj rečenici kada postoji dobar stručni srpski izraz.
+
+OBAVEZNO:
+- mašinski razvoj
+- mašinsko projektovanje
+- mašinski sistemi
+- elektro projektovanje
+- upravljanje i automatizacija
+- kontrola kvaliteta
+- merna oprema
+- puštanje u rad
+- podrška tokom eksploatacije
+- realizacija po principu ključ u ruke
+- po meri kupca
+- namenski razvijeno rešenje
+- industrija odbrane
+- sistemi za industriju odbrane
+
+NE koristiti kao glavni izraz:
+- mehanički razvoj
+- mehaničko projektovanje
+- custom made
+- turnkey
+- defence systems
+- defence-led
+- programme
+- placeholder
+- aftersales
+ako su u vidljivom srpskom tekstu
+
+==================================================
+9. OBAVEZNI TEHNIČKI PREVODI ZA SRPSKI SAJT
+==================================================
+
+Koristiti ove izraze:
+- forging = kovanje
+- hot forming = toplo oblikovanje
+- deep drawing = izvlačenje
+- descaling = dekunderisanje
+- hydro-testing equipment = oprema za hidrostatičko ispitivanje
+- hardness testing = kontrola i merenje tvrdoće
+- robot system = robotizovani sistem manipulacije
+- induction furnace = indukciona peć
+- hot shearing press = presa za toplo sečenje
+- upsetting and piercing = sabijanje i probijanje
+- narrowing operations = završno sužavanje / završno oblikovanje
+- rotating band press = presa za utiskivanje vodećeg prstena
+- automatic loader = automatski punjač
+- self-propelled artillery systems = samohodni artiljerijski sistemi
+- cup production = proizvodnja čanče
+- cartridge case production = proizvodnja čaure
+- bullet finalization = finalizacija zrna
+- sleeve fitting press = presa za navlačenje ojačavajuće čaure
+
+Ako neki izraz zvuči neprirodno doslovno, koristiti prirodan stručni izraz.
+
+==================================================
+10. PADEŽI I JEZIČKA PRIRODNOST
+==================================================
+
+Srpski tekst mora da zvuči kao da ga je pisala ozbiljna domaća inženjerska kompanija.
+
+Pravila:
+- koristiti pravilne padeže
+- izbegavati bukvalan prevod sa engleskog
+- ne koristiti rečenice koje zvuče “AI generisano”
+- izbegavati marketing fraze bez tehničkog sadržaja
+
+Dobri primeri:
+- sa fokusom na industriju odbrane
+- za proizvodnju tela artiljerijskih projektila
+- u sopstvenim kapacitetima u Dobanovcima
+- podrška tokom celokupnog veka eksploatacije sistema
+- kontrola kvaliteta kroz ceo tok realizacije
+- razvoj, proizvodnja, montaža i integracija u okviru jednog sistema
+
+Izbegavati:
+- defence industriju
+- custom made sistem
+- turnkey projekat
+- programme 01
+- production system u srpskom pasusu
+
+==================================================
+11. TON KOMUNIKACIJE
+==================================================
+
+Ton mora biti:
+- ozbiljan
+- stručan
+- jasan
+- samouveren
+- nenametljiv
+- B2B i inženjerski
+
+Ne koristiti:
+- previše “marketing hype” formulacija
+- prazne fraze bez sadržaja
+- senzacionalistički ton
+- vojni katalog ton
+
+SERVOTEH ne treba da zvuči kao:
+- lifestyle brend
+- agencija
+- generički template sajt
+- katalog bez inženjerske dubine
+
+SERVOTEH treba da zvuči kao:
+- firma koja zna šta radi
+- firma koja razvija ozbiljna rešenja
+- firma sa sopstvenim kapacitetima i odgovornošću za realizaciju
+
+==================================================
+12. OBAVEZNE BREND PORUKE
+==================================================
+
+Na sajtu stalno čuvati ove stubove:
+- porodična inženjerska kompanija od 2002.
+- sopstveni razvojni i proizvodni kapaciteti u Dobanovcima
+- specijalne mašine, proizvodne linije i automatizacija
+- fokus na industriju odbrane
+- ali kompetencija i za druge zahtevne industrijske procese
+- projekti po meri kupca
+- realizacija po principu ključ u ruke
+- podrška nakon isporuke
+- 24+ godine iskustva
+- 100+ mašina i sistema
+- 25+ razvojnih inženjera
+- ISO 9001
+
+==================================================
+13. HOMEPAGE PRAVILO
+==================================================
+
+Homepage radi 3 stvari:
+1. odmah objašnjava ko je Servoteh
+2. pokazuje šta Servoteh radi
+3. gradi poverenje da Servoteh može da realizuje složen sistem
+
+Na homepage-u obavezno ostaju:
+- hero
+- stats
+- strateški fokus na industriju odbrane
+- o kompaniji
+- kapaciteti
+- pregled rešenja
+- podrška nakon puštanja u rad
+- prednosti
+- industrije
+- reference teaser
+- kontakt / CTA
+
+==================================================
+14. PRAVILO ZA REŠENJA I LINKOVE
+==================================================
+
+Nazivi stranica i linkovi moraju biti dosledni.
+
+Koristiti:
+- `defence.html`
+- ne `defence-systems.html`
+
+Gde god se prirodno pominje industrija odbrane ili sistemi za industriju odbrane,
+može se smisleno linkovati ka `defence.html`, ali ne spamovati istu reč više puta u istom pasusu.
+
+==================================================
+15. SLIKE I REZOLUCIJE
+==================================================
+
+Osnovna pravila za slike:
+- koristiti stvarne industrijske i proizvodne fotografije kad god postoje
+- ne koristiti generičke stock slike ako nisu neophodne
+- ista estetska logika kroz ceo sajt
+- slike moraju da budu čiste, oštre i tehnički reprezentativne
+
+Preporučene rezolucije:
+- hero statična slika: 1920x1080 px minimum
+- sekcijske velike slike: 1600 px širine minimum
+- kartice rešenja: 1200x900 px minimum
+- galerija / slider slike: 1600x1200 px idealno
+- thumbnail / manje kartice: 800x600 px minimum
+
+Format:
+- JPG za fotografije
+- PNG za logo i elemente sa providnom pozadinom
+- WebP može ako je stabilno implementiran i ne pravi komplikacije
+
+Kvalitet:
+- optimizovati slike za web
+- ne ostavljati ogromne nepotrebne fajlove
+- koristiti lazy loading za slike ispod prvog ekrana
+
+Odnos stranica:
+- hero: 16:9 ili širi kadar
+- kartice: 4:3 ili 16:10
+- slider: ujednačena visina i dosledan ratio
+
+Alt tekst:
+- uvek smislen i na jeziku stranice
+- ne generički “image1” ili “photo”
+
+==================================================
+16. SLIDERI I GALERIJE
+==================================================
+
+Ako se koristi slider / carousel:
+- bez autoplay
+- ručna kontrola
+- strelice levo/desno
+- dot indikatori
+- swipe podrška na mobilnom
+- keyboard podrška na desktopu
+- premium i diskretan izgled
+- bez “jeftinog plugin” utiska
+
+Ako neka slika fali:
+- ne rušiti sekciju
+- sakriti samo taj slide preko JS logike
+- bez inline `onerror`
+
+==================================================
+17. VIDEO PRAVILA
+==================================================
+
+Video koristiti samo gde ima jasan smisao.
+
+Pravila:
+- homepage: video hero dozvoljen
+- ostale stranice: ne koristiti isti looping video
+- video mora imati fallback
+- video ne sme usporavati sajt
+- poster kadar je poželjan
+
+==================================================
+18. SEO I META PRAVILA
+==================================================
+
+Svaka stranica mora imati:
+- jedinstven `<title>`
+- jedinstven `meta description`
+- pravilan `lang`
+- jasan H1
+
+Naslovi ne treba da budu generički.
+
+Primer SR:
+- `<html lang="sr">`
+- naslov i meta description na srpskom
+
+Primer EN:
+- `<html lang="en">`
+- naslov i meta description na engleskom
+
+Ne ostavljati mešovite SEO oznake na srpskim stranama.
+
+==================================================
+19. ACCESSIBILITY
+==================================================
+
+Obavezno:
+- `aria-label` za ikonice, slider kontrole i hamburger
+- kontrast teksta mora biti dobar
+- dugmad moraju biti jasna i dovoljno velika za klik
+- tastatura podrška za slider gde postoji
+- logičan redosled naslova i sekcija
+
+==================================================
+20. KOD I TEHNIČKA PRAVILA
+==================================================
+
+- čist HTML/CSS/JS
+- bez framework-a, osim ako nije izričito dogovoreno
+- bez nepotrebnih biblioteka
+- bez inline stilova gde god može kroz klase
+- bez inline `onerror`
+- JS koristiti umereno i smisleno
+- zadržati dobru responsive logiku
+- ne praviti nepotrebno kompleksnu strukturu
+
+==================================================
+21. RESPONSIVE PRAVILA
+==================================================
+
+Desktop:
+- čist grid
+- dovoljno vazduha
+- jasna hijerarhija
+
+Tablet:
+- lagano prelamanje kolona
+- ne lomiti tipografiju
+
+Mobile:
+- jedna kolona gde je moguće
+- dovoljno veliki touch target-i
+- hero tekst ne sme biti predugačak
+- slider i kartice moraju biti pregledni
+
+==================================================
+22. FOOTER PRAVILA
+==================================================
+
+Footer mora biti isti ili gotovo isti na svim stranicama.
+
+Obavezno:
+- kontakt podaci
+- LinkedIn
+- Instagram
+- YouTube
+- ISO 9001
+- osnovni linkovi sajta
+- linkovi ka rešenjima
+
+Na srpskom:
+- “Podrška nakon puštanja u rad”
+- ne “Aftersales podrška” ako može čistije na srpskom
+
+==================================================
+23. CTA PRAVILA
+==================================================
+
+CTA treba da budu jasni i ograničeni.
+
+Glavni CTA:
+- Pošaljite upit
+
+Sekundarni CTA:
+- Pogledajte rešenja
+- Pogledajte reference
+- Pozovite nas
+
+Ne stavljati previše različitih CTA poruka.
+
+==================================================
+24. PRAVILO ZA KAPACITETE
+==================================================
+
+Kapaciteti moraju jasno da pokažu:
+- sopstveni razvojni biro
+- mašinsko i elektro projektovanje
+- savremene softvere poslednje generacije
+- sopstvenu proizvodnju, montažu i integraciju
+- kontrolu kvaliteta sa savremenom mernom opremom
+- pripremu sistema za puštanje u rad
+- više od 10.000 m² kapaciteta
+
+Kapaciteti se najbolje prikazuju:
+- jednom jakom tekstualnom sekcijom
+- galerijom / sliderom stvarnih fotografija
+
+==================================================
+25. PRAVILO ZA DEFENCE SADRŽAJ
+==================================================
+
+Na javnom sajtu:
+- prikazivati programske celine i sposobnosti
+- ne objavljivati kompletan tehnički dosije svake mašine
+- ne ići previše duboko u sve parametre ako to nije neophodno
+
+Dozvoljeno javno:
+- program do 155 mm
+- osnovne procesne celine
+- pregled opreme i sistema
+- reference pristup
+
+Ne preterivati javno sa:
+- svim silama, hodovima, kapacitetima i internim detaljima
+- previše dubokim tehničkim tabelama
+
+==================================================
+26. KONTROLNA LISTA PRE ZAVRŠETKA BILO KOJE STRANE
+==================================================
+
+Pre nego što završiš bilo koju stranicu, proveri:
+- da li je jezik potpuno dosledan
+- da li ima ostataka poluengleskog teksta
+- da li su linkovi ispravni
+- da li je `defence.html` ispravno linkovan
+- da li je typography konzistentna
+- da li su paddings i razmaci konzistentni
+- da li su slike optimizovane i pravilno isečene
+- da li hero poštuje pravilo video vs static
+- da li CTA logika ostaje jasna
+- da li footer ostaje dosledan
+- da li alt tekstovi postoje
+- da li stranica deluje kao deo istog sajta
+
+==================================================
+27. KRATKO PRAVILO KOJE UVEK VAŽI
+==================================================
+
+SERVOTEH sajt mora da izgleda kao:
+- ozbiljna inženjerska kompanija
+- sa sopstvenim razvojem i proizvodnjom
+- sa fokusom na industriju odbrane
+- ali sa širinom kompetencije
+- bez jezičke nedoslednosti
+- bez dizajnerskog haosa
+- bez generičkog marketing tona
+
+Ako postoji dilema između:
+- atraktivno vs ozbiljno
+birati: ozbiljno
+
+Ako postoji dilema između:
+- više efekata vs više jasnoće
+birati: više jasnoće
+
+Ako postoji dilema između:
+- više stranica vs manje lutanja
+birati: manje lutanja
+
+Ako postoji dilema između:
+- poluengleski izraz vs dobar stručni srpski izraz
+birati: stručni srpski izraz
+
+KRAJ DOKUMENTA

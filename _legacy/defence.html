@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Servoteh — Specijalni sistemi za industriju odbrane. Proizvodni sistemi za artiljerijske projektile, linije za municiju i automatski punjači za platforme.">
+  <title>Sistemi za industriju odbrane — SERVOTEH</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* ===== CSS VARIABLES ===== */
+    :root {
+      --black: #000000;
+      --bg-dark: #0a0a0a;
+      --bg-section: #0f0f0f;
+      --bg-card: #141414;
+      --bg-card-hover: #1a1a1a;
+      --border: rgba(255,255,255,0.08);
+      --border-strong: rgba(255,255,255,0.15);
+      --white: #ffffff;
+      --white-dim: rgba(255,255,255,0.7);
+      --white-muted: rgba(255,255,255,0.4);
+      --accent: #e8401c;
+      --accent-hover: #ff5533;
+      --accent-glow: rgba(232,64,28,0.15);
+      --light-bg-1: #eceff1;
+      --light-bg-2: #e9eaec;
+      --light-bg-3: #f2f4f5;
+      --light-text: #111214;
+      --light-text-muted: #5a5f66;
+      --light-border: rgba(0,0,0,0.09);
+      --light-border-strong: rgba(0,0,0,0.16);
+      --light-card: #ffffff;
+      --text-body: rgba(255,255,255,0.72);
+      --max-w: 1440px;
+      --radius: 16px;
+      --radius-sm: 10px;
+      --header-h: 68px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Figtree', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+    button { cursor: pointer; font-family: inherit; border: none; background: none; }
+    h1, h2, h3, h4 { font-family: 'Figtree', sans-serif; line-height: 1.1; }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
+    .container-wide { width: min(94vw, 1680px); margin: 0 auto; padding: 0 32px; }
+
+    /* ===== BUTTONS ===== */
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; border-radius: 8px; font-family: 'Figtree', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.02em; transition: all 0.2s ease; cursor: pointer; }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: 0 8px 24px var(--accent-glow); }
+    .btn-secondary { background: transparent; color: var(--white); border: 1px solid var(--border-strong); }
+    .btn-secondary:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.3); }
+    .btn-ghost { background: rgba(255,255,255,0.06); color: var(--white); border: 1px solid var(--border); }
+    .btn-ghost:hover { background: rgba(255,255,255,0.1); }
+    .btn-ghost-light { background: transparent; color: var(--light-text); border: 1px solid var(--light-border-strong); display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; border-radius: 8px; font-size: 14px; font-weight: 600; letter-spacing: 0.02em; transition: all 0.2s ease; cursor: pointer; }
+    .btn-ghost-light:hover { background: rgba(0,0,0,0.05); border-color: rgba(0,0,0,0.25); }
+    .btn-sm { padding: 10px 20px; font-size: 13px; }
+    .arrow-icon { font-style: normal; font-size: 16px; transition: transform 0.2s; }
+    .btn:hover .arrow-icon { transform: translate(2px, -2px); }
+
+    /* ===== SECTION LABEL ===== */
+    .section-label { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+    .section-label::before { content: ''; display: block; width: 24px; height: 1px; background: var(--accent); }
+    .section-label--center { justify-content: center; }
+
+    /* ===== HEADER ===== */
+    #header { position: fixed; top: 0; left: 0; right: 0; height: var(--header-h); z-index: 1000; background: rgba(0,0,0,0.82); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); transition: background 0.3s; }
+    #header.scrolled { background: rgba(0,0,0,0.95); }
+    .header-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+    .logo img { height: 26px; width: auto; }
+    nav { display: flex; align-items: center; gap: 4px; }
+    nav a { font-size: 13.5px; font-weight: 500; color: var(--white-dim); padding: 6px 14px; border-radius: 6px; transition: color 0.2s, background 0.2s; white-space: nowrap; }
+    nav a:hover, nav a.nav-active { color: var(--white); background: rgba(255,255,255,0.08); }
+    .header-cta { flex-shrink: 0; }
+
+    /* ===== HAMBURGER ===== */
+    .hamburger { display: none; flex-direction: column; gap: 5px; padding: 8px; cursor: pointer; z-index: 1100; }
+    .hamburger span { display: block; width: 24px; height: 1.5px; background: var(--white); transition: all 0.3s; }
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .mobile-nav { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.97); z-index: 999; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { font-family: 'Figtree', sans-serif; font-size: 28px; font-weight: 700; color: var(--white-dim); padding: 12px 24px; transition: color 0.2s; }
+    .mobile-nav a:hover, .mobile-nav a.nav-active { color: var(--white); }
+    .mobile-nav .btn { margin-top: 16px; font-size: 15px; padding: 14px 32px; }
+
+    /* ===== LANG SWITCH ===== */
+    .lang-switch { display: flex; align-items: center; gap: 4px; margin-left: 4px; }
+    .lang-switch a, .lang-switch span { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+    .lang-switch a { color: var(--white-muted); padding: 5px 8px; border-radius: 5px; transition: color 0.2s, background 0.2s; }
+    .lang-switch a:hover { color: var(--white); background: rgba(255,255,255,0.08); }
+    .lang-switch .lang-active { color: var(--white); background: rgba(255,255,255,0.1); }
+    .lang-switch .lang-sep { color: rgba(255,255,255,0.2); user-select: none; }
+    .mobile-lang { display: flex; align-items: center; gap: 6px; margin-top: 24px; }
+    .mobile-lang a { font-size: 14px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 12px; border-radius: 6px; color: var(--white-muted); transition: color 0.2s, background 0.2s; }
+    .mobile-lang a:hover { color: var(--white); background: rgba(255,255,255,0.08); }
+    .mobile-lang .lang-active { color: var(--white); background: rgba(255,255,255,0.1); }
+    .mobile-lang .lang-sep { color: rgba(255,255,255,0.2); font-size: 14px; }
+
+    /* ===== HERO — DARK STATIC ===== */
+    #ds-hero {
+      position: relative;
+      min-height: 72vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      background: var(--black);
+      padding-top: var(--header-h);
+    }
+    .ds-hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 90% 55% at 50% 35%, rgba(232,64,28,0.07) 0%, transparent 60%),
+        repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(255,255,255,0.016) 80px),
+        repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(255,255,255,0.016) 80px);
+      pointer-events: none;
+    }
+    .ds-hero-bg::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 140px;
+      background: linear-gradient(to bottom, transparent, var(--black));
+    }
+    .ds-hero-content {
+      position: relative; z-index: 1;
+      max-width: 860px; padding: 72px 24px 48px;
+    }
+    .ds-hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 28px;
+      opacity: 0; animation: fadeUp 0.8s 0.2s forwards;
+    }
+    .ds-hero-eyebrow::before, .ds-hero-eyebrow::after { content: ''; display: block; width: 32px; height: 1px; background: var(--accent); }
+    .ds-hero-title {
+      font-size: clamp(34px, 5.2vw, 64px); font-weight: 800;
+      letter-spacing: -0.02em; line-height: 1.07; margin-bottom: 24px;
+      opacity: 0; animation: fadeUp 0.9s 0.35s forwards;
+    }
+    .ds-hero-title em { font-style: normal; color: var(--white-dim); }
+    .ds-hero-lead {
+      font-size: clamp(15px, 1.7vw, 17px); color: var(--white-dim);
+      max-width: 660px; margin: 0 auto 36px; font-weight: 300; line-height: 1.7;
+      opacity: 0; animation: fadeUp 0.9s 0.5s forwards;
+    }
+    .ds-hero-cta {
+      display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+      opacity: 0; animation: fadeUp 0.9s 0.65s forwards;
+    }
+
+    /* breadcrumb */
+    .breadcrumb {
+      position: relative; z-index: 1;
+      display: flex; align-items: center; gap: 8px;
+      font-size: 12px; color: var(--white-muted);
+      padding: 0 24px 32px;
+      opacity: 0; animation: fadeIn 0.8s 0.8s forwards;
+    }
+    .breadcrumb a { color: var(--white-muted); transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--white); }
+    .breadcrumb-sep { opacity: 0.4; }
+    .breadcrumb-current { color: var(--accent); }
+
+    /* ===== UVODNI POZICIONI BLOK — LIGHT ===== */
+    #ds-intro {
+      padding: 100px 0;
+      background: var(--light-bg-1);
+      color: var(--light-text);
+    }
+    .ds-intro-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .ds-intro-left h2 {
+      font-size: clamp(28px, 3.2vw, 42px);
+      font-weight: 800; letter-spacing: -0.02em; line-height: 1.1;
+      color: var(--light-text); margin-bottom: 24px;
+    }
+    .ds-intro-left p {
+      font-size: 16px; color: var(--light-text-muted); line-height: 1.75;
+    }
+    .ds-trust-points {
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .ds-trust-point {
+      display: flex; align-items: flex-start; gap: 14px;
+      background: var(--light-card); border: 1px solid var(--light-border);
+      border-radius: var(--radius-sm); padding: 18px 22px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .ds-trust-point:hover { border-color: var(--light-border-strong); box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+    .ds-trust-dot { flex-shrink: 0; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); margin-top: 7px; }
+    .ds-trust-text { font-size: 14px; font-weight: 700; color: var(--light-text); }
+
+    /* ===== TRI PROGRAMA — DARK ===== */
+    #ds-programs {
+      padding: 120px 0;
+      background: var(--bg-section);
+    }
+    .ds-programs-header {
+      margin-bottom: 64px;
+      max-width: 640px;
+    }
+    .ds-programs-header h2 { font-size: clamp(32px, 3.5vw, 48px); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 16px; }
+    .ds-programs-header p { font-size: 16px; color: var(--text-body); }
+
+    .ds-prog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .ds-prog-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .ds-prog-card:hover { transform: translateY(-5px); border-color: var(--border-strong); }
+    .ds-prog-card--p1 { border-top: 2px solid var(--accent); }
+    .ds-prog-visual {
+      width: 100%; aspect-ratio: 16/9;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    /* Placeholder backgrounds — zameni sa pravim slikama */
+    .ds-prog-visual--p1 { background: linear-gradient(135deg, #0f0f0f 0%, #1e0c04 40%, #100804 100%); }
+    .ds-prog-visual--p2 { background: linear-gradient(135deg, #0f0f0f 0%, #0c1a0f 40%, #080f0c 100%); }
+    .ds-prog-visual--p3 { background: linear-gradient(135deg, #0f0f0f 0%, #0c0f1e 40%, #080c14 100%); }
+    .ds-prog-visual-label {
+      position: absolute; bottom: 16px; left: 16px;
+      font-size: 10px; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: rgba(255,255,255,0.3);
+    }
+    .ds-prog-body { padding: 32px; flex: 1; display: flex; flex-direction: column; }
+    .ds-prog-num { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .ds-prog-body h3 { font-size: 19px; font-weight: 700; margin-bottom: 14px; letter-spacing: -0.01em; line-height: 1.25; }
+    .ds-prog-body p { font-size: 13.5px; color: var(--text-body); line-height: 1.65; margin-bottom: 24px; flex: 1; }
+    .ds-prog-items {
+      list-style: none;
+      display: flex; flex-direction: column; gap: 8px;
+      border-top: 1px solid var(--border); padding-top: 20px;
+    }
+    .ds-prog-items li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 12.5px; color: var(--white-muted); line-height: 1.45;
+    }
+    .ds-prog-items li::before {
+      content: ''; flex-shrink: 0;
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--accent); opacity: 0.7; margin-top: 5px;
+    }
+
+    /* ===== DETALJNI PROGRAM BLOKOVI — alternating ===== */
+    .ds-detail-block {
+      padding: 100px 0;
+    }
+    .ds-detail-block--dark { background: var(--black); }
+    .ds-detail-block--light { background: var(--light-bg-2); color: var(--light-text); }
+    .ds-detail-block--mid { background: var(--light-bg-3); color: var(--light-text); }
+
+    .ds-detail-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+    .ds-detail-inner--reverse { direction: rtl; }
+    .ds-detail-inner--reverse > * { direction: ltr; }
+
+    /* Media placeholder */
+    .ds-media-placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .ds-media-placeholder .ds-media-img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center center;
+      display: block;
+    }
+
+    /* ===== HOTSPOT SYSTEM ===== */
+    .hs-wrap {
+      position: relative;
+      width: 100%;
+    }
+    .hs-dot {
+      position: absolute;
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid rgba(255,255,255,0.85);
+      cursor: pointer;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 0 0 4px rgba(232,64,28,0.25);
+    }
+    .hs-dot::after {
+      content: '+';
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; font-weight: 700; color: #fff; line-height: 1;
+      transition: transform 0.2s ease;
+    }
+    .hs-dot:hover,
+    .hs-dot.hs-active {
+      transform: translate(-50%, -50%) scale(1.15);
+      box-shadow: 0 0 0 6px rgba(232,64,28,0.35);
+    }
+    .hs-dot.hs-active::after { transform: rotate(45deg); }
+    .hs-tooltip {
+      position: absolute;
+      bottom: calc(100% + 10px);
+      left: 50%; transform: translateX(-50%);
+      background: rgba(10,10,10,0.96);
+      border: 1px solid rgba(232,64,28,0.35);
+      border-radius: 8px;
+      padding: 9px 14px;
+      font-size: 12px; font-weight: 600;
+      color: var(--white);
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0; visibility: hidden;
+      transition: opacity 0.18s ease, visibility 0.18s ease;
+      z-index: 20;
+      letter-spacing: 0.01em;
+      line-height: 1.4;
+      max-width: 160px;
+      white-space: normal;
+      text-align: center;
+    }
+    .hs-tooltip::after {
+      content: '';
+      position: absolute; top: 100%; left: 50%;
+      transform: translateX(-50%);
+      border: 5px solid transparent;
+      border-top-color: rgba(232,64,28,0.35);
+    }
+    /* Show on hover (desktop) */
+    @media (hover: hover) {
+      .hs-dot:hover .hs-tooltip { opacity: 1; visibility: visible; }
+    }
+    /* Show when active (tap / JS toggle) */
+    .hs-dot.hs-active .hs-tooltip { opacity: 1; visibility: visible; }
+    /* Flip tooltip below on top-edge hotspots */
+    .hs-dot.hs-flip .hs-tooltip {
+      bottom: auto; top: calc(100% + 10px);
+    }
+    .hs-dot.hs-flip .hs-tooltip::after {
+      top: auto; bottom: 100%;
+      border-top-color: transparent;
+      border-bottom-color: rgba(232,64,28,0.35);
+    }
+    /* Shift tooltip for left/right edge hotspots */
+    .hs-dot.hs-edge-left .hs-tooltip { left: 0; transform: translateX(0); }
+    .hs-dot.hs-edge-left .hs-tooltip::after { left: 14px; }
+    .hs-dot.hs-edge-right .hs-tooltip { left: auto; right: 0; transform: translateX(0); }
+    .hs-dot.hs-edge-right .hs-tooltip::after { left: auto; right: 14px; }
+    .ds-media-placeholder--dark {
+      background: linear-gradient(135deg, #141414 0%, #1e0c04 50%, #141414 100%);
+      border: 1px solid var(--border);
+    }
+    .ds-media-placeholder--mid {
+      background: linear-gradient(135deg, #dde0e2 0%, #c8cbd0 50%, #dde0e2 100%);
+    }
+    .ds-media-placeholder--light {
+      background: linear-gradient(135deg, #e0e3e6 0%, #cdd0d5 50%, #e0e3e6 100%);
+    }
+    .ds-media-placeholder-label {
+      position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%);
+      font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .ds-media-placeholder--dark .ds-media-placeholder-label { color: rgba(255,255,255,0.2); }
+    .ds-media-placeholder--mid .ds-media-placeholder-label,
+    .ds-media-placeholder--light .ds-media-placeholder-label { color: rgba(0,0,0,0.2); }
+
+    .ds-detail-text .section-label { }
+    .ds-detail-text h2 {
+      font-size: clamp(24px, 2.8vw, 38px);
+      font-weight: 800; letter-spacing: -0.02em; line-height: 1.12; margin-bottom: 20px;
+    }
+    .ds-detail-text--light h2 { color: var(--light-text); }
+    .ds-detail-text p {
+      font-size: 15px; line-height: 1.75; margin-bottom: 28px;
+    }
+    .ds-detail-text--dark p { color: var(--text-body); }
+    .ds-detail-text--light p { color: var(--light-text-muted); }
+
+    .ds-detail-bullets {
+      list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px;
+    }
+    .ds-detail-bullets li {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 14px; line-height: 1.55;
+    }
+    .ds-detail-bullets li::before {
+      content: ''; flex-shrink: 0;
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--accent); margin-top: 6px;
+    }
+    .ds-detail-text--dark .ds-detail-bullets li { color: var(--white-dim); }
+    .ds-detail-text--light .ds-detail-bullets li { color: var(--light-text-muted); }
+
+    /* ===== ZAHTEVI — DARK ===== */
+    #ds-requirements { padding: 120px 0; background: var(--bg-section); }
+    .ds-req-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin-top: 56px;
+    }
+    .ds-req-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 32px 24px;
+      position: relative; overflow: hidden;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .ds-req-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: transparent; transition: background 0.3s;
+    }
+    .ds-req-card:hover { border-color: rgba(232,64,28,0.22); background: var(--bg-card-hover); }
+    .ds-req-card:hover::before { background: linear-gradient(90deg, transparent, var(--accent), transparent); }
+    .ds-req-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: rgba(232,64,28,0.08); border: 1px solid rgba(232,64,28,0.18);
+      display: flex; align-items: center; justify-content: center; margin-bottom: 20px;
+    }
+    .ds-req-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.01em; }
+    .ds-req-card p { font-size: 13px; color: var(--text-body); line-height: 1.6; }
+
+    /* ===== PRISTUP REALIZACIJI — LIGHT ===== */
+    #ds-process { padding: 120px 0; background: var(--light-bg-1); color: var(--light-text); }
+    #ds-process .section-header-intro { max-width: 560px; margin-bottom: 60px; }
+    #ds-process .section-header-intro h2 { font-size: clamp(28px, 3.2vw, 42px); font-weight: 800; letter-spacing: -0.02em; color: var(--light-text); margin-bottom: 16px; }
+    #ds-process .section-header-intro p { font-size: 16px; color: var(--light-text-muted); line-height: 1.75; }
+    .ds-steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border: 1px solid var(--light-border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .ds-step {
+      padding: 36px 28px;
+      border-right: 1px solid var(--light-border);
+      position: relative;
+      transition: background 0.25s;
+    }
+    .ds-step:last-child { border-right: none; }
+    .ds-step:hover { background: var(--light-card); }
+    .ds-step-num {
+      font-size: 48px; font-weight: 800; letter-spacing: -0.04em;
+      color: rgba(0,0,0,0.04); line-height: 1; margin-bottom: 16px;
+    }
+    .ds-step-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: rgba(232,64,28,0.07); border: 1px solid rgba(232,64,28,0.15);
+      display: flex; align-items: center; justify-content: center; margin-bottom: 16px;
+    }
+    .ds-step h4 { font-size: 15px; font-weight: 700; color: var(--light-text); margin-bottom: 10px; }
+    .ds-step p { font-size: 13px; color: var(--light-text-muted); line-height: 1.6; }
+
+    /* ===== ZAŠTO SERVOTEH — DARK ===== */
+    #ds-why { padding: 120px 0; background: var(--black); }
+    .ds-why-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px; margin-top: 56px;
+    }
+    .ds-why-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 40px 32px;
+      position: relative; overflow: hidden;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .ds-why-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: transparent; transition: background 0.3s;
+    }
+    .ds-why-card:hover { border-color: rgba(232,64,28,0.2); background: var(--bg-card-hover); }
+    .ds-why-card:hover::before { background: linear-gradient(90deg, transparent, var(--accent), transparent); }
+    .ds-why-num { font-size: 60px; font-weight: 800; letter-spacing: -0.04em; color: rgba(255,255,255,0.04); position: absolute; top: 18px; right: 22px; pointer-events: none; }
+    .ds-why-icon { width: 44px; height: 44px; border-radius: 12px; background: rgba(232,64,28,0.08); border: 1px solid rgba(232,64,28,0.18); display: flex; align-items: center; justify-content: center; margin-bottom: 24px; }
+    .ds-why-card h3 { font-size: 21px; font-weight: 700; margin-bottom: 14px; letter-spacing: -0.01em; }
+    .ds-why-card p { font-size: 14.5px; color: var(--text-body); line-height: 1.7; }
+
+    /* ===== REFERENCE LINK — LIGHT ===== */
+    #ds-ref-link { padding: 80px 0; background: var(--light-bg-2); color: var(--light-text); }
+    .ds-ref-link-inner {
+      display: flex; align-items: center; justify-content: space-between; gap: 48px;
+      flex-wrap: wrap;
+    }
+    .ds-ref-link-text h2 { font-size: clamp(22px, 2.8vw, 34px); font-weight: 800; letter-spacing: -0.02em; color: var(--light-text); margin-bottom: 12px; }
+    .ds-ref-link-text p { font-size: 15px; color: var(--light-text-muted); line-height: 1.7; max-width: 520px; }
+
+    /* ===== CTA — DARK ===== */
+    #ds-cta {
+      padding: 120px 0; background: var(--bg-section);
+      position: relative; overflow: hidden;
+    }
+    #ds-cta::before {
+      content: ''; position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 700px; height: 400px;
+      background: radial-gradient(ellipse, rgba(232,64,28,0.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .ds-cta-inner { text-align: center; max-width: 680px; margin: 0 auto; position: relative; z-index: 1; }
+    .ds-cta-inner h2 { font-size: clamp(30px, 4vw, 50px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 20px; }
+    .ds-cta-inner p { font-size: 16px; color: var(--text-body); line-height: 1.7; margin-bottom: 36px; }
+    .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    /* ===== FOOTER ===== */
+    #footer { background: #050505; border-top: 1px solid var(--border); padding: 80px 0 0; }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 64px; border-bottom: 1px solid var(--border); }
+    .footer-brand .logo-footer img { height: 22px; width: auto; margin-bottom: 24px; }
+    .footer-brand address { font-style: normal; font-size: 14px; color: var(--white-muted); line-height: 1.8; margin-bottom: 24px; }
+    .footer-brand a { display: block; font-size: 14px; color: var(--white-muted); margin-bottom: 6px; transition: color 0.2s; }
+    .footer-brand a:hover { color: var(--white); }
+    .footer-col h5 { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white-muted); margin-bottom: 20px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul a { font-size: 14px; color: rgba(255,255,255,0.55); transition: color 0.2s; }
+    .footer-col ul a:hover { color: var(--white); }
+    .iso-badge { display: inline-flex; align-items: center; gap: 10px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; margin-top: 16px; font-size: 11px; color: var(--white-muted); font-weight: 600; letter-spacing: 0.05em; }
+    .iso-badge-icon { width: 28px; height: 28px; background: rgba(232,64,28,0.15); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--accent); font-weight: 800; }
+    .footer-socials { display: flex; gap: 16px; margin-top: 16px; flex-wrap: wrap; }
+    .footer-socials a { font-size: 13px; color: var(--white-muted); transition: color 0.2s; text-decoration: none; }
+    .footer-socials a:hover { color: var(--white); }
+    .footer-bottom { padding: 24px 0; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .footer-bottom span { font-size: 12px; color: var(--white-muted); }
+    .footer-bottom a { font-size: 12px; color: rgba(255,255,255,0.35); transition: color 0.2s; }
+    .footer-bottom a:hover { color: var(--white); }
+
+    /* ===== SECTION INTRO HEADERS ===== */
+    .section-intro-narrow { max-width: 560px; margin-bottom: 0; }
+    .section-intro-tight  { max-width: 480px; margin-bottom: 0; }
+    .section-intro-h2 { font-size: clamp(28px, 3.2vw, 42px); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 16px; }
+    .section-intro-h2--notight { margin-bottom: 0; }
+    .section-intro-p  { font-size: 16px; color: var(--text-body); line-height: 1.75; }
+    .ref-link-cta { flex-shrink: 0; }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1100px) {
+      .ds-req-grid { grid-template-columns: repeat(3, 1fr); }
+      .ds-prog-grid { grid-template-columns: 1fr 1fr; }
+      .ds-prog-grid .ds-prog-card:last-child { grid-column: 1 / -1; max-width: 560px; margin: 0 auto; width: 100%; }
+    }
+    @media (max-width: 1024px) {
+      .ds-intro-inner { grid-template-columns: 1fr; gap: 48px; }
+      .ds-detail-inner { grid-template-columns: 1fr; gap: 40px; }
+      .ds-detail-inner--reverse { direction: ltr; }
+      .ds-steps-grid { grid-template-columns: repeat(2, 1fr); }
+      .ds-step { border-right: none; border-bottom: 1px solid var(--light-border); }
+      .ds-step:nth-child(odd) { border-right: 1px solid var(--light-border); }
+      .ds-step:nth-child(3), .ds-step:nth-child(4) { border-bottom: none; }
+      .ds-why-grid { grid-template-columns: 1fr; }
+      .ds-ref-link-inner { flex-direction: column; align-items: flex-start; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+    }
+    @media (max-width: 768px) {
+      nav, .header-cta, .lang-switch { display: none; }
+      .hamburger { display: flex; }
+      .ds-prog-grid { grid-template-columns: 1fr; }
+      .ds-prog-grid .ds-prog-card:last-child { max-width: 100%; }
+      .ds-req-grid { grid-template-columns: 1fr 1fr; }
+      .ds-why-grid { grid-template-columns: 1fr; }
+      .container { padding: 0 20px; }
+      .container-wide { padding: 0 20px; }
+      .footer-top { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .ds-hero-cta { flex-direction: column; align-items: center; }
+      .ds-hero-cta .btn { width: 100%; justify-content: center; max-width: 280px; }
+      .cta-btns { flex-direction: column; align-items: center; }
+      .cta-btns .btn { width: 100%; justify-content: center; max-width: 300px; }
+      .ds-req-grid { grid-template-columns: 1fr; }
+      .ds-steps-grid { grid-template-columns: 1fr; }
+      .ds-step { border-right: none; border-bottom: 1px solid var(--light-border); }
+      .ds-step:last-child { border-bottom: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header id="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html#hero" class="logo" aria-label="Servoteh početna">
+          <img src="assets/logo-servoteh-wordmark.png" alt="SERVOTEH" loading="eager">
+        </a>
+        <nav aria-label="Glavna navigacija">
+          <a href="index.html#hero">Početna</a>
+          <a href="index.html#about">O nama</a>
+          <a href="index.html#solutions" class="nav-active">Rešenja</a>
+          <a href="index.html#industries">Industrije</a>
+          <a href="reference.html">Reference</a>
+          <a href="index.html#cta">Kontakt</a>
+        </nav>
+        <a href="index.html#cta" class="btn btn-primary header-cta">
+          Pošaljite upit <i class="arrow-icon">↗</i>
+        </a>
+        <div class="lang-switch">
+          <span class="lang-active">SR</span>
+          <span class="lang-sep">|</span>
+          <a href="en/defence.html">EN</a>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Otvori meni" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE NAV -->
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobilna navigacija">
+    <a href="index.html#hero" onclick="closeMobileNav()">Početna</a>
+    <a href="index.html#about" onclick="closeMobileNav()">O nama</a>
+    <a href="index.html#solutions" class="nav-active" onclick="closeMobileNav()">Rešenja</a>
+    <a href="index.html#industries" onclick="closeMobileNav()">Industrije</a>
+    <a href="reference.html" onclick="closeMobileNav()">Reference</a>
+    <a href="index.html#cta" onclick="closeMobileNav()" class="btn btn-primary">Pošaljite upit ↗</a>
+    <div class="mobile-lang">
+      <span class="lang-active">SR</span>
+      <span class="lang-sep">|</span>
+      <a href="en/defence.html" onclick="closeMobileNav()">EN</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="ds-hero">
+    <div class="ds-hero-bg"></div>
+    <div class="ds-hero-content">
+      <div class="ds-hero-eyebrow">SERVOTEH / Sistemi za industriju odbrane</div>
+      <h1 class="ds-hero-title">
+        Specijalni sistemi za<br><em>industriju odbrane</em>
+      </h1>
+      <p class="ds-hero-lead">
+        Servoteh razvija specijalne mašine, proizvodne linije i automatizovane sisteme za industriju odbrane — sa fokusom na preciznost, pouzdanost, kontrolu procesa i dugoročnu tehničku podršku.
+      </p>
+      <div class="ds-hero-cta">
+        <a href="index.html#cta" class="btn btn-primary">Pošaljite upit <i class="arrow-icon">↗</i></a>
+        <a href="reference.html" class="btn btn-secondary">Pogledajte reference</a>
+        <a href="assets/brochures/defence-brochure.pdf" class="btn btn-ghost" target="_blank" rel="noopener" download>Preuzmite brošuru (PDF)</a>
+      </div>
+    </div>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html#hero">Početna</a>
+      <span class="breadcrumb-sep">/</span>
+      <a href="index.html#solutions">Rešenja</a>
+      <span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current">Sistemi za industriju odbrane</span>
+    </nav>
+  </section>
+
+  <!-- 1. UVODNI POZICIONI BLOK — LIGHT -->
+  <section id="ds-intro">
+    <div class="container">
+      <div class="ds-intro-inner">
+        <div class="reveal">
+          <div class="section-label">Pristup</div>
+          <h2>Inženjering sa fokusom na industriju odbrane</h2>
+          <p>U projektima za industriju odbrane, tehnički zahtevi ne ostavljaju prostor za improvizaciju. Servoteh razvija sisteme kod kojih su preciznost, stabilnost procesa, bezbednost rada i ponovljivost rezultata osnovni uslovi. Naš pristup zasniva se na razvoju namenskih rešenja, prilagođenih konkretnom proizvodnom zahtevu i realnim uslovima eksploatacije.</p>
+        </div>
+        <div class="reveal reveal-delay-1 ds-trust-points">
+          <div class="ds-trust-point">
+            <div class="ds-trust-dot"></div>
+            <span class="ds-trust-text">Pristup po meri kupca — svaki sistem razvijen prema konkretnom zadatku</span>
+          </div>
+          <div class="ds-trust-point">
+            <div class="ds-trust-dot"></div>
+            <span class="ds-trust-text">Realizacija po principu ključ u ruke — od analize zahteva do puštanja u rad</span>
+          </div>
+          <div class="ds-trust-point">
+            <div class="ds-trust-dot"></div>
+            <span class="ds-trust-text">Integracija mašinskog, elektro i softverskog razvoja u jednom timu</span>
+          </div>
+          <div class="ds-trust-point">
+            <div class="ds-trust-dot"></div>
+            <span class="ds-trust-text">Postprodajna podrška tokom celokupnog veka eksploatacije sistema</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. TRI OSNOVNA PROGRAMA — DARK -->
+  <section id="ds-programs">
+    <div class="container-wide">
+      <div class="ds-programs-header reveal">
+        <div class="section-label">Tri osnovna programa</div>
+        <h2>Programske celine</h2>
+        <p>Sistemi za industriju odbrane organizovani su kroz tri programske celine koje pokrivaju ključne proizvodne i tehničke zahteve industrije odbrane.</p>
+      </div>
+      <div class="ds-prog-grid">
+
+        <!-- Program 1 -->
+        <div class="ds-prog-card ds-prog-card--p1 reveal">
+          <div class="ds-prog-visual ds-prog-visual--p1">
+            <!-- Zameni sa pravom slikom: assets/defence/programme-projectile-systems.jpg -->
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none" opacity="0.45">
+              <rect x="10" y="30" width="18" height="38" rx="2" fill="rgba(232,64,28,0.35)"/>
+              <rect x="31" y="18" width="18" height="50" rx="2" fill="rgba(232,64,28,0.5)"/>
+              <rect x="52" y="36" width="18" height="32" rx="2" fill="rgba(232,64,28,0.3)"/>
+              <line x1="4" y1="70" x2="76" y2="70" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+            </svg>
+            <span class="ds-prog-visual-label">Program 01</span>
+          </div>
+          <div class="ds-prog-body">
+            <div class="ds-prog-num">Program 01 — Projektili</div>
+            <h3>Proizvodni sistemi za tela artiljerijskih projektila</h3>
+            <p>Kompletan proizvodni program za tela artiljerijskih projektila do 155 mm — od kovanja i izvlačenja, preko termičke obrade i hidrostatičkog ispitivanja, do kontrole tvrdoće i završnih operacija.</p>
+            <ul class="ds-prog-items">
+              <li>Automatska linija za kovanje</li>
+              <li>Presa 1000t za predubadanje i ubadanje</li>
+              <li>Presa 350t za izvlačenje</li>
+              <li>Presa 400t za završno sužavanje</li>
+              <li>Oprema za hidrostatičko ispitivanje</li>
+              <li>Termička obrada i kontrola tvrdoće</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Program 2 -->
+        <div class="ds-prog-card reveal reveal-delay-1">
+          <div class="ds-prog-visual ds-prog-visual--p2">
+            <!-- Zameni sa pravom slikom: assets/defence/programme-ammunition-lines.jpg -->
+            <svg width="88" height="64" viewBox="0 0 88 64" fill="none" opacity="0.45">
+              <rect x="2" y="20" width="14" height="28" rx="2" fill="rgba(232,64,28,0.25)"/>
+              <line x1="16" y1="34" x2="26" y2="34" stroke="rgba(232,64,28,0.5)" stroke-width="2"/>
+              <rect x="26" y="14" width="14" height="34" rx="2" fill="rgba(232,64,28,0.4)"/>
+              <line x1="40" y1="31" x2="50" y2="31" stroke="rgba(232,64,28,0.5)" stroke-width="2"/>
+              <rect x="50" y="18" width="14" height="30" rx="2" fill="rgba(232,64,28,0.3)"/>
+              <line x1="64" y1="33" x2="72" y2="33" stroke="rgba(232,64,28,0.5)" stroke-width="2"/>
+              <rect x="72" y="24" width="14" height="24" rx="2" fill="rgba(232,64,28,0.2)"/>
+              <line x1="0" y1="56" x2="88" y2="56" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+            </svg>
+            <span class="ds-prog-visual-label">Program 02</span>
+          </div>
+          <div class="ds-prog-body">
+            <div class="ds-prog-num">Program 02 — Municija</div>
+            <h3>Linije za proizvodnju municije i komponenti</h3>
+            <p>Servoteh razvija i isporučuje namenske linije i specijalne mašine za proizvodnju municije i njenih komponenti za različite kalibre. Rešenja su projektovana za stabilan rad, visok kapacitet, precizno vođenje procesa i pouzdan kvalitet gotovih delova. Program obuhvata proizvodnju čanče, proizvodnju čaure i finalizaciju zrna, uz mogućnost integracije automatizovanih stanica, transfer sistema i kontrole kvaliteta.</p>
+            <ul class="ds-prog-items">
+              <li>Proizvodnja čanče</li>
+              <li>Proizvodnja čaure</li>
+              <li>Finalizacija zrna</li>
+              <li>Servo Transfer presa</li>
+              <li>Mašine za proizvodnju pirotehničkih usporivača</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Program 3 -->
+        <div class="ds-prog-card reveal reveal-delay-2">
+          <div class="ds-prog-visual ds-prog-visual--p3">
+            <!-- Zameni sa pravom slikom: assets/defence/programme-loaders-platforms.jpg -->
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none" opacity="0.45">
+              <path d="M40 8L14 20v22c0 18 11 26 26 30 15-4 26-12 26-30V20L40 8z" stroke="rgba(232,64,28,0.45)" stroke-width="1.5" fill="rgba(232,64,28,0.07)" stroke-linejoin="round"/>
+              <path d="M27 40l8 8 18-18" stroke="rgba(232,64,28,0.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="ds-prog-visual-label">Program 03</span>
+          </div>
+          <div class="ds-prog-body">
+            <div class="ds-prog-num">Program 03 — Platforme</div>
+            <h3>Automatski punjači i podsistemi za samohodne artiljerijske platforme</h3>
+            <p>Servoteh razvija automatske punjače i povezane podsisteme za savremene samohodne artiljerijske platforme, sa fokusom na brže punjenje, veću operativnu pouzdanost i smanjenje opterećenja posade.</p>
+            <ul class="ds-prog-items">
+              <li>Automatski punjač — samohodni artiljerijski sistemi nove generacije</li>
+              <li>Automatski punjač za NORA B-52</li>
+              <li>Automatski punjač za Aleksandar</li>
+              <li>Kasetni i dopunski podsistemi za rukovanje municijom</li>
+              <li>Presa za navlačenje ojačavajuće čaure na tenkovsku cev</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 3a. DETALJNI BLOK — Program 1 (dark) -->
+  <div class="ds-detail-block ds-detail-block--dark">
+    <div class="container-wide">
+      <div class="ds-detail-inner">
+        <div class="reveal">
+          <div class="hs-wrap">
+            <div class="ds-media-placeholder ds-media-placeholder--dark">
+              <img
+                src="assets/defence/programme-1-detail.webp"
+                alt="Kompletan proizvodni program za tela artiljerijskih projektila do 155 mm — SERVOTEH"
+                class="ds-media-img"
+                loading="lazy"
+              >
+            </div>
+            <!-- Hotspot 1: Indukciona linija — levo -->
+            <div class="hs-dot hs-edge-left" style="left:12%;top:52%;" aria-label="Indukciona linija / zagrevanje i odsecanje šipke">
+              <div class="hs-tooltip">Indukciona linija / zagrevanje i odsecanje šipke</div>
+            </div>
+            <!-- Hotspot 2: Presa 1000t — sredina-lijevo -->
+            <div class="hs-dot" style="left:37%;top:44%;" aria-label="Hidraulična presa 1000 t — predubadanje i ubadanje">
+              <div class="hs-tooltip">Hidraulična presa 1000 t — predubadanje i ubadanje</div>
+            </div>
+            <!-- Hotspot 3: Presa 350t — sredina-desno -->
+            <div class="hs-dot" style="left:62%;top:44%;" aria-label="Presa 350 t — izvlačenje">
+              <div class="hs-tooltip">Presa 350 t — izvlačenje</div>
+            </div>
+            <!-- Hotspot 4: Presa 630t — desno -->
+            <div class="hs-dot hs-edge-right" style="left:84%;top:58%;" aria-label="Presa 630 t — završno sužavanje">
+              <div class="hs-tooltip">Presa 630 t — završno sužavanje</div>
+            </div>
+          </div>
+        </div>
+        <div class="ds-detail-text ds-detail-text--dark reveal reveal-delay-1">
+          <div class="section-label">Program 01</div>
+          <h2>Kompletan proizvodni program za tela artiljerijskih projektila do 155 mm</h2>
+          <p>Servoteh razvija i isporučuje kompletan proizvodni program za tela artiljerijskih projektila do 155 mm. Rešenje obuhvata ceo tehnološki tok — od pripreme i zagrevanja polaznog materijala, preko kovanja, izvlačenja i završnog oblikovanja tela, do termičke obrade, hidrostatičkog ispitivanja, kontrole i merenja tvrdoće i završnih operacija. Program uključuje i robotizovanu manipulaciju između faza procesa, dekunderisanje i integrisana rešenja za stabilan, ponovljiv i bezbedan rad proizvodnje.</p>
+          <ul class="ds-detail-bullets">
+            <li>Indukciono zagrevanje i toplo sečenje polaznog materijala</li>
+            <li>Kovanje i formiranje tela projektila</li>
+            <li>Izvlačenje i završno oblikovanje</li>
+            <li>Robotizovana manipulacija vrućim komadima</li>
+            <li>Dekunderisanje između operacija</li>
+            <li>Termička obrada</li>
+            <li>Hidrostatičko ispitivanje</li>
+            <li>Kontrola i merenje tvrdoće</li>
+            <li>Utiskivanje vodećeg prstena</li>
+          </ul>
+          <a href="index.html#cta" class="btn btn-ghost btn-sm">Pošaljite upit <i class="arrow-icon">↗</i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3b. DETALJNI BLOK — Program 2 (light) -->
+  <div class="ds-detail-block ds-detail-block--light">
+    <div class="container-wide">
+      <div class="ds-detail-inner ds-detail-inner--reverse">
+        <div class="reveal">
+          <div class="ds-media-placeholder ds-media-placeholder--light">
+            <img
+              src="assets/defence/programme-2-detail.webp"
+              alt="Linije za proizvodnju municije i komponenti — SERVOTEH"
+              class="ds-media-img"
+              loading="lazy"
+            >
+          </div>
+        </div>
+        <div class="ds-detail-text ds-detail-text--light reveal reveal-delay-1">
+          <div class="section-label">Program 02</div>
+          <h2>Linije za proizvodnju municije i komponenti</h2>
+          <p>Modularne linije i mašine za automatizovanu proizvodnju komponenti municije projektovane su za stabilan rad u uslovima visokog kapaciteta i stroge kontrole dimenzija. Rešenja obuhvataju proizvodnju čanče, proizvodnju čaure i finalizaciju zrna, uz mogućnost integracije transfer sistema, automatizovanog rukovanja i kontrole kvaliteta.</p>
+          <ul class="ds-detail-bullets">
+            <li>Modularna arhitektura linija prilagodljiva različitim kalibrima i komponentama</li>
+            <li>Servo Transfer presa za precizno taktno rukovanje komponentama</li>
+            <li>Automatizovani procesi sa integrisanom dimenzionalnom kontrolom</li>
+            <li>Stabilnost procesa i visoka produktivnost kao primarni projektni zahtevi</li>
+            <li>Mašine za proizvodnju pirotehničkih usporivača razvijene prema posebnim bezbednosnim zahtevima</li>
+          </ul>
+          <a href="index.html#cta" class="btn-ghost-light btn-sm">Pošaljite upit <i class="arrow-icon">↗</i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3c. DETALJNI BLOK — Program 3 (mid) -->
+  <div class="ds-detail-block ds-detail-block--mid">
+    <div class="container-wide">
+      <div class="ds-detail-inner">
+        <div class="reveal">
+          <div class="ds-media-placeholder ds-media-placeholder--mid">
+            <img
+              src="assets/defence/programme-3-detail.webp"
+              alt="Automatski punjači za samohodne artiljerijske sisteme nove generacije — SERVOTEH"
+              class="ds-media-img"
+              loading="lazy"
+            >
+          </div>
+        </div>
+        <div class="ds-detail-text ds-detail-text--light reveal reveal-delay-1">
+          <div class="section-label">Program 03</div>
+          <h2>Automatski punjači za samohodne artiljerijske sisteme nove generacije</h2>
+          <p>Servoteh razvija automatske punjače i povezane podsisteme za savremene 155 mm samohodne artiljerijske sisteme. Rešenja su projektovana za brže punjenje, veću operativnu pouzdanost i manje opterećenje posade, uz prilagođavanje arhitekturi konkretne platforme i režimu rada u poljskim uslovima.</p>
+          <ul class="ds-detail-bullets">
+            <li>Automatski punjači za samohodne artiljerijske sisteme nove generacije</li>
+            <li>Rešenja za 155 mm platforme sa fokusom na brzinu punjenja i pouzdanost rada</li>
+            <li>Smanjenje opterećenja posade kao ključni operativni zahtev</li>
+            <li>Razvoj prilagođen arhitekturi konkretne platforme — NORA B-52, Aleksandar i sistemi nove generacije</li>
+          </ul>
+          <a href="index.html#cta" class="btn-ghost-light btn-sm">Pošaljite upit <i class="arrow-icon">↗</i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. ZAHTEVI — DARK -->
+  <section id="ds-requirements">
+    <div class="container-wide">
+      <div class="reveal section-intro-narrow">
+        <div class="section-label">Projektni zahtevi</div>
+        <h2 class="section-intro-h2">Zahtevi koje sistem mora da ispuni</h2>
+        <p class="section-intro-p">Svaki sistem koji Servoteh razvija za industriju odbrane mora da zadovolji pet ključnih inženjerskih zahteva koji određuju konstrukciju, izbor materijala i arhitekturu upravljanja.</p>
+      </div>
+      <div class="ds-req-grid">
+        <div class="ds-req-card reveal">
+          <div class="ds-req-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <circle cx="10" cy="10" r="3" stroke="#e8401c" stroke-width="1.5"/>
+              <path d="M10 2v2M10 16v2M2 10h2M16 10h2" stroke="#e8401c" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M4.22 4.22l1.42 1.42M14.36 14.36l1.42 1.42M4.22 15.78l1.42-1.42M14.36 5.64l1.42-1.42" stroke="#e8401c" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h4>Preciznost</h4>
+          <p>Tačnost dimenzija i ponovljivost rezultata kao temeljni projektni zahtev za svaki element sistema.</p>
+        </div>
+        <div class="ds-req-card reveal reveal-delay-1">
+          <div class="ds-req-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M10 2L3 5v6c0 4 3 6.5 7 7.5 4-1 7-3.5 7-7.5V5l-7-3z" stroke="#e8401c" stroke-width="1.5" stroke-linejoin="round"/>
+              <path d="M7 10l2 2 4-4" stroke="#e8401c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h4>Pouzdanost</h4>
+          <p>Stabilan rad u dugim serijama bez pada performansi — bez kompromisa u operativnim uslovima.</p>
+        </div>
+        <div class="ds-req-card reveal reveal-delay-2">
+          <div class="ds-req-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <rect x="2" y="3" width="16" height="11" rx="1.5" stroke="#e8401c" stroke-width="1.5"/>
+              <path d="M7 17h6M10 14v3" stroke="#e8401c" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M6 8l2 2 4-4" stroke="#e8401c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h4>Kontrola procesa</h4>
+          <p>Integrisani sistemi praćenja i verifikacije parametara procesa u realnom vremenu.</p>
+        </div>
+        <div class="ds-req-card reveal reveal-delay-3">
+          <div class="ds-req-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M10 2l-7 3.5v5c0 3.5 3 6 7 7 4-1 7-3.5 7-7v-5L10 2z" stroke="#e8401c" stroke-width="1.5" stroke-linejoin="round"/>
+              <path d="M7 10l2 2 4-4" stroke="#e8401c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h4>Bezbednost rada</h4>
+          <p>Bezbednosna arhitektura integralna u konstrukciju sistema — ne naknadno dodata.</p>
+        </div>
+        <div class="ds-req-card reveal reveal-delay-4">
+          <div class="ds-req-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <circle cx="10" cy="10" r="7" stroke="#e8401c" stroke-width="1.5"/>
+              <path d="M10 6v4l3 2" stroke="#e8401c" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h4>Dugoročna održivost</h4>
+          <p>Konstruktivna rešenja koja omogućavaju dugotrajan rad, servisiranje i unapređenja sistema.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. PRISTUP REALIZACIJI — LIGHT -->
+  <section id="ds-process">
+    <div class="container-wide">
+      <div class="section-header-intro reveal">
+        <div class="section-label">Proces realizacije</div>
+        <h2>Od zahteva do puštanja u rad</h2>
+        <p>Svaki sistem razvija se prema konkretnom proizvodnom zadatku — od analize zahteva i mašinskog projektovanja do integracije, puštanja u rad i podrške.</p>
+      </div>
+      <div class="ds-steps-grid">
+        <div class="ds-step reveal">
+          <div class="ds-step-num">01</div>
+          <div class="ds-step-icon">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <circle cx="9" cy="9" r="3.5" stroke="#e8401c" stroke-width="1.4"/>
+              <path d="M9 1v2M9 15v2M1 9h2M15 9h2M3.05 3.05l1.42 1.42M13.53 13.53l1.42 1.42M3.05 14.95l1.42-1.42M13.53 4.47l1.42-1.42" stroke="#e8401c" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h4>Analiza zahteva i koncept</h4>
+          <p>Detaljna analiza tehničkog zadatka, procesa i radnog okruženja. Definisanje konceptnog rešenja u saradnji sa kupcem.</p>
+        </div>
+        <div class="ds-step reveal reveal-delay-1">
+          <div class="ds-step-num">02</div>
+          <div class="ds-step-icon">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M9 2L2 6v6l7 4 7-4V6L9 2z" stroke="#e8401c" stroke-width="1.4" stroke-linejoin="round"/>
+              <path d="M2 6l7 4 7-4M9 10v6" stroke="#e8401c" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h4>Razvoj i mašinsko projektovanje</h4>
+          <p>Mašinski, elektro i softverski razvoj objedinjeni u jednom timu — 3D konstrukcija, električna šema i upravljački softver razvijaju se paralelno.</p>
+        </div>
+        <div class="ds-step reveal reveal-delay-2">
+          <div class="ds-step-num">03</div>
+          <div class="ds-step-icon">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <rect x="2" y="9" width="4" height="7" rx="1" stroke="#e8401c" stroke-width="1.4"/>
+              <rect x="7" y="6" width="4" height="10" rx="1" stroke="#e8401c" stroke-width="1.4"/>
+              <rect x="12" y="3" width="4" height="13" rx="1" stroke="#e8401c" stroke-width="1.4"/>
+            </svg>
+          </div>
+          <h4>Proizvodnja i integracija</h4>
+          <p>Realizacija kroz sopstvene kapacitete u Dobanovcima — mašinska obrada, sklapanje, elektro integracija i kontrola kvaliteta u svakom koraku.</p>
+        </div>
+        <div class="ds-step reveal reveal-delay-3">
+          <div class="ds-step-num">04</div>
+          <div class="ds-step-icon">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M9 2L2 5v4c0 4.5 3 7 7 8 4-1 7-3.5 7-8V5L9 2z" stroke="#e8401c" stroke-width="1.4" stroke-linejoin="round"/>
+              <path d="M6 9l2 2 4-4" stroke="#e8401c" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h4>Puštanje u rad i postprodajna podrška</h4>
+          <p>Puštanje sistema u rad kod kupca, obuka tehničkog osoblja. Postprodajna podrška, dijagnostika, rezervni delovi i unapređenja tokom eksploatacije.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. ZAŠTO SERVOTEH — DARK -->
+  <section id="ds-why">
+    <div class="container-wide">
+      <div class="reveal section-intro-tight">
+        <div class="section-label">Zašto Servoteh</div>
+        <h2 class="section-intro-h2 section-intro-h2--notight">Tri razloga</h2>
+      </div>
+      <div class="ds-why-grid">
+        <div class="ds-why-card reveal">
+          <div class="ds-why-num">01</div>
+          <div class="ds-why-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M10 2L3 6v8l7 4 7-4V6L10 2z" stroke="#e8401c" stroke-width="1.5" stroke-linejoin="round"/>
+              <path d="M3 6l7 4 7-4M10 10v8" stroke="#e8401c" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Integrisani mašinski razvoj</h3>
+          <p>Mašinski, elektro i softverski razvoj objedinjeni su u jednom timu. Multidisciplinarni pristup koji eliminiše koordinacione gubitke i skraćuje vreme realizacije projekta.</p>
+        </div>
+        <div class="ds-why-card reveal reveal-delay-1">
+          <div class="ds-why-num">02</div>
+          <div class="ds-why-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <rect x="2" y="11" width="4" height="7" rx="1" stroke="#e8401c" stroke-width="1.5"/>
+              <rect x="8" y="8" width="4" height="10" rx="1" stroke="#e8401c" stroke-width="1.5"/>
+              <rect x="14" y="5" width="4" height="13" rx="1" stroke="#e8401c" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <h3>Sopstveni kapaciteti realizacije</h3>
+          <p>Mašinska obrada, sklapanje, integracija i kontrola kvaliteta u okviru sopstvenih kapaciteta u Dobanovcima — bez zavisnosti od podizvođača u ključnim fazama projekta.</p>
+        </div>
+        <div class="ds-why-card reveal reveal-delay-2">
+          <div class="ds-why-num">03</div>
+          <div class="ds-why-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M10 2L3 5v6c0 4 3 6.5 7 7.5 4-1 7-3.5 7-7.5V5l-7-3z" stroke="#e8401c" stroke-width="1.5" stroke-linejoin="round"/>
+              <path d="M7 10l2 2 4-4" stroke="#e8401c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Podrška nakon isporuke</h3>
+          <p>Puštanje u rad, obuka osoblja, servisne intervencije, rezervni delovi i dugoročna tehnička podrška — Servoteh ostaje tehnički partner tokom celokupnog veka eksploatacije sistema.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. REFERENCE LINK — LIGHT -->
+  <section id="ds-ref-link">
+    <div class="container">
+      <div class="ds-ref-link-inner reveal">
+        <div class="ds-ref-link-text">
+          <div class="section-label">Reference</div>
+          <h2>Pogledajte kako pristupamo referentnim projektima</h2>
+          <p>Reference obuhvataju projekte razvijene za zahtevne proizvodne procese, sa fokusom na pouzdanost, preciznost i dugoročnu eksploataciju sistema.</p>
+        </div>
+        <div class="ref-link-cta">
+          <a href="reference.html" class="btn-ghost-light">Otvorite reference <i class="arrow-icon">↗</i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. CTA — DARK -->
+  <section id="ds-cta">
+    <div class="container">
+      <div class="ds-cta-inner reveal">
+        <div class="section-label section-label--center">Kontakt</div>
+        <h2>Razgovarajmo o vašem tehničkom zahtevu</h2>
+        <p>Pošaljite nam osnovne informacije o procesu, proizvodnoj potrebi ili sistemu koji treba razviti, a naš tim će proceniti sledeće korake.</p>
+        <div class="cta-btns">
+          <a href="mailto:office@servoteh.com" class="btn btn-primary">Pošaljite upit <i class="arrow-icon">↗</i></a>
+          <a href="tel:+381113141564" class="btn btn-secondary">+381 (11) 31-41-564</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo-footer">
+            <img src="assets/logo-servoteh-wordmark.png" alt="SERVOTEH">
+          </div>
+          <address>
+            Ugrinovačka 163<br>
+            11272 Dobanovci<br>
+            Beograd, Srbija
+          </address>
+          <a href="mailto:office@servoteh.com">office@servoteh.com</a>
+          <a href="tel:+381113141564">+381 (11) 31-41-564</a>
+          <div class="footer-socials">
+            <a href="https://www.linkedin.com/company/servoteh-d.o.o./about/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+            <a href="https://www.instagram.com/servoteh" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+            <a href="https://www.youtube.com/user/lediloo" target="_blank" rel="noopener" aria-label="YouTube">YouTube</a>
+          </div>
+          <div class="iso-badge">
+            <div class="iso-badge-icon">✓</div>
+            ISO 9001:2015
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Stranice</h5>
+          <ul>
+            <li><a href="index.html#hero">Početna</a></li>
+            <li><a href="index.html#about">O nama</a></li>
+            <li><a href="index.html#solutions">Rešenja</a></li>
+            <li><a href="index.html#industries">Industrije</a></li>
+            <li><a href="reference.html">Reference</a></li>
+            <li><a href="index.html#aftersales">Podrška nakon puštanja u rad</a></li>
+            <li><a href="index.html#cta">Kontakt</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Rešenja</h5>
+          <ul>
+            <li><a href="defence.html">Sistemi za industriju odbrane</a></li>
+            <li><a href="specijalne-masine.html">Specijalne mašine</a></li>
+            <li><a href="proizvodne-linije.html">Proizvodne linije</a></li>
+            <li><a href="industrijska-automatizacija.html">Industrijska automatizacija</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Društvene mreže</h5>
+          <ul>
+            <li><a href="https://www.linkedin.com/company/servoteh-d.o.o./about/" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://www.instagram.com/servoteh" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://www.youtube.com/user/lediloo" target="_blank" rel="noopener">YouTube</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 SERVOTEH d.o.o. Sva prava zadržana.</span>
+        <a href="https://servoteh.com" aria-label="Servoteh zvanična stranica">servoteh.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    function closeMobileNav() {
+      mobileNav.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => revealObserver.observe(el));
+
+    /* Hotspot tap/click logic */
+    const hsDots = document.querySelectorAll('.hs-dot');
+    hsDots.forEach(dot => {
+      dot.addEventListener('click', e => {
+        e.stopPropagation();
+        const isActive = dot.classList.contains('hs-active');
+        hsDots.forEach(d => d.classList.remove('hs-active'));
+        if (!isActive) dot.classList.add('hs-active');
+      });
+    });
+    document.addEventListener('click', () => {
+      hsDots.forEach(d => d.classList.remove('hs-active'));
+    });
+  </script>
+</body>
+</html>

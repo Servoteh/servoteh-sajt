@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Servoteh — Inženjerska kompanija iz Dobanovaca. Specijalne mašine, proizvodne linije i automatizacija sa fokusom na industriju odbrane. Projekti po meri kupca od 2002. godine.">
+  <title>SERVOTEH — Specijalne mašine i sistemi za industriju odbrane</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #000000;
+      --bg-dark: #0a0a0a;
+      --bg-section: #0f0f0f;
+      --bg-card: #141414;
+      --bg-card-hover: #1a1a1a;
+      --border: rgba(255,255,255,0.08);
+      --border-strong: rgba(255,255,255,0.15);
+      --white: #ffffff;
+      --white-dim: rgba(255,255,255,0.7);
+      --white-muted: rgba(255,255,255,0.4);
+      --accent: #e8401c;
+      --accent-hover: #ff5533;
+      --accent-glow: rgba(232,64,28,0.15);
+      --light-bg-1: #eceff1;
+      --light-bg-2: #e9eaec;
+      --light-bg-3: #f2f4f5;
+      --light-text: #111214;
+      --light-text-muted: #5a5f66;
+      --light-border: rgba(0,0,0,0.09);
+      --light-border-strong: rgba(0,0,0,0.16);
+      --light-card: #ffffff;
+      --light-card-hover: #f7f8f9;
+      --text-body: rgba(255,255,255,0.72);
+      --max-w: 1280px;
+      --radius: 16px;
+      --radius-sm: 10px;
+      --header-h: 68px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: 'Figtree', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+    button { cursor: pointer; font-family: inherit; border: none; background: none; }
+    h1, h2, h3, h4 { font-family: 'Figtree', sans-serif; line-height: 1.1; }
+    .container { max-width: 1440px; margin: 0 auto; padding: 0 32px; }
+    .container-wide { width: min(94vw, 1680px); margin: 0 auto; padding: 0 32px; }
+    @media (max-width: 768px) { .container { padding: 0 20px; } .container-wide { padding: 0 20px; } }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 26px; border-radius: 8px;
+      font-family: 'Figtree', sans-serif; font-size: 14px; font-weight: 600;
+      letter-spacing: 0.02em; transition: all 0.2s ease; cursor: pointer;
+    }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: 0 8px 24px var(--accent-glow); }
+    .btn-secondary { background: transparent; color: var(--white); border: 1px solid var(--border-strong); }
+    .btn-secondary:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.3); }
+    .btn-ghost { background: rgba(255,255,255,0.06); color: var(--white); border: 1px solid var(--border); }
+    .btn-ghost:hover { background: rgba(255,255,255,0.1); }
+    .btn-ghost-light {
+      background: transparent; color: var(--light-text); border: 1px solid var(--light-border-strong);
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 26px; border-radius: 8px; font-size: 14px; font-weight: 600;
+      letter-spacing: 0.02em; transition: all 0.2s ease; cursor: pointer;
+    }
+    .btn-ghost-light:hover { background: rgba(0,0,0,0.05); border-color: rgba(0,0,0,0.25); }
+    .arrow-icon { font-style: normal; font-size: 16px; transition: transform 0.2s; }
+    .btn:hover .arrow-icon { transform: translate(2px, -2px); }
+
+    .section-label {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 20px;
+    }
+    .section-label::before { content: ''; display: block; width: 24px; height: 1px; background: var(--accent); }
+
+    /* HEADER */
+    #header {
+      position: fixed; top: 0; left: 0; right: 0;
+      height: var(--header-h); z-index: 1000;
+      background: rgba(0,0,0,0.82);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border); transition: background 0.3s;
+    }
+    #header.scrolled { background: rgba(0,0,0,0.95); }
+    .header-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+    .logo img { height: 26px; width: auto; }
+    nav { display: flex; align-items: center; gap: 4px; }
+    nav a { font-size: 13.5px; font-weight: 500; color: var(--white-dim); padding: 6px 14px; border-radius: 6px; transition: color 0.2s, background 0.2s; white-space: nowrap; }
+    nav a:hover { color: var(--white); background: rgba(255,255,255,0.06); }
+    .header-cta { flex-shrink: 0; }
+
+    .hamburger { display: none; flex-direction: column; gap: 5px; padding: 8px; cursor: pointer; z-index: 1100; }
+    .hamburger span { display: block; width: 24px; height: 1.5px; background: var(--white); transition: all 0.3s; }
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .mobile-nav { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.97); z-index: 999; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { font-family: 'Figtree', sans-serif; font-size: 28px; font-weight: 700; color: var(--white-dim); padding: 12px 24px; transition: color 0.2s; }
+    .mobile-nav a:hover { color: var(--white); }
+    .mobile-nav .btn { margin-top: 16px; font-size: 15px; padding: 14px 32px; }
+
+    /* HERO — DARK, video bg */
+    #hero { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
+    .hero-video-wrap { position: absolute; inset: 0; z-index: 0; }
+    .hero-video-wrap video { width: 100%; height: 100%; object-fit: cover; opacity: 0.55; }
+    .hero-video-wrap::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.5) 75%, rgba(0,0,0,0.95) 100%);
+    }
+    .hero-fallback {
+      position: absolute; inset: 0; z-index: 0;
+      display: none;
+      background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(40,40,40,0.8) 0%, transparent 70%),
+        repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(255,255,255,0.02) 80px),
+        repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(255,255,255,0.02) 80px),
+        var(--black);
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 860px; padding: 0 24px; padding-top: 80px; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 28px;
+      opacity: 0; animation: fadeUp 0.8s 0.2s forwards;
+    }
+    .hero-eyebrow::before, .hero-eyebrow::after { content: ''; display: block; width: 32px; height: 1px; background: var(--accent); }
+    .hero-title { font-size: clamp(38px, 6vw, 72px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.05; margin-bottom: 24px; opacity: 0; animation: fadeUp 0.9s 0.35s forwards; }
+    .hero-title em { font-style: normal; color: var(--white-dim); }
+    .hero-subtitle { font-size: clamp(15px, 1.8vw, 18px); color: var(--white-dim); max-width: 640px; margin: 0 auto 36px; font-weight: 300; line-height: 1.65; opacity: 0; animation: fadeUp 0.9s 0.5s forwards; }
+    .hero-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.9s 0.65s forwards; }
+    .hero-scroll { position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%); z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--white-muted); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0; animation: fadeIn 1s 1.2s forwards; }
+    .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--white-muted), transparent); animation: scrollPulse 2s 1.5s infinite; }
+
+    /* STATS BAR — DARK */
+    #stats { background: var(--bg-section); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 0; }
+    .stats-inner { display: grid; grid-template-columns: repeat(4, 1fr); }
+    .stat-item { padding: 40px 32px; border-right: 1px solid var(--border); text-align: center; }
+    .stat-item:last-child { border-right: none; }
+    .stat-number { font-size: clamp(36px, 4vw, 52px); font-weight: 800; letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px; }
+    .stat-number span { color: var(--accent); }
+    .stat-label { font-size: 12px; color: var(--white-muted); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 500; }
+
+    /* ABOUT — LIGHT */
+    #about { padding: 120px 0; background: var(--light-bg-1); color: var(--light-text); }
+    .about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .about-left h2 { font-size: clamp(32px, 3.5vw, 48px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 24px; color: var(--light-text); }
+    .about-left p { font-size: 16px; color: var(--light-text-muted); line-height: 1.75; margin-bottom: 32px; }
+    .about-right { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .about-feature { background: var(--light-card); border: 1px solid var(--light-border); border-radius: var(--radius); padding: 28px 24px; transition: border-color 0.25s, box-shadow 0.25s; }
+    .about-feature:hover { border-color: var(--light-border-strong); box-shadow: 0 4px 24px rgba(0,0,0,0.07); }
+    .feature-icon { width: 40px; height: 40px; border-radius: 10px; background: rgba(232,64,28,0.08); border: 1px solid rgba(232,64,28,0.18); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+    .about-feature h4 { font-size: 14px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.01em; color: var(--light-text); }
+    .about-feature p { font-size: 13px; color: var(--light-text-muted); line-height: 1.55; margin: 0; }
+
+    /* SOLUTIONS — DARK */
+    #solutions { padding: 120px 0; background: var(--bg-section); }
+    .section-header { margin-bottom: 60px; }
+    .section-header h2 { font-size: clamp(32px, 3.5vw, 48px); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 16px; }
+    .section-header p { font-size: 16px; color: var(--text-body); max-width: 520px; }
+    .section-header-light h2 { color: var(--light-text); }
+    .section-header-light p { color: var(--light-text-muted); }
+    .solutions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .solution-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s; display: flex; flex-direction: column; }
+    .solution-card:hover { transform: translateY(-4px); border-color: var(--border-strong); box-shadow: 0 16px 48px rgba(0,0,0,0.4); }
+    .card-img-wrap { width: 100%; aspect-ratio: 16/10; overflow: hidden; background: #141414; }
+    .card-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+    .solution-card:hover .card-img-wrap img { transform: scale(1.04); }
+    .card-placeholder-1 { background: linear-gradient(135deg, #1a1a1a 0%, #2a1a0a 100%); display: flex; align-items: center; justify-content: center; }
+    .card-placeholder-2 { background: linear-gradient(135deg, #1a1a1a 0%, #0a1a2a 100%); display: flex; align-items: center; justify-content: center; }
+    .card-placeholder-3 { background: linear-gradient(135deg, #1a1a1a 0%, #1a0a2a 100%); display: flex; align-items: center; justify-content: center; }
+    .card-body { padding: 32px; flex: 1; display: flex; flex-direction: column; }
+    .card-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+    .card-body h3 { font-size: 22px; font-weight: 700; margin-bottom: 14px; letter-spacing: -0.02em; line-height: 1.2; }
+    .card-body p { font-size: 14px; color: var(--text-body); line-height: 1.7; flex: 1; margin-bottom: 28px; }
+    .card-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--white-muted); transition: color 0.2s, gap 0.2s; letter-spacing: 0.02em; }
+    .card-link:hover { color: var(--white); gap: 10px; }
+
+    /* INDUSTRIES — LIGHT */
+    #industries { padding: 120px 0; background: var(--light-bg-2); color: var(--light-text); }
+    .industries-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 56px; }
+    .industry-card { border: 1px solid var(--light-border); border-radius: var(--radius); padding: 32px 28px; background: var(--light-card); display: flex; align-items: flex-start; gap: 20px; transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s; cursor: default; }
+    .industry-card:hover { border-color: var(--light-border-strong); box-shadow: 0 4px 24px rgba(0,0,0,0.07); transform: translateY(-2px); }
+    .ind-icon { flex-shrink: 0; width: 44px; height: 44px; border-radius: 12px; background: rgba(232,64,28,0.07); border: 1px solid rgba(232,64,28,0.15); display: flex; align-items: center; justify-content: center; }
+    .industry-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 6px; letter-spacing: -0.01em; color: var(--light-text); }
+    .industry-card p { font-size: 13px; color: var(--light-text-muted); line-height: 1.5; }
+
+    /* ADVANTAGES — DARK (same bg as solutions for flow) */
+    /* WHY COMPACT — inside aftersales */
+    .why-compact { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 48px; padding-top: 40px; border-top: 1px solid var(--light-border); grid-column: 1 / -1; }
+    .why-compact-item h4 { font-size: 14px; font-weight: 700; color: var(--light-text); margin-bottom: 6px; }
+    .why-compact-item p { font-size: 13px; color: var(--light-text-muted); line-height: 1.6; }
+
+
+    /* TRUST — DARK */
+    #trust { padding: 120px 0; background: var(--black); }
+    .trust-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .trust-text h2 { font-size: clamp(28px, 3vw, 42px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 20px; }
+    .trust-text p { font-size: 16px; color: var(--text-body); line-height: 1.75; margin-bottom: 32px; }
+    .trust-visual { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 40px; position: relative; overflow: hidden; }
+    .trust-visual::before { content: ''; position: absolute; top: -40px; right: -40px; width: 180px; height: 180px; border-radius: 50%; background: radial-gradient(circle, rgba(232,64,28,0.12), transparent 70%); pointer-events: none; }
+    .trust-points { display: flex; flex-direction: column; gap: 20px; }
+    .trust-point { display: flex; align-items: flex-start; gap: 16px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+    .trust-point:last-child { border-bottom: none; padding-bottom: 0; }
+    .tp-dot { flex-shrink: 0; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); margin-top: 6px; }
+    .tp-label { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+    .tp-desc { font-size: 13px; color: var(--white-muted); }
+
+    /* CTA — DARK */
+    #cta { padding: 100px 0; background: var(--bg-section); position: relative; overflow: hidden; }
+    #cta::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 700px; height: 400px; background: radial-gradient(ellipse, rgba(232,64,28,0.08) 0%, transparent 65%); pointer-events: none; }
+    .cta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; position: relative; z-index: 1; }
+    .cta-text h2 { font-size: clamp(28px, 3.5vw, 48px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 20px; }
+    .cta-text p { font-size: 16px; color: var(--text-body); line-height: 1.7; margin-bottom: 32px; }
+    .cta-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .cta-contact-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 36px 32px; }
+    .cta-contact-card h4 { font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white-muted); margin-bottom: 24px; }
+    .cta-contact-item { display: flex; align-items: flex-start; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--border); }
+    .cta-contact-item:last-of-type { border-bottom: none; }
+    .cta-contact-icon { width: 36px; height: 36px; flex: 0 0 36px; border-radius: 8px; background: rgba(232,64,28,0.1); border: 1px solid rgba(232,64,28,0.15); display: flex; align-items: center; justify-content: center; }
+    .cta-contact-icon svg { width: 16px; height: 16px; stroke: var(--accent); stroke-width: 1.6; fill: none; }
+    .cta-contact-label { font-size: 11px; color: var(--white-muted); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 4px; }
+    .cta-contact-value { font-size: 14px; color: var(--white-dim); }
+    .cta-contact-value a { color: var(--white-dim); transition: color 0.2s; }
+    .cta-contact-value a:hover { color: var(--white); }
+    .cta-map-btns { display: flex; gap: 10px; margin-top: 20px; }
+    .cta-map-btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px; border-radius: 8px; font-size: 13px; font-weight: 600; letter-spacing: 0.02em; color: var(--white-dim); background: rgba(255,255,255,0.05); border: 1px solid var(--border); transition: all 0.2s ease; }
+    .cta-map-btn:hover { background: rgba(255,255,255,0.08); border-color: var(--border-strong); color: var(--white); }
+    .cta-map-btn svg { width: 14px; height: 14px; stroke: var(--accent); stroke-width: 1.8; fill: none; }
+    .mobile-lang-mt { margin-top: 8px; }
+
+    /* FOOTER — DARK */
+    #footer { background: #050505; border-top: 1px solid var(--border); padding: 80px 0 0; }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 64px; border-bottom: 1px solid var(--border); }
+    .footer-brand .logo-footer img { height: 22px; width: auto; margin-bottom: 24px; }
+    .footer-brand address { font-style: normal; font-size: 14px; color: var(--white-muted); line-height: 1.8; margin-bottom: 24px; }
+    .footer-brand a { display: block; font-size: 14px; color: var(--white-muted); margin-bottom: 6px; transition: color 0.2s; }
+    .footer-brand a:hover { color: var(--white); }
+    .footer-col h5 { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white-muted); margin-bottom: 20px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul a { font-size: 14px; color: rgba(255,255,255,0.55); transition: color 0.2s; }
+    .footer-col ul a:hover { color: var(--white); }
+    .iso-badge { display: inline-flex; align-items: center; gap: 10px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; margin-top: 16px; font-size: 11px; color: var(--white-muted); font-weight: 600; letter-spacing: 0.05em; }
+    .iso-badge-icon { width: 28px; height: 28px; background: rgba(232,64,28,0.15); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--accent); font-weight: 800; }
+    .footer-bottom { padding: 24px 0; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .footer-bottom span { font-size: 12px; color: var(--white-muted); }
+    .footer-bottom a { font-size: 12px; color: rgba(255,255,255,0.35); transition: color 0.2s; }
+    .footer-bottom a:hover { color: var(--white); }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes scrollPulse { 0%, 100% { opacity: 0.4; transform: scaleY(1); } 50% { opacity: 1; transform: scaleY(1.1); } }
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+
+    /* ===== STAT DEFENCE ITEM ===== */
+    .stat-number--defence {
+      font-size: clamp(18px, 2vw, 28px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      color: var(--white);
+    }
+    .stat-number--defence .accent { color: var(--accent); padding-left: 4px; }
+
+    /* ===== DEFENCE CARD PLACEHOLDER (no image) ===== */
+    .card-img-placeholder--defence {
+      background: linear-gradient(135deg, #0f0f0f 0%, #1a0a05 50%, #0f0f0f 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 180px;
+    }
+    .solution-card--defence { border-top: 2px solid var(--accent); }
+    .card-tag--accent { color: var(--accent); }
+
+    /* ===== INDUSTRIES SECTION LIGHT OVERRIDES ===== */
+    #industries .section-label { color: var(--accent); }
+    #industries .section-header h2 { color: var(--light-text); }
+    #industries .section-header p { color: var(--light-text-muted); }
+    .industry-card--featured { border-left: 2px solid var(--accent); }
+    .industry-card--featured .ind-icon {
+      background: rgba(232,64,28,0.12);
+      border-color: rgba(232,64,28,0.25);
+    }
+
+    /* ===== CTA SECTION LABEL CENTERED ===== */
+    .section-label--center { justify-content: center; }
+
+    /* ===== FOOTER SOCIALS (brand column) ===== */
+    .footer-socials {
+      display: flex;
+      gap: 16px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+    .footer-socials a {
+      font-size: 13px;
+      color: var(--white-muted);
+      transition: color 0.2s;
+      text-decoration: none;
+    }
+    .footer-socials a:hover { color: var(--white); }
+
+    /* ===== DEFENCE CARDS INNER (4-item 2x2) ===== */
+    .defence-cards-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    /* ===== SHARED SECTION UTILITIES ===== */
+    .section-h2 {
+      font-size: clamp(28px, 3.2vw, 44px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+    .section-body {
+      font-size: 16px;
+      line-height: 1.75;
+      margin-bottom: 32px;
+    }
+    .section-body--dark { color: var(--text-body); }
+    .section-body--light { color: var(--light-text-muted); }
+    .section-h2--light { color: var(--light-text); }
+
+    /* ===== DEFENCE INTRO ===== */
+    #defence-intro {
+      padding: 100px 0;
+      background: var(--black);
+      position: relative;
+      overflow: hidden;
+    }
+    #defence-intro::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 60% 50%, rgba(232,64,28,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .defence-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .defence-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .defence-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+    }
+    .defence-card--accent {
+      border-top: 2px solid var(--accent);
+    }
+    .defence-card-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: rgba(232,64,28,0.1);
+      border: 1px solid rgba(232,64,28,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    .defence-card-icon--subtle {
+      background: rgba(232,64,28,0.08);
+      border-color: rgba(232,64,28,0.15);
+    }
+    .defence-card-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .defence-card-desc {
+      font-size: 12px;
+      color: var(--white-muted);
+      line-height: 1.5;
+    }
+
+    /* ===== AFTERSALES ===== */
+    #aftersales {
+      padding: 120px 0;
+      background: var(--light-bg-3);
+      color: var(--light-text);
+    }
+    .aftersales-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .aftersales-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .aftersales-item {
+      background: var(--light-card);
+      border: 1px solid var(--light-border);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .aftersales-icon {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(232,64,28,0.08);
+      border: 1px solid rgba(232,64,28,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .aftersales-item-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--light-text);
+      margin-bottom: 4px;
+    }
+    .aftersales-item-desc {
+      font-size: 13px;
+      color: var(--light-text-muted);
+      line-height: 1.55;
+    }
+
+
+    /* ===== LANG SWITCH ===== */
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      flex-shrink: 0;
+    }
+    .lang-switch a, .lang-switch span {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 4px 8px;
+      border-radius: 5px;
+      color: var(--white-muted);
+      transition: color 0.2s, background 0.2s;
+    }
+    .lang-switch a:hover { color: var(--white); background: rgba(255,255,255,0.06); }
+    .lang-switch .lang-active { color: var(--white); background: rgba(255,255,255,0.09); }
+    .lang-switch .lang-sep { color: var(--border-strong); padding: 0; font-weight: 400; }
+
+    /* Defence link in-text */
+    .link-defence {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(232,64,28,0.4);
+      transition: border-color 0.2s;
+    }
+    .link-defence:hover { border-color: var(--accent); }
+
+    /* Industry card as link */
+    a.industry-card {
+      display: flex;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    a.industry-card:hover { border-color: var(--light-border-strong); box-shadow: 0 4px 24px rgba(0,0,0,0.07); transform: translateY(-2px); }
+
+
+    /* ===== KAPACITETI — LIGHT ===== */
+    #kapaciteti {
+      padding: 120px 0;
+      background: var(--light-bg-3);
+      color: var(--light-text);
+    }
+    .kap-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+    /* Tekst strana */
+    .kap-text .section-label { color: var(--accent); }
+    .kap-text h2 {
+      font-size: clamp(28px, 3.2vw, 42px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: var(--light-text);
+      margin-bottom: 24px;
+    }
+    .kap-text p {
+      font-size: 15px;
+      color: var(--light-text-muted);
+      line-height: 1.78;
+      margin-bottom: 36px;
+    }
+    .kap-points {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+    }
+    .kap-points li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--light-text);
+      line-height: 1.5;
+    }
+    .kap-points li::before {
+      content: '';
+      flex-shrink: 0;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-top: 5px;
+    }
+    /* Slider */
+    .kap-slider-wrap {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 12px 48px rgba(0,0,0,0.14);
+      background: #e0e3e6;
+      user-select: none;
+    }
+    .kap-slides {
+      display: flex;
+      transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: transform;
+    }
+    .kap-slide {
+      flex: 0 0 100%;
+      position: relative;
+    }
+    .kap-slide img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+    }
+    .kap-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 28px 24px 20px;
+      background: linear-gradient(to top, rgba(0,0,0,0.62) 0%, transparent 100%);
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.9);
+      letter-spacing: 0.01em;
+    }
+    /* Strelice */
+    .kap-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.18);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.22);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .kap-arrow:hover { background: rgba(255,255,255,0.32); border-color: rgba(255,255,255,0.4); }
+    .kap-arrow--prev { left: 14px; }
+    .kap-arrow--next { right: 14px; }
+    .kap-arrow svg { display: block; pointer-events: none; }
+    /* Dots */
+    .kap-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    .kap-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.2);
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .kap-dot.active {
+      background: var(--accent);
+      transform: scale(1.25);
+    }
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .kap-layout { grid-template-columns: 1fr; gap: 48px; }
+    }
+    @media (max-width: 480px) {
+      .kap-slide img { aspect-ratio: 16/10; }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1200px) {
+      .solutions-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 1024px) {
+      .cta-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+      .cta-text .cta-btns { justify-content: center; }
+      .cta-map-btns { justify-content: center; }
+      .about-inner { grid-template-columns: 1fr; gap: 48px; }
+      .defence-grid { grid-template-columns: 1fr; gap: 48px; }
+      .aftersales-grid { grid-template-columns: 1fr; gap: 48px; }
+      .trust-inner { grid-template-columns: 1fr; gap: 48px; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+    }
+    @media (max-width: 768px) {
+      nav, .header-cta { display: none; }
+      .hamburger { display: flex; }
+      .solutions-grid { grid-template-columns: 1fr; }
+      .why-compact { grid-template-columns: 1fr; gap: 24px; }
+      .industries-grid { grid-template-columns: 1fr 1fr; }
+      .stats-inner { grid-template-columns: 1fr 1fr; }
+      .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
+      .stat-item:nth-child(odd) { border-right: 1px solid var(--border); }
+      .stat-item:last-child { border-bottom: none; }
+      .about-right { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .cta-map-btns { flex-direction: column; }
+      .cta-map-btn { justify-content: center; }
+      .industries-grid { grid-template-columns: 1fr; }
+      .hero-cta { flex-direction: column; align-items: center; }
+      .hero-cta .btn { width: 100%; justify-content: center; max-width: 280px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header id="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="#hero" class="logo" aria-label="Servoteh početna">
+          <img src="assets/logo-servoteh-wordmark.png" alt="SERVOTEH" loading="eager">
+        </a>
+        <nav aria-label="Glavna navigacija">
+          <a href="#hero">Početna</a>
+          <a href="#about">O nama</a>
+          <a href="#solutions">Rešenja</a>
+          <a href="#industries">Industrije</a>
+          <a href="reference.html">Reference</a>
+          <a href="#cta">Kontakt</a>
+        </nav>
+        <div class="lang-switch" aria-label="Izbor jezika">
+          <span class="lang-active">SR</span>
+          <span class="lang-sep">|</span>
+          <a href="en/index.html" hreflang="en">EN</a>
+        </div>
+        <a href="#cta" class="btn btn-primary header-cta">
+          Pošaljite upit <i class="arrow-icon">↗</i>
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Otvori meni" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE NAV -->
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobilna navigacija">
+    <a href="#hero" onclick="closeMobileNav()">Početna</a>
+    <a href="#about" onclick="closeMobileNav()">O nama</a>
+    <a href="#solutions" onclick="closeMobileNav()">Rešenja</a>
+    <a href="#industries" onclick="closeMobileNav()">Industrije</a>
+    <a href="reference.html" onclick="closeMobileNav()">Reference</a>
+    <div class="lang-switch mobile-lang-mt">
+      <span class="lang-active">SR</span>
+      <span class="lang-sep">|</span>
+      <a href="en/index.html" hreflang="en" onclick="closeMobileNav()">EN</a>
+    </div>
+    <a href="#cta" onclick="closeMobileNav()" class="btn btn-primary">Pošaljite upit ↗</a>
+  </nav>
+
+  <!-- 1. HERO — DARK, video background -->
+  <section id="hero">
+    <div class="hero-video-wrap">
+      <video autoplay muted loop playsinline poster="assets/hero-poster.jpg">
+        <source src="assets/hero1.mp4" type="video/mp4">
+      </video>
+      <div class="hero-fallback"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Beograd, Srbija — porodična inženjerska kompanija od 2002.</div>
+      <h1 class="hero-title">
+        Specijalne mašine, proizvodne linije i automatizovani sistemi
+      </h1>
+      <p class="hero-subtitle">
+        Projektujemo, razvijamo i isporučujemo rešenja za zahtevne industrijske procese, sa posebnim fokusom na industriju odbrane — od prvog crteža do montaže, puštanja u rad i dugoročne tehničke podrške.
+      </p>
+      <div class="hero-cta">
+        <a href="#cta" class="btn btn-primary">Pošaljite upit <i class="arrow-icon">↗</i></a>
+        <a href="#solutions" class="btn btn-secondary">Pogledajte rešenja</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>Skroluj</span>
+    </div>
+  </section>
+
+  <!-- 2. STATS BAR — DARK -->
+  <section id="stats">
+    <div class="stats-inner container">
+      <div class="stat-item reveal">
+        <div class="stat-number">24<span>+</span></div>
+        <div class="stat-label">Godina iskustva</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-1">
+        <div class="stat-number">100<span>+</span></div>
+        <div class="stat-label">Mašina i sistema</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-2">
+        <div class="stat-number">25<span>+</span></div>
+        <div class="stat-label">Razvojnih inženjera</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-3">
+        <div class="stat-number stat-number--defence">Odbrana</div>
+        <div class="stat-label">Strateški fokus</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- DEFENCE-LED INTRO — NEW SECTION -->
+  <section id="defence-intro">
+    
+    <div class="container">
+      <div class="defence-grid">
+        <div class="reveal">
+          <div class="section-label">Strateški fokus</div>
+          <h2 class="section-h2">Fokus na <a href="defence.html" class="link-defence">industriju odbrane</a>.<br>Kompetencija za mnogo više.</h2>
+          <p class="section-body section-body--dark">Tokom poslednjih pet godina, najveći deo razvoja i realizacije Servoteh sistema vezan je za industriju odbrane — sektor u kome su pouzdanost, preciznost i kontrola procesa presudan uslov, a ne opcija. Isti razvojni kapacitet i inženjerska logika primenjuju se i u drugim zahtevnim industrijskim projektima, tamo gde standardna oprema nije dovoljna i gde se sistem mora razviti od nule.</p>
+          <a href="reference.html" class="btn btn-primary">Pogledajte reference <i class="arrow-icon">↗</i></a>
+        </div>
+        <div class="reveal reveal-delay-2 defence-cards-inner">
+          <div class="defence-card defence-card--accent">
+            <div class="defence-card-icon">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 1L2 4v5c0 4 3 6.5 7 7.5 4-1 7-3.5 7-7.5V4L9 1z" stroke="#e8401c" stroke-width="1.4" stroke-linejoin="round"/><path d="M6 9l2 2 4-4" stroke="#e8401c" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="defence-card-title">Preciznost i pouzdanost</div>
+            <div class="defence-card-desc">Sistemi projektovani za zahteve industrije odbrane</div>
+          </div>
+          <div class="defence-card">
+            <div class="defence-card-icon defence-card-icon--subtle">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="2" width="14" height="14" rx="2" stroke="#e8401c" stroke-width="1.4"/><path d="M5 9h8M9 5v8" stroke="#e8401c" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </div>
+            <div class="defence-card-title">Pristup po meri kupca</div>
+            <div class="defence-card-desc">Svaki sistem razvijen prema konkretnom zahtevu</div>
+          </div>
+          <div class="defence-card">
+            <div class="defence-card-icon defence-card-icon--subtle">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="#e8401c" stroke-width="1.4"/><path d="M9 5v4l3 2" stroke="#e8401c" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </div>
+            <div class="defence-card-title">24+ godina iskustva</div>
+            <div class="defence-card-desc">Dokazana kompetencija u kompleksnim projektima</div>
+          </div>
+          <div class="defence-card">
+            <div class="defence-card-icon defence-card-icon--subtle">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 9l5 5 9-9" stroke="#e8401c" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="defence-card-title">Aftersales podrška</div>
+            <div class="defence-card-desc">Podrška tokom celokupnog životnog veka sistema</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. ABOUT / O KOMPANIJI — LIGHT -->
+  <section id="about">
+    <div class="container">
+      <div class="about-inner">
+        <div class="about-left reveal">
+          <div class="section-label">O kompaniji</div>
+          <h2>Inženjering koji prati zahtev kupca</h2>
+          <p>
+            Servoteh je porodična inženjerska kompanija iz Dobanovaca, aktivna od 2002. godine. Razvijamo specijalne mašine, proizvodne linije i automatizovane sisteme, prvenstveno za industriju odbrane i druge zahtevne industrijske procese, uz integrisan mašinski, elektro i softverski razvoj u okviru jednog tima.
+          </p>
+          <a href="#cta" class="btn-ghost-light">Pošaljite upit <i class="arrow-icon">↗</i></a>
+        </div>
+        <div class="about-right">
+          <div class="about-feature reveal reveal-delay-1">
+            <div class="feature-icon">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="9" cy="9" r="3.5" stroke="#e8401c" stroke-width="1.4"/>
+                <path d="M9 1v2M9 15v2M1 9h2M15 9h2M3.05 3.05l1.42 1.42M13.53 13.53l1.42 1.42M3.05 14.95l1.42-1.42M13.53 4.47l1.42-1.42" stroke="#e8401c" stroke-width="1.4" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h4>Mašinski razvoj</h4>
+            <p>Mašinsko projektovanje i izrada sistema prilagođenih konkretnom procesu.</p>
+          </div>
+          <div class="about-feature reveal reveal-delay-2">
+            <div class="feature-icon">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 2L2 6v6l7 4 7-4V6L9 2z" stroke="#e8401c" stroke-width="1.4" stroke-linejoin="round"/>
+                <path d="M2 6l7 4 7-4M9 10v6" stroke="#e8401c" stroke-width="1.4" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h4>Elektro i upravljanje</h4>
+            <p>Električna rešenja, upravljačke ormane, instalacije i instrumentacija.</p>
+          </div>
+          <div class="about-feature reveal reveal-delay-1">
+            <div class="feature-icon">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="3" width="14" height="10" rx="1.5" stroke="#e8401c" stroke-width="1.4"/>
+                <path d="M6 16h6M9 13v3" stroke="#e8401c" stroke-width="1.4" stroke-linecap="round"/>
+                <path d="M5 7l2 2 4-4" stroke="#e8401c" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h4>Softver i automatizacija</h4>
+            <p>PLC, SCADA, HMI i softverska rešenja za upravljanje procesima.</p>
+          </div>
+          <div class="about-feature reveal reveal-delay-2">
+            <div class="feature-icon">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="8" width="5" height="8" rx="1" stroke="#e8401c" stroke-width="1.4"/>
+                <rect x="6.5" y="5" width="5" height="11" rx="1" stroke="#e8401c" stroke-width="1.4"/>
+                <rect x="11" y="2" width="5" height="14" rx="1" stroke="#e8401c" stroke-width="1.4"/>
+              </svg>
+            </div>
+            <h4>Proizvodnja i montaža</h4>
+            <p>Sopstveni proizvodni i montažni kapaciteti — kontrola kvaliteta u celom procesu.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KAPACITETI — LIGHT -->
+  <section id="kapaciteti">
+    <div class="container-wide">
+      <div class="kap-layout">
+
+        <!-- TEKST -->
+        <div class="kap-text">
+          <div class="section-label reveal">Kapaciteti</div>
+          <h2 class="reveal">Sopstveni razvojni i proizvodni kapaciteti</h2>
+          <p class="reveal">Servoteh razvija, proizvodi, sklapa i integriše sisteme u sopstvenim kapacitetima u Dobanovcima. Ovakav pristup omogućava bolju kontrolu kvaliteta, kraće rokove i pouzdaniju realizaciju složenih projekata — od projektovanja, preko proizvodnje i montaže, do integracije sistema i pripreme za puštanje u rad.</p>
+          <ul class="kap-points reveal reveal-delay-1">
+            <li>10.000 m² razvojnih i proizvodnih kapaciteta</li>
+            <li>Razvojni biro za mašinsko i elektro projektovanje</li>
+            <li>Sopstvena proizvodnja, montaža i integracija</li>
+            <li>Kontrola kvaliteta sa savremenom mernom opremom</li>
+          </ul>
+        </div>
+
+        <!-- SLIDER -->
+        <div class="reveal reveal-delay-2">
+          <div class="kap-slider-wrap" id="kapSlider">
+            <div class="kap-slides" id="kapSlides">
+          <div class="kap-slide">
+            <img src="assets/about-exterior-facility.jpg" alt="Spoljašnji pogled na razvojne i proizvodne hale Servoteh u Dobanovcima" >
+            <div class="kap-caption">Upravna i proizvodna lokacija</div>
+          </div>
+          <div class="kap-slide">
+            <img src="assets/about-production-hall-wide.jpg" alt="Glavna proizvodna hala Servoteh" loading="lazy">
+            <div class="kap-caption">Proizvodna hala</div>
+          </div>
+          <div class="kap-slide">
+            <img src="assets/about-robotic-cell.jpg" alt="Robotizovana ćelija i automatizacija u Servoteh pogonu" loading="lazy">
+            <div class="kap-caption">Robotizovana ćelija</div>
+          </div>
+          <div class="kap-slide">
+            <img src="assets/about-heat-treatment-line.jpg" alt="Linija za termičku obradu u Servoteh pogonu" loading="lazy">
+            <div class="kap-caption">Linija termičke obrade</div>
+          </div>
+          <div class="kap-slide">
+            <img src="assets/about-heavy-machining.jpg" alt="Teška mašinska obrada u Servoteh pogonu" loading="lazy">
+            <div class="kap-caption">Teška mašinska obrada</div>
+          </div>
+          <div class="kap-slide">
+            <img src="assets/about-precision-machining-room.jpg" alt="Prostor za preciznu mašinsku obradu u Servoteh pogonu" loading="lazy">
+            <div class="kap-caption">Prostor za preciznu obradu</div>
+          </div>
+          <div class="kap-slide">
+            <img src="assets/about-boring-machine-night.jpg" alt="Mašina za duboku obradu u Servoteh pogonu" loading="lazy">
+            <div class="kap-caption">Mašina za duboku obradu</div>
+          </div>
+            </div>
+            <button class="kap-arrow kap-arrow--prev" id="kapPrev" aria-label="Prethodna slika">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <path d="M11 14L6 9l5-5" stroke="rgba(255,255,255,0.9)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <button class="kap-arrow kap-arrow--next" id="kapNext" aria-label="Sledeća slika">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <path d="M7 4l5 5-5 5" stroke="rgba(255,255,255,0.9)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+          <div class="kap-dots" id="kapDots">
+          <button class="kap-dot active" data-index="0" aria-label="Slajd 1"></button>
+          <button class="kap-dot" data-index="1" aria-label="Slajd 2"></button>
+          <button class="kap-dot" data-index="2" aria-label="Slajd 3"></button>
+          <button class="kap-dot" data-index="3" aria-label="Slajd 4"></button>
+          <button class="kap-dot" data-index="4" aria-label="Slajd 5"></button>
+          <button class="kap-dot" data-index="5" aria-label="Slajd 6"></button>
+          <button class="kap-dot" data-index="6" aria-label="Slajd 7"></button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. SOLUTIONS / REŠENJA — DARK -->
+  <section id="solutions">
+    <div class="container-wide">
+      <div class="section-header reveal">
+        <div class="section-label">Šta radimo</div>
+        <h2>Naša rešenja</h2>
+        <p>Projektujemo, razvijamo i izrađujemo industrijske sisteme po zahtevu kupca — od specijalnih mašina i automatizacije procesa do kompletnih proizvodnih linija.</p>
+      </div>
+      <div class="solutions-grid">
+        <div class="solution-card reveal">
+          <div class="card-img-wrap">
+            <img src="assets/proizvodne-linije.jpg" alt="Kompletna proizvodna linija — Servoteh" loading="lazy">
+          </div>
+          <div class="card-body">
+            <div class="card-tag">01 — Proizvodne linije</div>
+            <h3>Proizvodne linije</h3>
+            <p>Kompletna rešenja za organizaciju i automatizaciju proizvodnje — od idejnog rešenja do puštanja sistema u rad.</p>
+            <a href="proizvodne-linije.html" class="card-link">Saznajte više →</a>
+          </div>
+        </div>
+        <div class="solution-card reveal reveal-delay-1">
+          <div class="card-img-wrap">
+            <img src="assets/industrijska-automatizacija.jpg" alt="Upravljanje i automatizacija — Servoteh" loading="lazy">
+          </div>
+          <div class="card-body">
+            <div class="card-tag">02 — Industrijska automatizacija</div>
+            <h3>Industrijska automatizacija</h3>
+            <p>Integracija upravljanja, pogona, senzora i procesne logike u stabilne i pouzdane industrijske sisteme.</p>
+            <a href="industrijska-automatizacija.html" class="card-link">Saznajte više →</a>
+          </div>
+        </div>
+        <div class="solution-card reveal reveal-delay-2">
+          <div class="card-img-wrap">
+            <img src="assets/specijalne-masine.jpg" alt="Specijalne mašine po meri — Servoteh" loading="lazy">
+          </div>
+          <div class="card-body">
+            <div class="card-tag">03 — Specijalne mašine</div>
+            <h3>Specijalne mašine</h3>
+            <p>Namenska tehnička rešenja razvijena za precizno definisane operacije, proizvode i uslove rada.</p>
+            <a href="specijalne-masine.html" class="card-link">Saznajte više →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AFTERSALES PODRŠKA — NOVA SEKCIJA -->
+  <section id="aftersales">
+    <div class="container">
+      <div class="aftersales-grid">
+        <div class="reveal">
+          <div class="section-label">Podrška nakon puštanja u rad</div>
+          <h2 class="section-h2 section-h2--light">Podrška i nakon puštanja u rad</h2>
+          <p class="section-body section-body--light">Servoteh ostaje tehnički partner i nakon isporuke sistema. Podrška obuhvata puštanje u rad, obuku, dijagnostiku, intervencije, rezervne delove i unapređenja tokom eksploatacije.</p>
+          <a href="#cta" class="btn-ghost-light">Pošaljite upit <i class="arrow-icon">↗</i></a>
+        </div>
+        <div class="reveal reveal-delay-1 aftersales-list">
+          <div class="aftersales-item">
+            <div class="aftersales-icon">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="#e8401c" stroke-width="1.4"/><path d="M9 5v4l3 2" stroke="#e8401c" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <div class="aftersales-item-title">Puštanje u rad i obuka</div>
+              <div class="aftersales-item-desc">Naš tim prisustvuje prvom pokretanju i obučava vaše operatere.</div>
+            </div>
+          </div>
+          <div class="aftersales-item">
+            <div class="aftersales-icon">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="3" width="14" height="10" rx="1.5" stroke="#e8401c" stroke-width="1.4"/><path d="M6 16h6M9 13v3" stroke="#e8401c" stroke-width="1.4" stroke-linecap="round"/><path d="M5 7l2 2 4-4" stroke="#e8401c" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <div class="aftersales-item-title">Dijagnostika i intervencije</div>
+              <div class="aftersales-item-desc">Brza reakcija i tehnička podrška na licu mesta ili daljinski.</div>
+            </div>
+          </div>
+          <div class="aftersales-item">
+            <div class="aftersales-icon">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2L2 5v4c0 4.5 3 7 7 8 4-1 7-3.5 7-8V5L9 2z" stroke="#e8401c" stroke-width="1.4" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <div class="aftersales-item-title">Rezervni delovi i unapređenja</div>
+              <div class="aftersales-item-desc">Originalni rezervni delovi i moguća unapređenja sistema tokom eksploatacije.</div>
+            </div>
+          </div>
+        </div>
+        <!-- Zašto Servoteh — kompaktan dopunski blok -->
+        <div class="why-compact reveal">
+          <div class="why-compact-item">
+            <h4>Princip ključ u ruke</h4>
+            <p>Vodimo projekat od ideje do isporuke, uz jednu odgovornu tačku komunikacije.</p>
+          </div>
+          <div class="why-compact-item">
+            <h4>Integrisan razvoj i realizacija</h4>
+            <p>Razvoj, proizvodnja, montaža i integracija povezani su u jedan sistem realizacije.</p>
+          </div>
+          <div class="why-compact-item">
+            <h4>Dugoročna tehnička odgovornost</h4>
+            <p>Ostajemo uključeni i nakon isporuke kroz podršku i unapređenja sistema.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. INDUSTRIES / INDUSTRIJE — LIGHT -->
+  <section id="industries">
+    <div class="container-wide">
+      <div class="section-header reveal">
+        <div class="section-label">Oblasti primene</div>
+        <h2>Industrije</h2>
+        <p>Naš današnji fokus je industrija odbrane, ali iste inženjerske kompetencije primenjujemo i u drugim složenim industrijskim sistemima.</p>
+      </div>
+      <div class="industries-grid">
+        <a href="defence.html" class="industry-card industry-card--featured reveal">
+          <div class="ind-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 2L3 5v6c0 4 3.5 6.5 7 7.5 3.5-1 7-3.5 7-7.5V5l-7-3z" stroke="#e8401c" stroke-width="1.4" stroke-linejoin="round"/>
+              <path d="M7 10l2 2 4-4" stroke="#e8401c" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <h4>Odbrambena industrija</h4>
+            <p>Specijalizovane mašine, linije i sistemi za odbrambenu namenu</p>
+          </div>
+        </a>
+        <div class="industry-card reveal reveal-delay-1">
+          <div class="ind-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="1" y="7" width="18" height="8" rx="2" stroke="#e8401c" stroke-width="1.4"/>
+              <circle cx="5" cy="16" r="2" stroke="#e8401c" stroke-width="1.4"/>
+              <circle cx="15" cy="16" r="2" stroke="#e8401c" stroke-width="1.4"/>
+              <path d="M7 7V5a3 3 0 016 0v2" stroke="#e8401c" stroke-width="1.4"/>
+            </svg>
+          </div>
+          <div>
+            <h4>Automobilska industrija</h4>
+            <p>Linije sklapanja, testni stolovi, manipulatori</p>
+          </div>
+        </div>
+        <div class="industry-card reveal reveal-delay-2">
+          <div class="ind-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 14l5-8 4 3 4-7 3 5" stroke="#e8401c" stroke-width="1.4" stroke-linejoin="round"/>
+              <circle cx="10" cy="16" r="1.5" fill="#e8401c"/>
+              <path d="M10 14.5V9" stroke="#e8401c" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h4>Avio industrija</h4>
+            <p>Precizna oprema i sistemi za vazduhoplovnu proizvodnju</p>
+          </div>
+        </div>
+        <div class="industry-card reveal reveal-delay-1">
+          <div class="ind-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 3c-3 0-5 2-5 4 0 1.5 1 3 3 4v4h4v-4c2-1 3-2.5 3-4 0-2-2-4-5-4z" stroke="#e8401c" stroke-width="1.4" stroke-linejoin="round"/>
+              <path d="M8 15h4" stroke="#e8401c" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h4>Prehrambena industrija</h4>
+            <p>Mašine i linije za preradu i pakovanje hrane</p>
+          </div>
+        </div>
+        <div class="industry-card reveal reveal-delay-2">
+          <div class="ind-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="6" width="16" height="12" rx="1.5" stroke="#e8401c" stroke-width="1.4"/>
+              <path d="M6 6V4a4 4 0 018 0v2" stroke="#e8401c" stroke-width="1.4"/>
+              <circle cx="10" cy="12" r="2" stroke="#e8401c" stroke-width="1.4"/>
+            </svg>
+          </div>
+          <div>
+            <h4>Pakovanje i manipulacija</h4>
+            <p>Automatizovani sistemi za pakovanje, sortiranje i transport</p>
+          </div>
+        </div>
+        <div class="industry-card reveal reveal-delay-3">
+          <div class="ind-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="10" cy="10" r="3" stroke="#e8401c" stroke-width="1.4"/>
+              <path d="M10 2v2M10 16v2M2 10h2M16 10h2" stroke="#e8401c" stroke-width="1.4" stroke-linecap="round"/>
+              <path d="M4.22 4.22l1.42 1.42M14.36 14.36l1.42 1.42M4.22 15.78l1.42-1.42M14.36 5.64l1.42-1.42" stroke="#e8401c" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h4>Opšta industrijska proizvodnja</h4>
+            <p>Namenska rešenja za različite grane opšte industrijske proizvodnje</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. TRUST / REFERENCE / B2B POVERENJE — DARK -->
+  <section id="trust">
+    <div class="container-wide">
+      <div class="trust-inner">
+        <div class="trust-text reveal">
+          <div class="section-label">Reference</div>
+          <h2>Rešenja za zahtevne proizvodne procese</h2>
+          <p>Svaki projekat koji realizujemo nastaje kao odgovor na konkretan tehnički zahtev koji standardna oprema ne može da ispuni. Naše reference obuhvataju sisteme za industriju odbrane, kao i složene mašine i linije u drugim sektorima — u svim slučajevima, pouzdanost, preciznost i dugoročna eksploatabilnost bili su primarni projektni zahtevi.</p>
+          <a href="reference.html" class="btn btn-ghost">Pogledajte reference <i class="arrow-icon">↗</i></a>
+        </div>
+        <div class="trust-visual reveal reveal-delay-2">
+          <div class="trust-points">
+            <div class="trust-point">
+              <div class="tp-dot"></div>
+              <div>
+                <div class="tp-label">24+ godina iskustva</div>
+                <div class="tp-desc">Višedecenijsko iskustvo u razvoju i realizaciji specijalnih inženjerskih sistema</div>
+              </div>
+            </div>
+            <div class="trust-point">
+              <div class="tp-dot"></div>
+              <div>
+                <div class="tp-label">ISO 9001 sertifikovan</div>
+                <div class="tp-desc">Sistem menadžmenta kvalitetom po međunarodnom standardu</div>
+              </div>
+            </div>
+            <div class="trust-point">
+              <div class="tp-dot"></div>
+              <div>
+                <div class="tp-label">Globalni tehnološki partneri</div>
+                <div class="tp-desc">Siemens, ABB, Rexroth, SKF, Aventics — provereni tehnički partneri</div>
+              </div>
+            </div>
+            <div class="trust-point">
+              <div class="tp-dot"></div>
+              <div>
+                <div class="tp-label">Razvojni i proizvodni centar</div>
+                <div class="tp-desc">Integrisani prostor za razvoj, proizvodnju, montažu i pripremu sistema</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. CTA — DARK -->
+  <section id="cta">
+    <div class="container">
+      <div class="cta-grid reveal">
+        <div class="cta-text">
+          <div class="section-label">Sledeći korak</div>
+          <h2>Razgovarajmo o vašem projektu</h2>
+          <p>Pošaljite nam osnovne informacije o procesu, proizvodnoj potrebi ili tehničkom zahtevu, a naš tim će vam predložiti sledeće korake.</p>
+          <div class="cta-btns">
+            <a href="mailto:office@servoteh.com" class="btn btn-primary">Pošaljite upit <i class="arrow-icon">↗</i></a>
+            <a href="tel:+381113141564" class="btn btn-secondary">+381 (11) 31-41-564</a>
+          </div>
+        </div>
+        <div class="cta-contact-card">
+          <h4>Kontakt</h4>
+          <div class="cta-contact-item">
+            <div class="cta-contact-icon">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="cta-contact-label">Adresa</div>
+              <div class="cta-contact-value">Ugrinovačka 163, 11272 Dobanovci<br>Beograd, Srbija</div>
+            </div>
+          </div>
+          <div class="cta-contact-item">
+            <div class="cta-contact-icon">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="cta-contact-label">Email</div>
+              <div class="cta-contact-value"><a href="mailto:office@servoteh.com">office@servoteh.com</a></div>
+            </div>
+          </div>
+          <div class="cta-contact-item">
+            <div class="cta-contact-icon">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="cta-contact-label">Telefon</div>
+              <div class="cta-contact-value"><a href="tel:+381113141564">+381 (11) 31-41-564</a></div>
+            </div>
+          </div>
+          <div class="cta-map-btns">
+            <a href="https://www.google.com/maps/search/?api=1&query=Ugrinova%C4%8Dka%20163%2C%2011272%20Dobanovci%2C%20Beograd%2C%20Srbija" target="_blank" rel="noopener" class="cta-map-btn">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Otvorite mapu
+            </a>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Ugrinova%C4%8Dka%20163%2C%2011272%20Dobanovci%2C%20Beograd%2C%20Srbija" target="_blank" rel="noopener" class="cta-map-btn">
+              <svg viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+              Kako do nas
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. FOOTER — DARK -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo-footer">
+            <img src="assets/logo-servoteh-wordmark.png" alt="SERVOTEH">
+          </div>
+          <address>
+            Ugrinovačka 163<br>
+            11272 Dobanovci<br>
+            Beograd, Srbija
+          </address>
+          <a href="mailto:office@servoteh.com">office@servoteh.com</a>
+          <a href="tel:+381113141564">+381 (11) 31-41-564</a>
+          <div class="footer-socials">
+            <a href="https://www.linkedin.com/company/servoteh-d.o.o./about/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+            <a href="https://www.instagram.com/servoteh" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+            <a href="https://www.youtube.com/user/lediloo" target="_blank" rel="noopener" aria-label="YouTube">YouTube</a>
+          </div>
+          <div class="iso-badge">
+            <div class="iso-badge-icon">✓</div>
+            ISO 9001:2015
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Stranice</h5>
+          <ul>
+            <li><a href="#hero">Početna</a></li>
+            <li><a href="#about">O nama</a></li>
+            <li><a href="#solutions">Rešenja</a></li>
+            <li><a href="#industries">Industrije</a></li>
+            <li><a href="reference.html">Reference</a></li>
+            <li><a href="#aftersales">Podrška nakon puštanja u rad</a></li>
+            <li><a href="#cta">Kontakt</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Rešenja</h5>
+          <ul>
+            <li><a href="defence.html">Sistemi za industriju odbrane</a></li>
+            <li><a href="specijalne-masine.html">Specijalne mašine</a></li>
+            <li><a href="proizvodne-linije.html">Proizvodne linije</a></li>
+            <li><a href="industrijska-automatizacija.html">Industrijska automatizacija</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Društvene mreže</h5>
+          <ul>
+            <li><a href="https://www.linkedin.com/company/servoteh-d.o.o./about/" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://www.instagram.com/servoteh" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://www.youtube.com/user/lediloo" target="_blank" rel="noopener">YouTube</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 SERVOTEH d.o.o. Sva prava zadržana.</span>
+        <a href="https://servoteh.com" aria-label="Servoteh zvanična stranica">servoteh.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    function closeMobileNav() {
+      mobileNav.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => revealObserver.observe(el));
+
+    // Hero video: show fallback if video fails or takes too long
+    const heroVideo = document.querySelector('#hero video');
+    const heroFallback = document.querySelector('.hero-fallback');
+    if (heroVideo && heroFallback) {
+      // Show fallback behind video always as safety net
+      heroFallback.style.display = 'block';
+
+      // Hide fallback once video is playing
+      heroVideo.addEventListener('canplay', () => {
+        heroVideo.style.opacity = '0.55';
+        heroFallback.style.display = 'none';
+      });
+
+      // On error — hide video, keep fallback
+      heroVideo.addEventListener('error', () => {
+        heroVideo.style.display = 'none';
+        heroFallback.style.display = 'block';
+      });
+
+      // Timeout fallback — if video doesn't play in 4s, show fallback
+      const videoTimeout = setTimeout(() => {
+        if (heroVideo.readyState < 3) {
+          heroVideo.style.display = 'none';
+          heroFallback.style.display = 'block';
+        }
+      }, 4000);
+
+      heroVideo.addEventListener('canplay', () => clearTimeout(videoTimeout));
+    }
+
+    // Solution card images — hide img if file fails to load, card stays intact
+    document.querySelectorAll('#solutions .card-img-wrap img').forEach(img => {
+      img.addEventListener('error', () => {
+        img.style.display = 'none';
+      });
+    });
+
+    // ── Kapaciteti Slider ────────────────────────────────────────────────────
+    (function() {
+      const wrap   = document.getElementById('kapSlider');
+      const track  = document.getElementById('kapSlides');
+      const dots   = Array.from(document.querySelectorAll('#kapDots .kap-dot'));
+      const slides = Array.from(track ? track.children : []);
+      if (!wrap || !track || slides.length === 0) return;
+
+      let current = 0;
+      let startX = 0;
+      let dragging = false;
+      let dragDelta = 0;
+
+      function goTo(idx) {
+        current = (idx + slides.length) % slides.length;
+        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+        dots.forEach((d, i) => d.classList.toggle('active', i === current));
+      }
+
+      document.getElementById('kapPrev').addEventListener('click', () => goTo(current - 1));
+      document.getElementById('kapNext').addEventListener('click', () => goTo(current + 1));
+      dots.forEach(d => d.addEventListener('click', () => goTo(+d.dataset.index)));
+
+      // Keyboard
+      wrap.setAttribute('tabindex', '0');
+      wrap.addEventListener('keydown', e => {
+        if (e.key === 'ArrowLeft')  { e.preventDefault(); goTo(current - 1); }
+        if (e.key === 'ArrowRight') { e.preventDefault(); goTo(current + 1); }
+      });
+
+      // Touch / swipe
+      wrap.addEventListener('touchstart', e => {
+        startX = e.touches[0].clientX;
+        dragging = true;
+        dragDelta = 0;
+      }, { passive: true });
+      wrap.addEventListener('touchmove', e => {
+        if (!dragging) return;
+        dragDelta = e.touches[0].clientX - startX;
+      }, { passive: true });
+      wrap.addEventListener('touchend', () => {
+        if (!dragging) return;
+        dragging = false;
+        if (Math.abs(dragDelta) > 48) goTo(dragDelta < 0 ? current + 1 : current - 1);
+      });
+
+      // JS image fallback — sakrij slajd ako slika ne uspe
+      slides.forEach((slide, i) => {
+        const img = slide.querySelector('img');
+        if (!img) return;
+        img.addEventListener('error', () => {
+          slide.style.display = 'none';
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Servoteh razvija specijalne mašine, radne stanice i namenske uređaje za konkretne operacije u proizvodnom procesu — kada standardna oprema nije dovoljna.">
+  <title>Specijalne mašine — SERVOTEH</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #000000;
+      --bg-dark: #0a0a0a;
+      --bg-section: #0f0f0f;
+      --bg-card: #141414;
+      --bg-card-hover: #1a1a1a;
+      --border: rgba(255,255,255,0.08);
+      --border-strong: rgba(255,255,255,0.15);
+      --white: #ffffff;
+      --white-dim: rgba(255,255,255,0.7);
+      --white-muted: rgba(255,255,255,0.4);
+      --accent: #e8401c;
+      --accent-hover: #ff5533;
+      --accent-glow: rgba(232,64,28,0.15);
+      --light-bg-1: #eceff1;
+      --light-bg-2: #e9eaec;
+      --light-bg-3: #f2f4f5;
+      --light-text: #111214;
+      --light-text-muted: #5a5f66;
+      --light-border: rgba(0,0,0,0.09);
+      --light-border-strong: rgba(0,0,0,0.16);
+      --light-card: #ffffff;
+      --text-body: rgba(255,255,255,0.72);
+      --max-w: 1440px;
+      --radius: 16px;
+      --radius-sm: 10px;
+      --header-h: 68px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Figtree', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+    button { cursor: pointer; font-family: inherit; border: none; background: none; }
+    h1, h2, h3, h4 { font-family: 'Figtree', sans-serif; line-height: 1.1; }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
+    .container-wide { width: min(94vw, 1680px); margin: 0 auto; padding: 0 32px; }
+
+    /* BUTTONS */
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; border-radius: 8px; font-family: 'Figtree', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.02em; transition: all 0.2s ease; cursor: pointer; }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: 0 8px 24px var(--accent-glow); }
+    .btn-secondary { background: transparent; color: var(--white); border: 1px solid var(--border-strong); }
+    .btn-secondary:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.3); }
+    .btn-ghost-light { display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; border-radius: 8px; font-size: 14px; font-weight: 600; letter-spacing: 0.02em; transition: all 0.2s ease; background: transparent; color: var(--light-text); border: 1px solid var(--light-border-strong); }
+    .btn-ghost-light:hover { background: rgba(0,0,0,0.04); border-color: var(--accent); color: var(--accent); }
+    .arrow-icon { font-style: normal; transition: transform 0.2s ease; }
+    .btn:hover .arrow-icon, .btn-ghost-light:hover .arrow-icon { transform: translate(2px, -2px); }
+
+    /* HEADER */
+    #header { position: fixed; top: 0; left: 0; right: 0; height: var(--header-h); z-index: 1000; background: rgba(0,0,0,0.82); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); transition: background 0.3s; }
+    #header.scrolled { background: rgba(0,0,0,0.95); }
+    .header-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+    .logo img { height: 26px; width: auto; }
+    nav { display: flex; align-items: center; gap: 4px; }
+    nav a { font-size: 13.5px; font-weight: 500; color: var(--white-dim); padding: 6px 14px; border-radius: 6px; transition: color 0.2s, background 0.2s; white-space: nowrap; }
+    nav a:hover { color: var(--white); background: rgba(255,255,255,0.06); }
+    nav a.nav-active { color: var(--white); background: rgba(255,255,255,0.08); }
+    .header-cta { flex-shrink: 0; }
+    .lang-switch { display: flex; align-items: center; gap: 4px; margin-left: 4px; flex-shrink: 0; }
+    .lang-switch a, .lang-switch span { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+    .lang-switch a { color: var(--white-muted); padding: 5px 8px; border-radius: 5px; transition: color 0.2s, background 0.2s; }
+    .lang-switch a:hover { color: var(--white); background: rgba(255,255,255,0.08); }
+    .lang-switch .lang-active { color: var(--white); background: rgba(255,255,255,0.1); padding: 5px 8px; border-radius: 5px; }
+    .lang-sep { color: rgba(255,255,255,0.2); user-select: none; }
+
+    /* HAMBURGER */
+    .hamburger { display: none; flex-direction: column; gap: 5px; padding: 6px; z-index: 1100; cursor: pointer; }
+    .hamburger span { display: block; width: 24px; height: 1.5px; background: var(--white); transition: all 0.3s; }
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* MOBILE NAV */
+    .mobile-nav { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.97); z-index: 999; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { font-family: 'Figtree', sans-serif; font-size: 28px; font-weight: 700; color: var(--white-dim); padding: 12px 24px; transition: color 0.2s; }
+    .mobile-nav a:hover, .mobile-nav a.nav-active { color: var(--white); }
+    .mobile-nav .btn { margin-top: 16px; font-size: 15px; padding: 14px 32px; }
+    .mobile-lang { display: flex; align-items: center; gap: 6px; margin-top: 24px; }
+    .mobile-lang a { font-size: 14px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 12px; border-radius: 6px; color: var(--white-muted); transition: color 0.2s, background 0.2s; }
+    .mobile-lang a:hover { color: var(--white); background: rgba(255,255,255,0.08); }
+    .mobile-lang .lang-active { color: var(--white); background: rgba(255,255,255,0.1); padding: 6px 12px; border-radius: 6px; }
+    .mobile-lang .lang-sep { color: rgba(255,255,255,0.2); font-size: 14px; }
+
+    /* SECTION LABEL */
+    .section-label { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .section-label::before { content: ''; width: 24px; height: 1.5px; background: var(--accent); opacity: 0.5; }
+    .section-label--center { justify-content: center; }
+
+    /* HERO — DARK STATIC (centered, grid texture) */
+    #sm-hero { position: relative; min-height: 72vh; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; background: var(--black); padding-top: var(--header-h); }
+    .sm-hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(232,64,28,0.05) 0%, transparent 65%), repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(255,255,255,0.018) 80px), repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(255,255,255,0.018) 80px); pointer-events: none; }
+    .sm-hero-bg::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 120px; background: linear-gradient(to bottom, transparent, var(--black)); }
+    .hero-content { position: relative; z-index: 1; max-width: 860px; padding: 72px 24px 48px; }
+    .sm-hero-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 28px; opacity: 0; animation: fadeUp 0.8s 0.2s forwards; }
+    .sm-hero-eyebrow::before, .sm-hero-eyebrow::after { content: ''; display: block; width: 32px; height: 1px; background: var(--accent); }
+    .hero-content h1 { font-size: clamp(34px, 5.2vw, 64px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.07; margin-bottom: 24px; opacity: 0; animation: fadeUp 0.9s 0.35s forwards; }
+    .hero-content h1 em { font-style: normal; color: var(--white-dim); }
+    .hero-lead { font-size: clamp(15px, 1.7vw, 17px); color: var(--white-dim); max-width: 660px; margin: 0 auto 36px; font-weight: 400; line-height: 1.75; opacity: 0; animation: fadeUp 0.8s 0.5s forwards; }
+    .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.8s 0.65s forwards; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* INTRO — LIGHT */
+    #sm-intro { background: var(--light-bg-1); padding: 100px 0; }
+    .intro-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 72px; align-items: start; }
+    .intro-text h2 { font-size: clamp(28px, 3.2vw, 44px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; color: var(--light-text); margin-top: 14px; }
+    .intro-text p { font-size: 16px; line-height: 1.75; color: var(--light-text-muted); margin-top: 20px; }
+    .trust-list { display: flex; flex-direction: column; margin-top: 12px; }
+    .trust-item { display: flex; align-items: center; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--light-border); }
+    .trust-item:last-child { border-bottom: none; }
+    .trust-icon { width: 44px; height: 44px; flex: 0 0 44px; border-radius: var(--radius-sm); background: rgba(232,64,28,0.08); border: 1px solid rgba(232,64,28,0.12); display: flex; align-items: center; justify-content: center; }
+    .trust-icon svg { width: 20px; height: 20px; stroke: var(--accent); stroke-width: 1.6; fill: none; }
+    .trust-item span { font-size: 15px; font-weight: 600; color: var(--light-text); }
+
+
+
+    /* MACHINE GROUPS — DARK */
+    #sm-groups { background: var(--bg-dark); padding: 100px 0; }
+    .sm-groups-header { text-align: center; max-width: 640px; margin: 0 auto 56px; }
+    .sm-groups-header h2 { font-size: clamp(28px, 3.2vw, 44px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin-top: 14px; }
+    .sm-groups-header p { font-size: 16px; line-height: 1.75; color: var(--text-body); margin-top: 16px; }
+    .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .sm-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 36px 28px; transition: all 0.25s ease; position: relative; overflow: hidden; }
+    .sm-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--accent); opacity: 0; transition: opacity 0.25s ease; }
+    .sm-card:hover { background: var(--bg-card-hover); border-color: rgba(232,64,28,0.2); transform: translateY(-3px); box-shadow: 0 16px 48px rgba(0,0,0,0.4); }
+    .sm-card:hover::before { opacity: 1; }
+    .sm-card-num { font-size: 48px; font-weight: 300; color: var(--accent); opacity: 0.2; line-height: 1; margin-bottom: 20px; letter-spacing: -0.02em; }
+    .sm-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+    .sm-card p { font-size: 14px; line-height: 1.65; color: var(--text-body); }
+
+    /* PROCESS — LIGHT */
+    #sm-process { background: var(--light-bg-3); padding: 100px 0; }
+    .process-header { text-align: center; max-width: 640px; margin: 0 auto 56px; }
+    .process-header h2 { font-size: clamp(28px, 3.2vw, 44px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; color: var(--light-text); margin-top: 14px; }
+    .process-header p { font-size: 16px; line-height: 1.75; color: var(--light-text-muted); margin-top: 16px; }
+    .process-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; position: relative; }
+    .process-steps::before { content: ''; position: absolute; top: 28px; left: 10%; right: 10%; height: 1px; background: var(--light-border-strong); }
+    .step { text-align: center; position: relative; padding: 0 10px; }
+    .step-num { width: 56px; height: 56px; border-radius: 50%; background: var(--light-card); border: 1px solid var(--light-border-strong); display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; font-size: 20px; font-weight: 800; color: var(--accent); position: relative; z-index: 1; box-shadow: 0 2px 12px rgba(0,0,0,0.06); transition: all 0.25s ease; }
+    .step:hover .step-num { background: var(--accent); color: var(--white); border-color: var(--accent); box-shadow: 0 6px 20px var(--accent-glow); }
+    .step-title { font-size: 13px; font-weight: 600; color: var(--light-text); line-height: 1.4; }
+
+    /* APPLICATIONS — DARK */
+    #sm-apply { background: var(--bg-section); padding: 100px 0; }
+    .apply-header { text-align: center; max-width: 640px; margin: 0 auto 40px; }
+    .apply-header h2 { font-size: clamp(28px, 3.2vw, 44px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin-top: 14px; }
+    .apply-header p { font-size: 16px; line-height: 1.75; color: var(--text-body); margin-top: 16px; }
+    .tags-wrap { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+    .tag { display: inline-flex; align-items: center; gap: 10px; padding: 12px 22px; border-radius: 999px; background: var(--bg-card); border: 1px solid var(--border); font-size: 14px; font-weight: 500; color: var(--white-dim); transition: all 0.2s ease; }
+    .tag:hover { border-color: rgba(232,64,28,0.25); color: var(--white); background: var(--bg-card-hover); }
+    .tag-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); opacity: 0.5; }
+
+    /* WHY SERVOTEH — LIGHT */
+    #sm-why { background: var(--light-bg-1); padding: 100px 0; }
+    .why-header { text-align: center; max-width: 640px; margin: 0 auto 56px; }
+    .why-header h2 { font-size: clamp(28px, 3.2vw, 44px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; color: var(--light-text); margin-top: 14px; }
+    .reasons-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .reason-card { background: var(--light-card); border: 1px solid var(--light-border); border-radius: var(--radius); padding: 36px 28px; transition: all 0.25s ease; }
+    .reason-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.08); border-color: rgba(232,64,28,0.15); }
+    .reason-icon { width: 48px; height: 48px; border-radius: var(--radius-sm); background: rgba(232,64,28,0.08); border: 1px solid rgba(232,64,28,0.12); display: flex; align-items: center; justify-content: center; margin-bottom: 24px; }
+    .reason-icon svg { width: 22px; height: 22px; stroke: var(--accent); stroke-width: 1.6; fill: none; }
+    .reason-card h3 { font-size: 17px; font-weight: 700; color: var(--light-text); margin-bottom: 10px; }
+    .reason-card p { font-size: 14px; line-height: 1.65; color: var(--light-text-muted); }
+
+    /* REFERENCE TEASER — LIGHT with dark card */
+    #sm-ref { background: var(--light-bg-3); padding: 80px 0; }
+    .ref-card { background: var(--bg-dark); border: 1px solid var(--border); border-radius: var(--radius); padding: 64px; display: flex; align-items: center; justify-content: space-between; gap: 48px; }
+    .ref-card-text { max-width: 560px; }
+    .ref-card-text h2 { font-size: clamp(24px, 2.8vw, 36px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin-top: 14px; }
+    .ref-card-text p { font-size: 15px; line-height: 1.75; color: var(--text-body); margin-top: 14px; }
+
+    /* CTA — DARK */
+    #sm-cta { background: var(--black); padding: 100px 0; text-align: center; position: relative; }
+    #sm-cta::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--border); }
+    #sm-cta h2 { font-size: clamp(28px, 3.5vw, 48px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin-top: 16px; }
+    #sm-cta p { font-size: 16px; line-height: 1.75; color: var(--text-body); max-width: 560px; margin: 20px auto 0; }
+    .cta-btns { display: flex; gap: 14px; justify-content: center; margin-top: 36px; flex-wrap: wrap; }
+
+    .ref-btn-wrap { flex-shrink: 0; }
+
+    /* FOOTER */
+    #footer { background: #050505; border-top: 1px solid var(--border); padding: 80px 0 0; }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 64px; border-bottom: 1px solid var(--border); }
+    .footer-brand .logo-footer img { height: 22px; width: auto; margin-bottom: 24px; }
+    .footer-brand address { font-style: normal; font-size: 14px; color: var(--white-muted); line-height: 1.8; margin-bottom: 24px; }
+    .footer-brand a { display: block; font-size: 14px; color: var(--white-muted); margin-bottom: 6px; transition: color 0.2s; }
+    .footer-brand a:hover { color: var(--white); }
+    .footer-socials { display: flex; gap: 16px; margin-top: 16px; flex-wrap: wrap; }
+    .footer-socials a { font-size: 13px; color: var(--white-muted); transition: color 0.2s; }
+    .footer-socials a:hover { color: var(--white); }
+    .iso-badge { display: inline-flex; align-items: center; gap: 10px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; margin-top: 16px; font-size: 11px; color: var(--white-muted); font-weight: 600; letter-spacing: 0.05em; }
+    .iso-badge-icon { width: 28px; height: 28px; background: rgba(232,64,28,0.15); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--accent); font-weight: 800; }
+    .footer-col h5 { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white-muted); margin-bottom: 20px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul a { font-size: 14px; color: rgba(255,255,255,0.55); transition: color 0.2s; }
+    .footer-col ul a:hover { color: var(--white); }
+    .footer-bottom { padding: 24px 0; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .footer-bottom span { font-size: 12px; color: var(--white-muted); }
+    .footer-bottom a { font-size: 12px; color: rgba(255,255,255,0.35); transition: color 0.2s; }
+    .footer-bottom a:hover { color: var(--white); }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .intro-grid { grid-template-columns: 1fr; gap: 40px; }
+      .cards-grid { grid-template-columns: repeat(2, 1fr); }
+      .process-steps { grid-template-columns: repeat(3, 1fr); gap: 28px; }
+      .process-steps::before { display: none; }
+      .reasons-grid { grid-template-columns: 1fr 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .ref-card { flex-direction: column; text-align: center; padding: 48px 32px; }
+    }
+    @media (max-width: 768px) {
+      nav, .header-cta, .lang-switch { display: none; }
+      .hamburger { display: flex; }
+      .container { padding: 0 20px; }
+      .container-wide { padding: 0 20px; }
+      #sm-intro, #sm-groups, #sm-process, #sm-apply, #sm-why, #sm-cta { padding: 80px 0; }
+      .cards-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .reasons-grid { grid-template-columns: 1fr; }
+      .ref-card { padding: 36px 24px; }
+      .footer-top { grid-template-columns: 1fr; gap: 28px; }
+      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+      .cta-btns { flex-direction: column; align-items: center; }
+    }
+    @media (max-width: 480px) {
+      .hero-content h1 { font-size: 32px; }
+      .process-steps { grid-template-columns: 1fr; }
+      .hero-btns { flex-direction: column; align-items: center; }
+      .hero-btns .btn { width: 100%; justify-content: center; max-width: 280px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header id="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html#hero" class="logo" aria-label="Servoteh početna">
+          <img src="assets/logo-servoteh-wordmark.png" alt="SERVOTEH" loading="eager">
+        </a>
+        <nav aria-label="Glavna navigacija">
+          <a href="index.html#hero">Početna</a>
+          <a href="index.html#about">O nama</a>
+          <a href="index.html#solutions" class="nav-active">Rešenja</a>
+          <a href="index.html#industries">Industrije</a>
+          <a href="reference.html">Reference</a>
+          <a href="index.html#cta">Kontakt</a>
+        </nav>
+        <a href="index.html#cta" class="btn btn-primary header-cta">
+          Pošaljite upit <i class="arrow-icon">↗</i>
+        </a>
+        <div class="lang-switch">
+          <span class="lang-active">SR</span>
+          <span class="lang-sep">|</span>
+          <a href="en/specijalne-masine.html">EN</a>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Otvori meni" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE NAV -->
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobilna navigacija">
+    <a href="index.html#hero" onclick="closeMobileNav()">Početna</a>
+    <a href="index.html#about" onclick="closeMobileNav()">O nama</a>
+    <a href="index.html#solutions" class="nav-active" onclick="closeMobileNav()">Rešenja</a>
+    <a href="index.html#industries" onclick="closeMobileNav()">Industrije</a>
+    <a href="reference.html" onclick="closeMobileNav()">Reference</a>
+    <a href="index.html#cta" onclick="closeMobileNav()" class="btn btn-primary">Pošaljite upit ↗</a>
+    <div class="mobile-lang">
+      <span class="lang-active">SR</span>
+      <span class="lang-sep">|</span>
+      <a href="en/specijalne-masine.html" onclick="closeMobileNav()">EN</a>
+    </div>
+  </nav>
+
+  <!-- 1. HERO — DARK STATIC -->
+  <section id="sm-hero">
+    <div class="sm-hero-bg"></div>
+    <div class="hero-content">
+      <div class="sm-hero-eyebrow">SERVOTEH / Specijalne mašine</div>
+      <h1>Specijalne mašine razvijene<br><em>za konkretan proces</em></h1>
+      <p class="hero-lead">Kada standardna oprema ili postojeća rešenja ne ispunjavaju zahtev procesa, Servoteh razvija i prilagođava specijalne mašine prema radnom komadu, operaciji i uslovima rada — od projektovanja do puštanja u rad.</p>
+      <div class="hero-btns">
+        <a href="mailto:office@servoteh.com" class="btn btn-primary">Pošaljite upit <i class="arrow-icon">↗</i></a>
+        <a href="reference.html" class="btn btn-secondary">Pogledajte reference <i class="arrow-icon">↗</i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. UVODNI POZICIONI BLOK — LIGHT -->
+  <section id="sm-intro">
+    <div class="container">
+      <div class="intro-grid">
+        <div class="intro-text reveal">
+          <div class="section-label">Pristup</div>
+          <h2>Specijalna mašina za tačno određenu operaciju</h2>
+          <p>Specijalne mašine su namenska rešenja za konkretne operacije — od obrade i oblikovanja do testiranja i manipulacije. Razvijamo ih kada kataloška oprema, postojeći sistemi ili standardna konfiguracija ne ispunjavaju traženi tehnološki, kapacitivni ili prostorni zahtev.</p>
+        </div>
+        <div class="trust-list reveal reveal-delay-1">
+          <div class="trust-item">
+            <div class="trust-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <span>Standardna baza uz potrebna prilagođavanja</span>
+          </div>
+          <div class="trust-item">
+            <div class="trust-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+            </div>
+            <span>Mašinski, elektro i softverski razvoj u jednom timu</span>
+          </div>
+          <div class="trust-item">
+            <div class="trust-icon">
+              <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+            </div>
+            <span>Sopstvena proizvodnja i montaža</span>
+          </div>
+          <div class="trust-item">
+            <div class="trust-icon">
+              <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <span>Puštanje u rad i postprodajna podrška</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. GLAVNE GRUPE — DARK -->
+  <section id="sm-groups">
+    <div class="container-wide">
+      <div class="sm-groups-header reveal">
+        <div class="section-label section-label--center">Oblasti primene</div>
+        <h2>Šta obuhvataju specijalne mašine</h2>
+        <p>Svaka mašina razvija se za tačno određenu operaciju — prilagođena radnom komadu, taktu, prostoru i zahtevanom kvalitetu.</p>
+      </div>
+      <div class="cards-grid">
+        <div class="sm-card reveal"><div class="sm-card-num">01</div><h3>Mašine za obradu i oblikovanje</h3><p>Namenska rešenja za sečenje, bušenje, oblikovanje, izvlačenje, presovanje i druge specifične tehnološke operacije.</p></div>
+        <div class="sm-card reveal reveal-delay-1"><div class="sm-card-num">02</div><h3>Mašine za sklapanje i montažu</h3><p>Stanice i mašine za pozicioniranje, sastavljanje, spajanje i druge operacije montaže.</p></div>
+        <div class="sm-card reveal reveal-delay-2"><div class="sm-card-num">03</div><h3>Mašine za testiranje i kontrolu</h3><p>Rešenja za ispitivanje, merenje, proveru funkcionalnosti i kontrolu kvaliteta delova i sklopova.</p></div>
+        <div class="sm-card reveal"><div class="sm-card-num">04</div><h3>Mašine za manipulaciju i transport</h3><p>Specijalni transfer sistemi, manipulatori, pozicioneri i uređaji za interno vođenje komada kroz proces.</p></div>
+        <div class="sm-card reveal reveal-delay-1"><div class="sm-card-num">05</div><h3>Rekonstrukcija i unapređenje postojeće opreme</h3><p>Modernizacija, retrofit i funkcionalna unapređenja postojećih mašina radi većeg kapaciteta, pouzdanosti i kvaliteta.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. PROCES — LIGHT -->
+  <section id="sm-process">
+    <div class="container">
+      <div class="process-header reveal">
+        <div class="section-label section-label--center">Proces</div>
+        <h2>Od tehnološkog zahteva do gotovog rešenja</h2>
+        <p>Svaka mašina nastaje iz konkretnog procesnog problema — analizom radnog komada, operacije, takta i prostornih ograničenja. Na osnovu toga se projektuje, proizvodi i integriše namensko rešenje.</p>
+      </div>
+      <div class="process-steps reveal">
+        <div class="step"><div class="step-num">1</div><div class="step-title">Analiza procesa i tehničkog zahteva</div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-title">Koncept i mašinsko projektovanje</div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-title">Proizvodnja, sklapanje i integracija</div></div>
+        <div class="step"><div class="step-num">4</div><div class="step-title">Upravljanje, testiranje i puštanje u rad</div></div>
+        <div class="step"><div class="step-num">5</div><div class="step-title">Postprodajna podrška i eventualna unapređenja</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. PRIMENA — DARK -->
+  <section id="sm-apply">
+    <div class="container-wide">
+      <div class="apply-header reveal">
+        <div class="section-label section-label--center">Industrije</div>
+        <h2>Primena u različitim industrijskim procesima</h2>
+        <p>Isti pristup primenjujemo u raznim oblastima — fokus je na konkretnoj operaciji, ne na industriji kao etiketi.</p>
+      </div>
+      <div class="tags-wrap reveal">
+        <div class="tag"><span class="tag-dot"></span>Industrija odbrane</div>
+        <div class="tag"><span class="tag-dot"></span>Automobilska industrija</div>
+        <div class="tag"><span class="tag-dot"></span>Vazduhoplovstvo</div>
+        <div class="tag"><span class="tag-dot"></span>Prehrambena industrija</div>
+        <div class="tag"><span class="tag-dot"></span>Pakovanje</div>
+        <div class="tag"><span class="tag-dot"></span>Metaloprerađivačka industrija</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. ZAŠTO SERVOTEH — LIGHT -->
+  <section id="sm-why">
+    <div class="container-wide">
+      <div class="why-header reveal">
+        <div class="section-label section-label--center">Prednosti</div>
+        <h2>Zašto Servoteh za specijalne mašine</h2>
+      </div>
+      <div class="reasons-grid">
+        <div class="reason-card reveal">
+          <div class="reason-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+          <h3>Integrisan razvoj</h3>
+          <p>Sve discipline razvoja objedinjene u jednom timu — brža i preciznija realizacija.</p>
+        </div>
+        <div class="reason-card reveal reveal-delay-1">
+          <div class="reason-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg></div>
+          <h3>Sopstveni kapaciteti realizacije</h3>
+          <p>Sopstveni kapaciteti za proizvodnju, montažu i završnu integraciju.</p>
+        </div>
+        <div class="reason-card reveal reveal-delay-2">
+          <div class="reason-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+          <h3>Podrška nakon isporuke</h3>
+          <p>Obuka, dijagnostika, rezervni delovi i tehnička podrška — u okviru iste odgovornosti.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. REFERENCE TEASER — LIGHT -->
+  <section id="sm-ref">
+    <div class="container">
+      <div class="ref-card reveal">
+        <div class="ref-card-text">
+          <div class="section-label">Reference</div>
+          <h2>Pogledajte kako pristupamo referentnim projektima</h2>
+          <p>Projekti u kojima je razvijana namenska oprema ili specijalna mašina za zahtevne proizvodne procese.</p>
+        </div>
+        <div class="ref-btn-wrap">
+          <a href="reference.html" class="btn btn-primary">Otvorite reference <i class="arrow-icon">↗</i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. CTA — DARK -->
+  <section id="sm-cta">
+    <div class="container reveal">
+      <div class="section-label section-label--center">Kontakt</div>
+      <h2>Imate operaciju koju standardna oprema ne rešava?</h2>
+      <p>Pošaljite nam osnovne informacije o procesu, radnom komadu i tehničkom zahtevu, a naš tim će proceniti da li je potrebno razviti namensku mašinu ili šire sistemsko rešenje.</p>
+      <div class="cta-btns">
+        <a href="mailto:office@servoteh.com" class="btn btn-primary">Pošaljite upit <i class="arrow-icon">↗</i></a>
+        <a href="tel:+381113141564" class="btn btn-secondary">+381 (11) 31-41-564</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo-footer">
+            <img src="assets/logo-servoteh-wordmark.png" alt="SERVOTEH">
+          </div>
+          <address>
+            Ugrinovačka 163<br>
+            11272 Dobanovci<br>
+            Beograd, Srbija
+          </address>
+          <a href="mailto:office@servoteh.com">office@servoteh.com</a>
+          <a href="tel:+381113141564">+381 (11) 31-41-564</a>
+          <div class="footer-socials">
+            <a href="https://www.linkedin.com/company/servoteh-d.o.o./about/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://www.instagram.com/servoteh" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://www.youtube.com/user/lediloo" target="_blank" rel="noopener">YouTube</a>
+          </div>
+          <div class="iso-badge">
+            <div class="iso-badge-icon">✓</div>
+            ISO 9001:2015
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Stranice</h5>
+          <ul>
+            <li><a href="index.html#hero">Početna</a></li>
+            <li><a href="index.html#about">O nama</a></li>
+            <li><a href="index.html#solutions">Rešenja</a></li>
+            <li><a href="index.html#industries">Industrije</a></li>
+            <li><a href="reference.html">Reference</a></li>
+            <li><a href="index.html#aftersales">Podrška nakon puštanja u rad</a></li>
+            <li><a href="index.html#cta">Kontakt</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Rešenja</h5>
+          <ul>
+            <li><a href="defence.html">Sistemi za industriju odbrane</a></li>
+            <li><a href="specijalne-masine.html">Specijalne mašine</a></li>
+            <li><a href="proizvodne-linije.html">Proizvodne linije</a></li>
+            <li><a href="industrijska-automatizacija.html">Industrijska automatizacija</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Društvene mreže</h5>
+          <ul>
+            <li><a href="https://www.linkedin.com/company/servoteh-d.o.o./about/" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://www.instagram.com/servoteh" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://www.youtube.com/user/lediloo" target="_blank" rel="noopener">YouTube</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 SERVOTEH d.o.o. Sva prava zadržana.</span>
+        <a href="https://servoteh.com" aria-label="Servoteh zvanična stranica">servoteh.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    function closeMobileNav() {
+      mobileNav.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
