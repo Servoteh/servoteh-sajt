@@ -29,3 +29,7 @@ next-env.d.ts
 .vscode/*
 !.vscode/extensions.json
 .idea
+
+# ulazni materijal za migraciju sadržaja (reference, ne deploy-uje se;
+# optimizovane verzije slika već žive u public/assets/defence-tech/)
+/servoteh_content_migration_pack/

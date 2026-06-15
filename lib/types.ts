@@ -181,3 +181,33 @@ export type DeepRefTeaser = { title: string; body: string };
 export type DeepCtaContent = { label: string; title: string; body: string };
 
 export type PageMeta = { title: string; description: string };
+
+/* ============================================================
+   TEHNIČKE KARTICE (dopuna sa starog sajta — mašine + specifikacije)
+   ============================================================ */
+
+/** Tehnička kartica: slika + naslov + opis + opcione specifikacije/caption. */
+export type TechCard = {
+  img: string;
+  alt: string;
+  title: string;
+  desc: string;
+  /** bullet-liste tehničkih vrednosti (sile, dimenzije, temperature…) */
+  specs?: string[];
+  /** opcioni potpis ispod slike */
+  caption?: string;
+};
+
+/** Sekcija tehničkih kartica unutar dubinske stranice. */
+export type TechSectionContent = {
+  id: string;
+  /** svetla ili tamna pozadina — za naizmeničan ritam sekcija */
+  tone: "light" | "dark";
+  label: string;
+  title: string;
+  intro?: string;
+  /** opciona uvodna (široka) slika iznad grida */
+  leadImg?: { src: string; alt: string };
+  cards: TechCard[];
+  cta?: NavItem;
+};

@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import type { ReactElement } from "react";
+import { Fragment, type ReactElement } from "react";
 import Link from "next/link";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/Reveal";
 import { HotspotImage } from "@/components/deep/HotspotImage";
+import { TechSection } from "@/components/deep/TechCards";
 import { site } from "@/content/sr/site";
 import * as c from "@/content/sr/defence";
 
@@ -195,41 +196,47 @@ export default function DefencePage() {
           </Container>
         </section>
 
-        {/* DETALJNI BLOKOVI */}
-        {c.detailBlocks.map((d) => (
-          <div className={`ds-detail-block ds-detail-block--${d.tone}`} key={d.label}>
-            <Container wide>
-              <div className={`ds-detail-inner${d.reverse ? " ds-detail-inner--reverse" : ""}`}>
-                <Reveal>
-                  {d.hotspots ? (
-                    <HotspotImage src={d.img} alt={d.alt} hotspots={c.program1Hotspots} />
-                  ) : (
-                    <div className={`ds-media-placeholder ds-media-placeholder--${d.tone}`}>
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={d.img} alt={d.alt} className="ds-media-img" loading="lazy" />
-                    </div>
-                  )}
-                </Reveal>
-                <Reveal delay={0.1} className={`ds-detail-text ds-detail-text--${d.tone === "dark" ? "dark" : "light"}`}>
-                  <div className="section-label">{d.label}</div>
-                  <h2>{d.title}</h2>
-                  <p>{d.body}</p>
-                  <ul className="ds-detail-bullets">
-                    {d.bullets.map((b) => (
-                      <li key={b}>{b}</li>
-                    ))}
-                  </ul>
-                  <a
-                    href="mailto:office@servoteh.com"
-                    className={`${d.ctaGhostLight ? "btn-ghost-light" : "btn btn-ghost"} btn-sm`}
-                  >
-                    Pošaljite upit <i className="arrow-icon">↗</i>
-                  </a>
-                </Reveal>
+        {/* DETALJNI BLOKOVI + tehničke sekcije (umetnute po programu) */}
+        {c.detailBlocks.map((d, i) => {
+          const tech = [c.tech01, c.tech02, c.tech03][i];
+          return (
+            <Fragment key={d.label}>
+              <div className={`ds-detail-block ds-detail-block--${d.tone}`}>
+                <Container wide>
+                  <div className={`ds-detail-inner${d.reverse ? " ds-detail-inner--reverse" : ""}`}>
+                    <Reveal>
+                      {d.hotspots ? (
+                        <HotspotImage src={d.img} alt={d.alt} hotspots={c.program1Hotspots} />
+                      ) : (
+                        <div className={`ds-media-placeholder ds-media-placeholder--${d.tone}`}>
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img src={d.img} alt={d.alt} className="ds-media-img" loading="lazy" />
+                        </div>
+                      )}
+                    </Reveal>
+                    <Reveal delay={0.1} className={`ds-detail-text ds-detail-text--${d.tone === "dark" ? "dark" : "light"}`}>
+                      <div className="section-label">{d.label}</div>
+                      <h2>{d.title}</h2>
+                      <p>{d.body}</p>
+                      <ul className="ds-detail-bullets">
+                        {d.bullets.map((b) => (
+                          <li key={b}>{b}</li>
+                        ))}
+                      </ul>
+                      <a
+                        href="mailto:office@servoteh.com"
+                        className={`${d.ctaGhostLight ? "btn-ghost-light" : "btn btn-ghost"} btn-sm`}
+                      >
+                        Pošaljite upit <i className="arrow-icon">↗</i>
+                      </a>
+                    </Reveal>
+                  </div>
+                </Container>
               </div>
-            </Container>
-          </div>
-        ))}
+              {tech && <TechSection content={tech} />}
+            </Fragment>
+          );
+        })}
 
         {/* ZAHTEVI */}
         <section id="ds-requirements">

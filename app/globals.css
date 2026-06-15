@@ -2749,3 +2749,104 @@ a.industry-card {
   .ref-step { border-right: none; border-bottom: 1px solid var(--border); }
   .ref-step:last-child { border-bottom: none; }
 }
+
+/* ============================================================
+   TEHNIČKE SEKCIJE (dopuna) — slika + specifikacije kartice
+   Prati postojeće obrasce (sm-card / ds-detail-block) i tone sistem.
+   ============================================================ */
+.tech-section { padding: 100px 0; }
+.tech-section--dark { background: var(--bg-section); color: var(--white); }
+.tech-section--light { background: var(--light-bg-1); color: var(--light-text); }
+
+.tech-header { text-align: center; max-width: 720px; margin: 0 auto 48px; }
+.tech-header h2 {
+  font-size: clamp(26px, 3.4vw, 38px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+.tech-header p { font-size: 16px; line-height: 1.75; margin-top: 16px; }
+.tech-section--dark .tech-header p { color: var(--text-body); }
+.tech-section--light .tech-header h2 { color: var(--light-text); }
+.tech-section--light .tech-header p { color: var(--light-text-muted); }
+
+.tech-lead-img {
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin: 0 auto 48px;
+  max-width: 1100px;
+  border: 1px solid var(--border);
+}
+.tech-section--light .tech-lead-img { border-color: var(--light-border); }
+.tech-lead-img img { display: block; width: 100%; height: auto; }
+
+.tech-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+.tech-card {
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+.tech-section--dark .tech-card { background: var(--bg-card); border: 1px solid var(--border); }
+.tech-section--light .tech-card { background: var(--light-card); border: 1px solid var(--light-border); }
+.tech-section--dark .tech-card:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(232, 64, 28, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+}
+.tech-section--light .tech-card:hover {
+  background: var(--light-card-hover);
+  border-color: var(--light-border-strong);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+}
+
+.tech-card-media { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: var(--bg-dark); }
+.tech-card-media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+.tech-card:hover .tech-card-media img { transform: scale(1.04); }
+.tech-card-caption {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  backdrop-filter: blur(4px);
+}
+
+.tech-card-body { padding: 24px 22px; display: flex; flex-direction: column; gap: 10px; }
+.tech-card-body h3 { font-size: 17px; font-weight: 700; line-height: 1.3; }
+.tech-section--light .tech-card-body h3 { color: var(--light-text); }
+.tech-card-body p { font-size: 14px; line-height: 1.65; }
+.tech-section--dark .tech-card-body p { color: var(--text-body); }
+.tech-section--light .tech-card-body p { color: var(--light-text-muted); }
+
+.tech-card-specs { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-direction: column; gap: 7px; }
+.tech-card-specs li { position: relative; padding-left: 16px; font-size: 13px; line-height: 1.5; }
+.tech-card-specs li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.tech-section--dark .tech-card-specs li { color: var(--white-dim); }
+.tech-section--light .tech-card-specs li { color: var(--light-text-muted); }
+
+.tech-cta { text-align: center; margin-top: 48px; }
+
+@media (max-width: 1024px) {
+  .tech-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .tech-section { padding: 72px 0; }
+  .tech-grid { grid-template-columns: 1fr; }
+}

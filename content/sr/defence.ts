@@ -1,4 +1,4 @@
-import type { PageMeta } from "@/lib/types";
+import type { PageMeta, TechSectionContent } from "@/lib/types";
 import type { Hotspot } from "@/components/deep/HotspotImage";
 
 export const meta: PageMeta = {
@@ -48,7 +48,7 @@ export const programs = [
       "Automatska linija za kovanje",
       "Presa 1000t za predubadanje i ubadanje",
       "Presa 350t za izvlačenje",
-      "Presa 400t za završno sužavanje",
+      "Presa 630t za završno sužavanje",
       "Oprema za hidrostatičko ispitivanje",
       "Termička obrada i kontrola tvrdoće",
     ],
@@ -193,4 +193,311 @@ export const refLink = {
 export const cta = {
   title: "Razgovarajmo o vašem tehničkom zahtevu",
   body: "Pošaljite nam osnovne informacije o procesu, proizvodnoj potrebi ili sistemu koji treba razviti, a naš tim će proceniti sledeće korake.",
+};
+
+/* ============================================================
+   TEHNIČKE SEKCIJE (dopuna sa starog sajta) — umeću se po programu
+   ============================================================ */
+
+// Program 01 — tela artiljerijskih projektila (posle detaljnog bloka P1).
+// NAPOMENA: presa za završno sužavanje vodi se kao 630t; brojčane sile (kN)
+// su namerno izostavljene jer odgovaraju ~400t klasi (interna provera u toku).
+export const tech01: TechSectionContent = {
+  id: "tehnicka-resenja-projektili",
+  tone: "light",
+  label: "Program 01 — tehnička rešenja",
+  title: "Tehnička rešenja za tela artiljerijskih projektila",
+  intro:
+    "Kompletan proizvodni tok za tela artiljerijskih projektila do 155 mm — od pripreme i indukcionog zagrevanja, preko kovanja, dubokog izvlačenja i završnog sužavanja, do termičke obrade, hidrostatičkog ispitivanja i kontrole tvrdoće. Sistem se projektuje kao celina, sa robotizovanom manipulacijom između ključnih operacija i integrisanim upravljanjem.",
+  leadImg: {
+    src: "/assets/defence-tech/artillery-thermal-or-process-line.webp",
+    alt: "Procesna oprema u proizvodnom toku tela artiljerijskih projektila",
+  },
+  cards: [
+    {
+      img: "/assets/defence-tech/artillery-hydraulic-forging-press-1000t.webp",
+      alt: "Hidraulična presa 1000 t za predubadanje i ubadanje tela projektila",
+      title: "Hidraulična presa 1000 t za predubadanje i ubadanje",
+      desc: "Presa za operacije toplog oblikovanja, namenjena predubadanju i ubadanju tela projektila u okviru automatske linije.",
+      specs: [
+        "Maksimalna sila kovanja: 10.000 kN",
+        "Povratna sila: 600 kN",
+        "Radni hod klizača: 1.200 mm",
+        "Radni sto: 1.500 × 1.350 mm",
+        "Sila izbacivača: 1.000 kN / hod 500 mm",
+        "Nominalna snaga: ~500 kW",
+      ],
+    },
+    {
+      img: "/assets/defence-tech/artillery-hydraulic-press-350t-deep-drawing.webp",
+      alt: "Hidraulična presa 350 t za duboko izvlačenje u automatskoj liniji",
+      title: "Hidraulična presa 350 t za duboko izvlačenje",
+      desc: "Presa za toplo duboko izvlačenje, prilagođena stabilnom radu pod velikim opterećenjima i integraciji u automatizovane tokove.",
+      specs: [
+        "Maksimalna sila presovanja: 3.500 kN",
+        "Povratna sila: 920 kN",
+        "Hod prese: 4.000 mm",
+        "Sila pri maksimalnoj brzini izvlačenja: 1.670 kN",
+        "Hod prihvatnika komada: 500 mm",
+        "Svetli otvor: 4.540 × 1.910 mm",
+      ],
+    },
+    {
+      img: "/assets/defence-tech/artillery-hydraulic-press-400t-narrowing.webp",
+      alt: "Hidraulična presa za završno sužavanje tela projektila",
+      title: "Hidraulična presa 630 t za završno sužavanje",
+      desc: "Presa za završno sužavanje tela nakon predubadanja, ubadanja i izvlačenja. Konstruisana za širok raspon kovačkih zahteva, uz mogućnost dopune pomoćnom opremom prema konkretnom procesu.",
+      specs: [
+        "Radna površina: 1.000 × 1.000 mm",
+        "Hod klizača: 1.000 mm",
+        "Hod donjeg izbacivača: 500 mm",
+        "Hod gornjeg izbacivača: 150 mm",
+      ],
+    },
+    {
+      img: "/assets/defence-tech/artillery-hydrotesting-equipment.webp",
+      alt: "Oprema za hidrostatičko ispitivanje tela projektila pod visokim pritiskom",
+      title: "Oprema za hidrostatičko ispitivanje",
+      desc: "Sistem za proveru integriteta tela projektila pod visokim pritiskom, sa praćenjem deformacija i automatskim generisanjem izveštaja.",
+      specs: [
+        "Maksimalni ispitni pritisak: 1.200 bar",
+        "Maksimalni prečnik komada: 155 mm",
+        "Maksimalna masa komada: 80 kg",
+        "Merenje deformacije tokom ispitivanja",
+        "Izveštaj i grafikon pritisak–deformacija",
+        "Pneumatski manipulator za teške komade",
+      ],
+    },
+    {
+      img: "/assets/defence-tech/artillery-heat-treatment-line.webp",
+      alt: "Linija za termičku obradu, kaljenje, popuštanje i pranje komada",
+      title: "Linija za termičku obradu",
+      desc: "Linija pokriva normalizaciju, kaljenje i popuštanje, sa pratećim stanicama za pranje, hlađenje, manipulaciju i transport — projektovana za ponovljiv kvalitet u serijskoj proizvodnji.",
+      specs: [
+        "Peć za kaljenje sa zaštitnom atmosferom",
+        "Peć za popuštanje",
+        "Mašina za pranje",
+        "Vodeno kupatilo za kaljenje",
+        "Automatska transportna kolica",
+        "Valjkasti transporteri, liftovi i elevatori",
+      ],
+    },
+    {
+      img: "/assets/defence-tech/artillery-sealed-quench-furnace.webp",
+      alt: "Peć za kaljenje sa zaštitnom atmosferom i uljnim kupatilom",
+      title: "Peć za kaljenje sa zaštitnom atmosferom",
+      desc: "Peć sa uljnim kupatilom i azotnom zaštitnom atmosferom, sa električnim grejanjem preko zračećih cevi.",
+      specs: [
+        "Korisni prostor: 1.100 × 700 × 800 mm",
+        "Neto masa šarže: 650 kg",
+        "Radna temperatura: 950 °C",
+        "Zaštitna atmosfera: azot",
+        "Grejanje peći: 12 × 12,5 kW",
+        "Zapremina uljnog kupatila: ~8.000 l",
+      ],
+    },
+    {
+      img: "/assets/defence-tech/artillery-tempering-furnace.webp",
+      alt: "Peć za popuštanje u liniji termičke obrade",
+      title: "Peć za popuštanje",
+      desc: "Električna peć za popuštanje sa azotnom zaštitnom atmosferom, usklađena sa kapacitetom linije termičke obrade.",
+      specs: [
+        "Korisni prostor: 1.100 × 700 × 800 mm",
+        "Neto masa šarže: 650 kg",
+        "Radna temperatura: 750 °C",
+        "Zaštitna atmosfera: azot",
+        "Instalirana snaga: 18 × 4,5 kW",
+      ],
+    },
+    {
+      img: "/assets/defence-tech/artillery-washing-machine.webp",
+      alt: "Mašina za pranje komada u okviru linije termičke obrade",
+      title: "Mašina za pranje",
+      desc: "Stanica za pranje komada između operacija termičke obrade, sa električnim grejanjem vodenog kupatila.",
+      specs: [
+        "Korisni prostor: 1.100 × 700 × 800 mm",
+        "Neto masa šarže: 650 kg",
+        "Radna temperatura: 60–80 °C",
+        "Zapremina vodenog kupatila: ~5.000 l",
+      ],
+    },
+    {
+      img: "/assets/defence-tech/artillery-water-quenching-bath.webp",
+      alt: "Vodeno kupatilo za kaljenje sa konstrukcijom od nerđajućeg čelika",
+      title: "Vodeno kupatilo za kaljenje",
+      desc: "Kupatilo za vodeno kaljenje sa konstrukcijom od nerđajućeg čelika, usklađeno sa dimenzijama šarže linije.",
+      specs: [
+        "Korisni prostor: 1.100 × 700 × 800 mm",
+        "Neto masa šarže: 650 kg",
+        "Zapremina kupatila: ~8.000 l",
+        "Materijal: nerđajući čelik",
+      ],
+    },
+    {
+      img: "/assets/defence-tech/artillery-automatic-transport-trolley.webp",
+      alt: "Automatska transportna kolica, transporteri i sistemi za manipulaciju komadima",
+      title: "Transportni i manipulacioni sistemi",
+      desc: "Automatska transportna kolica, valjkasti transporteri, liftovi i elevatori sinhronizuju kretanje komada kroz liniju, smanjuju ručno rukovanje i povećavaju bezbednost rada.",
+    },
+    {
+      img: "/assets/defence-tech/artillery-hardness-testing-equipment.webp",
+      alt: "Automatska mašina za kontrolu tvrdoće tela projektila",
+      title: "Oprema za kontrolu tvrdoće",
+      desc: "Automatska mašina za završnu proveru tela projektila, sa automatskim podešavanjem prema kalibru i generisanjem izveštaja.",
+      specs: [
+        "Opseg kalibara: 80–155 mm",
+        "Kapacitet: 80–120 kom/h",
+        "Maksimalna masa komada: 80 kg",
+        "Glodajuća jedinica za pripremu površine",
+        "Ultrazvučna jedinica za ispitivanje tvrdoće",
+        "Označavanje OK/NOK i automatski izveštaj",
+      ],
+    },
+    {
+      img: "/assets/defence-tech/artillery-rotating-band-crimping-press.webp",
+      alt: "Hidraulična presa za utiskivanje vodećeg prstena na telo projektila",
+      title: "Presa za utiskivanje vodećeg prstena",
+      desc: "Specijalizovana hidraulična presa za utiskivanje bakarnih ili mesinganih vodećih prstenova. Za veće kalibre dopunjava se električnom dizalicom ili robotskim rukovanjem.",
+      specs: [
+        "Broj hidrauličnih cilindara: 6–12",
+        "Maksimalna sila utiskivanja: 6 MN",
+        "Opciona integracija dizalice ili robota za veće kalibre",
+      ],
+    },
+  ],
+  cta: { label: "Pošaljite tehnički zahtev", href: "mailto:office@servoteh.com" },
+};
+
+// Program 02 — municija i komponente (posle detaljnog bloka P2).
+export const tech02: TechSectionContent = {
+  id: "tehnicka-resenja-municija",
+  tone: "dark",
+  label: "Program 02 — tehnička rešenja",
+  title: "Linije i specijalne mašine za municiju i komponente",
+  intro:
+    "Namenske proizvodne linije i specijalne mašine za proizvodnju municije i njenih komponenti za različite kalibre. Rešenja se projektuju prema kapacitetu, tipu komponente, nivou automatizacije i zahtevima kontrole kvaliteta, sa transferom između stanica i bezbednosnom logikom za serijski rad.",
+  leadImg: {
+    src: "/assets/defence-tech/ammunition-production-line-overview.webp",
+    alt: "Pregled linije za proizvodnju municije i komponenti",
+  },
+  cards: [
+    {
+      img: "/assets/defence-tech/ammunition-servo-transfer-press.webp",
+      alt: "Servo Transfer presa za automatizovanu proizvodnju komponenti municije",
+      title: "Servo Transfer presa",
+      desc: "Vertikalna presa za sklapanje komponenti zrna sa servo pogonjenim transfer mehanizmima. Senzorska kontrola u svakoj fazi prekida proces pri odstupanju i štiti operatera, alat i komad.",
+      specs: [
+        "Brzina proizvodnje: do 180 delova/min",
+        "Potrošnja energije: ~40 kW",
+        "Servo transfer za precizno pomeranje",
+        "Integrisana kontrola položaja i kvaliteta",
+        "Brzo prilagođavanje kalibrima i alatima",
+      ],
+    },
+    {
+      img: "/assets/defence-tech/ammunition-hydraulic-deep-drawing-press.webp",
+      alt: "Hidraulična presa za duboko izvlačenje komponenti municije",
+      title: "Hidraulična presa za duboko izvlačenje",
+      desc: "Prese za duboko izvlačenje za integraciju u automatske i poluautomatske linije — za precizno formiranje složenih delova i stabilan rad pod velikim opterećenjima.",
+      specs: [
+        "Integracija u automatske i poluautomatske linije",
+        "Precizno formiranje kompleksnih delova",
+        "Stabilan rad pri velikim opterećenjima",
+        "Prilagođavanje različitim konfiguracijama alata",
+      ],
+    },
+    {
+      img: "/assets/defence-tech/ammunition-pyrotechnic-retarders-line.webp",
+      alt: "Mašina za proizvodnju pirotehničkih usporivača sa linearnim transfer sistemom",
+      title: "Mašine za pirotehničke usporivače",
+      desc: "Linije sa linearnim transfer sistemom za brz, ponovljiv i kontrolisan ciklus, sa posebnom pažnjom na tačnost doziranja, bezbednost i stabilnost procesa.",
+      specs: [
+        "Takt ciklusa: 0,8–1,0 s",
+        "Tačnost doziranja: 0,03–0,1 g po ciklusu",
+        "Maksimalna brzina formiranja: 5 mm/s",
+        "Pritisak presovanja: do 2.500 bar",
+        "Linearni transfer + bezbednosna logika",
+      ],
+    },
+  ],
+  cta: { label: "Pošaljite tehnički zahtev", href: "mailto:office@servoteh.com" },
+};
+
+// Program 03 — platforme i namenska rešenja (posle detaljnog bloka P3).
+export const tech03: TechSectionContent = {
+  id: "tehnicka-resenja-platforme",
+  tone: "light",
+  label: "Program 03 — tehnička rešenja",
+  title: "Namenska odbrambena rešenja i podsistemi",
+  intro:
+    "Pored proizvodnih linija, Servoteh razvija specijalne mašine, podsisteme i automatizovana rešenja za specifične zahteve industrije odbrane — tamo gde standardna oprema ne može da ispuni traženi tehnološki, kapacitivni ili prostorni zahtev. Razvoj obuhvata mašinsko projektovanje, hidrauliku, elektro upravljanje, softver, proizvodnju, montažu i integraciju.",
+  cards: [
+    {
+      img: "/assets/defence-tech/development-tank-barrel-sleeve-press.webp",
+      alt: "Horizontalna hidraulična presa za navlačenje ojačavajuće čaure na tenkovsku cev",
+      title: "Presa za navlačenje ojačavajuće čaure na tenkovsku cev",
+      desc: "Specijalna horizontalna hidraulična presa za navlačenje ojačavajuće čaure na prednji deo tenkovske cevi kalibra 125 mm, sa kontrolisanom silom presovanja radi preciznog spoja i veće strukturne čvrstoće.",
+      specs: [
+        "Horizontalna hidraulična konstrukcija",
+        "Kalibar primene: 125 mm",
+        "Sila presovanja: 600 t",
+        "Interferentni spoj: 0,5 mm",
+      ],
+    },
+    {
+      img: "/assets/defence-tech/development-vertical-flow-forming-machine.webp",
+      alt: "Vertikalna mašina za flow forming šupljih rotacionih delova",
+      title: "Vertikalna mašina za flow forming",
+      desc: "Flow forming je napredna tehnologija oblikovanja šupljih rotacionih delova — daje bešavnu konstrukciju visoke čvrstoće, dobru otpornost na udar, precizne profile i nižu masu gotovog dela.",
+      specs: [
+        "Bešavna konstrukcija visoke čvrstoće",
+        "Velika otpornost na udar i nosivost",
+        "Precizni profili",
+        "Niža masa i niži troškovi proizvodnje",
+      ],
+    },
+    {
+      img: "/assets/defence-tech/development-horizontal-flow-forming-machine.webp",
+      alt: "Horizontalna mašina za flow forming šupljih rotacionih delova",
+      title: "Horizontalna mašina za flow forming",
+      desc: "Isti tehnološki princip u horizontalnoj konfiguraciji, pogodnoj za određene geometrije i zahteve manipulacije. Sistem se projektuje prema dimenziji komada, profilu i proizvodnom taktu.",
+      specs: [
+        "Bešavna konstrukcija visoke čvrstoće",
+        "Otpornost na udar i opterećenje",
+        "Precizno formiranje profila",
+        "Prilagođavanje procesu kupca",
+      ],
+    },
+    {
+      img: "/assets/defence-tech/development-universal-aircraft-modular-practice-bomb.webp",
+      alt: "Univerzalna avionska modularna školska bomba za obuku pilota",
+      title: "Univerzalne avionske modularne školske bombe",
+      desc: "Modularna školska bomba namenjena obuci pilota, razvijena za jednostavnu adaptaciju i integraciju na različite tipove vazduhoplova. Performanse potvrđivane kroz integraciju sa avionima Orao, Super Galeb i MiG-21 BIS.",
+    },
+    {
+      img: "/assets/defence-tech/development-ballistic-plates-plant.webp",
+      alt: "Pogon za proizvodnju balističkih ploča sa hidrauličnim presama i SCADA upravljanjem",
+      title: "Pogon za proizvodnju balističkih ploča",
+      desc: "Kompletan pogon sa hidrauličnim presama, termo-tehničkom instalacijom, regulacijom temperature i SCADA upravljanjem.",
+      specs: [
+        "Tri hidraulične prese: 2 × 400 t + 600 t",
+        "Četvorosekcioni alati temperirani termalnim uljem",
+        "Sistem za grejanje i hlađenje",
+        "Regulacija temperature + SCADA nadzor",
+      ],
+    },
+    {
+      img: "/assets/defence-tech/defence-automatic-loader-test-bench.webp",
+      alt: "Automatski punjač i kasetni podsistem na testnom postolju",
+      title: "Automatski punjači i kasetni podsistemi",
+      desc: "Automatski punjači i podsistemi za savremene samohodne artiljerijske platforme — za brže punjenje, veću pouzdanost i smanjenje opterećenja posade.",
+      specs: [
+        "Punjači za samohodne sisteme nove generacije",
+        "Rešenja za 155 mm platforme",
+        "Kasete i podsistemi za rukovanje municijom",
+        "Integracija mehanike, hidraulike i bezbednosne logike",
+      ],
+    },
+  ],
+  cta: { label: "Pošaljite tehnički zahtev", href: "mailto:office@servoteh.com" },
 };
