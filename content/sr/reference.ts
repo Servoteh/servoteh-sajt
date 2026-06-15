@@ -52,7 +52,7 @@ export const categories = [
 export const casesHeader = {
   label: "Primeri realizacije",
   title: "Izdvojeni projekti",
-  body: "Primeri projekata koji ilustruju inženjerski pristup i opseg realizacije — bez izmišljenih naziva klijenata.",
+  body: "Primeri projekata koji ilustruju inženjerski pristup i opseg realizacije. Zbog poverljivosti pojedinih projekata, prikazujemo ih kroz tip rešenja i tehnološki opseg, a ne kroz nazive naručilaca.",
 };
 
 export const cases = [
@@ -82,6 +82,42 @@ export const cases = [
       { label: "Ključ u ruke", neutral: true }, { label: "Postprodajna podrška", neutral: true },
     ],
     meta: "Podrška: servisni ugovor, rezervni delovi i softverska ažuriranja",
+  },
+  {
+    num: "04", title: "Sistem za tela artiljerijskih projektila",
+    desc: "Kompletan proizvodni tok za tela projektila do 155 mm — od indukcionog zagrevanja, kovanja i izvlačenja, preko završnog sužavanja, do termičke obrade, hidrostatičkog ispitivanja i kontrole tvrdoće, sa robotizovanom manipulacijom između operacija.",
+    tags: [
+      { label: "Industrija odbrane" }, { label: "Proizvodni sistem" },
+      { label: "Termička obrada", neutral: true }, { label: "Kontrola kvaliteta", neutral: true },
+    ],
+    meta: "Obim: kompletan tehnološki tok — od pripreme materijala do završne kontrole",
+  },
+  {
+    num: "05", title: "Mašine za flow forming",
+    desc: "Vertikalne i horizontalne mašine za flow forming šupljih rotacionih delova — tehnologija koja daje bešavnu konstrukciju visoke čvrstoće, precizne profile i nižu masu gotovog dela.",
+    tags: [
+      { label: "Specijalne mašine" }, { label: "Flow forming" },
+      { label: "Oblikovanje metala", neutral: true },
+    ],
+    meta: "Tip: napredno oblikovanje šupljih rotacionih delova",
+  },
+  {
+    num: "06", title: "Pogon za balističku zaštitu",
+    desc: "Kompletan pogon za proizvodnju balističkih ploča sa hidrauličnim presama, termo-tehničkom instalacijom, regulacijom temperature i SCADA nadzorom procesa.",
+    tags: [
+      { label: "Industrija odbrane" }, { label: "Hidraulične prese" },
+      { label: "SCADA nadzor", neutral: true }, { label: "Termo-tehnika", neutral: true },
+    ],
+    meta: "Obim: prese, termo-tehnička instalacija i upravljanje sa SCADA nadzorom",
+  },
+  {
+    num: "07", title: "Automatski punjači i podsistemi",
+    desc: "Automatski punjači i kasetni podsistemi za savremene samohodne artiljerijske platforme — projektovani za brže punjenje, veću pouzdanost i smanjenje opterećenja posade, uz prilagođavanje arhitekturi konkretne platforme.",
+    tags: [
+      { label: "Industrija odbrane" }, { label: "155 mm platforme" },
+      { label: "Mehanika + hidraulika", neutral: true }, { label: "Bezbednosna logika", neutral: true },
+    ],
+    meta: "Tip: podsistemi za rukovanje municijom i automatsko punjenje",
   },
 ];
 

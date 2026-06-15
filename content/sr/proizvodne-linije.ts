@@ -1,6 +1,7 @@
 import type {
   PageMeta, DeepHeroContent, DeepHeaderContent, DeepTrustItem,
   DeepNumberedCard, DeepIconCard, DeepBlock, DeepRefTeaser, DeepCtaContent,
+  TechSectionContent,
 } from "@/lib/types";
 
 export const meta: PageMeta = {
@@ -103,4 +104,42 @@ export const cta: DeepCtaContent = {
   label: "Kontakt",
   title: "Razgovarajmo o vašoj proizvodnoj liniji",
   body: "Pošaljite nam osnovne informacije o procesu, proizvodu, kapacitetu i tehničkom zahtevu, a naš tim će proceniti naredne korake za razvoj linije prilagođene vašem sistemu.",
+};
+
+// Primeri realizovanih proizvodnih linija (dopuna — slike iz defence-tech).
+// Detaljan tehnološki tok prikazan je na /defence.
+export const examples: TechSectionContent = {
+  id: "pl-primeri",
+  tone: "light",
+  label: "Realizovani sistemi",
+  title: "Primeri proizvodnih linija koje razvijamo",
+  intro:
+    "Kompletni proizvodni tokovi koje smo razvili i integrisali — najvećim delom za industriju odbrane. Svaka linija povezuje presne operacije, termičku obradu, ispitivanje, transfer i upravljanje u jedinstven sistem.",
+  cards: [
+    {
+      img: "/assets/defence-tech/artillery-full-line-render.webp",
+      alt: "Kompletan proizvodni tok za tela artiljerijskih projektila do 155 mm",
+      title: "Tela artiljerijskih projektila do 155 mm",
+      desc: "Kompletan tok — od indukcionog zagrevanja, kovanja, izvlačenja i završnog sužavanja, do termičke obrade, hidrostatičkog ispitivanja i kontrole tvrdoće, sa robotizovanom manipulacijom između operacija.",
+    },
+    {
+      img: "/assets/defence-tech/ammunition-production-line-overview.webp",
+      alt: "Linije za proizvodnju municije i komponenti",
+      title: "Linije za municiju i komponente",
+      desc: "Modularne linije i specijalne mašine za proizvodnju komponenti municije za različite kalibre, sa transfer sistemima, presnim operacijama i integrisanom kontrolom kvaliteta.",
+    },
+    {
+      img: "/assets/defence-tech/artillery-heat-treatment-line.webp",
+      alt: "Linija za termičku obradu, ispitivanje i kontrolu kvaliteta",
+      title: "Termička obrada, ispitivanje i kontrola",
+      desc: "Linije za normalizaciju, kaljenje i popuštanje sa stanicama za pranje i hlađenje, hidrostatičkim ispitivanjem i automatizovanom kontrolom tvrdoće.",
+    },
+    {
+      img: "/assets/defence-tech/artillery-automatic-transport-trolley.webp",
+      alt: "Transfer sistemi, manipulatori i robotizovano rukovanje",
+      title: "Transfer i robotizovano rukovanje",
+      desc: "Automatska transportna kolica, valjkasti transporteri, liftovi i industrijski roboti sinhronizuju kretanje komada kroz liniju i smanjuju ručno rukovanje.",
+    },
+  ],
+  cta: { label: "Pogledajte sisteme za industriju odbrane", href: "/defence" },
 };

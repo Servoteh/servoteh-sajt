@@ -14,6 +14,7 @@ import {
   RefTeaser,
   DeepCta,
 } from "@/components/deep/DeepSections";
+import { TechSection } from "@/components/deep/TechCards";
 import { site } from "@/content/sr/site";
 import * as c from "@/content/sr/proizvodne-linije";
 
@@ -52,6 +53,8 @@ export default function ProizvodneLinijePage() {
           <DeepHeader content={c.reqsHeader} />
           <Requirements cards={c.reqs} />
         </DeepSection>
+
+        <TechSection content={c.examples} />
 
         <DeepSection id="pl-why-section" tone="light-1" wide>
           <DeepHeader content={c.whyHeader} onLight />

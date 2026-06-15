@@ -171,7 +171,7 @@ export const process = {
     { num: "01", title: "Analiza zahteva i koncept", desc: "Detaljna analiza tehničkog zadatka, procesa i radnog okruženja. Definisanje konceptnog rešenja u saradnji sa kupcem." },
     { num: "02", title: "Razvoj i mašinsko projektovanje", desc: "Mašinski, elektro i softverski razvoj objedinjeni u jednom timu — 3D konstrukcija, električna šema i upravljački softver razvijaju se paralelno." },
     { num: "03", title: "Proizvodnja i integracija", desc: "Realizacija kroz sopstvene kapacitete u Dobanovcima — mašinska obrada, sklapanje, elektro integracija i kontrola kvaliteta u svakom koraku." },
-    { num: "04", title: "Puštanje u rad i podrška", desc: "Instalacija, puštanje u rad, obuka osoblja i dugoročna tehnička podrška tokom celog veka eksploatacije sistema." },
+    { num: "04", title: "Puštanje u rad i postprodajna podrška", desc: "Puštanje sistema u rad kod kupca, obuka tehničkog osoblja, dijagnostika, rezervni delovi i unapređenja tokom eksploatacije." },
   ],
 };
 

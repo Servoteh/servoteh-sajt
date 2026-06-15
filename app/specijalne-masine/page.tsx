@@ -13,6 +13,7 @@ import {
   RefTeaser,
   DeepCta,
 } from "@/components/deep/DeepSections";
+import { TechSection } from "@/components/deep/TechCards";
 import { site } from "@/content/sr/site";
 import * as c from "@/content/sr/specijalne-masine";
 
@@ -46,6 +47,8 @@ export default function SpecijalneMasinePage() {
           <DeepHeader content={c.applyHeader} />
           <Tags tags={c.applyTags} />
         </DeepSection>
+
+        <TechSection content={c.techExamples} />
 
         <DeepSection id="sm-why" tone="light-1" wide>
           <DeepHeader content={c.whyHeader} onLight />

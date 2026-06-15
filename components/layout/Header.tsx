@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { LangSwitch } from "./LangSwitch";
+// LangSwitch je privremeno uklonjen iz prikaza (EN faza) — import će se vratiti sa njim.
 import type { SiteContent } from "@/lib/types";
 
 export function Header({ site }: { site: SiteContent }) {
@@ -43,7 +43,9 @@ export function Header({ site }: { site: SiteContent }) {
               ))}
             </nav>
 
-            <LangSwitch current={site.langSwitch.current} otherHref={site.langSwitch.otherHref} />
+            {/* EN prebacivač sakriven do Faze 4 (EN rute još ne postoje → /en baca 404).
+                Vraća se uklanjanjem ovog komentara kad EN verzija bude gotova. */}
+            {/* <LangSwitch current={site.langSwitch.current} otherHref={site.langSwitch.otherHref} /> */}
 
             <Link href={site.ctaPrimary.href} className="btn btn-primary header-cta">
               {site.ctaPrimary.label} <i className="arrow-icon">↗</i>
@@ -71,11 +73,12 @@ export function Header({ site }: { site: SiteContent }) {
               {item.label}
             </Link>
           ))}
-        <LangSwitch
+        {/* EN prebacivač sakriven do Faze 4 (vidi napomenu iznad). */}
+        {/* <LangSwitch
           current={site.langSwitch.current}
           otherHref={site.langSwitch.otherHref}
           className="mobile-lang-mt"
-        />
+        /> */}
         <Link href={site.ctaPrimary.href} onClick={close} className="btn btn-primary">
           {site.ctaPrimary.label} ↗
         </Link>
