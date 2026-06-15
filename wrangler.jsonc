@@ -1,0 +1,16 @@
+{
+  // Statički sajt na Cloudflare Workers (Static Assets).
+  // Bez "main" polja → čist statički Worker: Cloudflare samo servira foldere
+  // iz /out i NE pokreće OpenNext adapter (koji važi samo za server-side Next.js).
+  // Build: `npm run build` (Next.js `output: "export"`) generiše /out.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "servoteh-sajt",
+  "compatibility_date": "2026-06-15",
+  "assets": {
+    "directory": "./out",
+    // /defence/ → /defence/index.html (naš trailingSlash export)
+    "html_handling": "auto-trailing-slash",
+    // nepoznata putanja → naša 404 stranica
+    "not_found_handling": "404-page"
+  }
+}

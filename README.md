@@ -39,19 +39,27 @@ git push -u origin main
 
 `node_modules/`, `.next/` i `out/` se ne komituju (vidi `.gitignore`).
 
-## Deploy na Cloudflare Pages
+## Deploy na Cloudflare (Workers Static Assets)
 
-1. Cloudflare dashboard → **Workers & Pages** → **Create** → **Pages** →
-   **Connect to Git** i izaberi repo.
+Sajt je statički, pa se servira kao **Workers Static Assets** (folder `out/`).
+Konfiguracija je u `wrangler.jsonc` (bez `main` polja → čist statički Worker, ne
+pokreće se OpenNext adapter koji važi samo za server-side Next.js).
+
+1. Cloudflare dashboard → **Workers & Pages** → **Create** → **Import a repository**
+   i izaberi repo.
 2. Build podešavanja:
-   - **Framework preset:** Next.js (Static HTML Export) — ili „None"
    - **Build command:** `npm run build`
-   - **Build output directory:** `out`
-   - **Node version:** 20 ili noviji (env var `NODE_VERSION=20`)
+   - **Deploy command:** `npx wrangler deploy` (čita `wrangler.jsonc`, kači `out/`)
+   - **Node version:** 20+ (env var `NODE_VERSION=20`); Cloudflare default 22 je ok
 3. Save and Deploy.
 
 Svaki `git push` na `main` automatski pokreće build i deploy. Grane dobijaju
 preview deployment.
+
+> **Napomena:** novi Cloudflare UI gura sve u „Workers". Bez `wrangler.jsonc`,
+> auto-detekcija Next.js pokrene OpenNext i deploy pukne na statičkom exportu
+> (`ENOENT .next/standalone/...`). `wrangler.jsonc` to rešava — ne diraj ga osim
+> ako menjaš izlazni folder.
 
 ## Struktura
 
