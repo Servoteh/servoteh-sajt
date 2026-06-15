@@ -21,6 +21,10 @@ yarn-error.log*
 .env
 .env*.local
 
+# cloudflare wrangler — lokalni secrets i state
+.dev.vars
+.wrangler/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

@@ -1,16 +1,24 @@
 {
-  // Statički sajt na Cloudflare Workers (Static Assets).
-  // Bez "main" polja → čist statički Worker: Cloudflare samo servira foldere
-  // iz /out i NE pokreće OpenNext adapter (koji važi samo za server-side Next.js).
+  // Cloudflare Worker koji servira statički sajt iz /out i obrađuje kontakt formu.
   // Build: `npm run build` (Next.js `output: "export"`) generiše /out.
+  // Worker (main) hvata POST /api/contact i šalje mejl preko Resend-a;
+  // sve ostalo prosleđuje na statičke assete (ASSETS binding).
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "servoteh-sajt",
+  "main": "worker/index.ts",
   "compatibility_date": "2026-06-15",
   "assets": {
     "directory": "./out",
+    "binding": "ASSETS",
     // /defence/ → /defence/index.html (naš trailingSlash export)
     "html_handling": "auto-trailing-slash",
     // nepoznata putanja → naša 404 stranica
     "not_found_handling": "404-page"
+  },
+  // Podrazumevane (ne-tajne) vrednosti. RESEND_API_KEY se postavlja kao SECRET
+  // (Cloudflare → Worker → Settings → Variables → Add → Encrypt), NE ovde.
+  // CONTACT_FROM promeniti na verifikovani servoteh.com domen kad bude spreman.
+  "vars": {
+    "CONTACT_TO": "office@servoteh.com"
   }
 }

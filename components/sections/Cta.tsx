@@ -1,5 +1,6 @@
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/Reveal";
+import { ContactForm } from "@/components/sections/ContactForm";
 import { PinIcon, MailIcon, PhoneIcon, NavigateIcon } from "@/components/icons";
 import type { HomeContent } from "@/lib/types";
 
@@ -15,14 +16,7 @@ export function Cta({ content }: { content: HomeContent["cta"] }) {
             <div className="section-label">{content.label}</div>
             <h2>{content.title}</h2>
             <p>{content.body}</p>
-            <div className="cta-btns">
-              <a href={content.primaryCta.href} className="btn btn-primary">
-                {content.primaryCta.label} <i className="arrow-icon">↗</i>
-              </a>
-              <a href={content.phoneCta.href} className="btn btn-secondary">
-                {content.phoneCta.label}
-              </a>
-            </div>
+            <ContactForm />
           </div>
 
           <div className="cta-contact-card">

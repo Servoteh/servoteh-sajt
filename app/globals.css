@@ -2850,3 +2850,74 @@ a.industry-card {
   .tech-section { padding: 72px 0; }
   .tech-grid { grid-template-columns: 1fr; }
 }
+
+/* ============================================================
+   KONTAKT FORMA (#cta) — dark tema, react-hook-form + Zod
+   ============================================================ */
+.cf-form { display: flex; flex-direction: column; gap: 16px; position: relative; z-index: 1; }
+.cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.cf-field { display: flex; flex-direction: column; gap: 7px; }
+.cf-field label { font-size: 13px; font-weight: 600; color: var(--white-dim); }
+.cf-field input,
+.cf-field textarea {
+  width: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  color: var(--white);
+  font: inherit;
+  font-size: 15px;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.cf-field textarea { resize: vertical; min-height: 120px; }
+.cf-field input:focus,
+.cf-field textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: var(--bg-card-hover);
+}
+.cf-field input[aria-invalid="true"],
+.cf-field textarea[aria-invalid="true"] { border-color: var(--accent); }
+.cf-field input::placeholder,
+.cf-field textarea::placeholder { color: var(--white-muted); }
+.cf-error { font-size: 12.5px; color: var(--accent-hover); }
+.cf-server-error {
+  font-size: 14px;
+  color: var(--accent-hover);
+  background: rgba(232, 64, 28, 0.08);
+  border: 1px solid rgba(232, 64, 28, 0.25);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+}
+.cf-submit { align-self: flex-start; margin-top: 4px; }
+/* honeypot — van ekrana, nedostupno tastaturi */
+.cf-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+.cf-success {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 40px 32px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+.cf-success-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  font-size: 22px;
+  color: #fff;
+  background: var(--accent);
+}
+.cf-success h4 { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+.cf-success p { color: var(--text-body); font-size: 15px; line-height: 1.6; margin-bottom: 24px; }
+
+@media (max-width: 600px) {
+  .cf-row { grid-template-columns: 1fr; }
+}
