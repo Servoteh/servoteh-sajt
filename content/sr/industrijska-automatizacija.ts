@@ -40,7 +40,7 @@ export const scope: DeepNumberedCard[] = [
   { num: "01", title: "Elektro-upravljački ormani i razvod", desc: "Projektovanje i izrada elektro-upravljačkih sistema kao osnove stabilnog i sigurnog rada proizvodne opreme." },
   { num: "02", title: "PLC, HMI i SCADA logika", desc: "Razvoj upravljačke logike, operatorskih interfejsa i sistema za nadzor procesa, dijagnostiku i praćenje rada." },
   { num: "03", title: "Integracija senzora, aktuatora i pogona", desc: "Povezivanje svih ključnih elemenata sistema radi precizne kontrole, sinhronizacije i stabilnosti procesa." },
-  { num: "04", title: "Robotika, hidraulika i pneumatika", desc: "Integracija naprednih podsistema automatizacije kada proces to zahteva, u skladu sa konkretnom funkcijom u proizvodnji." },
+  { num: "04", title: "Robotika, hidraulika i pneumatika", desc: "Kod robotskih i manipulacionih sistema razvijamo kompletno rešenje oko procesa: izbor i integraciju robota, projektovanje hvataljki, povezivanje sa postojećom opremom, razvoj aplikativnog softvera, sigurnosnu logiku i puštanje sistema u rad." },
   { num: "05", title: "Nadzor, dijagnostika i bezbednost procesa", desc: "Rešenja koja omogućavaju sigurniji rad, bolju preglednost procesa i brzu reakciju u slučaju odstupanja ili zastoja." },
 ];
 

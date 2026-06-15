@@ -246,6 +246,25 @@ export default function ReferencePage() {
           </Container>
         </section>
 
+        {/* OPŠTA INDUSTRIJA */}
+        <section id="ref-general">
+          <Container wide>
+            <Reveal className="section-header">
+              <div className="section-label">{c.general.label}</div>
+              <h2>{c.general.title}</h2>
+              <p>{c.general.body}</p>
+            </Reveal>
+            <div className="ref-general-grid">
+              {c.general.cards.map((card, i) => (
+                <Reveal key={card.title} delay={(i % 3) * 0.1} className="ref-general-card">
+                  <h3>{card.title}</h3>
+                  <p>{card.desc}</p>
+                </Reveal>
+              ))}
+            </div>
+          </Container>
+        </section>
+
         {/* PROCES */}
         <section id="ref-process">
           <Container wide>

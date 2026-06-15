@@ -493,9 +493,10 @@ h1, h2, h3, h4 {
 }
 .footer-brand > a {
   display: block;
+  width: fit-content;
   font-size: 14px;
   color: var(--white-muted);
-  margin-bottom: 6px;
+  margin-bottom: 10px;
   transition: color 0.2s;
 }
 .footer-brand > a:hover {
@@ -2539,6 +2540,31 @@ a.industry-card {
       font-weight: 500;
       letter-spacing: 0.01em;
     }
+#ref-general {
+      padding: 120px 0;
+      background: var(--bg-dark);
+    }
+#ref-general .section-header h2 { color: var(--white); }
+#ref-general .section-header p { color: var(--text-body); }
+.ref-general-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+.ref-general-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px 28px;
+      transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+    }
+.ref-general-card:hover {
+      border-color: rgba(232, 64, 28, 0.2);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+    }
+.ref-general-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.01em; }
+.ref-general-card p { font-size: 14px; color: var(--text-body); line-height: 1.7; }
 #ref-process {
       padding: 120px 0;
       background: var(--black);
@@ -2736,9 +2762,14 @@ a.industry-card {
   .ref-step:nth-child(odd) { border-right: 1px solid var(--border); }
   .ref-step:nth-child(3), .ref-step:nth-child(4) { border-bottom: none; }
 }
+@media (max-width: 1024px) {
+  .ref-general-grid { grid-template-columns: 1fr 1fr; }
+}
 @media (max-width: 768px) {
   .ref-cat-grid { grid-template-columns: 1fr; }
   .ref-cases-grid { grid-template-columns: 1fr; }
+  .ref-general-grid { grid-template-columns: 1fr; }
+  #ref-general { padding: 80px 0; }
   .ref-focus-right { grid-template-columns: 1fr; }
   .ref-intl-regions { grid-template-columns: 1fr; }
 }

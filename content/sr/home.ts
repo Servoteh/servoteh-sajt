@@ -57,11 +57,12 @@ export const home: HomeContent = {
     label: "Kapaciteti",
     title: "Sopstveni razvojni i proizvodni kapaciteti",
     body: "Servoteh razvija, proizvodi, sklapa i integriše sisteme u sopstvenim kapacitetima u Dobanovcima. Ovakav pristup omogućava bolju kontrolu kvaliteta, kraće rokove i pouzdaniju realizaciju složenih projekata — od projektovanja, preko proizvodnje i montaže, do integracije sistema i pripreme za puštanje u rad.",
+    body2: "Sopstvena proizvodnja obuhvata CNC mašinsku obradu, glodanje, struganje, brušenje, elektroeroziju, izradu kompleksnih delova i montažu sklopova. Time ključne faze projekta ostaju pod kontrolom istog tima — od konstrukcije i izrade delova do sklapanja, integracije i završne provere sistema.",
     points: [
-      "10.000 m² razvojnih i proizvodnih kapaciteta",
-      "Razvojni biro za mašinsko i elektro projektovanje",
-      "Sopstvena proizvodnja, montaža i integracija",
-      "Kontrola kvaliteta sa savremenom mernom opremom",
+      "10.000 m² razvojnih, proizvodnih i montažnih kapaciteta",
+      "Razvojni biro za mašinsko, elektro i softversko projektovanje",
+      "CNC obrada, izrada delova, sklapanje i integracija sistema",
+      "Kontrola kvaliteta, testiranje i priprema sistema za puštanje u rad",
     ],
     slides: [
       { src: "/assets/about-exterior-facility.jpg", alt: "Spoljašnji pogled na razvojne i proizvodne hale Servoteh u Dobanovcima", caption: "Upravna i proizvodna lokacija" },
@@ -108,8 +109,8 @@ export const home: HomeContent = {
     body: "Naš današnji fokus je industrija odbrane, ali iste inženjerske kompetencije primenjujemo i u drugim složenim industrijskim sistemima.",
     cards: [
       { title: "Industrija odbrane", desc: "Namenske mašine, linije i sistemi za industriju odbrane", href: "/defence", featured: true },
-      { title: "Automobilska industrija", desc: "Linije sklapanja, testni stolovi, manipulatori" },
-      { title: "Avio industrija", desc: "Precizna oprema i sistemi za vazduhoplovnu proizvodnju" },
+      { title: "Automobilska industrija", desc: "Linije sklapanja, testne stanice, manipulatori i specijalne mašine za procese gde su ključni kratak takt, ponovljiv kvalitet i dug životni vek opreme." },
+      { title: "Avio industrija", desc: "Precizna oprema, pomoćni alati, nosači, dizalice i sistemi za proizvodnju, servis i rukovanje sklopovima u avio industriji." },
       { title: "Prehrambena industrija", desc: "Mašine i linije za preradu i pakovanje hrane" },
       { title: "Pakovanje i manipulacija", desc: "Automatizovani sistemi za pakovanje, sortiranje i transport" },
       { title: "Opšta industrijska proizvodnja", desc: "Namenska rešenja za različite grane opšte industrijske proizvodnje" },

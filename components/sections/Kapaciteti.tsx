@@ -53,6 +53,11 @@ export function Kapaciteti({ content }: { content: HomeContent["kapaciteti"] }) 
             <Reveal>
               <p>{content.body}</p>
             </Reveal>
+            {content.body2 && (
+              <Reveal>
+                <p>{content.body2}</p>
+              </Reveal>
+            )}
             <Reveal delay={0.1}>
               <ul className="kap-points">
                 {content.points.map((p) => (

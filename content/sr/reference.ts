@@ -121,6 +121,17 @@ export const cases = [
   },
 ];
 
+export const general = {
+  label: "Opšta industrija",
+  title: "Primeri iz opšte industrije",
+  body: "Pored sistema za industriju odbrane, Servoteh razvija specijalne mašine i automatizovana rešenja za različite proizvodne procese u opštoj industriji — tamo gde standardna oprema ne rešava konkretan zahtev takta, manipulacije, kontrole ili kvaliteta.",
+  cards: [
+    { title: "Automatska linija za punjenje i pakovanje", desc: "Rešenje razvijeno za povećanje proizvodnog kapaciteta i rad sa različitim proizvodima u procesu punjenja i pakovanja." },
+    { title: "Specijalne transportne linije", desc: "Konvejerska i transportna rešenja prilagođena proizvodnom toku, prostoru, tipu proizvoda i načinu manipulacije." },
+    { title: "Automatska linija za ispravljanje radijatorskih cevi", desc: "Namensko rešenje za korekciju deformacija bočnih cevi nakon zavarivanja, sa ciljem stabilnijeg kvaliteta i ponovljivosti procesa." },
+  ],
+};
+
 export const process = {
   label: "Proces realizacije",
   title: "Od zahteva do puštanja u rad",
@@ -140,8 +151,8 @@ export const focus = {
   cta: { label: "Razgovarajmo o projektu", href: "/#cta" },
   cards: [
     { title: "Industrija odbrane", desc: "Primarni fokus poslednjih godina — sistemi projektovani za zahteve odbrambene industrije" },
-    { title: "Automobilska industrija", desc: "Linije sklapanja, testni stolovi i specijalizovani manipulatori za auto sektor" },
-    { title: "Avio industrija", desc: "Precizna oprema i sistemi za zahteve vazduhoplovne proizvodnje i servisa" },
+    { title: "Automobilska industrija", desc: "Linije sklapanja, testne stanice, specijalizovani manipulatori i namenske mašine za auto sektor — sa fokusom na produktivnost, kontrolu kvaliteta, kratak ciklus i pouzdan rad u dugoj eksploataciji." },
+    { title: "Avio industrija", desc: "Precizna oprema, pomoćni alati za održavanje, dizalice, nosači i sistemi za bezbedno rukovanje sklopovima u vazduhoplovnoj proizvodnji i servisu." },
     { title: "Opšta industrijska proizvodnja", desc: "Namenska rešenja za kompleksne procese u opštoj industrijskoj proizvodnji" },
   ],
 };

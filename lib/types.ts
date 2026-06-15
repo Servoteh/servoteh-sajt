@@ -110,6 +110,7 @@ export type HomeContent = {
     label: string;
     title: string;
     body: string;
+    body2?: string;
     points: string[];
     slides: Slide[];
   };
