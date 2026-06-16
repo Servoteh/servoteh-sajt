@@ -34,6 +34,10 @@ export default function OpstaIndustrijskaProizvodnjaPage() {
         {/* IZDVOJENI SISTEM — mašina sa video prikazom */}
         <DeepSection id="oi-featured" tone="dark" wide>
           <DeepHeader content={{ label: c.featured.label, title: c.featured.title }} />
+          <Reveal className="oi-feature-render">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/assets/opsta-industrija/hero.jpg" alt={c.featured.title + " — SERVOTEH"} loading="lazy" />
+          </Reveal>
           <div className="oi-feature-grid">
             <Reveal className="oi-feature-video">
               <YouTubeEmbed id={c.featured.videoId} title={c.featured.videoTitle} />
