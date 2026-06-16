@@ -136,6 +136,15 @@ export const caseGroups = [
         ],
         meta: "Primena: razvodni ormari, upravljačke ploče i industrijske instalacije",
       },
+      {
+        num: "12", title: "Mašina za proizvodnju kablovskih papučica",
+        desc: "Savremena automatska mašina za masovnu proizvodnju kablovskih papučica za elektro industriju — kontinuiran rad uz visoku preciznost obrade i konstantan kvalitet svakog komada.",
+        tags: [
+          { label: "Opšta industrija" }, { label: "Elektro industrija" },
+          { label: "Masovna proizvodnja", neutral: true },
+        ],
+        meta: "Primena: razvodni ormari, upravljačke table i industrijska postrojenja",
+      },
     ],
   },
 ];

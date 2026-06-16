@@ -30,19 +30,48 @@ export const intro = {
   ] as DeepTrustItem[],
 };
 
-export const featured = {
-  label: "Izdvojeni sistem",
-  title: "Mašina za proizvodnju vijčanih rednih stezaljki",
-  desc: "Automatizovana mašina za serijsku proizvodnju vijčanih rednih stezaljki namenjenih elektro industriji. Obezbeđuje visoku preciznost i ponovljivost u izradi stezaljki koje se koriste u razvodnim ormarima, upravljačkim pločama i industrijskim instalacijama. Visok stepen automatizacije omogućava veliku produktivnost uz minimalno angažovanje operatera.",
-  videoId: "UXyxcCz_PA8",
-  videoTitle: "Mašina za proizvodnju vijčanih rednih stezaljki — Servoteh",
-  highlights: [
-    "Serijska proizvodnja sa visokim stepenom automatizacije",
-    "Visoka preciznost i ponovljivost izrade",
-    "Velika produktivnost uz minimalno angažovanje operatera",
-    "Primena: razvodni ormari, upravljačke ploče i industrijske instalacije",
-  ],
+export const machinesHeader: DeepHeaderContent = {
+  label: "Realizovane mašine",
+  title: "Izdvojene mašine za opštu industriju",
+  body: "Namenske mašine razvijene i puštene u rad za serijsku industrijsku proizvodnju — sa visokim stepenom automatizacije i konstantnim kvalitetom svakog komada.",
 };
+
+type MachineCell = {
+  title: string;
+  desc: string;
+  highlights: string[];
+  videoId?: string;
+  videoTitle?: string;
+  img?: string;
+  imgAlt?: string;
+};
+
+export const machines: MachineCell[] = [
+  {
+    title: "Mašina za proizvodnju vijčanih rednih stezaljki",
+    desc: "Automatizovana mašina za serijsku proizvodnju vijčanih rednih stezaljki namenjenih elektro industriji. Obezbeđuje visoku preciznost i ponovljivost u izradi stezaljki koje se koriste u razvodnim ormarima, upravljačkim pločama i industrijskim instalacijama. Visok stepen automatizacije omogućava veliku produktivnost uz minimalno angažovanje operatera.",
+    videoId: "UXyxcCz_PA8",
+    videoTitle: "Mašina za proizvodnju vijčanih rednih stezaljki — Servoteh",
+    highlights: [
+      "Serijska proizvodnja sa visokim stepenom automatizacije",
+      "Visoka preciznost i ponovljivost izrade",
+      "Velika produktivnost uz minimalno angažovanje operatera",
+      "Primena: razvodni ormari, upravljačke ploče i industrijske instalacije",
+    ],
+  },
+  {
+    title: "Mašina za proizvodnju kablovskih papučica",
+    desc: "Savremena automatska mašina konstruisana za masovnu proizvodnju kablovskih papučica koje se primenjuju u elektro industriji. Krajnji proizvodi namenjeni su sigurnom i trajnom spajanju provodnika u razvodnim ormarima, upravljačkim tablama i industrijskim postrojenjima. Kontinuirani rad uz visoku preciznost obrade osigurava konstantan kvalitet svakog komada i značajno smanjuje troškove proizvodnje.",
+    img: "/assets/opsta-industrija/kablovske-papucice.jpg",
+    imgAlt: "Automatska mašina za proizvodnju kablovskih papučica — SERVOTEH",
+    highlights: [
+      "Masovna, kontinuirana proizvodnja",
+      "Visoka preciznost obrade i konstantan kvalitet svakog komada",
+      "Značajno smanjenje troškova proizvodnje",
+      "Primena: razvodni ormari, upravljačke table i industrijska postrojenja",
+    ],
+  },
+];
 
 export const typesHeader: DeepHeaderContent = {
   label: "Tipovi rešenja",

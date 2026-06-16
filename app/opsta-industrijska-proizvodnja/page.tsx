@@ -31,25 +31,31 @@ export default function OpstaIndustrijskaProizvodnjaPage() {
           <IntroSplit label={c.intro.label} title={c.intro.title} body={c.intro.body} items={c.intro.items} />
         </DeepSection>
 
-        {/* IZDVOJENI SISTEM — mašina sa video prikazom */}
-        <DeepSection id="oi-featured" tone="dark" wide>
-          <DeepHeader content={{ label: c.featured.label, title: c.featured.title }} />
-          <Reveal className="oi-feature-render">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/assets/opsta-industrija/hero.jpg" alt={c.featured.title + " — SERVOTEH"} loading="lazy" />
-          </Reveal>
-          <div className="oi-feature-grid">
-            <Reveal className="oi-feature-video">
-              <YouTubeEmbed id={c.featured.videoId} title={c.featured.videoTitle} />
-            </Reveal>
-            <Reveal delay={0.1} className="oi-feature-text">
-              <p>{c.featured.desc}</p>
-              <ul className="oi-feature-highlights">
-                {c.featured.highlights.map((h) => (
-                  <li key={h}>{h}</li>
-                ))}
-              </ul>
-            </Reveal>
+        {/* IZDVOJENE MAŠINE — mikro-celine (medij + tekst, naizmenično) */}
+        <DeepSection id="oi-machines" tone="dark" wide>
+          <DeepHeader content={c.machinesHeader} />
+          <div className="oi-machines">
+            {c.machines.map((m) => (
+              <Reveal className="oi-cell" key={m.title}>
+                <div className="oi-cell-media">
+                  {m.videoId ? (
+                    <YouTubeEmbed id={m.videoId} title={m.videoTitle ?? m.title} />
+                  ) : m.img ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={m.img} alt={m.imgAlt ?? m.title} loading="lazy" />
+                  ) : null}
+                </div>
+                <div className="oi-cell-text">
+                  <h3>{m.title}</h3>
+                  <p>{m.desc}</p>
+                  <ul className="oi-feature-highlights">
+                    {m.highlights.map((h) => (
+                      <li key={h}>{h}</li>
+                    ))}
+                  </ul>
+                </div>
+              </Reveal>
+            ))}
           </div>
         </DeepSection>
 
