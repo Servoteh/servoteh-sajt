@@ -247,11 +247,6 @@ export const tech01: TechSectionContent = {
         "Radni prostor: 1.220 × 910 × 910 mm; nosivost 1.000 kg",
         "Komorna peć za kaljenje u ulju, 750–1.000 °C, u zaštitnoj atmosferi azota (N₂)",
         "Peć za žarenje i popuštanje do 750 °C (grejači u SiC zaštitnim cevima)",
-        "Plamena zavesa (propan) i sigurnosne klapne na vratima peći",
-        "Uljno kupatilo ~8.000 l sa hlađenjem (izmenjivač ulje–voda) i grejanjem",
-        "Mašina za pranje, odmašćivanje i sušenje (40–80 °C, biorazgradivi deterdženti)",
-        "Komore za hlađenje vodom i azotom/vazduhom; automatska kolica i nosači od legura otpornih na visoke temperature",
-        "Upravljanje: Siemens PLC i operatorski panel; recepti, arhiviranje i izveštaji",
       ],
     },
     {
