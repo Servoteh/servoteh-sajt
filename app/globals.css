@@ -540,6 +540,12 @@ h1, h2, h3, h4 {
 .footer-col ul a:hover {
   color: var(--white);
 }
+.footer-col ul .is-current {
+  font-size: 14px;
+  color: var(--accent);
+  font-weight: 600;
+  cursor: default;
+}
 .iso-badge {
   display: inline-flex;
   align-items: center;
@@ -2347,13 +2353,37 @@ a.industry-card {
       background: var(--black);
       padding-top: var(--header-h);
     }
+.ref-hero-video-wrap {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+.ref-hero-video-wrap video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.5;
+    }
+.ref-hero-video-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.6) 0%,
+        rgba(0,0,0,0.38) 42%,
+        rgba(0,0,0,0.62) 75%,
+        var(--black) 100%
+      );
+    }
 .ref-hero-bg {
       position: absolute;
       inset: 0;
+      z-index: 0;
       background:
-        radial-gradient(ellipse 80% 60% at 50% 40%, rgba(232,64,28,0.05) 0%, transparent 65%),
-        repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(255,255,255,0.018) 80px),
-        repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(255,255,255,0.018) 80px);
+        radial-gradient(ellipse 80% 60% at 50% 40%, rgba(232,64,28,0.06) 0%, transparent 65%),
+        repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(255,255,255,0.014) 80px),
+        repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(255,255,255,0.014) 80px);
       pointer-events: none;
     }
 .ref-hero-bg::after {
@@ -2540,31 +2570,6 @@ a.industry-card {
       font-weight: 500;
       letter-spacing: 0.01em;
     }
-#ref-general {
-      padding: 120px 0;
-      background: var(--bg-dark);
-    }
-#ref-general .section-header h2 { color: var(--white); }
-#ref-general .section-header p { color: var(--text-body); }
-.ref-general-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-.ref-general-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 36px 28px;
-      transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
-    }
-.ref-general-card:hover {
-      border-color: rgba(232, 64, 28, 0.2);
-      transform: translateY(-3px);
-      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
-    }
-.ref-general-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.01em; }
-.ref-general-card p { font-size: 14px; color: var(--text-body); line-height: 1.7; }
 #ref-process {
       padding: 120px 0;
       background: var(--black);
@@ -2578,29 +2583,44 @@ a.industry-card {
 .ref-steps {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-    }
-.ref-step {
-      padding: 40px 32px;
-      border-right: 1px solid var(--border);
+      gap: 24px;
       position: relative;
     }
-.ref-step:last-child { border-right: none; }
-.ref-step::before {
+/* Linija toka kroz centre kružića (povezani timeline) */
+.ref-steps::before {
       content: '';
-      position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: transparent; transition: background 0.3s;
+      position: absolute;
+      top: 28px;
+      left: 12.5%;
+      right: 12.5%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(232,64,28,0.35) 14%, rgba(232,64,28,0.35) 86%, transparent);
+      pointer-events: none;
     }
-.ref-step:hover::before { background: linear-gradient(90deg, transparent, var(--accent), transparent); }
-.ref-step-num {
-      font-size: 56px; font-weight: 800; letter-spacing: -0.04em;
-      color: rgba(255,255,255,0.04); line-height: 1; margin-bottom: 20px;
+.ref-step {
+      text-align: center;
+      padding: 0 16px;
+      position: relative;
     }
 .ref-step-icon {
-      width: 44px; height: 44px; border-radius: 12px;
-      background: rgba(232,64,28,0.08); border: 1px solid rgba(232,64,28,0.18);
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--bg-card);
+      border: 1px solid rgba(232,64,28,0.3);
       display: flex; align-items: center; justify-content: center;
-      margin-bottom: 20px;
+      margin: 0 auto 16px;
+      position: relative; z-index: 1;
+      transition: background 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+    }
+.ref-step:hover .ref-step-icon {
+      background: var(--accent);
+      border-color: var(--accent);
+      box-shadow: 0 6px 20px var(--accent-glow);
+      transform: translateY(-3px);
+    }
+.ref-step:hover .ref-step-icon svg * { stroke: #fff; }
+.ref-step-num {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+      color: var(--accent); line-height: 1; margin-bottom: 10px;
     }
 .ref-step h4 { font-size: 17px; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.01em; }
 .ref-step p { font-size: 13.5px; color: var(--text-body); line-height: 1.65; }
@@ -2757,28 +2777,19 @@ a.industry-card {
   .ref-intro-inner { grid-template-columns: 1fr; gap: 48px; }
   .ref-focus-inner { grid-template-columns: 1fr; gap: 48px; }
   .ref-intl-top { grid-template-columns: 1fr; gap: 32px; }
-  .ref-steps { grid-template-columns: repeat(2, 1fr); }
-  .ref-step { border-right: none; border-bottom: 1px solid var(--border); }
-  .ref-step:nth-child(odd) { border-right: 1px solid var(--border); }
-  .ref-step:nth-child(3), .ref-step:nth-child(4) { border-bottom: none; }
-}
-@media (max-width: 1024px) {
-  .ref-general-grid { grid-template-columns: 1fr 1fr; }
+  .ref-steps { grid-template-columns: repeat(2, 1fr); gap: 44px 24px; }
+  .ref-steps::before { display: none; }
 }
 @media (max-width: 768px) {
   .ref-cat-grid { grid-template-columns: 1fr; }
   .ref-cases-grid { grid-template-columns: 1fr; }
-  .ref-general-grid { grid-template-columns: 1fr; }
-  #ref-general { padding: 80px 0; }
   .ref-focus-right { grid-template-columns: 1fr; }
   .ref-intl-regions { grid-template-columns: 1fr; }
 }
 @media (max-width: 480px) {
   .ref-hero-cta { flex-direction: column; align-items: center; }
   .ref-hero-cta .btn { width: 100%; justify-content: center; max-width: 280px; }
-  .ref-steps { grid-template-columns: 1fr; }
-  .ref-step { border-right: none; border-bottom: 1px solid var(--border); }
-  .ref-step:last-child { border-bottom: none; }
+  .ref-steps { grid-template-columns: 1fr; gap: 40px; }
 }
 
 /* ============================================================

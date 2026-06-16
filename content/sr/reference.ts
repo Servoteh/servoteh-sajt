@@ -27,9 +27,9 @@ export const stats = [
 export const intro = {
   label: "Naš pristup",
   title: "Projekti razvijeni prema realnim proizvodnim zahtevima",
-  body: "Servoteh razvija rešenja kada standardna oprema nije dovoljna. Reference koje prikazujemo obuhvataju projekte kod kojih su preciznost, pouzdanost, kapacitet, bezbednost procesa i dugoročna eksploatacija bili ključni zahtevi. Fokus poslednjih godina je prvenstveno na industriji odbrane, uz realizaciju i drugih složenih industrijskih sistema.",
+  body: "Servoteh razvija rešenja kada standardna oprema nije dovoljna. Reference koje prikazujemo obuhvataju projekte kod kojih su preciznost, pouzdanost, kapacitet, bezbednost procesa i dugoročna eksploatacija bili ključni zahtevi.",
   points: [
-    { title: "Inženjering sa fokusom na industriju odbrane", desc: "Najveći deo aktuelnih projekata razvija se za zahteve industrije odbrane", href: "/defence" },
+    { title: "Jedinstven inženjerski tim", desc: "Mašinski, elektro i softverski razvoj objedinjeni su pod istim krovom, u jednom timu." },
     { title: "Standardizovana rešenja uz potrebna prilagođavanja", desc: "Gde god je moguće, oslanjamo se na proverena rešenja, postojeću dokumentaciju i razvijene sisteme. Novi razvoj i posebna prilagođavanja radimo kada proces to zaista zahteva." },
     { title: "Realizacija od koncepta do isporuke", desc: "Jedan tim vodi projekat od ideje do puštanja u rad" },
     { title: "ISO 9001 sertifikovan proces", desc: "Sistem menadžmenta kvalitetom primenjen u svakoj fazi razvoja i realizacije" },
@@ -52,7 +52,7 @@ export const categories = [
 export const casesHeader = {
   label: "Primeri realizacije",
   title: "Izdvojeni projekti",
-  body: "Primeri projekata koji ilustruju inženjerski pristup i opseg realizacije. Zbog poverljivosti pojedinih projekata, prikazujemo ih kroz tip rešenja i tehnološki opseg, a ne kroz nazive naručilaca.",
+  body: "Primeri projekata koji ilustruju inženjerski pristup i opseg realizacije — od sistema za industriju odbrane do rešenja za opštu industriju. Zbog poverljivosti pojedinih projekata, prikazujemo ih kroz tip rešenja i tehnološki opseg, a ne kroz nazive naručilaca.",
 };
 
 export const cases = [
@@ -119,18 +119,34 @@ export const cases = [
     ],
     meta: "Tip: podsistemi za rukovanje municijom i automatsko punjenje",
   },
+  {
+    num: "08", title: "Automatska linija za punjenje i pakovanje",
+    desc: "Rešenje razvijeno za povećanje proizvodnog kapaciteta i rad sa različitim proizvodima u procesu punjenja i pakovanja, sa prilagođavanjem taktu i tipu proizvoda.",
+    tags: [
+      { label: "Opšta industrija" }, { label: "Automatska linija" },
+      { label: "Punjenje i pakovanje", neutral: true },
+    ],
+    meta: "Cilj: veći kapacitet i fleksibilan rad sa različitim proizvodima",
+  },
+  {
+    num: "09", title: "Specijalne transportne linije",
+    desc: "Konvejerska i transportna rešenja prilagođena proizvodnom toku, prostoru, tipu proizvoda i načinu manipulacije — kao deo šire linije ili kao samostalan sistem.",
+    tags: [
+      { label: "Opšta industrija" }, { label: "Transport i manipulacija" },
+      { label: "Konvejerski sistemi", neutral: true },
+    ],
+    meta: "Tip: namenska transportna rešenja prilagođena procesu",
+  },
+  {
+    num: "10", title: "Automatska linija za ispravljanje radijatorskih cevi",
+    desc: "Namensko rešenje za korekciju deformacija bočnih cevi nakon zavarivanja, sa ciljem stabilnijeg kvaliteta i ponovljivosti procesa.",
+    tags: [
+      { label: "Opšta industrija" }, { label: "Namensko rešenje" },
+      { label: "Ponovljivost procesa", neutral: true },
+    ],
+    meta: "Obim: korekcija deformacija nakon zavarivanja",
+  },
 ];
-
-export const general = {
-  label: "Opšta industrija",
-  title: "Primeri iz opšte industrije",
-  body: "Pored sistema za industriju odbrane, Servoteh razvija specijalne mašine i automatizovana rešenja za različite proizvodne procese u opštoj industriji — tamo gde standardna oprema ne rešava konkretan zahtev takta, manipulacije, kontrole ili kvaliteta.",
-  cards: [
-    { title: "Automatska linija za punjenje i pakovanje", desc: "Rešenje razvijeno za povećanje proizvodnog kapaciteta i rad sa različitim proizvodima u procesu punjenja i pakovanja." },
-    { title: "Specijalne transportne linije", desc: "Konvejerska i transportna rešenja prilagođena proizvodnom toku, prostoru, tipu proizvoda i načinu manipulacije." },
-    { title: "Automatska linija za ispravljanje radijatorskih cevi", desc: "Namensko rešenje za korekciju deformacija bočnih cevi nakon zavarivanja, sa ciljem stabilnijeg kvaliteta i ponovljivosti procesa." },
-  ],
-};
 
 export const process = {
   label: "Proces realizacije",
@@ -150,7 +166,7 @@ export const focus = {
   body: "Najveći deo novih projekata u poslednjih nekoliko godina vezan je za industriju odbrane. Ipak, isti razvojni pristup i isti inženjerski kapacitet primenjuju se i u drugim industrijskim sistemima — kada proces zahteva specijalno razvijeno, pouzdano i dugoročno održivo rešenje.",
   cta: { label: "Razgovarajmo o projektu", href: "/#cta" },
   cards: [
-    { title: "Industrija odbrane", desc: "Primarni fokus poslednjih godina — sistemi projektovani za zahteve odbrambene industrije" },
+    { title: "Industrija odbrane", desc: "Sistemi projektovani za visoke zahteve pouzdanosti, preciznosti i kontrole procesa" },
     { title: "Automobilska industrija", desc: "Linije sklapanja, testne stanice, specijalizovani manipulatori i namenske mašine za auto sektor — sa fokusom na produktivnost, kontrolu kvaliteta, kratak ciklus i pouzdan rad u dugoj eksploataciji." },
     { title: "Avio industrija", desc: "Precizna oprema, pomoćni alati za održavanje, dizalice, nosači i sistemi za bezbedno rukovanje sklopovima u vazduhoplovnoj proizvodnji i servisu." },
     { title: "Opšta industrijska proizvodnja", desc: "Namenska rešenja za kompleksne procese u opštoj industrijskoj proizvodnji" },

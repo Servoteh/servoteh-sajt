@@ -1,11 +1,26 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import type { SiteContent } from "@/lib/types";
 
 function isExternal(href: string) {
   return href.startsWith("http") || href.startsWith("tel:") || href.startsWith("mailto:");
 }
 
-function FooterLink({ href, label }: { href: string; label: string }) {
+// Uklanja eventualni završni "/" radi pouzdanog poređenja sa rutom.
+function normalize(path: string) {
+  return path.length > 1 ? path.replace(/\/$/, "") : path;
+}
+
+function FooterLink({ href, label, current }: { href: string; label: string; current?: boolean }) {
+  if (current) {
+    return (
+      <span className="is-current" aria-current="page">
+        {label}
+      </span>
+    );
+  }
   if (isExternal(href)) {
     const external = href.startsWith("http");
     return (
@@ -19,6 +34,7 @@ function FooterLink({ href, label }: { href: string; label: string }) {
 
 export function Footer({ site }: { site: SiteContent }) {
   const f = site.footer;
+  const pathname = normalize(usePathname() ?? "/");
   return (
     <footer id="footer">
       <div className="container">
@@ -57,7 +73,11 @@ export function Footer({ site }: { site: SiteContent }) {
               <ul>
                 {col.links.map((link) => (
                   <li key={`${col.heading}-${link.href}`}>
-                    <FooterLink href={link.href} label={link.label} />
+                    <FooterLink
+                      href={link.href}
+                      label={link.label}
+                      current={!isExternal(link.href) && !link.href.includes("#") && normalize(link.href) === pathname}
+                    />
                   </li>
                 ))}
               </ul>

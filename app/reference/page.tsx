@@ -5,6 +5,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/Reveal";
+import { HeroVideoBg } from "@/components/sections/HeroVideoBg";
 import { site } from "@/content/sr/site";
 import * as c from "@/content/sr/reference";
 
@@ -107,6 +108,7 @@ export default function ReferencePage() {
       <main>
         {/* HERO */}
         <section id="ref-hero" className="deep-hero">
+          <HeroVideoBg wrapClassName="ref-hero-video-wrap" opacity={0.5} />
           <div className="ref-hero-bg" />
           <div className="ref-hero-content hero-content">
             <div className="ref-hero-eyebrow deep-hero-eyebrow">{c.hero.eyebrow}</div>
@@ -166,15 +168,7 @@ export default function ReferencePage() {
                   <div className="ref-intro-point" key={p.title}>
                     <div className="ref-intro-dot" />
                     <div>
-                      <div className="ref-intro-point-title">
-                        {p.href ? (
-                          <Link href={p.href} className="link-defence">
-                            {p.title}
-                          </Link>
-                        ) : (
-                          p.title
-                        )}
-                      </div>
+                      <div className="ref-intro-point-title">{p.title}</div>
                       <div className="ref-intro-point-desc">{p.desc}</div>
                     </div>
                   </div>
@@ -246,25 +240,6 @@ export default function ReferencePage() {
           </Container>
         </section>
 
-        {/* OPŠTA INDUSTRIJA */}
-        <section id="ref-general">
-          <Container wide>
-            <Reveal className="section-header">
-              <div className="section-label">{c.general.label}</div>
-              <h2>{c.general.title}</h2>
-              <p>{c.general.body}</p>
-            </Reveal>
-            <div className="ref-general-grid">
-              {c.general.cards.map((card, i) => (
-                <Reveal key={card.title} delay={(i % 3) * 0.1} className="ref-general-card">
-                  <h3>{card.title}</h3>
-                  <p>{card.desc}</p>
-                </Reveal>
-              ))}
-            </div>
-          </Container>
-        </section>
-
         {/* PROCES */}
         <section id="ref-process">
           <Container wide>
@@ -276,8 +251,8 @@ export default function ReferencePage() {
             <div className="ref-steps">
               {c.process.steps.map((step, i) => (
                 <Reveal key={step.num} delay={i * 0.1} className="ref-step">
-                  <div className="ref-step-num">{step.num}</div>
                   <div className="ref-step-icon">{stepIcons[i]}</div>
+                  <div className="ref-step-num">{step.num}</div>
                   <h4>{step.title}</h4>
                   <p>{step.desc}</p>
                 </Reveal>
