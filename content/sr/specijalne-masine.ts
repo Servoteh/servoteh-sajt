@@ -53,7 +53,7 @@ export const processHeader: DeepHeaderContent = {
 export const processSteps = [
   "Analiza procesa i tehničkog zahteva",
   "Koncept i mašinsko projektovanje",
-  "Proizvodnja, sklapanje i integracija",
+  "Proizvodnja, montaža i integracija",
   "Upravljanje, testiranje i puštanje u rad",
   "Postprodajna podrška i eventualna unapređenja",
 ];

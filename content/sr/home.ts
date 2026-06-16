@@ -56,12 +56,12 @@ export const home: HomeContent = {
   kapaciteti: {
     label: "Kapaciteti",
     title: "Sopstveni razvojni i proizvodni kapaciteti",
-    body: "Servoteh razvija, proizvodi, sklapa i integriše sisteme u sopstvenim kapacitetima u Dobanovcima. Ovakav pristup omogućava bolju kontrolu kvaliteta, kraće rokove i pouzdaniju realizaciju složenih projekata — od projektovanja, preko proizvodnje i montaže, do integracije sistema i pripreme za puštanje u rad.",
-    body2: "Sopstvena proizvodnja obuhvata CNC mašinsku obradu, glodanje, struganje, brušenje, elektroeroziju, izradu kompleksnih delova i montažu sklopova. Time ključne faze projekta ostaju pod kontrolom istog tima — od konstrukcije i izrade delova do sklapanja, integracije i završne provere sistema.",
+    body: "Servoteh razvija, proizvodi, montira i integriše sisteme u sopstvenim kapacitetima u Dobanovcima. Ovakav pristup omogućava bolju kontrolu kvaliteta, kraće rokove i pouzdaniju realizaciju složenih projekata — od projektovanja, preko proizvodnje i montaže, do integracije sistema i pripreme za puštanje u rad.",
+    body2: "Sopstvena proizvodnja obuhvata CNC mašinsku obradu, glodanje, struganje, brušenje, elektroeroziju, izradu kompleksnih delova i montažu sklopova. Time ključne faze projekta ostaju pod kontrolom istog tima — od konstrukcije i izrade delova do integracije i završne provere sistema.",
     points: [
       "10.000 m² razvojnih, proizvodnih i montažnih kapaciteta",
       "Razvojni biro za mašinsko, elektro i softversko projektovanje",
-      "CNC obrada, izrada delova, sklapanje i integracija sistema",
+      "CNC obrada, izrada delova, montaža i integracija sistema",
       "Kontrola kvaliteta, testiranje i priprema sistema za puštanje u rad",
     ],
     slides: [

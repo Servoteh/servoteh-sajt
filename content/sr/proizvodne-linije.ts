@@ -66,7 +66,7 @@ export const processSteps = [
   "Analiza procesa i zahteva",
   "Koncept linije i raspored stanica",
   "Mašinsko, elektro i softversko projektovanje",
-  "Proizvodnja, sklapanje i integracija",
+  "Proizvodnja, montaža i integracija",
   "Puštanje u rad i optimizacija procesa",
 ];
 
