@@ -2028,8 +2028,21 @@ a.industry-card {
       display: flex; flex-direction: column;
       transition: transform 0.3s, border-color 0.3s;
     }
+.ds-prog-card { position: relative; }
 .ds-prog-card:hover { transform: translateY(-5px); border-color: var(--border-strong); }
 .ds-prog-card--p1 { border-top: 2px solid var(--accent); }
+/* Cela kartica klikabilna (skrol do detaljnog bloka) + ↓ nagoveštaj na hover */
+.ds-prog-link { position: absolute; inset: 0; z-index: 3; cursor: pointer; }
+.ds-prog-link-arrow {
+  position: absolute; top: 16px; right: 16px;
+  width: 34px; height: 34px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--accent); color: #fff; font-size: 16px;
+  opacity: 0; transform: translateY(-6px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+.ds-prog-card:hover .ds-prog-link-arrow { opacity: 1; transform: translateY(0); }
 .ds-prog-visual {
       width: 100%; aspect-ratio: 16/9;
       display: flex; align-items: center; justify-content: center;
@@ -2067,6 +2080,7 @@ a.industry-card {
     }
 .ds-detail-block {
       padding: 100px 0;
+      scroll-margin-top: calc(var(--header-h) + 16px);
     }
 .ds-detail-block--dark { background: var(--black); }
 .ds-detail-block--light { background: var(--light-bg-2); color: var(--light-text); }

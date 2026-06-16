@@ -147,6 +147,9 @@ export default function DefencePage() {
                     <h3>{prog.title}</h3>
                     <p>{prog.desc}</p>
                   </div>
+                  <a className="ds-prog-link" href={`#program-${i + 1}`} aria-label={`${prog.title} — detaljnije`}>
+                    <span className="ds-prog-link-arrow" aria-hidden="true">↓</span>
+                  </a>
                 </Reveal>
               ))}
             </div>
@@ -158,7 +161,7 @@ export default function DefencePage() {
           const tech = [c.tech01, c.tech02, undefined, c.tech04][i];
           return (
             <Fragment key={d.label}>
-              <div className={`ds-detail-block ds-detail-block--${d.tone}`}>
+              <div id={`program-${i + 1}`} className={`ds-detail-block ds-detail-block--${d.tone}`}>
                 <Container wide>
                   <div className={`ds-detail-inner${d.reverse ? " ds-detail-inner--reverse" : ""}`}>
                     <Reveal>
