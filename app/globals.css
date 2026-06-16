@@ -2631,6 +2631,47 @@ a.industry-card {
 }
 
 /* ============================================================
+   YOUTUBE EMBED + IZDVOJENI SISTEM (opšta industrija)
+   ============================================================ */
+.yt-embed {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #000;
+}
+.yt-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+.oi-feature-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 48px;
+  align-items: center;
+}
+.oi-feature-text p { font-size: 15px; color: var(--text-body); line-height: 1.75; margin-bottom: 24px; }
+.oi-feature-highlights { display: flex; flex-direction: column; gap: 12px; list-style: none; padding: 0; margin: 0; }
+.oi-feature-highlights li {
+  position: relative;
+  padding-left: 22px;
+  font-size: 14px;
+  color: var(--white-dim);
+  line-height: 1.5;
+}
+.oi-feature-highlights li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 7px;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+@media (max-width: 900px) {
+  .oi-feature-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+
+/* ============================================================
    TEHNIČKE SEKCIJE (dopuna) — slika + specifikacije kartice
    Prati postojeće obrasce (sm-card / ds-detail-block) i tone sistem.
    ============================================================ */

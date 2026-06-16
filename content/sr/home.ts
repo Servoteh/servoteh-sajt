@@ -108,7 +108,7 @@ export const home: HomeContent = {
       { title: "Avio industrija", desc: "Precizna oprema, pomoćni alati, nosači, dizalice i sistemi za proizvodnju, servis i rukovanje sklopovima u avio industriji." },
       { title: "Prehrambena industrija", desc: "Mašine i linije za preradu, doziranje i pakovanje, projektovane za stabilan kapacitet, higijenske zahteve procesa i pouzdan rad u kontinuiranoj proizvodnji." },
       { title: "Pakovanje i manipulacija", desc: "Automatizovani sistemi za pakovanje, sortiranje, transport i manipulaciju proizvodima — sa fokusom na takt, ponovljivost i usklađen tok kroz proces." },
-      { title: "Opšta industrijska proizvodnja", desc: "Namenske mašine, linije i automatizovana rešenja za različite grane opšte industrije — tamo gde standardna oprema ne rešava konkretan zahtev procesa, kapaciteta ili kvaliteta." },
+      { title: "Opšta industrijska proizvodnja", desc: "Namenske mašine, linije i automatizovana rešenja za različite grane opšte industrije — tamo gde standardna oprema ne rešava konkretan zahtev procesa, kapaciteta ili kvaliteta.", href: "/opsta-industrijska-proizvodnja" },
     ],
   },
 
