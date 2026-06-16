@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -110,6 +111,10 @@ export function ContactForm() {
       <button type="submit" className="btn btn-primary cf-submit" disabled={status === "submitting"}>
         {status === "submitting" ? "Slanje…" : <>Pošaljite upit <i className="arrow-icon">↗</i></>}
       </button>
+
+      <p className="cf-consent">
+        Slanjem upita prihvatate <Link href="/politika-privatnosti">Politiku privatnosti</Link>.
+      </p>
     </form>
   );
 }

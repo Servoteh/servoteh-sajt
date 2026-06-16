@@ -582,11 +582,26 @@ h1, h2, h3, h4 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 16px;
+  gap: 16px 24px;
+  flex-wrap: wrap;
+}
+.footer-bottom-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.footer-bottom-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 .footer-bottom span {
   font-size: 12px;
   color: var(--white-muted);
+}
+.footer-bottom .footer-legal {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.35);
 }
 .footer-bottom a {
   font-size: 12px;
@@ -595,6 +610,65 @@ h1, h2, h3, h4 {
 }
 .footer-bottom a:hover {
   color: var(--white);
+}
+
+/* ============================================================
+   PRAVNA STRANICA (politika privatnosti) — light
+   ============================================================ */
+.legal-page {
+  background: var(--light-bg-3);
+  color: var(--light-text);
+  padding-top: calc(var(--header-h) + 64px);
+  padding-bottom: 96px;
+}
+.legal-head {
+  max-width: 760px;
+  margin: 0 auto 48px;
+}
+.legal-head h1 {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0 0 12px;
+}
+.legal-updated {
+  font-size: 13px;
+  color: var(--light-text-muted);
+  margin: 0 0 24px;
+}
+.legal-intro {
+  font-size: 17px;
+  color: var(--light-text-muted);
+  line-height: 1.7;
+  margin: 0;
+}
+.legal-section {
+  max-width: 760px;
+  margin: 0 auto 36px;
+}
+.legal-section h2 {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--light-border);
+}
+.legal-section p {
+  font-size: 15px;
+  color: var(--light-text-muted);
+  line-height: 1.75;
+  margin: 0 0 12px;
+}
+.legal-section ul {
+  margin: 4px 0 12px;
+  padding-left: 20px;
+}
+.legal-section li {
+  font-size: 15px;
+  color: var(--light-text-muted);
+  line-height: 1.7;
+  margin-bottom: 6px;
 }
 
 /* ============================================================
@@ -2878,6 +2952,19 @@ a.industry-card {
   padding: 12px 14px;
 }
 .cf-submit { align-self: flex-start; margin-top: 4px; }
+.cf-consent {
+  font-size: 12.5px;
+  color: var(--white-muted);
+  line-height: 1.6;
+  margin: 4px 0 0;
+}
+.cf-consent a {
+  color: var(--white-dim);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.2s;
+}
+.cf-consent a:hover { color: var(--accent-hover); }
 /* honeypot — van ekrana, nedostupno tastaturi */
 .cf-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 

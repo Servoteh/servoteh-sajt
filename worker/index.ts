@@ -31,6 +31,21 @@ type ContactPayload = {
   website?: string;
 };
 
+/**
+ * 301 redirect mapa: stari URL-ovi sa ranijeg (ručno kodiranog) sajta → nove rute.
+ * Pokriva potvrđene `.html` putanje iz `_legacy/`. EN `.html` URL-ovi se dodaju
+ * u Fazi 4 (EN još ne postoji). Sve nemapirane putanje hvata `not_found_handling`
+ * iz `wrangler.jsonc` (→ 404 stranica) — namerno bez blanket 404→home.
+ */
+const REDIRECTS: Record<string, string> = {
+  "/index.html": "/",
+  "/defence.html": "/defence/",
+  "/specijalne-masine.html": "/specijalne-masine/",
+  "/proizvodne-linije.html": "/proizvodne-linije/",
+  "/industrijska-automatizacija.html": "/industrijska-automatizacija/",
+  "/reference.html": "/reference/",
+};
+
 const JSON_HEADERS = { "Content-Type": "application/json; charset=utf-8" };
 
 function json(data: unknown, status = 200): Response {
@@ -135,6 +150,13 @@ export default {
       }
       return handleContact(request, env);
     }
+
+    // 301 redirecti sa starih URL-ova (case-insensitive poređenje putanje).
+    const target = REDIRECTS[url.pathname.toLowerCase()];
+    if (target) {
+      return Response.redirect(new URL(target, url.origin).toString(), 301);
+    }
+
     // Sve ostalo: statički asseti iz /out.
     return env.ASSETS.fetch(request);
   },

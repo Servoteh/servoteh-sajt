@@ -58,6 +58,8 @@ export const site: SiteContent = {
       },
     ],
     copyright: "© 2026 SERVOTEH d.o.o. Sva prava zadržana.",
+    legal: "Servoteh d.o.o. · PIB 101017443 · MB 17400169 · Ugrinovačka 163, 11272 Dobanovci, Beograd, Srbija",
+    privacy: { label: "Politika privatnosti", href: "/politika-privatnosti" },
     siteUrl: { label: "servoteh.com", href: "https://servoteh.com" },
   },
 };

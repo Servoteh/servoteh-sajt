@@ -33,6 +33,10 @@ export type SiteContent = {
     iso: string;
     columns: FooterColumn[];
     copyright: string;
+    /** pravni red: naziv firme, PIB, sedište */
+    legal: string;
+    /** link na politiku privatnosti */
+    privacy: { label: string; href: string };
     siteUrl: { label: string; href: string };
   };
 };
@@ -181,6 +185,27 @@ export type DeepRefTeaser = { title: string; body: string };
 export type DeepCtaContent = { label: string; title: string; body: string };
 
 export type PageMeta = { title: string; description: string };
+
+/* ============================================================
+   PRAVNE STRANICE (politika privatnosti)
+   ============================================================ */
+
+export type LegalSection = {
+  heading: string;
+  /** uvodni/obični pasusi */
+  paragraphs?: string[];
+  /** stavke liste (npr. koje podatke prikupljamo, prava lica) */
+  items?: string[];
+};
+
+export type LegalPageContent = {
+  meta: PageMeta;
+  title: string;
+  /** datum poslednje izmene (vidljiv tekst, npr. "16. jun 2026.") */
+  updated: string;
+  intro: string;
+  sections: LegalSection[];
+};
 
 /* ============================================================
    TEHNIČKE KARTICE (dopuna sa starog sajta — mašine + specifikacije)

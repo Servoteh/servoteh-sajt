@@ -52,8 +52,8 @@ export function Footer({ site }: { site: SiteContent }) {
                 </span>
               ))}
             </address>
-            <a href={`mailto:${f.email}`}>{f.email}</a>
-            <a href={f.phone.href}>{f.phone.label}</a>
+            <a href={`mailto:${f.email}`} aria-label={`Email: ${f.email}`}>{f.email}</a>
+            <a href={f.phone.href} aria-label={`Telefon: ${f.phone.label}`}>{f.phone.label}</a>
             <div className="footer-socials">
               {f.socials.map((s) => (
                 <a key={s.href} href={s.href} target="_blank" rel="noopener" aria-label={s.label}>
@@ -86,10 +86,16 @@ export function Footer({ site }: { site: SiteContent }) {
         </div>
 
         <div className="footer-bottom">
-          <span>{f.copyright}</span>
-          <a href={f.siteUrl.href} aria-label="Servoteh zvanična stranica">
-            {f.siteUrl.label}
-          </a>
+          <div className="footer-bottom-left">
+            <span>{f.copyright}</span>
+            {f.legal && <span className="footer-legal">{f.legal}</span>}
+          </div>
+          <div className="footer-bottom-right">
+            {f.privacy && <Link href={f.privacy.href}>{f.privacy.label}</Link>}
+            <a href={f.siteUrl.href} aria-label="Servoteh zvanična stranica">
+              {f.siteUrl.label}
+            </a>
+          </div>
         </div>
       </div>
     </footer>
