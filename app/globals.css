@@ -2675,7 +2675,8 @@ a.industry-card {
 }
 .oi-cell:nth-child(even) .oi-cell-media { order: 2; }
 .oi-cell-media { border-radius: var(--radius); overflow: hidden; }
-.oi-cell-media img {
+.oi-cell-media img,
+.oi-cell-media video {
   display: block;
   width: 100%;
   height: auto;

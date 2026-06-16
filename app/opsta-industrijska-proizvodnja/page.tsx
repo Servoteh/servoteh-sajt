@@ -38,7 +38,9 @@ export default function OpstaIndustrijskaProizvodnjaPage() {
             {c.machines.map((m) => (
               <Reveal className="oi-cell" key={m.title}>
                 <div className="oi-cell-media">
-                  {m.videoId ? (
+                  {m.video ? (
+                    <video src={m.video} poster={m.poster} controls preload="none" />
+                  ) : m.videoId ? (
                     <YouTubeEmbed id={m.videoId} title={m.videoTitle ?? m.title} />
                   ) : m.img ? (
                     // eslint-disable-next-line @next/next/no-img-element

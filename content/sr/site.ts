@@ -44,6 +44,7 @@ export const site: SiteContent = {
           { label: "Proizvodne linije", href: "/proizvodne-linije" },
           { label: "Industrijska automatizacija", href: "/industrijska-automatizacija" },
           { label: "Automobilska industrija", href: "/automobilska-industrija" },
+          { label: "Prehrambena industrija", href: "/prehrambena-industrija" },
           { label: "Opšta industrijska proizvodnja", href: "/opsta-industrijska-proizvodnja" },
         ],
       },

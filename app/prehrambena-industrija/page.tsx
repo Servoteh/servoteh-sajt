@@ -1,0 +1,51 @@
+import type { Metadata } from "next";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
+import {
+  DeepHero,
+  DeepSection,
+  DeepHeader,
+  IntroSplit,
+  BlockGrid,
+  RefTeaser,
+  DeepCta,
+} from "@/components/deep/DeepSections";
+import { TechSection } from "@/components/deep/TechCards";
+import { site } from "@/content/sr/site";
+import * as c from "@/content/sr/prehrambena-industrija";
+
+export const metadata: Metadata = {
+  title: c.meta.title,
+  description: c.meta.description,
+};
+
+export default function PrehrambenaIndustrijaPage() {
+  return (
+    <>
+      <Header site={site} />
+      <main>
+        <DeepHero id="ph-hero" content={c.hero} />
+
+        <DeepSection id="ph-intro" tone="light-1">
+          <IntroSplit label={c.intro.label} title={c.intro.title} body={c.intro.body} items={c.intro.items} />
+        </DeepSection>
+
+        <TechSection content={c.oprema} />
+
+        <DeepSection id="ph-types" tone="light-3" wide>
+          <DeepHeader content={c.typesHeader} onLight />
+          <BlockGrid blocks={c.types} />
+        </DeepSection>
+
+        <DeepSection id="ph-ref" tone="light-1">
+          <RefTeaser content={c.refTeaser} />
+        </DeepSection>
+
+        <DeepSection id="ph-cta" tone="black" className="deep-cta">
+          <DeepCta content={c.cta} />
+        </DeepSection>
+      </main>
+      <Footer site={site} />
+    </>
+  );
+}
