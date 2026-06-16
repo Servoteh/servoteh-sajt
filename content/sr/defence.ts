@@ -274,6 +274,7 @@ export const tech01: TechSectionContent = {
       img: "/assets/defence-tech/artillery-heat-treatment-line.webp",
       alt: "Linija za termičku obradu — kaljenje, popuštanje, pranje i transport komada",
       title: "Linija za termičku obradu",
+      video: "tULt13jHqaw",
       desc: "Kompletna linija za termičku obradu tela projektila — normalizacija, kaljenje, žarenje i popuštanje, sa pranjem, odmašćivanjem i kontrolisanim hlađenjem. Rad u zaštitnoj atmosferi azota, sa automatizovanim transportom komada i upravljanjem preko Siemens PLC-a, uz recepte termičke obrade i arhiviranje procesnih parametara za stabilan i ponovljiv kvalitet u serijskoj proizvodnji.",
       specs: [
         "Radni prostor: 1.220 × 910 × 910 mm; nosivost 1.000 kg",

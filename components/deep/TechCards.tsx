@@ -1,5 +1,6 @@
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/Reveal";
+import { TechCardVideo } from "@/components/deep/TechCardVideo";
 import type { TechSectionContent } from "@/lib/types";
 
 /**
@@ -28,9 +29,15 @@ export function TechSection({ content }: { content: TechSectionContent }) {
           {content.cards.map((card, i) => (
             <Reveal key={card.title} delay={(i % 3) * 0.08} className="tech-card">
               <div className="tech-card-media">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={card.img} alt={card.alt} loading="lazy" />
-                {card.caption && <span className="tech-card-caption">{card.caption}</span>}
+                {card.video ? (
+                  <TechCardVideo img={card.img} alt={card.alt} video={card.video} caption={card.caption} />
+                ) : (
+                  <>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={card.img} alt={card.alt} loading="lazy" />
+                    {card.caption && <span className="tech-card-caption">{card.caption}</span>}
+                  </>
+                )}
               </div>
               <div className="tech-card-body">
                 <h3>{card.title}</h3>
@@ -41,6 +48,16 @@ export function TechSection({ content }: { content: TechSectionContent }) {
                       <li key={s}>{s}</li>
                     ))}
                   </ul>
+                )}
+                {card.video && (
+                  <a
+                    className="tech-card-video-link"
+                    href={`https://www.youtube.com/watch?v=${card.video}`}
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Pogledajte na YouTube-u <i className="arrow-icon">↗</i>
+                  </a>
                 )}
               </div>
             </Reveal>

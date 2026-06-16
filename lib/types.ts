@@ -196,6 +196,8 @@ export type TechCard = {
   specs?: string[];
   /** opcioni potpis ispod slike */
   caption?: string;
+  /** opcioni YouTube ID — diskretan „klik-da-pusti" video u medija-delu kartice */
+  video?: string;
 };
 
 /** Sekcija tehničkih kartica unutar dubinske stranice. */
