@@ -11,7 +11,7 @@ export const home: HomeContent = {
     eyebrow: "Beograd, Srbija — porodična inženjerska kompanija od 2002.",
     title: "Specijalne mašine, proizvodne linije i automatizovani sistemi",
     subtitle:
-      "Projektujemo, razvijamo i isporučujemo rešenja za zahtevne industrijske procese, sa posebnim fokusom na industriju odbrane — od prvog crteža do montaže, puštanja u rad i dugoročne tehničke podrške.",
+      "Projektujemo, razvijamo i isporučujemo rešenja za zahtevne industrijske procese, sa posebnim fokusom na industriju odbrane — od idejnog crteža do montaže, puštanja u rad i dugoročne tehničke podrške.",
     primaryCta: { label: "Pošaljite upit", href: "/#cta" },
     secondaryCta: { label: "Pogledajte rešenja", href: "/#solutions" },
     scrollLabel: "Skroluj",
@@ -43,7 +43,7 @@ export const home: HomeContent = {
   about: {
     label: "O kompaniji",
     title: "Inženjering koji prati zahtev kupca",
-    body: "Servoteh je porodična inženjerska kompanija iz Dobanovaca, aktivna od 2002. godine. Razvijamo specijalne mašine, proizvodne linije i automatizovane sisteme, prvenstveno za industriju odbrane i druge zahtevne industrijske procese, uz integrisan mašinski, elektro i softverski razvoj u okviru jednog tima.",
+    body: "Servoteh je porodična inženjerska kompanija locirana u Dobanovcima, aktivna od 2002. godine. Razvijamo specijalne mašine, proizvodne linije i automatizovane sisteme, prvenstveno za industriju odbrane i druge zahtevne industrijske procese, uz integrisan mašinski, elektro i softverski razvoj.",
     cta: { label: "Pošaljite upit", href: "/#cta" },
     features: [
       { title: "Mašinski razvoj", desc: "Mašinsko projektovanje i izrada sistema prilagođenih konkretnom procesu." },
@@ -57,7 +57,7 @@ export const home: HomeContent = {
     label: "Kapaciteti",
     title: "Sopstveni razvojni i proizvodni kapaciteti",
     body: "Servoteh razvija, proizvodi, montira i integriše sisteme u sopstvenim kapacitetima u Dobanovcima. Ovakav pristup omogućava bolju kontrolu kvaliteta, kraće rokove i pouzdaniju realizaciju složenih projekata — od projektovanja, preko proizvodnje i montaže, do integracije sistema i pripreme za puštanje u rad.",
-    body2: "Sopstvena proizvodnja obuhvata CNC mašinsku obradu, glodanje, struganje, brušenje, elektroeroziju, izradu kompleksnih delova i montažu sklopova. Time ključne faze projekta ostaju pod kontrolom istog tima — od konstrukcije i izrade delova do integracije i završne provere sistema.",
+    body2: "Sopstvena proizvodnja obuhvata CNC mašinsku obradu (glodanje, struganje, brušenje, elektroeroziju…), CNC sečenje i savijanje, kao i montažu sklopova. Time ključne faze projekta ostaju pod kontrolom istog tima — od konstrukcije i izrade delova do sklapanja, integracije i završne provere sistema.",
     points: [
       "10.000 m² razvojnih, proizvodnih i montažnih kapaciteta",
       "Razvojni biro za mašinsko, elektro i softversko projektovanje",
