@@ -175,16 +175,6 @@ export const process = {
   ],
 };
 
-export const why = {
-  label: "Zašto Servoteh",
-  title: "Tri razloga",
-  cards: [
-    { num: "01", title: "Integrisani mašinski razvoj", desc: "Mašinski, elektro i softverski razvoj objedinjeni su u jednom timu. Multidisciplinarni pristup koji eliminiše koordinacione gubitke i skraćuje vreme realizacije projekta." },
-    { num: "02", title: "Sopstveni kapaciteti realizacije", desc: "Mašinska obrada, sklapanje, integracija i kontrola kvaliteta u okviru sopstvenih kapaciteta u Dobanovcima — bez zavisnosti od podizvođača u ključnim fazama projekta." },
-    { num: "03", title: "Podrška nakon isporuke", desc: "Puštanje u rad, obuka osoblja, servisne intervencije, rezervni delovi i dugoročna tehnička podrška — Servoteh ostaje tehnički partner tokom celokupnog veka eksploatacije sistema." },
-  ],
-};
-
 export const refLink = {
   title: "Pogledajte kako pristupamo referentnim projektima",
   body: "Reference obuhvataju projekte razvijene za zahtevne proizvodne procese, sa fokusom na pouzdanost, preciznost i dugoročnu eksploataciju sistema.",

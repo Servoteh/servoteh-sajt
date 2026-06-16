@@ -86,22 +86,6 @@ const stepIcons: ReactElement[] = [
   </svg>,
 ];
 
-const whyIcons: ReactElement[] = [
-  <svg key="w1" width="20" height="20" viewBox="0 0 20 20" fill="none">
-    <path d="M10 2L3 6v8l7 4 7-4V6L10 2z" stroke={A} strokeWidth="1.5" strokeLinejoin="round" />
-    <path d="M3 6l7 4 7-4M10 10v8" stroke={A} strokeWidth="1.5" strokeLinecap="round" />
-  </svg>,
-  <svg key="w2" width="20" height="20" viewBox="0 0 20 20" fill="none">
-    <rect x="2" y="11" width="4" height="7" rx="1" stroke={A} strokeWidth="1.5" />
-    <rect x="8" y="8" width="4" height="10" rx="1" stroke={A} strokeWidth="1.5" />
-    <rect x="14" y="5" width="4" height="13" rx="1" stroke={A} strokeWidth="1.5" />
-  </svg>,
-  <svg key="w3" width="20" height="20" viewBox="0 0 20 20" fill="none">
-    <path d="M10 2L3 5v6c0 4 3 6.5 7 7.5 4-1 7-3.5 7-7.5V5l-7-3z" stroke={A} strokeWidth="1.5" strokeLinejoin="round" />
-    <path d="M7 10l2 2 4-4" stroke={A} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>,
-];
-
 export default function DefencePage() {
   return (
     <>
@@ -273,26 +257,6 @@ export default function DefencePage() {
                   <div className="ds-step-icon">{stepIcons[i]}</div>
                   <h4>{step.title}</h4>
                   <p>{step.desc}</p>
-                </Reveal>
-              ))}
-            </div>
-          </Container>
-        </section>
-
-        {/* ZAŠTO */}
-        <section id="ds-why">
-          <Container wide>
-            <Reveal className="section-intro-tight">
-              <div className="section-label">{c.why.label}</div>
-              <h2 className="section-intro-h2 section-intro-h2--notight">{c.why.title}</h2>
-            </Reveal>
-            <div className="ds-why-grid">
-              {c.why.cards.map((card, i) => (
-                <Reveal key={card.num} delay={i * 0.1} className="ds-why-card">
-                  <div className="ds-why-num">{card.num}</div>
-                  <div className="ds-why-icon">{whyIcons[i]}</div>
-                  <h3>{card.title}</h3>
-                  <p>{card.desc}</p>
                 </Reveal>
               ))}
             </div>
