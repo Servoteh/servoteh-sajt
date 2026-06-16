@@ -9,7 +9,7 @@ import { useEffect, useRef, useState } from "react";
  */
 export function HeroVideoBg({
   src = "/assets/hero1.mp4",
-  poster = "/assets/hero-poster.jpg",
+  poster = "/assets/hero-poster.webp",
   wrapClassName = "hero-video-wrap",
   opacity = 0.55,
 }: {

@@ -65,7 +65,7 @@ export const machines: MachineCell[] = [
   {
     title: "Mašina za proizvodnju kablovskih papučica",
     desc: "Savremena automatska mašina konstruisana za masovnu proizvodnju kablovskih papučica koje se primenjuju u elektro industriji. Krajnji proizvodi namenjeni su sigurnom i trajnom spajanju provodnika u razvodnim ormarima, upravljačkim tablama i industrijskim postrojenjima. Kontinuirani rad uz visoku preciznost obrade osigurava konstantan kvalitet svakog komada i značajno smanjuje troškove proizvodnje.",
-    img: "/assets/opsta-industrija/kablovske-papucice.jpg",
+    img: "/assets/opsta-industrija/kablovske-papucice.webp",
     imgAlt: "Automatska mašina za proizvodnju kablovskih papučica — SERVOTEH",
     highlights: [
       "Masovna, kontinuirana proizvodnja",

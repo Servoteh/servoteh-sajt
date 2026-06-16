@@ -53,7 +53,7 @@ export function Hero({ content }: { content: HomeContent["hero"] }) {
   return (
     <section id="hero">
       <div className="hero-video-wrap">
-        <video ref={videoRef} autoPlay muted loop playsInline poster="/assets/hero-poster.jpg">
+        <video ref={videoRef} autoPlay muted loop playsInline poster="/assets/hero-poster.webp">
           <source src="/assets/hero1.mp4" type="video/mp4" />
         </video>
         <div className="hero-fallback" style={{ display: showFallback ? "block" : "none" }} />

@@ -65,13 +65,13 @@ export const home: HomeContent = {
       "Kontrola kvaliteta, testiranje i priprema sistema za puštanje u rad",
     ],
     slides: [
-      { src: "/assets/about-exterior-facility.jpg", alt: "Spoljašnji pogled na razvojne i proizvodne hale Servoteh u Dobanovcima", caption: "Upravna i proizvodna lokacija" },
-      { src: "/assets/about-production-hall-wide.jpg", alt: "Glavna proizvodna hala Servoteh", caption: "Proizvodna hala" },
-      { src: "/assets/about-robotic-cell.jpg", alt: "Robotizovana ćelija i automatizacija u Servoteh pogonu", caption: "Robotizovana ćelija" },
-      { src: "/assets/about-heat-treatment-line.jpg", alt: "Linija za termičku obradu u Servoteh pogonu", caption: "Linija termičke obrade" },
-      { src: "/assets/about-heavy-machining.jpg", alt: "Teška mašinska obrada u Servoteh pogonu", caption: "Teška mašinska obrada" },
-      { src: "/assets/about-precision-machining-room.jpg", alt: "Prostor za preciznu mašinsku obradu u Servoteh pogonu", caption: "Prostor za preciznu obradu" },
-      { src: "/assets/about-boring-machine-night.jpg", alt: "Borverk za obradu velikih pozicija u Servoteh pogonu", caption: "Borverk za obradu velikih pozicija" },
+      { src: "/assets/about-exterior-facility.webp", alt: "Spoljašnji pogled na razvojne i proizvodne hale Servoteh u Dobanovcima", caption: "Upravna i proizvodna lokacija" },
+      { src: "/assets/about-production-hall-wide.webp", alt: "Glavna proizvodna hala Servoteh", caption: "Proizvodna hala" },
+      { src: "/assets/about-robotic-cell.webp", alt: "Robotizovana ćelija i automatizacija u Servoteh pogonu", caption: "Robotizovana ćelija" },
+      { src: "/assets/about-heat-treatment-line.webp", alt: "Linija za termičku obradu u Servoteh pogonu", caption: "Linija termičke obrade" },
+      { src: "/assets/about-heavy-machining.webp", alt: "Teška mašinska obrada u Servoteh pogonu", caption: "Teška mašinska obrada" },
+      { src: "/assets/about-precision-machining-room.webp", alt: "Prostor za preciznu mašinsku obradu u Servoteh pogonu", caption: "Prostor za preciznu obradu" },
+      { src: "/assets/about-boring-machine-night.webp", alt: "Borverk za obradu velikih pozicija u Servoteh pogonu", caption: "Borverk za obradu velikih pozicija" },
     ],
   },
 
@@ -80,9 +80,9 @@ export const home: HomeContent = {
     title: "Naša rešenja",
     body: "Projektujemo, razvijamo i izrađujemo industrijske sisteme po zahtevu kupca — od specijalnih mašina i automatizacije procesa do kompletnih proizvodnih linija.",
     cards: [
-      { tag: "01 — Proizvodne linije", title: "Proizvodne linije", desc: "Kompletna rešenja za organizaciju i automatizaciju proizvodnje — od idejnog rešenja do puštanja sistema u rad.", href: "/proizvodne-linije", img: "/assets/proizvodne-linije.jpg", alt: "Kompletna proizvodna linija — Servoteh" },
-      { tag: "02 — Industrijska automatizacija", title: "Industrijska automatizacija", desc: "Integracija upravljanja, pogona, senzora i procesne logike u stabilne i pouzdane industrijske sisteme.", href: "/industrijska-automatizacija", img: "/assets/industrijska-automatizacija.jpg", alt: "Upravljanje i automatizacija — Servoteh" },
-      { tag: "03 — Specijalne mašine", title: "Specijalne mašine", desc: "Namenska tehnička rešenja razvijena za precizno definisane operacije, proizvode i uslove rada.", href: "/specijalne-masine", img: "/assets/specijalne-masine.jpg", alt: "Specijalne mašine po meri — Servoteh" },
+      { tag: "01 — Proizvodne linije", title: "Proizvodne linije", desc: "Kompletna rešenja za organizaciju i automatizaciju proizvodnje — od idejnog rešenja do puštanja sistema u rad.", href: "/proizvodne-linije", img: "/assets/proizvodne-linije.webp", alt: "Kompletna proizvodna linija — Servoteh" },
+      { tag: "02 — Industrijska automatizacija", title: "Industrijska automatizacija", desc: "Integracija upravljanja, pogona, senzora i procesne logike u stabilne i pouzdane industrijske sisteme.", href: "/industrijska-automatizacija", img: "/assets/industrijska-automatizacija.webp", alt: "Upravljanje i automatizacija — Servoteh" },
+      { tag: "03 — Specijalne mašine", title: "Specijalne mašine", desc: "Namenska tehnička rešenja razvijena za precizno definisane operacije, proizvode i uslove rada.", href: "/specijalne-masine", img: "/assets/specijalne-masine.webp", alt: "Specijalne mašine po meri — Servoteh" },
     ],
   },
 
