@@ -351,7 +351,7 @@ export const tech02: TechSectionContent = {
       ],
     },
     {
-      img: "/assets/defence-tech/ammunition-hydraulic-deep-drawing-press.webp",
+      img: "/assets/defence-tech/ammunition-pyrotechnic-retarders-line.webp",
       alt: "Hidraulična presa za duboko izvlačenje komponenti municije",
       title: "Hidraulična presa za duboko izvlačenje",
       desc: "Prese za duboko izvlačenje za integraciju u automatske i poluautomatske linije — za precizno formiranje složenih delova i stabilan rad pod velikim opterećenjima.",
@@ -363,7 +363,7 @@ export const tech02: TechSectionContent = {
       ],
     },
     {
-      img: "/assets/defence-tech/ammunition-pyrotechnic-retarders-line.webp",
+      img: "/assets/defence-tech/ammunition-hydraulic-deep-drawing-press.webp",
       alt: "Mašina za proizvodnju pirotehničkih usporivača sa linearnim transfer sistemom",
       title: "Mašine za pirotehničke usporivače",
       desc: "Linije sa linearnim transfer sistemom za brz, ponovljiv i kontrolisan ciklus, sa posebnom pažnjom na tačnost doziranja, bezbednost i stabilnost procesa.",
