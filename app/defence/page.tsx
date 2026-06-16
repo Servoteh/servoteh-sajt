@@ -192,6 +192,16 @@ export default function DefencePage() {
                       >
                         Pošaljite upit <i className="arrow-icon">↗</i>
                       </a>
+                      {d.video && (
+                        <a
+                          className="tech-card-video-link ds-detail-video-link"
+                          href={`https://www.youtube.com/watch?v=${d.video}`}
+                          target="_blank"
+                          rel="noopener"
+                        >
+                          Pogledajte na YouTube-u <i className="arrow-icon">↗</i>
+                        </a>
+                      )}
                     </Reveal>
                   </div>
                 </Container>

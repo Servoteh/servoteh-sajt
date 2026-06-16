@@ -2885,6 +2885,8 @@ a.industry-card {
   color: var(--accent); transition: color 0.2s ease;
 }
 .tech-card-video-link:hover { color: var(--accent-hover); }
+/* Isti link u detaljnom bloku — u svom redu ispod CTA dugmeta */
+.ds-detail-video-link { display: flex; margin-top: 18px; }
 
 .tech-card-body { padding: 24px 22px; display: flex; flex-direction: column; gap: 10px; }
 .tech-card-body h3 { font-size: 17px; font-weight: 700; line-height: 1.3; }

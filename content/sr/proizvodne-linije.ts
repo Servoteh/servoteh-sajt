@@ -132,7 +132,7 @@ export const examples: TechSectionContent = {
       img: "/assets/defence-tech/artillery-heat-treatment-line.webp",
       alt: "Linija za termičku obradu, ispitivanje i kontrolu kvaliteta",
       title: "Termička obrada, ispitivanje i kontrola",
-      desc: "Linije za normalizaciju, kaljenje i popuštanje sa stanicama za pranje i hlađenje, hidrostatičkim ispitivanjem i automatizovanom kontrolom tvrdoće.",
+      desc: "Linije za normalizaciju, kaljenje i otpuštanje sa stanicama za pranje i hlađenje, hidrostatičkim ispitivanjem i automatizovanom kontrolom tvrdoće.",
     },
     {
       img: "/assets/defence-tech/artillery-automatic-transport-trolley.webp",
