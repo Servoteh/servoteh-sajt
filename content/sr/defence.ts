@@ -34,9 +34,9 @@ export const intro = {
 };
 
 export const programsHeader = {
-  label: "Tri osnovna programa",
+  label: "Četiri programske celine",
   title: "Programske celine",
-  body: "Sistemi za industriju odbrane organizovani su kroz tri programske celine koje pokrivaju ključne proizvodne i tehničke zahteve industrije odbrane.",
+  body: "Sistemi za industriju odbrane organizovani su kroz četiri programske celine koje pokrivaju ključne proizvodne i tehničke zahteve industrije odbrane.",
 };
 
 export const programs = [
@@ -58,6 +58,12 @@ export const programs = [
     title: "Automatski punjači i podsistemi za samohodne artiljerijske platforme",
     desc: "Servoteh razvija automatske punjače i povezane podsisteme za savremene samohodne artiljerijske platforme, sa fokusom na brže punjenje, veću operativnu pouzdanost i smanjenje opterećenja posade.",
     label: "Program 03",
+  },
+  {
+    num: "Program 04 — Specijalne mašine",
+    title: "Specijalne namenske mašine",
+    desc: "Specijalne mašine, podsistemi i automatizovana rešenja za specifične zahteve industrije odbrane — tamo gde standardna oprema ne može da ispuni traženi tehnološki, kapacitivni ili prostorni zahtev.",
+    label: "Program 04",
   },
 ];
 
@@ -124,6 +130,24 @@ export const detailBlocks = [
       "Razvoj prilagođen arhitekturi konkretne platforme — NORA B-52, Aleksandar i sistemi nove generacije",
     ],
     ctaGhostLight: true,
+    hotspots: false,
+  },
+  {
+    tone: "dark",
+    reverse: true,
+    img: "/assets/defence-tech/development-vertical-flow-forming-machine.webp",
+    alt: "Specijalne namenske mašine za industriju odbrane — SERVOTEH",
+    label: "Program 04",
+    title: "Specijalne namenske mašine i namenska rešenja",
+    body: "Pored proizvodnih linija, Servoteh razvija specijalne mašine, podsisteme i automatizovana rešenja za specifične zahteve industrije odbrane — tamo gde standardna oprema ne može da ispuni traženi tehnološki, kapacitivni ili prostorni zahtev. Razvoj obuhvata mašinsko projektovanje, hidrauliku, elektro upravljanje, softver, proizvodnju, montažu i integraciju.",
+    bullets: [
+      "Prese za navlačenje ojačavajuće čaure na cevi velikih kalibara",
+      "Vertikalne i horizontalne mašine za flow forming šupljih rotacionih delova",
+      "Univerzalne avionske modularne školske bombe",
+      "Pogon za proizvodnju balističkih ploča (hidraulične prese + SCADA)",
+      "Kompletan razvoj — od mašinskog projektovanja do montaže i integracije",
+    ],
+    ctaGhostLight: false,
     hotspots: false,
   },
 ];
@@ -333,12 +357,12 @@ export const tech02: TechSectionContent = {
   cta: { label: "Pošaljite tehnički zahtev", href: "mailto:office@servoteh.com" },
 };
 
-// Program 03 — platforme i namenska rešenja (posle detaljnog bloka P3).
-export const tech03: TechSectionContent = {
-  id: "tehnicka-resenja-platforme",
+// Program 04 — specijalne namenske mašine (posle detaljnog bloka P4).
+export const tech04: TechSectionContent = {
+  id: "tehnicka-resenja-specijalne-masine",
   tone: "light",
-  label: "Program 03 — tehnička rešenja",
-  title: "Namenska odbrambena rešenja i podsistemi",
+  label: "Program 04 — tehnička rešenja",
+  title: "Specijalne namenske mašine i podsistemi",
   intro:
     "Pored proizvodnih linija, Servoteh razvija specijalne mašine, podsisteme i automatizovana rešenja za specifične zahteve industrije odbrane — tamo gde standardna oprema ne može da ispuni traženi tehnološki, kapacitivni ili prostorni zahtev. Razvoj obuhvata mašinsko projektovanje, hidrauliku, elektro upravljanje, softver, proizvodnju, montažu i integraciju.",
   cards: [
@@ -394,18 +418,6 @@ export const tech03: TechSectionContent = {
         "Četvorosekcioni alati temperirani termalnim uljem",
         "Sistem za grejanje i hlađenje",
         "Regulacija temperature + SCADA nadzor",
-      ],
-    },
-    {
-      img: "/assets/defence-tech/defence-automatic-loader-test-bench.webp",
-      alt: "Automatski punjač i kasetni podsistem na testnom postolju",
-      title: "Automatski punjači i kasetni podsistemi",
-      desc: "Automatski punjači i podsistemi za savremene samohodne artiljerijske platforme — za brže punjenje, veću pouzdanost i smanjenje opterećenja posade.",
-      specs: [
-        "Punjači za samohodne sisteme nove generacije",
-        "Rešenja za 155 mm platforme",
-        "Kasete i podsistemi za rukovanje municijom",
-        "Integracija mehanike, hidraulike i bezbednosne logike",
       ],
     },
   ],

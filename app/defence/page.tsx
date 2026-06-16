@@ -39,6 +39,12 @@ const progVisuals: ReactElement[] = [
     <path d="M40 8L14 20v22c0 18 11 26 26 30 15-4 26-12 26-30V20L40 8z" stroke="rgba(232,64,28,0.45)" strokeWidth="1.5" fill="rgba(232,64,28,0.07)" strokeLinejoin="round" />
     <path d="M27 40l8 8 18-18" stroke="rgba(232,64,28,0.7)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
   </svg>,
+  <svg key="p4" width="80" height="80" viewBox="0 0 80 80" fill="none" opacity="0.45">
+    <circle cx="30" cy="40" r="14" stroke="rgba(232,64,28,0.5)" strokeWidth="1.5" fill="rgba(232,64,28,0.07)" />
+    <circle cx="30" cy="40" r="4.5" fill="rgba(232,64,28,0.45)" />
+    <path d="M30 22v-6M30 64v-6M12 40H6M52 40h-6M17.3 27.3l-4.2-4.2M46.9 56.9l4.2 4.2M17.3 52.7l-4.2 4.2M46.9 23.1l4.2-4.2" stroke="rgba(232,64,28,0.45)" strokeWidth="1.5" strokeLinecap="round" />
+    <rect x="54" y="30" width="20" height="20" rx="2" fill="rgba(232,64,28,0.22)" />
+  </svg>,
 ];
 
 const reqIcons: ReactElement[] = [
@@ -177,7 +183,7 @@ export default function DefencePage() {
 
         {/* DETALJNI BLOKOVI + tehničke sekcije (umetnute po programu) */}
         {c.detailBlocks.map((d, i) => {
-          const tech = [c.tech01, c.tech02, c.tech03][i];
+          const tech = [c.tech01, c.tech02, undefined, c.tech04][i];
           return (
             <Fragment key={d.label}>
               <div className={`ds-detail-block ds-detail-block--${d.tone}`}>
