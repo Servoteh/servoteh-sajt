@@ -126,7 +126,6 @@ export type HomeContent = {
     body: string;
     cta: NavItem;
     items: TitleDesc[];
-    why: TitleDesc[];
   };
   industries: {
     label: string;

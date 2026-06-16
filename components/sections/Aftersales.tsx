@@ -29,15 +29,6 @@ export function Aftersales({ content }: { content: HomeContent["aftersales"] }) 
               </div>
             ))}
           </Reveal>
-
-          <Reveal className="why-compact">
-            {content.why.map((w) => (
-              <div className="why-compact-item" key={w.title}>
-                <h4>{w.title}</h4>
-                <p>{w.desc}</p>
-              </div>
-            ))}
-          </Reveal>
         </div>
       </Container>
     </section>

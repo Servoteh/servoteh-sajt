@@ -96,11 +96,6 @@ export const home: HomeContent = {
       { title: "Dijagnostika i intervencije", desc: "Brza reakcija i tehnička podrška na licu mesta ili daljinski." },
       { title: "Rezervni delovi i unapređenja", desc: "Originalni rezervni delovi i moguća unapređenja sistema tokom eksploatacije." },
     ],
-    why: [
-      { title: "Princip ključ u ruke", desc: "Vodimo projekat od ideje do isporuke, uz jednu odgovornu tačku komunikacije." },
-      { title: "Integrisan razvoj i realizacija", desc: "Razvoj, proizvodnja, montaža i integracija povezani su u jedan sistem realizacije." },
-      { title: "Dugoročna tehnička odgovornost", desc: "Ostajemo uključeni i nakon isporuke kroz podršku i unapređenja sistema." },
-    ],
   },
 
   industries: {

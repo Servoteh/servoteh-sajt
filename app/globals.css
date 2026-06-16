@@ -1121,27 +1121,6 @@ h1, h2, h3, h4 {
   color: var(--light-text-muted);
   line-height: 1.55;
 }
-.why-compact {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-top: 48px;
-  padding-top: 40px;
-  border-top: 1px solid var(--light-border);
-  grid-column: 1 / -1;
-}
-.why-compact-item h4 {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--light-text);
-  margin-bottom: 6px;
-}
-.why-compact-item p {
-  font-size: 13px;
-  color: var(--light-text-muted);
-  line-height: 1.6;
-}
-
 /* ============================================================
    INDUSTRIES — light
    ============================================================ */
@@ -1495,10 +1474,6 @@ a.industry-card {
   }
   .solutions-grid {
     grid-template-columns: 1fr;
-  }
-  .why-compact {
-    grid-template-columns: 1fr;
-    gap: 24px;
   }
   .industries-grid {
     grid-template-columns: 1fr 1fr;
