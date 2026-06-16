@@ -82,7 +82,22 @@ export const program1Hotspots: Hotspot[] = [
   { left: "84%", top: "58%", edge: "right", label: "Presa 630 t — završno sužavanje" },
 ];
 
-export const detailBlocks = [
+type DetailBlock = {
+  tone: "dark" | "light" | "mid";
+  reverse: boolean;
+  img: string;
+  alt: string;
+  label: string;
+  title: string;
+  body: string;
+  bullets: string[];
+  ctaGhostLight: boolean;
+  hotspots: boolean;
+  /** opcioni YouTube ID — slika detaljnog bloka postaje „klik-da-pusti" video */
+  video?: string;
+};
+
+export const detailBlocks: DetailBlock[] = [
   {
     tone: "dark",
     reverse: false,
@@ -110,6 +125,7 @@ export const detailBlocks = [
     reverse: true,
     img: "/assets/defence/programme-2-detail.webp",
     alt: "Linije za proizvodnju municije i komponenti — SERVOTEH",
+    video: "u0UFlRB39wY",
     label: "Program 02",
     title: "Linije za proizvodnju municije i komponenti",
     body: "Modularne linije i mašine za automatizovanu proizvodnju komponenti municije projektovane su za stabilan rad u uslovima visokog kapaciteta i stroge kontrole dimenzija. Rešenja obuhvataju proizvodnju čanče, proizvodnju čaure i finalizaciju zrna, uz mogućnost integracije transfer sistema, automatizovanog rukovanja i kontrole kvaliteta.",
@@ -209,10 +225,6 @@ export const tech01: TechSectionContent = {
   title: "Tehnička rešenja za tela artiljerijskih projektila",
   intro:
     "Kompletan proizvodni tok za tela artiljerijskih projektila do 155 mm — od pripreme i indukcionog zagrevanja, preko kovanja, dubokog izvlačenja i završnog sužavanja, do termičke obrade, hidrostatičkog ispitivanja i kontrole tvrdoće. Sistem se projektuje kao celina, sa robotizovanom manipulacijom između ključnih operacija i integrisanim upravljanjem.",
-  leadImg: {
-    src: "/assets/defence-tech/artillery-thermal-or-process-line.webp",
-    alt: "Procesna oprema u proizvodnom toku tela artiljerijskih projektila",
-  },
   cards: [
     {
       img: "/assets/defence-tech/artillery-hydraulic-forging-press-1000t.webp",
@@ -275,17 +287,18 @@ export const tech01: TechSectionContent = {
       alt: "Linija za termičku obradu — kaljenje, popuštanje, pranje i transport komada",
       title: "Linija za termičku obradu",
       video: "tULt13jHqaw",
-      desc: "Kompletna linija za termičku obradu tela projektila — normalizacija, kaljenje, žarenje i popuštanje, sa pranjem, odmašćivanjem i kontrolisanim hlađenjem. Rad u zaštitnoj atmosferi azota, sa automatizovanim transportom komada i upravljanjem preko Siemens PLC-a, uz recepte termičke obrade i arhiviranje procesnih parametara za stabilan i ponovljiv kvalitet u serijskoj proizvodnji.",
+      desc: "Kompletna linija za termičku obradu tela projektila — normalizacija, kaljenje, žarenje i otpuštanje, sa pranjem, odmašćivanjem i kontrolisanim hlađenjem. Rad u zaštitnoj atmosferi azota, sa automatizovanim transportom komada i upravljanjem preko Siemens PLC-a, uz recepte termičke obrade i arhiviranje procesnih parametara za stabilan i ponovljiv kvalitet u serijskoj proizvodnji.",
       specs: [
         "Radni prostor: 1.220 × 910 × 910 mm; nosivost 1.000 kg",
         "Komorna peć za kaljenje u ulju, 750–1.000 °C, u zaštitnoj atmosferi azota (N₂)",
-        "Peć za žarenje i popuštanje do 750 °C (grejači u SiC zaštitnim cevima)",
+        "Peć za žarenje i otpuštanje do 750 °C (grejači u SiC zaštitnim cevima)",
       ],
     },
     {
       img: "/assets/defence-tech/artillery-hardness-testing-equipment.webp",
       alt: "Automatska mašina za kontrolu tvrdoće tela projektila",
       title: "Oprema za kontrolu tvrdoće",
+      video: "3cvn8B4DyGs",
       desc: "Automatska mašina za završnu proveru tela projektila, sa automatskim podešavanjem prema kalibru i generisanjem izveštaja.",
       specs: [
         "Opseg kalibara: 80–155 mm",

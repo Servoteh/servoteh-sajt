@@ -7,6 +7,7 @@ import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/Reveal";
 import { HotspotImage } from "@/components/deep/HotspotImage";
 import { TechSection } from "@/components/deep/TechCards";
+import { TechCardVideo } from "@/components/deep/TechCardVideo";
 import { site } from "@/content/sr/site";
 import * as c from "@/content/sr/defence";
 
@@ -165,8 +166,14 @@ export default function DefencePage() {
                         <HotspotImage src={d.img} alt={d.alt} hotspots={c.program1Hotspots} />
                       ) : (
                         <div className={`ds-media-placeholder ds-media-placeholder--${d.tone}`}>
-                          {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img src={d.img} alt={d.alt} className="ds-media-img" loading="lazy" />
+                          {d.video ? (
+                            <TechCardVideo img={d.img} alt={d.alt} video={d.video} />
+                          ) : (
+                            <>
+                              {/* eslint-disable-next-line @next/next/no-img-element */}
+                              <img src={d.img} alt={d.alt} className="ds-media-img" loading="lazy" />
+                            </>
+                          )}
                         </div>
                       )}
                     </Reveal>
