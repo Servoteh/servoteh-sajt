@@ -39,13 +39,13 @@ export const oprema: TechSectionContent = {
     "Namenske mašine i moduli razvijeni za prehrambenu proizvodnju — projektovani za higijenske zahteve procesa, stabilan kapacitet i pouzdan rad u kontinuiranoj proizvodnji.",
   cards: [
     {
-      img: "/assets/prehrambena/dozator-1.jpg",
+      img: "/assets/prehrambena/dozator-1.webp",
       alt: "Sistem za doziranje proizvoda u prehrambenoj industriji — SERVOTEH",
       title: "Sistemi za doziranje i punjenje",
       desc: "Namenski dozatori za precizno doziranje i punjenje proizvoda u ambalažu, projektovani za stabilan kapacitet i ponovljiv kvalitet u kontinuiranoj proizvodnji.",
     },
     {
-      img: "/assets/prehrambena/ulagac.jpg",
+      img: "/assets/prehrambena/ulagac.webp",
       alt: "Automatski ulagač ambalaže (čaša) u procesu pakovanja — SERVOTEH",
       title: "Automatski ulagač ambalaže",
       desc: "Automatski modul za ulaganje ambalaže (čaša) u proces pakovanja, sa kontrolisanim taktom i pouzdanim rukovanjem — za smanjenje ručnog rada i veću produktivnost linije.",

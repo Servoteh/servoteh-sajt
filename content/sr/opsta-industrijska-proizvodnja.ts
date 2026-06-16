@@ -78,7 +78,7 @@ export const machines: MachineCell[] = [
     title: "Automatska mašina za perforaciju PVC profila",
     desc: "Servoteh je projektovao i izradio seriju od tri potpuno automatske mašine za perforaciju PVC profila, namenjene domaćem kupcu. Mašine rade sinhronizovano sa ekstruderom i omogućavaju kontinuiran i visoko produktivan proces perforacije u okviru proizvodne linije. Alati za probijanje pogonjeni su hidrauličnim cilindrima specijalne konstrukcije, razvijenim za velike radne brzine i pouzdan rad u zahtevnim industrijskim uslovima.",
     video: "/assets/opsta-industrija/nip-spasic-perforacija.mp4",
-    poster: "/assets/opsta-industrija/nip-spasic.png",
+    poster: "/assets/opsta-industrija/nip-spasic.webp",
     videoTitle: "Automatska mašina za perforaciju PVC profila — Servoteh",
     highlights: [
       "Serija od tri potpuno automatske mašine",
