@@ -71,7 +71,7 @@ export const home: HomeContent = {
       { src: "/assets/about-heat-treatment-line.jpg", alt: "Linija za termičku obradu u Servoteh pogonu", caption: "Linija termičke obrade" },
       { src: "/assets/about-heavy-machining.jpg", alt: "Teška mašinska obrada u Servoteh pogonu", caption: "Teška mašinska obrada" },
       { src: "/assets/about-precision-machining-room.jpg", alt: "Prostor za preciznu mašinsku obradu u Servoteh pogonu", caption: "Prostor za preciznu obradu" },
-      { src: "/assets/about-boring-machine-night.jpg", alt: "Mašina za duboku obradu u Servoteh pogonu", caption: "Mašina za duboku obradu" },
+      { src: "/assets/about-boring-machine-night.jpg", alt: "Borverk za obradu velikih pozicija u Servoteh pogonu", caption: "Borverk za obradu velikih pozicija" },
     ],
   },
 
