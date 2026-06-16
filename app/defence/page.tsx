@@ -168,11 +168,6 @@ export default function DefencePage() {
                     <div className="ds-prog-num">{prog.num}</div>
                     <h3>{prog.title}</h3>
                     <p>{prog.desc}</p>
-                    <ul className="ds-prog-items">
-                      {prog.items.map((it) => (
-                        <li key={it}>{it}</li>
-                      ))}
-                    </ul>
                   </div>
                 </Reveal>
               ))}
