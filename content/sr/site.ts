@@ -43,6 +43,7 @@ export const site: SiteContent = {
           { label: "Specijalne mašine", href: "/specijalne-masine" },
           { label: "Proizvodne linije", href: "/proizvodne-linije" },
           { label: "Industrijska automatizacija", href: "/industrijska-automatizacija" },
+          { label: "Automobilska industrija", href: "/automobilska-industrija" },
         ],
       },
       {
