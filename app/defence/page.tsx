@@ -17,36 +17,6 @@ export const metadata: Metadata = {
 
 const A = "#e8401c";
 
-// Dekorativni vizuali programskih kartica
-const progVisuals: ReactElement[] = [
-  <svg key="p1" width="80" height="80" viewBox="0 0 80 80" fill="none" opacity="0.45">
-    <rect x="10" y="30" width="18" height="38" rx="2" fill="rgba(232,64,28,0.35)" />
-    <rect x="31" y="18" width="18" height="50" rx="2" fill="rgba(232,64,28,0.5)" />
-    <rect x="52" y="36" width="18" height="32" rx="2" fill="rgba(232,64,28,0.3)" />
-    <line x1="4" y1="70" x2="76" y2="70" stroke="rgba(255,255,255,0.12)" strokeWidth="1.5" />
-  </svg>,
-  <svg key="p2" width="88" height="64" viewBox="0 0 88 64" fill="none" opacity="0.45">
-    <rect x="2" y="20" width="14" height="28" rx="2" fill="rgba(232,64,28,0.25)" />
-    <line x1="16" y1="34" x2="26" y2="34" stroke="rgba(232,64,28,0.5)" strokeWidth="2" />
-    <rect x="26" y="14" width="14" height="34" rx="2" fill="rgba(232,64,28,0.4)" />
-    <line x1="40" y1="31" x2="50" y2="31" stroke="rgba(232,64,28,0.5)" strokeWidth="2" />
-    <rect x="50" y="18" width="14" height="30" rx="2" fill="rgba(232,64,28,0.3)" />
-    <line x1="64" y1="33" x2="72" y2="33" stroke="rgba(232,64,28,0.5)" strokeWidth="2" />
-    <rect x="72" y="24" width="14" height="24" rx="2" fill="rgba(232,64,28,0.2)" />
-    <line x1="0" y1="56" x2="88" y2="56" stroke="rgba(255,255,255,0.1)" strokeWidth="1" />
-  </svg>,
-  <svg key="p3" width="80" height="80" viewBox="0 0 80 80" fill="none" opacity="0.45">
-    <path d="M40 8L14 20v22c0 18 11 26 26 30 15-4 26-12 26-30V20L40 8z" stroke="rgba(232,64,28,0.45)" strokeWidth="1.5" fill="rgba(232,64,28,0.07)" strokeLinejoin="round" />
-    <path d="M27 40l8 8 18-18" stroke="rgba(232,64,28,0.7)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>,
-  <svg key="p4" width="80" height="80" viewBox="0 0 80 80" fill="none" opacity="0.45">
-    <circle cx="30" cy="40" r="14" stroke="rgba(232,64,28,0.5)" strokeWidth="1.5" fill="rgba(232,64,28,0.07)" />
-    <circle cx="30" cy="40" r="4.5" fill="rgba(232,64,28,0.45)" />
-    <path d="M30 22v-6M30 64v-6M12 40H6M52 40h-6M17.3 27.3l-4.2-4.2M46.9 56.9l4.2 4.2M17.3 52.7l-4.2 4.2M46.9 23.1l4.2-4.2" stroke="rgba(232,64,28,0.45)" strokeWidth="1.5" strokeLinecap="round" />
-    <rect x="54" y="30" width="20" height="20" rx="2" fill="rgba(232,64,28,0.22)" />
-  </svg>,
-];
-
 const reqIcons: ReactElement[] = [
   <svg key="r1" width="20" height="20" viewBox="0 0 20 20" fill="none">
     <circle cx="10" cy="10" r="3" stroke={A} strokeWidth="1.5" />
@@ -167,7 +137,8 @@ export default function DefencePage() {
                   className={`ds-prog-card${prog.accent ? " ds-prog-card--p1" : ""}`}
                 >
                   <div className={`ds-prog-visual ds-prog-visual--p${i + 1}`}>
-                    {progVisuals[i]}
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={prog.img} alt={prog.alt} className="ds-prog-img" loading="lazy" />
                     <span className="ds-prog-visual-label">{prog.label}</span>
                   </div>
                   <div className="ds-prog-body">

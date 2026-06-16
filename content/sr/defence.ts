@@ -45,6 +45,8 @@ export const programs = [
     title: "Proizvodni sistemi za tela artiljerijskih projektila",
     desc: "Kompletan proizvodni program za tela artiljerijskih projektila do 155 mm — od kovanja i izvlačenja, preko termičke obrade i hidrostatičkog ispitivanja, do kontrole tvrdoće i završnih operacija.",
     label: "Program 01",
+    img: "/assets/defence-tech/artillery-full-line-render.webp",
+    alt: "Kompletna proizvodna linija za tela artiljerijskih projektila",
     accent: true,
   },
   {
@@ -52,18 +54,24 @@ export const programs = [
     title: "Linije za proizvodnju municije i komponenti",
     desc: "Namenske linije i specijalne mašine za proizvodnju municije i komponenti za različite kalibre — proizvodnja čanče, čaure i finalizacija zrna, uz transfer sisteme i kontrolu kvaliteta.",
     label: "Program 02",
+    img: "/assets/defence-tech/ammunition-production-line-overview.webp",
+    alt: "Pregled linije za proizvodnju municije i komponenti",
   },
   {
     num: "Program 03 — Platforme",
     title: "Automatski punjači i podsistemi za samohodne artiljerijske platforme",
     desc: "Servoteh razvija automatske punjače i povezane podsisteme za savremene samohodne artiljerijske platforme, sa fokusom na brže punjenje, veću operativnu pouzdanost i smanjenje opterećenja posade.",
     label: "Program 03",
+    img: "/assets/defence-tech/defence-automatic-loader-test-bench.webp",
+    alt: "Automatski punjač i kasetni podsistem na testnom postolju",
   },
   {
     num: "Program 04 — Specijalne mašine",
     title: "Specijalne namenske mašine",
     desc: "Specijalne mašine, podsistemi i automatizovana rešenja za specifične zahteve industrije odbrane — tamo gde standardna oprema ne može da ispuni traženi tehnološki, kapacitivni ili prostorni zahtev.",
     label: "Program 04",
+    img: "/assets/defence-tech/development-tank-barrel-sleeve-press.webp",
+    alt: "Specijalna presa za navlačenje ojačavajuće čaure na cev",
   },
 ];
 
