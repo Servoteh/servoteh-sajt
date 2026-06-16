@@ -47,7 +47,7 @@ export const home: HomeContent = {
     cta: { label: "Pošaljite upit", href: "/#cta" },
     features: [
       { title: "Mašinski razvoj", desc: "Mašinsko projektovanje i izrada sistema prilagođenih konkretnom procesu." },
-      { title: "Elektro i upravljanje", desc: "Električna rešenja, upravljačke ormane, instalacije i instrumentacija." },
+      { title: "Elektro upravljanje", desc: "Projektovanje i izrada upravljačkih sistema — od električnih šema i ormana do ožičenja mašine i puštanja u rad." },
       { title: "Softver i automatizacija", desc: "PLC, SCADA, HMI i softverska rešenja za upravljanje procesima." },
       { title: "Proizvodnja i montaža", desc: "Sopstveni proizvodni i montažni kapaciteti — kontrola kvaliteta u celom procesu." },
     ],
