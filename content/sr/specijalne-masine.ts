@@ -68,7 +68,7 @@ export const applyHeader: DeepHeaderContent = {
 export const applyTags = [
   "Industrija odbrane",
   "Automobilska industrija",
-  "Vazduhoplovstvo",
+  "Avio industrija",
   "Prehrambena industrija",
   "Pakovanje",
   "Metaloprerađivačka industrija",
