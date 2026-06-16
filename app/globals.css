@@ -1600,6 +1600,25 @@ a.industry-card {
   animation: fadeUp 0.8s 0.65s forwards;
 }
 
+/* Automobilska industrija — foto-hero (fiksirana pozadina + tamni overlay).
+   Uravnotežen vertikalni razmak da dugmad ne deluju sabijeno pri dnu. */
+#auto-hero {
+  min-height: 82vh;
+  padding-top: calc(var(--header-h) + 48px);
+  padding-bottom: 56px;
+}
+#auto-hero .deep-hero-bg {
+  background:
+    linear-gradient(180deg, rgba(8, 8, 8, 0.72) 0%, rgba(8, 8, 8, 0.66) 45%, rgba(8, 8, 8, 0.9) 100%),
+    radial-gradient(ellipse 80% 60% at 50% 38%, rgba(232, 64, 28, 0.1) 0%, transparent 60%),
+    url("/assets/automobilska/automotive-production-line-overview.webp") center / cover no-repeat;
+  background-attachment: fixed;
+}
+@media (max-width: 768px) {
+  #auto-hero { min-height: 76vh; padding-top: calc(var(--header-h) + 32px); }
+  #auto-hero .deep-hero-bg { background-attachment: scroll; }
+}
+
 /* Centrirani header sekcije */
 .deep-header { text-align: center; max-width: 640px; margin: 0 auto 56px; }
 .deep-header h2 {
