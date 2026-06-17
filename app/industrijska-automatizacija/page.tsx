@@ -7,8 +7,6 @@ import {
   DeepHeader,
   IntroSplit,
   NumberedCards,
-  ProcessSteps,
-  Reasons,
   BlockGrid,
   DeepCta,
 } from "@/components/deep/DeepSections";
@@ -48,16 +46,6 @@ export default function IndustrijskaAutomatizacijaPage() {
             <h2>{c.retrofit.title}</h2>
             <p>{c.retrofit.body}</p>
           </Reveal>
-        </DeepSection>
-
-        <DeepSection id="ia-process" tone="section">
-          <DeepHeader content={c.processHeader} />
-          <ProcessSteps steps={c.processSteps} />
-        </DeepSection>
-
-        <DeepSection id="ia-why" tone="light-1" wide>
-          <DeepHeader content={c.whyHeader} onLight />
-          <Reasons cards={c.why} />
         </DeepSection>
 
         <DeepSection id="ia-cta" tone="black" className="deep-cta">

@@ -1,8 +1,7 @@
 import type {
   PageMeta, DeepHeroContent, DeepHeaderContent, DeepTrustItem,
-  DeepNumberedCard, DeepIconCard, DeepRefTeaser, DeepCtaContent,
+  DeepNumberedCard, DeepCtaContent,
 } from "@/lib/types";
-import { refTeaserTitle } from "@/content/sr/common";
 
 export const meta: PageMeta = {
   title: "Specijalne mašine — SERVOTEH",
@@ -45,20 +44,6 @@ export const groups: DeepNumberedCard[] = [
   { num: "05", title: "Rekonstrukcija i unapređenje postojeće opreme", desc: "Modernizacija, retrofit i funkcionalna unapređenja postojećih mašina radi većeg kapaciteta, pouzdanosti i kvaliteta." },
 ];
 
-export const processHeader: DeepHeaderContent = {
-  label: "Proces",
-  title: "Od tehnološkog zahteva do gotovog rešenja",
-  body: "Svaka mašina nastaje iz konkretnog procesnog problema — analizom radnog komada, operacije, takta i prostornih ograničenja. Na osnovu toga se projektuje, proizvodi i integriše namensko rešenje.",
-};
-
-export const processSteps = [
-  "Analiza procesa i tehničkog zahteva",
-  "Koncept i mašinsko projektovanje",
-  "Proizvodnja, montaža i integracija",
-  "Upravljanje, testiranje i puštanje u rad",
-  "Postprodajna podrška i eventualna unapređenja",
-];
-
 export const applyHeader: DeepHeaderContent = {
   label: "Industrije",
   title: "Primena u različitim industrijskim procesima",
@@ -73,22 +58,6 @@ export const applyTags = [
   "Pakovanje i manipulacija",
   "Opšta industrijska proizvodnja",
 ];
-
-export const whyHeader: DeepHeaderContent = {
-  label: "Prednosti",
-  title: "Zašto Servoteh za specijalne mašine",
-};
-
-export const why: DeepIconCard[] = [
-  { icon: "users", title: "Integrisan razvoj", desc: "Sve discipline razvoja objedinjene u jednom timu — brža i preciznija realizacija." },
-  { icon: "servers", title: "Sopstveni kapaciteti realizacije", desc: "Sopstveni kapaciteti za proizvodnju, montažu i završnu integraciju." },
-  { icon: "check", title: "Podrška nakon isporuke", desc: "Obuka, dijagnostika, rezervni delovi i tehnička podrška — u okviru iste odgovornosti." },
-];
-
-export const refTeaser: DeepRefTeaser = {
-  title: refTeaserTitle,
-  body: "Projekti u kojima je razvijana namenska oprema ili specijalna mašina za zahtevne proizvodne procese.",
-};
 
 export const cta: DeepCtaContent = {
   label: "Sledeći korak",

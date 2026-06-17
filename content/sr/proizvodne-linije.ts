@@ -56,20 +56,6 @@ export const types: DeepBlock[] = [
   { title: "Prilagođene linije za konkretan proces", desc: "Linije projektovane za specifičan proizvod, proces ili industrijski zahtev — kombinacijom standardizovanih modula i namenskih rešenja tamo gde to proces zahteva." },
 ];
 
-export const processHeader: DeepHeaderContent = {
-  label: "Proces",
-  title: "Od procesa do integrisanog sistema",
-  body: "Razvoj linije počinje razumevanjem procesa, a završava se sistemom spremnim za rad.",
-};
-
-export const processSteps = [
-  "Analiza procesa i zahteva",
-  "Koncept linije i raspored stanica",
-  "Mašinsko, elektro i softversko projektovanje",
-  "Proizvodnja, montaža i integracija",
-  "Puštanje u rad i optimizacija procesa",
-];
-
 export const reqsHeader: DeepHeaderContent = {
   label: "Zahtevi",
   title: "Ključni zahtevi koje linija mora da ispuni",
@@ -81,17 +67,6 @@ export const reqs: DeepIconCard[] = [
   { icon: "clock", title: "Sinhronizacija operacija", desc: "Stanice, transfer i upravljanje moraju da budu vremenski i procesno usklađeni kao jedna celina." },
   { icon: "check", title: "Kontrola kvaliteta", desc: "Provere i merenja treba da budu ugrađeni u tok procesa, a ne dodati naknadno." },
   { icon: "cabinet", title: "Dugoročna održivost", desc: "Konstrukcija, komponente i logika upravljanja moraju omogućiti servisiranje, održavanje i buduća unapređenja." },
-];
-
-export const whyHeader: DeepHeaderContent = {
-  label: "Prednosti",
-  title: "Zašto Servoteh za proizvodne linije",
-};
-
-export const why: DeepIconCard[] = [
-  { icon: "layers", title: "Integracija kompletnog sistema", desc: "Liniju projektujemo kao jedinstven sistem — sa usklađenim tokom, a ne kao skup odvojenih mašina." },
-  { icon: "servers", title: "Sopstveni razvoj i realizacija", desc: "Kompletan razvoj, proizvodnja i integracija u okviru jednog tima i jednih kapaciteta." },
-  { icon: "check", title: "Podrška nakon isporuke", desc: "Optimizacija procesa, servis i dugoročna tehnička podrška — deo iste odgovornosti." },
 ];
 
 export const cta: DeepCtaContent = {

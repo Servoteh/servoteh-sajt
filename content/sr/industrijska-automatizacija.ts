@@ -1,6 +1,6 @@
 import type {
   PageMeta, DeepHeroContent, DeepHeaderContent, DeepTrustItem,
-  DeepNumberedCard, DeepIconCard, DeepBlock, DeepCtaContent,
+  DeepNumberedCard, DeepBlock, DeepCtaContent,
 } from "@/lib/types";
 
 export const meta: PageMeta = {
@@ -61,30 +61,6 @@ export const retrofit = {
   title: "Modernizacija postojećih mašina i linija",
   body: "Unapređenje postojećih mašina i linija kroz novu automatiku, upravljanje, dijagnostiku i bezbednosne funkcije. Kada zamena cele opreme nije opravdana, modernizacija je najracionalniji put do boljih performansi.",
 };
-
-export const processHeader: DeepHeaderContent = {
-  label: "Proces",
-  title: "Od procesa do upravljanja",
-};
-
-export const processSteps = [
-  "Analiza procesa i zahteva",
-  "Definisanje logike upravljanja",
-  "Elektro projektovanje i integracija opreme",
-  "Softver, testiranje i puštanje u rad",
-  "Dijagnostika, optimizacija i podrška",
-];
-
-export const whyHeader: DeepHeaderContent = {
-  label: "Prednosti",
-  title: "Zašto Servoteh za industrijsku automatizaciju",
-};
-
-export const why: DeepIconCard[] = [
-  { icon: "users", title: "Integracija mašinskog, elektro i softverskog razvoja", desc: "Upravljanje, elektro i softver razvijaju se zajedno — za bolje usklađen i sigurniji sistem." },
-  { icon: "layers", title: "Prilagođeno procesu, ne šablonu", desc: "Svaki sistem projektujemo prema konkretnom procesu — sa osloncem na proverene komponente i platforme, uz potrebna prilagođavanja." },
-  { icon: "check", title: "Podrška tokom puštanja u rad i eksploatacije", desc: "Dijagnostika, dorade i tehnička podrška — deo iste odgovornosti." },
-];
 
 export const cta: DeepCtaContent = {
   label: "Sledeći korak",

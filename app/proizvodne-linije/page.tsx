@@ -7,8 +7,6 @@ import {
   DeepHeader,
   IntroSplit,
   NumberedCards,
-  ProcessSteps,
-  Reasons,
   Requirements,
   BlockGrid,
   DeepCta,
@@ -42,19 +40,9 @@ export default function ProizvodneLinijePage() {
           <BlockGrid blocks={c.types} />
         </DeepSection>
 
-        <DeepSection id="pl-process" tone="section">
-          <DeepHeader content={c.processHeader} />
-          <ProcessSteps steps={c.processSteps} />
-        </DeepSection>
-
         <DeepSection id="pl-reqs" tone="section" wide>
           <DeepHeader content={c.reqsHeader} />
           <Requirements cards={c.reqs} />
-        </DeepSection>
-
-        <DeepSection id="pl-why-section" tone="light-1" wide>
-          <DeepHeader content={c.whyHeader} onLight />
-          <Reasons cards={c.why} />
         </DeepSection>
 
         <DeepSection id="pl-cta" tone="black" className="deep-cta">

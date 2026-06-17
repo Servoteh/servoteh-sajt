@@ -7,10 +7,7 @@ import {
   DeepHeader,
   IntroSplit,
   NumberedCards,
-  ProcessSteps,
   Tags,
-  Reasons,
-  RefTeaser,
   DeepCta,
 } from "@/components/deep/DeepSections";
 import { site } from "@/content/sr/site";
@@ -37,23 +34,9 @@ export default function SpecijalneMasinePage() {
           <NumberedCards cards={c.groups} />
         </DeepSection>
 
-        <DeepSection id="sm-process" tone="light-3">
-          <DeepHeader content={c.processHeader} onLight />
-          <ProcessSteps steps={c.processSteps} />
-        </DeepSection>
-
         <DeepSection id="sm-apply" tone="section" wide>
           <DeepHeader content={c.applyHeader} />
           <Tags tags={c.applyTags} />
-        </DeepSection>
-
-        <DeepSection id="sm-why" tone="light-1" wide>
-          <DeepHeader content={c.whyHeader} onLight />
-          <Reasons cards={c.why} />
-        </DeepSection>
-
-        <DeepSection id="sm-ref" tone="light-3">
-          <RefTeaser content={c.refTeaser} />
         </DeepSection>
 
         <DeepSection id="sm-cta" tone="black" className="deep-cta">
