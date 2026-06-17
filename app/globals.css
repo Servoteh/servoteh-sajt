@@ -395,6 +395,28 @@ h1, h2, h3, h4 {
   justify-content: center;
   flex-wrap: wrap;
 }
+/* Hero ulazna animacija — CSS-om umesto JS-a (framer): kreće na prvom paintu,
+   nezavisno od hidratacije, pa hero tekst nije nevidljiv dok se JS učitava
+   (popravlja LCP/FCP). Isti fade+slide (fadeUp) i ritam kao ranije; globalni
+   prefers-reduced-motion blok ih svodi na ~0ms. */
+.hero-eyebrow,
+.hero-title,
+.hero-subtitle,
+.hero-cta {
+  animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.hero-eyebrow {
+  animation-delay: 0.2s;
+}
+.hero-title {
+  animation-delay: 0.35s;
+}
+.hero-subtitle {
+  animation-delay: 0.5s;
+}
+.hero-cta {
+  animation-delay: 0.65s;
+}
 .hero-scroll {
   position: absolute;
   bottom: 36px;
