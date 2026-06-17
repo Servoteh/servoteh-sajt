@@ -50,6 +50,13 @@ export const oprema: TechSectionContent = {
       title: "Automatski ulagač ambalaže",
       desc: "Automatski modul za ulaganje ambalaže (sa magacinom), koji u taktu rada mašine precizno i pravovremeno ulaže posude/čaše/poklopce i time obezbeđuje visoku produktivnost linije.",
     },
+    {
+      img: "/assets/prehrambena/frikom-poster.jpg",
+      alt: "Robotska ćelija za rukovanje i orijentaciju čaša u proizvodnom toku — SERVOTEH",
+      title: "Robotska ćelija za rukovanje čašama",
+      desc: "Robotizovano rukovanje i orijentacija čaša u proizvodnom toku — preuzimanje, pozicioniranje i ulaganje sa visokom ponovljivošću i kratkim taktom.",
+      videoSrc: "/assets/prehrambena/frikom-robot-casice.mp4",
+    },
   ],
   cta: { label: "Pošaljite upit", href: "mailto:office@servoteh.com" },
 };

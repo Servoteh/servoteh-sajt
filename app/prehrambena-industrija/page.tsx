@@ -10,7 +10,6 @@ import {
   DeepCta,
 } from "@/components/deep/DeepSections";
 import { TechSection } from "@/components/deep/TechCards";
-import { Reveal } from "@/components/Reveal";
 import { site } from "@/content/sr/site";
 import { pageMetadata } from "@/lib/meta";
 import * as c from "@/content/sr/prehrambena-industrija";
@@ -29,14 +28,6 @@ export default function PrehrambenaIndustrijaPage() {
         </DeepSection>
 
         <TechSection content={c.oprema} />
-
-        <DeepSection id="ph-video" tone="light-1">
-          <DeepHeader content={{ label: "Robotizacija", title: "Robotska ćelija za rukovanje čašama" }} onLight />
-          <Reveal className="ph-video">
-            {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
-            <video src="/assets/prehrambena/frikom-robot-casice.mp4" controls preload="metadata" playsInline />
-          </Reveal>
-        </DeepSection>
 
         <DeepSection id="ph-types" tone="light-3" wide>
           <DeepHeader content={c.typesHeader} onLight />

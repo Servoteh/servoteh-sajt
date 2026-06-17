@@ -29,7 +29,10 @@ export function TechSection({ content }: { content: TechSectionContent }) {
           {content.cards.map((card, i) => (
             <Reveal key={card.title} delay={(i % 3) * 0.08} className="tech-card">
               <div className="tech-card-media">
-                {card.video ? (
+                {card.videoSrc ? (
+                  // eslint-disable-next-line jsx-a11y/media-has-caption
+                  <video src={card.videoSrc} poster={card.img} controls muted playsInline preload="metadata" />
+                ) : card.video ? (
                   <TechCardVideo img={card.img} alt={card.alt} video={card.video} caption={card.caption} />
                 ) : (
                   <>

@@ -232,6 +232,8 @@ export type TechCard = {
   caption?: string;
   /** opcioni YouTube ID — diskretan „klik-da-pusti" video u medija-delu kartice */
   video?: string;
+  /** opcioni self-hostovan video (mp4) — prikazuje se u medija-delu kartice sa posterom (img) */
+  videoSrc?: string;
 };
 
 /** Sekcija tehničkih kartica unutar dubinske stranice. */
