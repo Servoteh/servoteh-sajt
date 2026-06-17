@@ -24,11 +24,17 @@ export const intro = {
   title: "Rešenja projektovana za zahtevne automobilske procese",
   body: "Automobilska industrija zahteva visok nivo pouzdanosti, ponovljiv kvalitet, kratak takt, dobru ergonomiju i stabilan rad opreme u dugoj eksploataciji. Zato se svako rešenje projektuje kao celina — od mehanike, pneumatskih i hidrauličnih podsistema, preko elektro-upravljanja i softvera, do sigurnosne logike, HMI interfejsa, testiranja i puštanja u rad. Rešenja razvijamo prema konkretnom zahtevu kupca: za nove procese, unapređenje postojećih linija, povećanje kapaciteta ili automatizaciju operacija koje se prethodno rade ručno.",
   items: [
-    { icon: "users", text: "Reference: Robert Bosch i ZF Group" },
+    { icon: "users", text: "Iskustvo sa zahtevnim automobilskim kupcima" },
     { icon: "layers", text: "Automatske i poluautomatske linije" },
     { icon: "activity", text: "Montaža, testiranje i kontrola procesa" },
     { icon: "gear", text: "Namenska rešenja po meri kupca" },
   ] as DeepTrustItem[],
+};
+
+/** Proof strip — izdvojene reference (brendovi) za brz dokaz kredibiliteta. */
+export const proof = {
+  note: "Iskustvo u projektima za zahtevne automobilske kupce",
+  brands: ["Robert Bosch", "ZF Group"],
 };
 
 export const lines: TechSectionContent = {

@@ -6,18 +6,17 @@ import {
   DeepSection,
   DeepHeader,
   IntroSplit,
+  ProofStrip,
   NumberedCards,
   Reasons,
   DeepCta,
 } from "@/components/deep/DeepSections";
 import { TechSection } from "@/components/deep/TechCards";
 import { site } from "@/content/sr/site";
+import { pageMetadata } from "@/lib/meta";
 import * as c from "@/content/sr/automobilska-industrija";
 
-export const metadata: Metadata = {
-  title: c.meta.title,
-  description: c.meta.description,
-};
+export const metadata: Metadata = pageMetadata(c.meta, "/automobilska-industrija/");
 
 export default function AutomobilskaIndustrijaPage() {
   return (
@@ -28,6 +27,7 @@ export default function AutomobilskaIndustrijaPage() {
 
         <DeepSection id="auto-intro" tone="light-1">
           <IntroSplit label={c.intro.label} title={c.intro.title} body={c.intro.body} items={c.intro.items} />
+          <ProofStrip note={c.proof.note} brands={c.proof.brands} />
         </DeepSection>
 
         <TechSection content={c.lines} />

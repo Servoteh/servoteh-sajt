@@ -29,6 +29,8 @@ export type SiteContent = {
     address: string[];
     email: string;
     phone: { label: string; href: string };
+    /** brzi pristup lokaciji (mapa / navigacija) — vidljivo u footeru na svakoj strani */
+    maps: { label: string; href: string }[];
     socials: SocialLink[];
     iso: string;
     columns: FooterColumn[];
@@ -183,6 +185,13 @@ export type DeepBlock = { title: string; desc: string };
 
 export type DeepRefTeaser = { title: string; body: string };
 export type DeepCtaContent = { label: string; title: string; body: string };
+/** Cross-link kartica ka srodnoj stranici (npr. linije → automobilska industrija). */
+export type DeepRelatedCard = {
+  label: string;
+  title: string;
+  body: string;
+  cta: { label: string; href: string };
+};
 
 export type PageMeta = { title: string; description: string };
 

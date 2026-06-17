@@ -9,15 +9,14 @@ import {
   NumberedCards,
   Requirements,
   BlockGrid,
+  RelatedCard,
   DeepCta,
 } from "@/components/deep/DeepSections";
 import { site } from "@/content/sr/site";
+import { pageMetadata } from "@/lib/meta";
 import * as c from "@/content/sr/proizvodne-linije";
 
-export const metadata: Metadata = {
-  title: c.meta.title,
-  description: c.meta.description,
-};
+export const metadata: Metadata = pageMetadata(c.meta, "/proizvodne-linije/");
 
 export default function ProizvodneLinijePage() {
   return (
@@ -43,6 +42,10 @@ export default function ProizvodneLinijePage() {
         <DeepSection id="pl-reqs" tone="section" wide>
           <DeepHeader content={c.reqsHeader} />
           <Requirements cards={c.reqs} />
+        </DeepSection>
+
+        <DeepSection id="pl-related" tone="light-1">
+          <RelatedCard content={c.related} />
         </DeepSection>
 
         <DeepSection id="pl-cta" tone="black" className="deep-cta">

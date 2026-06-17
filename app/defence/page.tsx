@@ -9,12 +9,10 @@ import { HotspotImage } from "@/components/deep/HotspotImage";
 import { TechSection } from "@/components/deep/TechCards";
 import { TechCardVideo } from "@/components/deep/TechCardVideo";
 import { site } from "@/content/sr/site";
+import { pageMetadata } from "@/lib/meta";
 import * as c from "@/content/sr/defence";
 
-export const metadata: Metadata = {
-  title: c.meta.title,
-  description: c.meta.description,
-};
+export const metadata: Metadata = pageMetadata(c.meta, "/defence/");
 
 const A = "#e8401c";
 

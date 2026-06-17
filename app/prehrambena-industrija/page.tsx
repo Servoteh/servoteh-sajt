@@ -11,12 +11,10 @@ import {
 } from "@/components/deep/DeepSections";
 import { TechSection } from "@/components/deep/TechCards";
 import { site } from "@/content/sr/site";
+import { pageMetadata } from "@/lib/meta";
 import * as c from "@/content/sr/prehrambena-industrija";
 
-export const metadata: Metadata = {
-  title: c.meta.title,
-  description: c.meta.description,
-};
+export const metadata: Metadata = pageMetadata(c.meta, "/prehrambena-industrija/");
 
 export default function PrehrambenaIndustrijaPage() {
   return (

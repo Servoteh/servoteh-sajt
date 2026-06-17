@@ -17,6 +17,10 @@ export const site: SiteContent = {
     address: ["Ugrinovačka 163", "11272 Dobanovci", "Beograd, Srbija"],
     email: "office@servoteh.com",
     phone: { label: "+381 (11) 31-41-564", href: "tel:+381113141564" },
+    maps: [
+      { label: "Otvorite mapu", href: "https://maps.app.goo.gl/QpYHMx895XfQDwGc6" },
+      { label: "Kako do nas", href: "https://www.google.com/maps/dir/?api=1&destination=44.8387507,20.21448" },
+    ],
     socials: [
       { label: "LinkedIn", href: "https://www.linkedin.com/company/servoteh-d.o.o./about/" },
       { label: "Instagram", href: "https://www.instagram.com/servoteh" },

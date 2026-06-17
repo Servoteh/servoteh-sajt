@@ -2,7 +2,10 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { PinIcon, NavigateIcon } from "@/components/icons";
 import type { SiteContent } from "@/lib/types";
+
+const mapIcons = [<PinIcon key="pin" />, <NavigateIcon key="nav" />];
 
 function isExternal(href: string) {
   return href.startsWith("http") || href.startsWith("tel:") || href.startsWith("mailto:");
@@ -54,6 +57,14 @@ export function Footer({ site }: { site: SiteContent }) {
             </address>
             <a href={`mailto:${f.email}`} aria-label={`Email: ${f.email}`}>{f.email}</a>
             <a href={f.phone.href} aria-label={`Telefon: ${f.phone.label}`}>{f.phone.label}</a>
+            <div className="footer-map">
+              {f.maps.map((m, i) => (
+                <a key={m.href} href={m.href} target="_blank" rel="noopener" className="footer-map-btn">
+                  {mapIcons[i]}
+                  {m.label}
+                </a>
+              ))}
+            </div>
             <div className="footer-socials">
               {f.socials.map((s) => (
                 <a key={s.href} href={s.href} target="_blank" rel="noopener" aria-label={s.label}>

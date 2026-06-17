@@ -6,12 +6,10 @@ import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/Reveal";
 import { HeroVideoBg } from "@/components/sections/HeroVideoBg";
 import { site } from "@/content/sr/site";
+import { pageMetadata } from "@/lib/meta";
 import * as c from "@/content/sr/reference";
 
-export const metadata: Metadata = {
-  title: c.meta.title,
-  description: c.meta.description,
-};
+export const metadata: Metadata = pageMetadata(c.meta, "/reference/");
 
 export default function ReferencePage() {
   return (

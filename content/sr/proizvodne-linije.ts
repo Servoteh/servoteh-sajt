@@ -1,6 +1,6 @@
 import type {
   PageMeta, DeepHeroContent, DeepHeaderContent, DeepTrustItem,
-  DeepNumberedCard, DeepIconCard, DeepBlock, DeepCtaContent,
+  DeepNumberedCard, DeepIconCard, DeepBlock, DeepCtaContent, DeepRelatedCard,
 } from "@/lib/types";
 
 export const meta: PageMeta = {
@@ -68,6 +68,13 @@ export const reqs: DeepIconCard[] = [
   { icon: "check", title: "Kontrola kvaliteta", desc: "Provere i merenja treba da budu ugrađeni u tok procesa, a ne dodati naknadno." },
   { icon: "cabinet", title: "Dugoročna održivost", desc: "Konstrukcija, komponente i logika upravljanja moraju omogućiti servisiranje, održavanje i buduća unapređenja." },
 ];
+
+export const related: DeepRelatedCard = {
+  label: "Primer primene",
+  title: "Automatske i poluautomatske linije za automobilsku industriju",
+  body: "Konkretan primer proizvodnih linija u praksi — montažne i testne linije, robotske ćelije i kontrola procesa za zahtevne automobilske kupce.",
+  cta: { label: "Pogledajte automobilsku industriju", href: "/automobilska-industrija" },
+};
 
 export const cta: DeepCtaContent = {
   label: "Sledeći korak",

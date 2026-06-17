@@ -11,12 +11,10 @@ import {
   DeepCta,
 } from "@/components/deep/DeepSections";
 import { site } from "@/content/sr/site";
+import { pageMetadata } from "@/lib/meta";
 import * as c from "@/content/sr/specijalne-masine";
 
-export const metadata: Metadata = {
-  title: c.meta.title,
-  description: c.meta.description,
-};
+export const metadata: Metadata = pageMetadata(c.meta, "/specijalne-masine/");
 
 export default function SpecijalneMasinePage() {
   return (

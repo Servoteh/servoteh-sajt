@@ -4,12 +4,10 @@ import { Footer } from "@/components/layout/Footer";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/Reveal";
 import { site } from "@/content/sr/site";
+import { pageMetadata } from "@/lib/meta";
 import { privacy as c } from "@/content/sr/privacy";
 
-export const metadata: Metadata = {
-  title: c.meta.title,
-  description: c.meta.description,
-};
+export const metadata: Metadata = pageMetadata(c.meta, "/politika-privatnosti/");
 
 export default function PrivacyPage() {
   return (

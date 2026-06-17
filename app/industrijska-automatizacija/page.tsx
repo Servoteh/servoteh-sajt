@@ -12,12 +12,10 @@ import {
 } from "@/components/deep/DeepSections";
 import { Reveal } from "@/components/Reveal";
 import { site } from "@/content/sr/site";
+import { pageMetadata } from "@/lib/meta";
 import * as c from "@/content/sr/industrijska-automatizacija";
 
-export const metadata: Metadata = {
-  title: c.meta.title,
-  description: c.meta.description,
-};
+export const metadata: Metadata = pageMetadata(c.meta, "/industrijska-automatizacija/");
 
 export default function IndustrijskaAutomatizacijaPage() {
   return (

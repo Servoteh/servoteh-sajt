@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { home } from "@/content/sr/home";
+import { pageMetadata, SITE_URL } from "@/lib/meta";
 
 // Figtree — self-hostovan varijabilni font (300–900), subset latinica + latin-ext
 // (srpske dijakritike č, ć, š, ž, đ) + interpunkcija/strelice. Bez poziva ka Google
@@ -14,8 +15,8 @@ const figtree = localFont({
 });
 
 export const metadata: Metadata = {
-  title: home.meta.title,
-  description: home.meta.description,
+  metadataBase: new URL(SITE_URL),
+  ...pageMetadata(home.meta, "/"),
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -11,6 +11,7 @@ import type {
   DeepIconCard,
   DeepBlock,
   DeepRefTeaser,
+  DeepRelatedCard,
   DeepCtaContent,
 } from "@/lib/types";
 
@@ -102,6 +103,22 @@ export function IntroSplit({
         ))}
       </Reveal>
     </div>
+  );
+}
+
+/** Proof strip — izdvojene reference/brendovi (brz dokaz kredibiliteta, svetla pozadina). */
+export function ProofStrip({ note, brands }: { note: string; brands: string[] }) {
+  return (
+    <Reveal className="proof-strip">
+      <span className="proof-strip-note">{note}</span>
+      <span className="proof-strip-brands">
+        {brands.map((b) => (
+          <span className="proof-brand" key={b}>
+            {b}
+          </span>
+        ))}
+      </span>
+    </Reveal>
   );
 }
 
@@ -210,6 +227,24 @@ export function RefTeaser({ content }: { content: DeepRefTeaser }) {
   );
 }
 
+/** Cross-link kartica ka srodnoj stranici (reuse `.ref-card` izgleda). */
+export function RelatedCard({ content }: { content: DeepRelatedCard }) {
+  return (
+    <Reveal className="ref-card">
+      <div className="ref-card-text">
+        <div className="section-label">{content.label}</div>
+        <h2>{content.title}</h2>
+        <p>{content.body}</p>
+      </div>
+      <div className="ref-btn-wrap">
+        <Link href={content.cta.href} className="btn btn-primary">
+          {content.cta.label} <i className="arrow-icon">↗</i>
+        </Link>
+      </div>
+    </Reveal>
+  );
+}
+
 /** Centrirani CTA na dnu dubinske stranice. */
 export function DeepCta({ content }: { content: DeepCtaContent }) {
   return (
@@ -221,7 +256,7 @@ export function DeepCta({ content }: { content: DeepCtaContent }) {
         <a href="mailto:office@servoteh.com" className="btn btn-primary">
           Pošaljite upit <i className="arrow-icon">↗</i>
         </a>
-        <a href="tel:+381113141564" className="btn btn-secondary">
+        <a href="tel:+381113141564" className="btn btn-secondary" aria-label="Pozovite: +381 11 31 41 564">
           +381 (11) 31-41-564
         </a>
       </div>
