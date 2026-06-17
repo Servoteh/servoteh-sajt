@@ -66,6 +66,7 @@ export const home: HomeContent = {
       "Quality control, testing and preparation of systems for commissioning",
     ],
     slides: [
+      { src: "/assets/servoteh-hale-render.webp", alt: "Illustration of the Servoteh complex of production and development halls with rooftop solar panels in Dobanovci", caption: "Servoteh complex — illustration" },
       { src: "/assets/about-exterior-facility.webp", alt: "Exterior view of Servoteh's development and production halls in Dobanovci", caption: "Production halls" },
       { src: "/assets/about-production-hall-wide.webp", alt: "Servoteh's main production hall", caption: "Production hall" },
       { src: "/assets/about-robotic-cell.webp", alt: "Fibre laser cutting at the Servoteh plant", caption: "Fibre laser cutting" },
