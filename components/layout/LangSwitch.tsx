@@ -15,8 +15,8 @@ export function LangSwitch({ current, otherHref, className, ariaLabel = "Izbor j
   const other = current === "SR" ? "EN" : "SR";
   return (
     <div className={className ? `lang-switch ${className}` : "lang-switch"} aria-label={ariaLabel}>
-      <span className="lang-active">{current}</span>
-      <span className="lang-sep">|</span>
+      <span className="lang-active">{current}</span>{" "}
+      <span className="lang-sep">|</span>{" "}
       <Link href={otherHref} hrefLang={other.toLowerCase()}>
         {other}
       </Link>

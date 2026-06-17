@@ -99,7 +99,7 @@ export function Footer({ site, ui = uiSr }: { site: SiteContent; ui?: UiDict }) 
 
         <div className="footer-bottom">
           <div className="footer-bottom-left">
-            <span>{f.copyright}</span>
+            <span>{f.copyright}</span>{" "}
             {f.legal && <span className="footer-legal">{f.legal}</span>}
           </div>
           <div className="footer-bottom-right">
