@@ -216,8 +216,8 @@ export const cta = {
    ============================================================ */
 
 // Program 01 — tela artiljerijskih projektila (posle detaljnog bloka P1).
-// NAPOMENA: presa za završno sužavanje vodi se kao 630t; brojčane sile (kN)
-// su namerno izostavljene jer odgovaraju ~400t klasi (interna provera u toku).
+// NAPOMENA: presa za završno sužavanje (HFS 630) — sila kovanja 6.300 kN (~630 t),
+// potvrđeno zvaničnom specifikacijom.
 export const tech01: TechSectionContent = {
   id: "tehnicka-resenja-projektili",
   tone: "light",
@@ -255,7 +255,7 @@ export const tech01: TechSectionContent = {
       ],
     },
     {
-      img: "/assets/defence-tech/artillery-hydraulic-press-400t-narrowing.webp",
+      img: "/assets/defence-tech/artillery-hydraulic-press-630t-narrowing.webp",
       alt: "Hidraulična presa za završno sužavanje tela projektila",
       title: "Hidraulična presa 630 t za završno sužavanje (HFS 630)",
       desc: "Presa za završno sužavanje (nosing) tela nakon predubadanja, ubadanja i izvlačenja. Konstruisana za širok raspon kovačkih zahteva, uz mogućnost dopune pomoćnom opremom prema konkretnom procesu.",
@@ -386,7 +386,7 @@ export const tech04: TechSectionContent = {
   label: "Program 04 — tehnička rešenja",
   title: "Specijalne namenske mašine i podsistemi",
   intro:
-    "Pored proizvodnih linija, Servoteh razvija specijalne mašine, podsisteme i automatizovana rešenja za specifične zahteve industrije odbrane — tamo gde standardna oprema ne može da ispuni traženi tehnološki, kapacitivni ili prostorni zahtev. Razvoj obuhvata mašinsko projektovanje, hidrauliku, elektro upravljanje, softver, proizvodnju, montažu i integraciju.",
+    "Izbor realizovanih namenskih mašina i pogona za industriju odbrane — prese velikih sila, mašine za flow forming i specijalni proizvodni pogoni. Svako rešenje pokriva mašinsko projektovanje, hidrauliku, elektro upravljanje i softver, sa izradom, montažom i integracijom u sopstvenim kapacitetima.",
   cards: [
     {
       img: "/assets/defence-tech/development-tank-barrel-sleeve-press.webp",

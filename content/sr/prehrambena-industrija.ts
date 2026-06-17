@@ -69,7 +69,7 @@ export const types: DeepBlock[] = [
 
 export const refTeaser: DeepRefTeaser = {
   title: "Pogledajte kako pristupamo referentnim projektima",
-  body: "Pregled realizovanih sistema kroz tip rešenja, tehnološki opseg i oblasti primene — za prehrambenu industriju i druge zahtevne procese.",
+  body: "Pregled realizovanih sistema kroz tip rešenja, tehnološki opseg i oblasti primene — od industrije odbrane do drugih zahtevnih industrijskih procesa.",
 };
 
 export const cta: DeepCtaContent = {

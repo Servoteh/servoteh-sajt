@@ -69,8 +69,8 @@ export const applyTags = [
   "Automobilska industrija",
   "Avio industrija",
   "Prehrambena industrija",
-  "Pakovanje",
-  "Metaloprerađivačka industrija",
+  "Pakovanje i manipulacija",
+  "Opšta industrijska proizvodnja",
 ];
 
 export const whyHeader: DeepHeaderContent = {

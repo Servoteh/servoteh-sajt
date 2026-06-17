@@ -21,7 +21,7 @@ export const home: HomeContent = {
     { value: "24", suffix: "+", label: "Godina iskustva" },
     { value: "100", suffix: "+", label: "Mašina i sistema" },
     { value: "25", suffix: "+", label: "Razvojnih inženjera" },
-    { value: "Odbrana", label: "Strateški fokus", variant: "defence" },
+    { value: "10.000", suffix: " m²", label: "Razvojnih i proizvodnih kapaciteta", variant: "defence" },
   ],
 
   defenceIntro: {
@@ -30,7 +30,7 @@ export const home: HomeContent = {
     titleLink: { label: "industriju odbrane", href: "/defence" },
     titleAfterLink: ".",
     titleSecond: "Kompetencija za mnogo više.",
-    body: "Tokom poslednjih pet godina, najveći deo razvoja i realizacije Servoteh sistema vezan je za industriju odbrane — sektor u kome su pouzdanost, preciznost i kontrola procesa presudan uslov, a ne opcija. Isti razvojni kapacitet i inženjerska logika primenjuju se i u drugim zahtevnim industrijskim projektima, tamo gde standardna oprema nije dovoljna i gde se sistem mora razviti od nule.",
+    body: "Tokom poslednjih godina, najveći deo razvoja i realizacije Servoteh sistema vezan je za industriju odbrane — sektor u kome su pouzdanost, preciznost i kontrola procesa presudan uslov, a ne opcija. Isti razvojni kapacitet i inženjerska logika primenjuju se i u drugim zahtevnim industrijskim projektima, tamo gde standardna oprema nije dovoljna i gde se sistem mora razviti od nule.",
     cta: { label: "Pogledajte reference", href: "/reference" },
     cards: [
       { title: "Preciznost i pouzdanost", desc: "Sistemi projektovani za zahteve industrije odbrane", accent: true },
