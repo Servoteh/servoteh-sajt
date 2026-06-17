@@ -62,7 +62,7 @@ export const home: HomeContent = {
     points: [
       "10.000 m² razvojnih, proizvodnih i montažnih kapaciteta",
       "Razvojni biro za mašinsko, elektro i softversko projektovanje",
-      "CNC obrada, izrada delova, montaža i integracija sistema",
+      "CNC obrada, sečenje, savijanje, zavarivanje i montaža sklopova",
       "Kontrola kvaliteta, testiranje i priprema sistema za puštanje u rad",
     ],
     slides: [
