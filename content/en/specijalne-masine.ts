@@ -21,7 +21,7 @@ export const hero: DeepHeroContent = {
 export const intro = {
   label: "Approach",
   title: "A purpose-built machine for one precise operation",
-  body: "Special-purpose machines are custom-engineered solutions for specific operations — from machining and forming to testing and handling. We develop them when catalogue equipment, existing systems or a standard configuration cannot meet the required process, capacity or space demands.",
+  body: "Special-purpose machines are custom-engineered solutions for specific operations — from machining and forming to testing and handling. We develop them when off-the-shelf equipment, existing systems or a standard configuration cannot meet the required process, capacity or space demands.",
   items: [
     { icon: "layers", text: "A standard base with the necessary adaptations" },
     { icon: "gear", text: "Mechanical, electrical and software design in one team" },

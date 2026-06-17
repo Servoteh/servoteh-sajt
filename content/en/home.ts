@@ -62,7 +62,7 @@ export const home: HomeContent = {
     points: [
       "10,000 m² of development, production and assembly facilities",
       "Design office for mechanical, electrical and software engineering",
-      "CNC machining, cutting, bending, welding and subassembly assembly",
+      "CNC machining, cutting, bending, welding and subassembly integration",
       "Quality control, testing and preparation of systems for commissioning",
     ],
     slides: [

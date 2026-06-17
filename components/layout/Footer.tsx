@@ -1,5 +1,6 @@
 "use client";
 
+import { Fragment } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { PinIcon, NavigateIcon } from "@/components/icons";
@@ -60,17 +61,23 @@ export function Footer({ site, ui = uiSr }: { site: SiteContent; ui?: UiDict }) 
             <a href={f.phone.href} aria-label={`${ui.footer.phone}: ${f.phone.label}`}>{f.phone.label}</a>
             <div className="footer-map">
               {f.maps.map((m, i) => (
-                <a key={m.href} href={m.href} target="_blank" rel="noopener" className="footer-map-btn">
-                  {mapIcons[i]}
-                  {m.label}
-                </a>
+                <Fragment key={m.href}>
+                  {i > 0 && " "}
+                  <a href={m.href} target="_blank" rel="noopener" className="footer-map-btn">
+                    {mapIcons[i]}
+                    {m.label}
+                  </a>
+                </Fragment>
               ))}
             </div>
             <div className="footer-socials">
-              {f.socials.map((s) => (
-                <a key={s.href} href={s.href} target="_blank" rel="noopener" aria-label={s.label}>
-                  {s.label}
-                </a>
+              {f.socials.map((s, i) => (
+                <Fragment key={s.href}>
+                  {i > 0 && " "}
+                  <a href={s.href} target="_blank" rel="noopener" aria-label={s.label}>
+                    {s.label}
+                  </a>
+                </Fragment>
               ))}
             </div>
             <div className="iso-badge">
@@ -103,7 +110,7 @@ export function Footer({ site, ui = uiSr }: { site: SiteContent; ui?: UiDict }) 
             {f.legal && <span className="footer-legal">{f.legal}</span>}
           </div>
           <div className="footer-bottom-right">
-            {f.privacy && <Link href={f.privacy.href}>{f.privacy.label}</Link>}
+            {f.privacy && <Link href={f.privacy.href}>{f.privacy.label}</Link>}{" "}
             <a href={f.siteUrl.href} aria-label={ui.footer.officialSite}>
               {f.siteUrl.label}
             </a>
