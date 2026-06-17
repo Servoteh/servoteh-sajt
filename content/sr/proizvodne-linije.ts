@@ -2,6 +2,7 @@ import type {
   PageMeta, DeepHeroContent, DeepHeaderContent, DeepTrustItem,
   DeepNumberedCard, DeepIconCard, DeepBlock, DeepRefTeaser, DeepCtaContent,
 } from "@/lib/types";
+import { refTeaserTitle } from "@/content/sr/common";
 
 export const meta: PageMeta = {
   title: "Proizvodne linije — SERVOTEH",
@@ -95,12 +96,12 @@ export const why: DeepIconCard[] = [
 ];
 
 export const refTeaser: DeepRefTeaser = {
-  title: "Pogledajte kako pristupamo referentnim projektima",
+  title: refTeaserTitle,
   body: "Projekti u kojima je razvijen i integrisan kompletan proizvodni tok — od koncepta do eksploatacije.",
 };
 
 export const cta: DeepCtaContent = {
-  label: "Kontakt",
+  label: "Sledeći korak",
   title: "Razgovarajmo o vašoj proizvodnoj liniji",
   body: "Pošaljite nam osnovne informacije o procesu, proizvodu, kapacitetu i tehničkom zahtevu, a naš tim će proceniti naredne korake za razvoj linije prilagođene vašem sistemu.",
 };

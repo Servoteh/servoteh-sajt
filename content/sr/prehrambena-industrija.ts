@@ -2,6 +2,7 @@ import type {
   PageMeta, DeepHeroContent, DeepHeaderContent, DeepTrustItem,
   DeepBlock, DeepRefTeaser, DeepCtaContent, TechSectionContent,
 } from "@/lib/types";
+import { refTeaserTitle } from "@/content/sr/common";
 
 export const meta: PageMeta = {
   title: "Prehrambena industrija — SERVOTEH",
@@ -68,7 +69,7 @@ export const types: DeepBlock[] = [
 ];
 
 export const refTeaser: DeepRefTeaser = {
-  title: "Pogledajte kako pristupamo referentnim projektima",
+  title: refTeaserTitle,
   body: "Pregled realizovanih sistema kroz tip rešenja, tehnološki opseg i oblasti primene — od industrije odbrane do drugih zahtevnih industrijskih procesa.",
 };
 

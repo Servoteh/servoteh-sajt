@@ -1,6 +1,6 @@
 import type { PageMeta, TechSectionContent } from "@/lib/types";
 import type { Hotspot } from "@/components/deep/HotspotImage";
-import { ctaInviteBody } from "@/content/sr/common";
+import { ctaInviteBody, refTeaserTitle } from "@/content/sr/common";
 
 export const meta: PageMeta = {
   title: "Sistemi za industriju odbrane — SERVOTEH",
@@ -69,7 +69,7 @@ export const programs = [
   {
     num: "Program 04 — Specijalne mašine",
     title: "Specijalne namenske mašine",
-    desc: "Specijalne mašine, podsistemi i automatizovana rešenja za specifične zahteve industrije odbrane — tamo gde standardna oprema ne može da ispuni traženi tehnološki, kapacitivni ili prostorni zahtev.",
+    desc: "Specijalne mašine, podsistemi i automatizovana rešenja za specifične zahteve industrije odbrane koje standardna oprema ne pokriva.",
     label: "Program 04",
     img: "/assets/defence-tech/development-tank-barrel-sleeve-press.webp",
     alt: "Specijalna presa za navlačenje ojačavajuće čaure na cev",
@@ -203,7 +203,7 @@ export const process = {
 };
 
 export const refLink = {
-  title: "Pogledajte kako pristupamo referentnim projektima",
+  title: refTeaserTitle,
   body: "Reference obuhvataju projekte razvijene za zahtevne proizvodne procese, sa fokusom na pouzdanost, preciznost i dugoročnu eksploataciju sistema.",
 };
 

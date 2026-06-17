@@ -2,6 +2,7 @@ import type {
   PageMeta, DeepHeroContent, DeepHeaderContent, DeepTrustItem,
   DeepNumberedCard, DeepIconCard, DeepRefTeaser, DeepCtaContent,
 } from "@/lib/types";
+import { refTeaserTitle } from "@/content/sr/common";
 
 export const meta: PageMeta = {
   title: "Specijalne mašine — SERVOTEH",
@@ -85,12 +86,12 @@ export const why: DeepIconCard[] = [
 ];
 
 export const refTeaser: DeepRefTeaser = {
-  title: "Pogledajte kako pristupamo referentnim projektima",
+  title: refTeaserTitle,
   body: "Projekti u kojima je razvijana namenska oprema ili specijalna mašina za zahtevne proizvodne procese.",
 };
 
 export const cta: DeepCtaContent = {
-  label: "Kontakt",
+  label: "Sledeći korak",
   title: "Imate operaciju koju standardna oprema ne rešava?",
   body: "Pošaljite nam osnovne informacije o procesu, radnom komadu i tehničkom zahtevu, a naš tim će proceniti da li je potrebno razviti namensku mašinu ili šire sistemsko rešenje.",
 };

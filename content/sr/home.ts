@@ -89,8 +89,8 @@ export const home: HomeContent = {
 
   aftersales: {
     label: "Podrška nakon puštanja u rad",
-    title: "Podrška i nakon puštanja u rad",
-    body: "Servoteh ostaje tehnički partner i nakon isporuke sistema. Podrška obuhvata puštanje u rad, obuku, dijagnostiku, intervencije, rezervne delove i unapređenja tokom eksploatacije.",
+    title: "Tehnički partner i nakon isporuke",
+    body: "Servoteh ne završava posao isporukom sistema. Podrška obuhvata puštanje u rad, obuku, dijagnostiku, intervencije, rezervne delove i unapređenja tokom eksploatacije.",
     cta: { label: "Pošaljite upit", href: "/#cta" },
     items: [
       { title: "Puštanje u rad i obuka", desc: "Naš tim prisustvuje prvom pokretanju i obučava vaše operatere." },

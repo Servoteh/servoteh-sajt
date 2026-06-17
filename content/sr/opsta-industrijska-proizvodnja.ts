@@ -2,6 +2,7 @@ import type {
   PageMeta, DeepHeroContent, DeepHeaderContent, DeepTrustItem,
   DeepBlock, DeepRefTeaser, DeepCtaContent,
 } from "@/lib/types";
+import { refTeaserTitle } from "@/content/sr/common";
 
 export const meta: PageMeta = {
   title: "Opšta industrijska proizvodnja — SERVOTEH",
@@ -13,7 +14,7 @@ export const hero: DeepHeroContent = {
   eyebrow: "SERVOTEH / Opšta industrijska proizvodnja",
   titleLead: "Namenska rešenja za",
   titleEm: "opštu industriju",
-  lead: "Namenske mašine, linije i automatizovana rešenja za različite grane opšte industrije — tamo gde standardna oprema ne rešava konkretan zahtev procesa, kapaciteta ili kvaliteta. Svako rešenje razvijamo prema konkretnoj operaciji, radnom komadu i uslovima proizvodnje.",
+  lead: "Namenske mašine, linije i automatizovana rešenja za različite grane opšte industrije — za procese, kapacitete i nivoe kvaliteta koje serijska, kataloška oprema ne pokriva. Svako rešenje razvijamo prema konkretnoj operaciji, radnom komadu i uslovima proizvodnje.",
   primaryCta: { label: "Pošaljite upit", href: "mailto:office@servoteh.com" },
   secondaryCta: { label: "Pogledajte reference", href: "/reference" },
 };
@@ -103,7 +104,7 @@ export const types: DeepBlock[] = [
 ];
 
 export const refTeaser: DeepRefTeaser = {
-  title: "Pogledajte kako pristupamo referentnim projektima",
+  title: refTeaserTitle,
   body: "Pregled realizovanih sistema kroz tip rešenja, tehnološki opseg i oblasti primene — od industrije odbrane do drugih zahtevnih industrijskih procesa.",
 };
 

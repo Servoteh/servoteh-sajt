@@ -2,6 +2,7 @@ import type {
   PageMeta, DeepHeroContent, DeepHeaderContent, DeepTrustItem,
   DeepNumberedCard, DeepIconCard, DeepBlock, DeepRefTeaser, DeepCtaContent,
 } from "@/lib/types";
+import { refTeaserTitle } from "@/content/sr/common";
 
 export const meta: PageMeta = {
   title: "Industrijska automatizacija — SERVOTEH",
@@ -87,12 +88,12 @@ export const why: DeepIconCard[] = [
 ];
 
 export const refTeaser: DeepRefTeaser = {
-  title: "Pogledajte kako pristupamo referentnim projektima",
+  title: refTeaserTitle,
   body: "Projekti u kojima su upravljanje, automatika i kontrola procesa bili ključni deo rešenja.",
 };
 
 export const cta: DeepCtaContent = {
-  label: "Kontakt",
+  label: "Sledeći korak",
   title: "Razgovarajmo o automatizaciji vašeg procesa",
   body: "Pošaljite nam osnovne informacije o mašini, liniji ili procesu koji želite da automatizujete ili unapredite, a naš tim će proceniti sledeće korake.",
 };

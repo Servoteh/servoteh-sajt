@@ -12,3 +12,9 @@
  */
 export const ctaInviteBody =
   "Pošaljite nam osnovne informacije o procesu, proizvodnoj potrebi ili tehničkom zahtevu, a naš tim će vam predložiti sledeće korake.";
+
+/**
+ * Naslov „reference teaser" sekcije — isti na svim dubinskim stranicama.
+ * Telo ispod naslova ostaje specifično po stranici.
+ */
+export const refTeaserTitle = "Pogledajte kako pristupamo referentnim projektima";

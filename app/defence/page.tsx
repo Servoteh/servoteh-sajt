@@ -277,7 +277,7 @@ export default function DefencePage() {
         <section id="ds-cta">
           <Container>
             <Reveal className="ds-cta-inner">
-              <div className="section-label section-label--center">Kontakt</div>
+              <div className="section-label section-label--center">Sledeći korak</div>
               <h2>{c.cta.title}</h2>
               <p>{c.cta.body}</p>
               <div className="cta-btns">
