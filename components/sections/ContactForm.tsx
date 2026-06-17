@@ -55,10 +55,13 @@ export function ContactForm({
     setStatus("submitting");
     setServerError("");
     try {
+      // Locale se na sajtu definiše „/en/" prefiksom — Worker ga koristi da vrati
+      // poruke o grešci na odgovarajućem jeziku.
+      const locale = window.location.pathname.startsWith("/en") ? "en" : "sr";
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
+        body: JSON.stringify({ ...values, locale }),
       });
       const data = (await res.json().catch(() => ({}))) as { ok?: boolean; error?: string };
       if (res.ok && data.ok) {

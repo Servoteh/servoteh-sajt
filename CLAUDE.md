@@ -17,7 +17,7 @@ redizajn. Dizajn sistem je već utvrđen; ne izmišljati novi.
 
 - **Next.js 16** (App Router) + **React 19** + **TypeScript**
 - **Tailwind CSS v4** (CSS-first, konfiguracija u `app/globals.css`)
-- **Framer Motion** — animacije (scroll reveal, hero)
+- **Framer Motion** — scroll-reveal animacije (`Reveal.tsx`); hero ulazna animacija je čist CSS (zbog LCP — tekst nije sakriven do hidratacije)
 - **react-hook-form + Zod** — kontakt forma (šalje preko **Resend**-a)
 - **lucide-react** — ikonice
 - **next/font/local** — Figtree (self-hostovan, vidi dole)
@@ -108,8 +108,12 @@ interpunkcija/strelice. Bez poziva ka Google Fonts — radi offline, brže, GDPR
 ```bash
 npm install
 npm run dev      # lokalni razvoj
-npm run build    # statički export u /out
+npm run build    # statički export u /out + post-build patch
 ```
+
+`npm run build` = `next build` **+** `node scripts/fix-en-lang.mjs` (post-build:
+postavlja `<html lang="en">` na `out/en/**` — App Router root je `lang="sr"`, a
+static export ne može po pod-stablu da menja taj atribut u serviranom HTML-u).
 
 **Deploy:** Cloudflare Worker `servoteh-sajt` servira `/out` i obrađuje formu.
 `git push` na `main` → **GitHub Action** (`.github/workflows/deploy.yml`) radi
@@ -130,7 +134,7 @@ Sajt je **live na `servoteh.com`** (SR root, EN pod `/en/`). `servoteh.rs` i
       pravni (PIB/MB u footeru + Politika privatnosti), perf (rekompresija slika),
       **go-live** (selidba DNS-a na Cloudflare, `.rs`/`.co.rs` redirekti, `automation` ugašen)
 - [ ] **Roadmap (kasnije):** Faza 6 Reference (+~10 detaljnih strana), namenska OG slika,
-      hero video optimizacija, Lighthouse/mobile QA
+      Lighthouse/mobile QA (hero video već kompresovan 4.4→1.5 MB; hero LCP sređen)
 
 Pun status, infrastruktura i plan razvoja: **`PROJEKAT-STATUS-I-PLAN.md`**.
 Izvorni HTML svih stranica je u `_legacy/` (referenca za migraciju, ne deploy-uje se).

@@ -7,7 +7,7 @@
 > **Zamrzavanje promena:** trenutno stanje je stabilno; veće izmene se pauziraju.
 > Plan razvoja (dole) je za naredne faze, kad se odluči da se nastavi.
 >
-> Poslednje ažuriranje: 2026-06-17.
+> Poslednje ažuriranje: 2026-06-18.
 
 ---
 
@@ -74,7 +74,8 @@ Migracija ranijeg ručno kodiranog sajta u **Next.js**, verna 1:1, dvojezično (
 | `app/en/**` | EN rute (engleski slugovi) |
 | `lib/meta.ts` | `pageMetadata()` — title/description + canonical + OG + hreflang |
 | `lib/routes.ts` | parovi ruta SR↔EN (LangSwitch + hreflang) |
-| `worker/index.ts` | Worker: forma (Resend) + 301 redirect mapa |
+| `worker/index.ts` | Worker: forma (Resend, sr/en poruke) + 301 redirect mapa |
+| `scripts/fix-en-lang.mjs` | post-build: `<html lang="en">` na `out/en/**` (zakačeno na `npm run build`) |
 | `content/sr/*`, `content/en/*` | sav vidljiv tekst (po locale) |
 | `content/{sr,en}/ui.ts` | chrome/aria/forma stringovi |
 | `wrangler.jsonc` | Worker config + env vars |
@@ -97,6 +98,19 @@ Migracija ranijeg ručno kodiranog sajta u **Next.js**, verna 1:1, dvojezično (
 7. **Resend** (`be4370e` + secret): forma šalje mejlove; `CONTACT_FROM` postavljen.
 8. **Perf/UI** (`59b2681`, `acb5aac`): kompaktnije dugme `.btn`; 3 defence slike
    rekompresovane (sharp, ~6 MB → ~151 KB).
+9. **SEO/a11y + perf doterivanje (2026-06-18):**
+   - Kapaciteti slider — ažurirani opisi slika (hale, fiber lasersko sečenje, CNC).
+   - EN copy: „subassembly assembly"→„integration", „catalogue"→„off-the-shelf equipment".
+   - `scripts/fix-en-lang.mjs` — post-build patch postavlja `<html lang="en">` na
+     `out/en/**` (App Router root je `lang="sr"`); zakačeno na `npm run build`.
+   - Footer — whitespace čvorovi u socials/map/bottom-right (linkovi razdvojeni i
+     u tekstualnom renderu, bez vizuelne promene).
+   - Hero LCP — ulazna animacija prebačena sa framer-motion na CSS (`@keyframes
+     fadeUp`): hero tekst više nije `opacity:0` u statičkom HTML-u (ne čeka JS).
+   - Hero video `hero1.mp4` kompresovan **4.45 MB → 1.53 MB** (H.264 CRF 28 +
+     faststart; rezolucija 1244×740 i 24fps netaknuti — prikaz identičan).
+   - Worker — poruke o grešci forme lokalizovane (sr/en); `ContactForm` šalje
+     `locale` iz putanje, `localeOf()` bira set poruka (fallback Referer → sr).
 
 ## 7. Operativne napomene (kako uraditi)
 - **Izmena teksta:** `content/sr/*.ts` (i `content/en/*.ts` za EN) → commit → push → auto-deploy.
@@ -133,7 +147,9 @@ poverljivosti). Plan je dodati **pojedinačne detaljne stranice projekata** sa v
 postojećih `Deep*` komponenti). Najbolje raditi kao zasebnu fazu sa pripremljenim sadržajem.
 
 ### Faza 7 — Performanse i mediji (nije blokер)
-- **Hero video** `hero1.mp4` (4.4 MB): ne učitavati na mobilnom (samo poster) i/ili kompresovati (~1.5 MB, 720p).
+- ✅ **Hero video** `hero1.mp4`: kompresovan 4.45 MB → 1.53 MB (CRF 28 + faststart, ista rezolucija/fps).
+  Opciono dalje: ne učitavati na mobilnom (samo poster) za još manji prenos.
+- ✅ **Hero LCP**: ulazna animacija je CSS (tekst vidljiv bez JS-a).
 - **Namenska OG slika** 1200×630 (sad je privremeno `hero-poster.webp`) → zameniti u `lib/meta.ts` (`OG_IMAGE`).
 - **PDF brošura** `defence-brochure.pdf` (12 MB) → kompresovati.
 - Ostali self-host video (`opsta`, `prehrambena`) — već `preload="metadata"` (učitava se na klik), ok.
@@ -148,10 +164,11 @@ postojećih `Deep*` komponenti). Najbolje raditi kao zasebnu fazu sa pripremljen
 
 ## 9. Otvorene / odložene stavke (sažetak)
 - [ ] Faza 6: References — ~10 detaljnih projektnih stranica (+ EN)
-- [ ] Hero video optimizacija (mobilni)
+- [x] Hero video kompresija (4.45→1.53 MB) — *opciono još: poster-only na mobilnom*
+- [x] Hero LCP (CSS ulazna animacija)
 - [ ] Namenska OG slika 1200×630
 - [ ] PDF brošura kompresija
-- [ ] Lighthouse/mobile QA prolaz
+- [ ] Lighthouse/mobile QA prolaz (meriti LCP/INP/CLS na živom URL-u)
 - [ ] (opc.) FTP zapis, fino podešavanje slika
 
 > Sve gore navedeno je **opciono/za kasnije** — sajt je pun i funkcionalan u produkciji.

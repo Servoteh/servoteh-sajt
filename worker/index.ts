@@ -29,7 +29,48 @@ type ContactPayload = {
   poruka?: string;
   /** honeypot — popunjava ga samo bot; mora ostati prazan */
   website?: string;
+  /** jezik stranice sa koje je upit poslat ("sr" | "en") — bira jezik poruka */
+  locale?: string;
 };
+
+// Poruke o grešci po jeziku. Klijent (ContactForm) šalje `locale` iz putanje
+// ("/en/" → en); fallback je srpski. Vidljive poruke i validacija polja.
+const MESSAGES = {
+  sr: {
+    badRequest: "Neispravan format zahteva.",
+    invalid: "Proverite unos.",
+    unavailable: "Slanje trenutno nije dostupno.",
+    sendFailed: "Slanje nije uspelo. Pokušajte ponovo ili nas kontaktirajte mejlom.",
+    sendFailedRetry: "Slanje nije uspelo. Pokušajte ponovo kasnije.",
+    name: "Unesite ime.",
+    email: "Unesite ispravnu email adresu.",
+    messageShort: "Poruka je prekratka.",
+    tooLong: "Unos je predugačak.",
+  },
+  en: {
+    badRequest: "Invalid request format.",
+    invalid: "Please check your input.",
+    unavailable: "Submission is currently unavailable.",
+    sendFailed: "Sending failed. Please try again or contact us by email.",
+    sendFailedRetry: "Sending failed. Please try again later.",
+    name: "Please enter your name.",
+    email: "Please enter a valid email address.",
+    messageShort: "Your message is too short.",
+    tooLong: "Your input is too long.",
+  },
+} as const;
+
+type Locale = keyof typeof MESSAGES;
+
+/** Bira jezik: eksplicitni `locale` iz tela; fallback iz Referer putanje; pa sr. */
+function localeOf(request: Request, bodyLocale?: string): Locale {
+  if (bodyLocale === "en" || bodyLocale === "sr") return bodyLocale;
+  try {
+    return new URL(request.headers.get("Referer") ?? "").pathname.startsWith("/en") ? "en" : "sr";
+  } catch {
+    return "sr";
+  }
+}
 
 /**
  * 301 redirect mapa: stari indeksirani URL-ovi servoteh.com → nove rute.
@@ -88,8 +129,10 @@ async function handleContact(request: Request, env: Env): Promise<Response> {
   try {
     data = (await request.json()) as ContactPayload;
   } catch {
-    return json({ ok: false, error: "Neispravan format zahteva." }, 400);
+    return json({ ok: false, error: MESSAGES[localeOf(request)].badRequest }, 400);
   }
+
+  const m = MESSAGES[localeOf(request, data.locale)];
 
   // Honeypot: ako je popunjen, tiho "uspeh" (bot ne dobija povratnu informaciju).
   if (data.website && data.website.trim() !== "") {
@@ -103,18 +146,18 @@ async function handleContact(request: Request, env: Env): Promise<Response> {
   const telefon = (data.telefon ?? "").trim();
 
   const errors: Record<string, string> = {};
-  if (ime.length < 2) errors.ime = "Unesite ime.";
-  if (!EMAIL_RE.test(email)) errors.email = "Unesite ispravnu email adresu.";
-  if (poruka.length < 10) errors.poruka = "Poruka je prekratka.";
+  if (ime.length < 2) errors.ime = m.name;
+  if (!EMAIL_RE.test(email)) errors.email = m.email;
+  if (poruka.length < 10) errors.poruka = m.messageShort;
   if (ime.length > 120 || email.length > 160 || poruka.length > 5000) {
-    errors.poruka = "Unos je predugačak.";
+    errors.poruka = m.tooLong;
   }
   if (Object.keys(errors).length > 0) {
-    return json({ ok: false, error: "Proverite unos.", fields: errors }, 400);
+    return json({ ok: false, error: m.invalid, fields: errors }, 400);
   }
 
   if (!env.RESEND_API_KEY) {
-    return json({ ok: false, error: "Slanje trenutno nije dostupno." }, 503);
+    return json({ ok: false, error: m.unavailable }, 503);
   }
 
   const to = env.CONTACT_TO || "office@servoteh.com";
@@ -155,11 +198,11 @@ async function handleContact(request: Request, env: Env): Promise<Response> {
     });
 
     if (!res.ok) {
-      return json({ ok: false, error: "Slanje nije uspelo. Pokušajte ponovo ili nas kontaktirajte mejlom." }, 502);
+      return json({ ok: false, error: m.sendFailed }, 502);
     }
     return json({ ok: true });
   } catch {
-    return json({ ok: false, error: "Slanje nije uspelo. Pokušajte ponovo kasnije." }, 502);
+    return json({ ok: false, error: m.sendFailedRetry }, 502);
   }
 }
 

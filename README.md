@@ -27,7 +27,9 @@ npm run dev
 npm run build
 ```
 
-Generiše statički sajt u `out/` (čist HTML/CSS/JS, bez servera).
+Generiše statički sajt u `out/` (čist HTML/CSS/JS, bez servera). Skripta je
+`next build` + `node scripts/fix-en-lang.mjs` (post-build: postavlja
+`<html lang="en">` na `out/en/**`, jer App Router root layout je `lang="sr"`).
 
 ## Git i deploy
 
