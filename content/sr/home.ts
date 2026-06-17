@@ -36,7 +36,7 @@ export const home: HomeContent = {
     cards: [
       { title: "Preciznost i pouzdanost", desc: "Sistemi projektovani za zahteve industrije odbrane", accent: true },
       { title: "Pristup po meri kupca", desc: "Svaki sistem razvijen prema konkretnom zahtevu" },
-      { title: "24+ godina iskustva", desc: "Dokazana kompetencija u kompleksnim projektima" },
+      { title: "Integrisan razvoj", desc: "Mašinski, elektro i softverski razvoj u jednom timu" },
       { title: "Postprodajna podrška", desc: "Podrška tokom celokupnog životnog veka sistema" },
     ],
   },
