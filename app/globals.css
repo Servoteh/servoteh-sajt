@@ -1207,7 +1207,7 @@ h1, h2, h3, h4 {
 #industries .section-header p { color: var(--light-text-muted); }
 .industries-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 16px;
   margin-top: 56px;
 }
@@ -1488,6 +1488,9 @@ a.industry-card {
   .footer-top {
     grid-template-columns: 1fr 1fr;
     gap: 40px;
+  }
+  .industries-grid {
+    grid-template-columns: 1fr 1fr;
   }
   .about-inner {
     grid-template-columns: 1fr;

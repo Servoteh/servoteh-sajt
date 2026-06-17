@@ -106,9 +106,7 @@ export const home: HomeContent = {
     cards: [
       { title: "Industrija odbrane", desc: "Namenske mašine, linije i sistemi za industriju odbrane", href: "/defence", featured: true },
       { title: "Automobilska industrija", desc: "Linije sklapanja, testne stanice, manipulatori i specijalne mašine za procese gde su ključni kratak takt, ponovljiv kvalitet i dug životni vek opreme.", href: "/automobilska-industrija" },
-      { title: "Avio industrija", desc: "Precizna oprema, pomoćni alati, nosači, dizalice i sistemi za proizvodnju, servis i rukovanje sklopovima u avio industriji." },
       { title: "Prehrambena industrija", desc: "Mašine i linije za preradu, doziranje i pakovanje, projektovane za stabilan kapacitet, higijenske zahteve procesa i pouzdan rad u kontinuiranoj proizvodnji.", href: "/prehrambena-industrija" },
-      { title: "Pakovanje i manipulacija", desc: "Automatizovani sistemi za pakovanje, sortiranje, transport i manipulaciju proizvodima — sa fokusom na takt, ponovljivost i usklađen tok kroz proces." },
       { title: "Opšta industrijska proizvodnja", desc: "Namenske mašine, linije i automatizovana rešenja za različite grane opšte industrije — tamo gde standardna oprema ne rešava konkretan zahtev procesa, kapaciteta ili kvaliteta.", href: "/opsta-industrijska-proizvodnja" },
     ],
   },

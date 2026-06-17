@@ -90,19 +90,9 @@ export const industryIcons: ReactElement[] = [
     <circle cx="15" cy="16" r="2" stroke={S} strokeWidth="1.4" />
     <path d="M7 7V5a3 3 0 016 0v2" stroke={S} strokeWidth="1.4" />
   </svg>,
-  <svg key="i-chart" width="20" height="20" viewBox="0 0 20 20" fill="none">
-    <path d="M2 14l5-8 4 3 4-7 3 5" stroke={S} strokeWidth="1.4" strokeLinejoin="round" />
-    <circle cx="10" cy="16" r="1.5" fill={S} />
-    <path d="M10 14.5V9" stroke={S} strokeWidth="1.4" strokeLinecap="round" />
-  </svg>,
   <svg key="i-leaf" width="20" height="20" viewBox="0 0 20 20" fill="none">
     <path d="M10 3c-3 0-5 2-5 4 0 1.5 1 3 3 4v4h4v-4c2-1 3-2.5 3-4 0-2-2-4-5-4z" stroke={S} strokeWidth="1.4" strokeLinejoin="round" />
     <path d="M8 15h4" stroke={S} strokeWidth="1.4" strokeLinecap="round" />
-  </svg>,
-  <svg key="i-box" width="20" height="20" viewBox="0 0 20 20" fill="none">
-    <rect x="2" y="6" width="16" height="12" rx="1.5" stroke={S} strokeWidth="1.4" />
-    <path d="M6 6V4a4 4 0 018 0v2" stroke={S} strokeWidth="1.4" />
-    <circle cx="10" cy="12" r="2" stroke={S} strokeWidth="1.4" />
   </svg>,
   <svg key="i-sun" width="20" height="20" viewBox="0 0 20 20" fill="none">
     <circle cx="10" cy="10" r="3" stroke={S} strokeWidth="1.4" />

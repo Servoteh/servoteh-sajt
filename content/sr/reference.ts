@@ -129,22 +129,13 @@ export const caseGroups = [
         meta: "Obim: korekcija deformacija nakon zavarivanja",
       },
       {
-        num: "11", title: "Mašina za proizvodnju vijčanih rednih stezaljki",
-        desc: "Automatizovana mašina za serijsku proizvodnju vijčanih rednih stezaljki za elektro industriju — visoka preciznost i ponovljivost, uz minimalno angažovanje operatera.",
+        num: "11", title: "Mašine za elektro industriju",
+        desc: "Automatske mašine za serijsku i masovnu proizvodnju komponenti za elektro industriju — vijčanih rednih stezaljki i kablovskih papučica — uz visoku preciznost obrade, ponovljivost i konstantan kvalitet svakog komada.",
         tags: [
           { label: "Opšta industrija" }, { label: "Elektro industrija" },
-          { label: "Automatizacija", neutral: true },
+          { label: "Automatizacija", neutral: true }, { label: "Masovna proizvodnja", neutral: true },
         ],
         meta: "Primena: razvodni ormari, upravljačke ploče i industrijske instalacije",
-      },
-      {
-        num: "12", title: "Mašina za proizvodnju kablovskih papučica",
-        desc: "Savremena automatska mašina za masovnu proizvodnju kablovskih papučica za elektro industriju — kontinuiran rad uz visoku preciznost obrade i konstantan kvalitet svakog komada.",
-        tags: [
-          { label: "Opšta industrija" }, { label: "Elektro industrija" },
-          { label: "Masovna proizvodnja", neutral: true },
-        ],
-        meta: "Primena: razvodni ormari, upravljačke table i industrijska postrojenja",
       },
     ],
   },
