@@ -12,7 +12,7 @@ export const home: HomeContent = {
     eyebrow: "Beograd, Srbija — porodična inženjerska kompanija od 2002.",
     title: "Specijalne mašine, proizvodne linije i automatizovani sistemi",
     subtitle:
-      "Projektujemo, razvijamo i isporučujemo rešenja za zahtevne industrijske procese, sa posebnim fokusom na industriju odbrane — od idejnog crteža do montaže, puštanja u rad i dugoročne tehničke podrške.",
+      "Projektujemo, razvijamo i isporučujemo rešenja za zahtevne industrijske procese — od idejnog crteža do montaže, puštanja u rad i dugoročne tehničke podrške.",
     primaryCta: { label: "Pošaljite upit", href: "/#cta" },
     secondaryCta: { label: "Pogledajte rešenja", href: "/#solutions" },
     scrollLabel: "Skroluj",
