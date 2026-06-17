@@ -1,9 +1,12 @@
 # Servoteh
 
 Veb sajt kompanije Servoteh d.o.o. — Next.js 16 + React 19 + TypeScript + Tailwind v4,
-statički export za Cloudflare Pages.
+statički export koji servira **Cloudflare Worker** (asseti + kontakt forma).
 
-> Za konvencije, arhitekturu i terminološka pravila vidi **`CLAUDE.md`**.
+> **Status: U PRODUKCIJI** — live na **https://servoteh.com** (SR) i **/en/** (EN).
+> `servoteh.rs` i `servoteh.co.rs` → 301 → `servoteh.com`.
+> Za konvencije, arhitekturu, terminologiju i pun status vidi **`CLAUDE.md`** i
+> **`PROJEKAT-STATUS-I-PLAN.md`**.
 
 ## Preduslovi
 
@@ -26,48 +29,40 @@ npm run build
 
 Generiše statički sajt u `out/` (čist HTML/CSS/JS, bez servera).
 
-## Postavljanje na GitHub
+## Git i deploy
 
-```bash
-git init
-git add .
-git commit -m "Servoteh — Faza 1 (skelet + homepage hero/stats)"
-git branch -M main
-git remote add origin https://github.com/<korisnik>/servoteh.git
-git push -u origin main
-```
+Repo: **`Servoteh/servoteh-sajt`**, grana `main`. `node_modules/`, `.next/` i `out/`
+se ne komituju (vidi `.gitignore`).
 
-`node_modules/`, `.next/` i `out/` se ne komituju (vidi `.gitignore`).
+**Auto-deploy:** svaki `git push` na `main` pokreće GitHub Action
+(`.github/workflows/deploy.yml`) → `npm run build` + `npx wrangler deploy`.
+Preduslov: repo secret **`CLOUDFLARE_API_TOKEN`** (ovlašćenje „Edit Cloudflare Workers").
+Ručni deploy: `npm run build && npx wrangler deploy`.
 
-## Deploy na Cloudflare (Workers Static Assets)
+**Hosting:** Cloudflare Worker `servoteh-sajt` (`wrangler.jsonc`, `main = worker/index.ts`).
+Worker:
+- servira statičke assete iz `out/` (binding `ASSETS`),
+- obrađuje `POST /api/contact` → šalje mejl preko **Resend**-a,
+- radi **301 redirekte** sa starih URL-ova (`/about_us` → `/#about`, itd.).
 
-Sajt je statički, pa se servira kao **Workers Static Assets** (folder `out/`).
-Konfiguracija je u `wrangler.jsonc` (bez `main` polja → čist statički Worker, ne
-pokreće se OpenNext adapter koji važi samo za server-side Next.js).
+Env (Cloudflare → Worker → Settings → Variables):
+- `RESEND_API_KEY` — **secret** (obavezno za slanje forme)
+- `CONTACT_TO` = `office@servoteh.com`
+- `CONTACT_FROM` = `Servoteh <office@servoteh.com>`
 
-1. Cloudflare dashboard → **Workers & Pages** → **Create** → **Import a repository**
-   i izaberi repo.
-2. Build podešavanja:
-   - **Build command:** `npm run build`
-   - **Deploy command:** `npx wrangler deploy` (čita `wrangler.jsonc`, kači `out/`)
-   - **Node version:** 20+ (env var `NODE_VERSION=20`); Cloudflare default 22 je ok
-3. Save and Deploy.
-
-Svaki `git push` na `main` automatski pokreće build i deploy. Grane dobijaju
-preview deployment.
-
-> **Napomena:** novi Cloudflare UI gura sve u „Workers". Bez `wrangler.jsonc`,
-> auto-detekcija Next.js pokrene OpenNext i deploy pukne na statičkom exportu
-> (`ENOENT .next/standalone/...`). `wrangler.jsonc` to rešava — ne diraj ga osim
-> ako menjaš izlazni folder.
+**DNS:** sva tri domena (`servoteh.com`, `servoteh.rs`, `servoteh.co.rs`) su na
+**Cloudflare** nameserverima (ne više cPanel). `.rs`/`.co.rs` → 301 (Cloudflare Redirect
+Rules) na `servoteh.com`. Email (MDaemon, `mail2.servoteh.com`) je očuvan. Detalji u
+`PROJEKAT-STATUS-I-PLAN.md`.
 
 ## Struktura
 
 ```
-app/            rute, layout, globalni CSS, font
-components/     prezentacione komponente (layout, sekcije, ui)
-content/        sav tekst (content-as-data); sr/ sada, en/ kasnije
-lib/            tipovi
+app/            rute (SR root, EN pod /en/), layout, globalni CSS, font, sitemap/robots
+components/     prezentacione komponente (layout, sekcije, deep, ui)
+content/        sav tekst (content-as-data): sr/ i en/ (+ ui.ts chrome/aria/forma)
+lib/            types.ts, meta.ts (pageMetadata), routes.ts (SR↔EN parovi)
+worker/         index.ts — Cloudflare Worker (forma preko Resend-a + 301 redirekti)
 public/assets/  slike, video, logo, brošura
 _legacy/        izvorni HTML (referenca za migraciju, ne deploy-uje se)
 ```
@@ -75,7 +70,9 @@ _legacy/        izvorni HTML (referenca za migraciju, ne deploy-uje se)
 ## Napomene
 
 - **Font:** Figtree je self-hostovan (`app/fonts/`), bez poziva ka Google Fonts.
-- **Hero video:** `public/assets/hero1.mp4`. Poster je izvučen iz videa
-  (`hero-poster.jpg`); ako nabaviš HD poster (1920×1080), samo zameni fajl.
-- **Slike:** u statičkom exportu `next/image` optimizacija je isključena; slike
-  se serviraju iz `public/assets/`.
+- **Hero video:** `public/assets/hero1.mp4`, poster `hero-poster.webp`.
+- **Slike/video:** u statičkom exportu `next/image` optimizacija je isključena; mediji
+  se serviraju iz `public/assets/`. Za rekompresiju slika je dostupan **`sharp`**; za
+  obradu videa **`ffmpeg-static`** (po potrebi `npm i ffmpeg-static ffprobe-static --no-save`).
+- **Forma:** podešavanje Resend-a u `FORMA-SETUP.md`.
+- **Politika privatnosti:** tekst za pravni pregled u `PRIVACY-ZA-PREGLED.md`.

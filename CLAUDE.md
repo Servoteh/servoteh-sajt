@@ -18,10 +18,12 @@ redizajn. Dizajn sistem je već utvrđen; ne izmišljati novi.
 - **Next.js 16** (App Router) + **React 19** + **TypeScript**
 - **Tailwind CSS v4** (CSS-first, konfiguracija u `app/globals.css`)
 - **Framer Motion** — animacije (scroll reveal, hero)
-- **react-hook-form + Zod** — kontakt forma (Faza 5)
+- **react-hook-form + Zod** — kontakt forma (šalje preko **Resend**-a)
 - **lucide-react** — ikonice
 - **next/font/local** — Figtree (self-hostovan, vidi dole)
-- Build: **statički export** (`output: 'export'`) → deploy na **Cloudflare Pages**
+- Build: **statički export** (`output: 'export'`) → servira **Cloudflare Worker**
+  (`worker/index.ts`: asseti iz `/out` + `POST /api/contact` → Resend + 301 redirect mapa)
+- **sharp** (slike) i `ffmpeg-static` (video; instalira se po potrebi `--no-save`) za obradu medija
 
 ## Arhitektura — sadržaj odvojen od prezentacije
 
@@ -31,26 +33,37 @@ Najvažnije pravilo strukture:
   Komponente su **čisto prezentacione** i ne sadrže hardkodiran tekst.
 - Editorska izmena → diraš `content/sr/*.ts`. Dizajnerska izmena → diraš
   komponentu ili `globals.css`. Ne mešati to dvoje.
-- EN verzija se dodaje kao paralelni `content/en/*` rečnik + rute pod `/en/`,
-  bez diranja komponenti.
+- EN verzija je **urađena**: paralelni `content/en/*` rečnik + rute pod `/en/`
+  (engleski slugovi). Chrome/aria/forma stringovi su u `content/{sr,en}/ui.ts`;
+  deljene komponente primaju opcioni `ui` prop sa SR default-om → SR strane netaknute.
 
 ```
-app/                  rute (App Router); SR na rootu, EN pod /en (kasnije)
-  layout.tsx          font (Figtree local), <html lang="sr">
-  page.tsx            homepage
+app/                  rute (App Router); SR na rootu, EN pod /en/ (engleski slugovi)
+  layout.tsx          font (Figtree local), metadataBase + root OG, <html lang="sr">
+  page.tsx            homepage (SR)
+  en/                 EN rute + en/layout.tsx (HtmlLang → "en")
+  sitemap.ts robots.ts  sitemap (SR+EN, hreflang) i robots
   globals.css         tokeni (:root) + bazni/chrome stilovi
   fonts/              self-hostovan Figtree woff2
 components/
   layout/             Header, Footer, LangSwitch
-  sections/           Hero, Stats, … (po sekcija)
+  sections/           Hero, Stats, Cta (ContactForm), …
+  deep/               DeepSections (dubinske strane), TechCards, HotspotImage
   ui/                 Container, …
   Reveal.tsx          Framer Motion scroll-reveal wrapper
 content/
-  sr/                 site.ts (nav/footer), home.ts, …
-  en/                 (Faza EN)
-lib/types.ts          tipovi sadržaja
+  sr/  en/            site.ts, home.ts, …, ui.ts (chrome/aria/forma)
+lib/
+  types.ts            tipovi sadržaja (+ UiDict)
+  meta.ts             pageMetadata() — canonical + Open Graph + hreflang
+  routes.ts           parovi ruta SR↔EN (LangSwitch + hreflang)
+worker/index.ts       Worker: forma (Resend) + 301 redirect mapa starih URL-ova
+.github/workflows/    deploy.yml — auto-deploy (wrangler) na push na main
 public/assets/        slike, video, logo, brošura
 ```
+
+EN ton/terminologija: **British English**, tehnički B2B, suzdržano — rečnik u
+`PROJEKAT-STATUS-I-PLAN.md` (defence, turnkey, commissioning, special-purpose machines…).
 
 ## Dizajn tokeni (izvor istine: `app/globals.css` → `:root`)
 
@@ -98,18 +111,26 @@ npm run dev      # lokalni razvoj
 npm run build    # statički export u /out
 ```
 
-Cloudflare Pages: build command `npm run build`, output direktorijum `out`.
-Vidi `README.md` za detalje.
+**Deploy:** Cloudflare Worker `servoteh-sajt` servira `/out` i obrađuje formu.
+`git push` na `main` → **GitHub Action** (`.github/workflows/deploy.yml`) radi
+`npm run build` + `wrangler deploy` (preduslov: repo secret `CLOUDFLARE_API_TOKEN`).
+Ručno: `npx wrangler deploy`. **DNS je na Cloudflare-u** (sva tri domena), ne u cPanel-u.
+Detalji: `README.md` i `PROJEKAT-STATUS-I-PLAN.md`.
 
-## Status migracije
+## Status — U PRODUKCIJI ✅
 
-- [x] **Faza 1 — Skelet**: config, tokeni, font, i18n osnova, content-as-data,
-      Header/Footer/LangSwitch, Hero + Stats, build verifikovan.
-- [x] **Faza 2 — Homepage (SR)**: sve sekcije — defence-intro, about, kapaciteti
-      (slider), solutions, aftersales, industries, trust, cta. Build verifikovan.
-- [x] **Faza 3 — Dubinske stranice (SR)**: defence (sa hotspot sistemom), reference,
-      specijalne-masine, proizvodne-linije, industrijska-automatizacija. Build verifikovan (7 ruta).
-- [ ] **Faza 4 — EN** (sve rute)
-- [ ] **Faza 5 — Kontakt forma + Cloudflare Function**
+Sajt je **live na `servoteh.com`** (SR root, EN pod `/en/`). `servoteh.rs` i
+`servoteh.co.rs` (+ www) → **301 → `servoteh.com`**. Kontakt forma šalje na
+`office@servoteh.com` (Resend; MDaemon mejl netaknut). Auto-deploy na push.
 
+- [x] **Faza 1–3** — Skelet + homepage + dubinske strane (SR)
+- [x] **Faza 4 — EN** (sve rute, engleski slugovi, `ui` rečnik, LangSwitch, hreflang)
+- [x] **Faza 5 — Kontakt forma** (Worker + Resend)
+- [x] **Pred-live** — SEO (canonical/OG/sitemap/robots), 301 redirect mapa starih URL-ova,
+      pravni (PIB/MB u footeru + Politika privatnosti), perf (rekompresija slika),
+      **go-live** (selidba DNS-a na Cloudflare, `.rs`/`.co.rs` redirekti, `automation` ugašen)
+- [ ] **Roadmap (kasnije):** Faza 6 Reference (+~10 detaljnih strana), namenska OG slika,
+      hero video optimizacija, Lighthouse/mobile QA
+
+Pun status, infrastruktura i plan razvoja: **`PROJEKAT-STATUS-I-PLAN.md`**.
 Izvorni HTML svih stranica je u `_legacy/` (referenca za migraciju, ne deploy-uje se).
