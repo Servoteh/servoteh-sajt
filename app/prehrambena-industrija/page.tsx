@@ -7,7 +7,6 @@ import {
   DeepHeader,
   IntroSplit,
   BlockGrid,
-  RefTeaser,
   DeepCta,
 } from "@/components/deep/DeepSections";
 import { TechSection } from "@/components/deep/TechCards";
@@ -35,10 +34,6 @@ export default function PrehrambenaIndustrijaPage() {
         <DeepSection id="ph-types" tone="light-3" wide>
           <DeepHeader content={c.typesHeader} onLight />
           <BlockGrid blocks={c.types} />
-        </DeepSection>
-
-        <DeepSection id="ph-ref" tone="light-1">
-          <RefTeaser content={c.refTeaser} />
         </DeepSection>
 
         <DeepSection id="ph-cta" tone="black" className="deep-cta">

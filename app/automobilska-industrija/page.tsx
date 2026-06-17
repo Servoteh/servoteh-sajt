@@ -8,7 +8,6 @@ import {
   IntroSplit,
   NumberedCards,
   Reasons,
-  RefTeaser,
   DeepCta,
 } from "@/components/deep/DeepSections";
 import { TechSection } from "@/components/deep/TechCards";
@@ -43,10 +42,6 @@ export default function AutomobilskaIndustrijaPage() {
         <DeepSection id="auto-references" tone="light-1" wide>
           <DeepHeader content={c.referencesHeader} onLight />
           <Reasons cards={c.references} />
-        </DeepSection>
-
-        <DeepSection id="auto-ref" tone="light-3">
-          <RefTeaser content={c.refTeaser} />
         </DeepSection>
 
         <DeepSection id="auto-cta" tone="black" className="deep-cta">

@@ -255,24 +255,6 @@ export default function DefencePage() {
           </Container>
         </section>
 
-        {/* REFERENCE LINK */}
-        <section id="ds-ref-link">
-          <Container>
-            <Reveal className="ds-ref-link-inner">
-              <div className="ds-ref-link-text">
-                <div className="section-label">Reference</div>
-                <h2>{c.refLink.title}</h2>
-                <p>{c.refLink.body}</p>
-              </div>
-              <div className="ref-link-cta">
-                <Link href="/reference" className="btn-ghost-light">
-                  Otvorite reference <i className="arrow-icon">↗</i>
-                </Link>
-              </div>
-            </Reveal>
-          </Container>
-        </section>
-
         {/* CTA */}
         <section id="ds-cta">
           <Container>

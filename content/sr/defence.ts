@@ -1,6 +1,6 @@
 import type { PageMeta, TechSectionContent } from "@/lib/types";
 import type { Hotspot } from "@/components/deep/HotspotImage";
-import { ctaInviteBody, refTeaserTitle } from "@/content/sr/common";
+import { ctaInviteBody } from "@/content/sr/common";
 
 export const meta: PageMeta = {
   title: "Sistemi za industriju odbrane — SERVOTEH",
@@ -200,11 +200,6 @@ export const process = {
     { num: "03", title: "Proizvodnja i integracija", desc: "Realizacija kroz sopstvene kapacitete u Dobanovcima — mašinska obrada, montaža, elektro integracija i kontrola kvaliteta u svakom koraku." },
     { num: "04", title: "Puštanje u rad i postprodajna podrška", desc: "Puštanje sistema u rad kod kupca, obuka tehničkog osoblja, dijagnostika, rezervni delovi i unapređenja tokom eksploatacije." },
   ],
-};
-
-export const refLink = {
-  title: refTeaserTitle,
-  body: "Reference obuhvataju projekte razvijene za zahtevne proizvodne procese, sa fokusom na pouzdanost, preciznost i dugoročnu eksploataciju sistema.",
 };
 
 export const cta = {

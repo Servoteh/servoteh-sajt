@@ -1,8 +1,7 @@
 import type {
   PageMeta, DeepHeroContent, DeepHeaderContent, DeepTrustItem,
-  DeepBlock, DeepRefTeaser, DeepCtaContent,
+  DeepBlock, DeepCtaContent,
 } from "@/lib/types";
-import { refTeaserTitle } from "@/content/sr/common";
 
 export const meta: PageMeta = {
   title: "Opšta industrijska proizvodnja — SERVOTEH",
@@ -102,11 +101,6 @@ export const types: DeepBlock[] = [
   { title: "Namenske mašine za korekciju, doradu i kontrolu", desc: "Mašine za specifične operacije obrade, korekcije ili provere kvaliteta, sa ciljem stabilnijeg kvaliteta i ponovljivosti procesa." },
   { title: "Automatizacija i kontrola procesa", desc: "Upravljanje, nadzor i kontrola procesa kroz elektro, pneumatske, hidraulične i softverske sisteme prema konkretnom zahtevu." },
 ];
-
-export const refTeaser: DeepRefTeaser = {
-  title: refTeaserTitle,
-  body: "Pregled realizovanih sistema kroz tip rešenja, tehnološki opseg i oblasti primene — od industrije odbrane do drugih zahtevnih industrijskih procesa.",
-};
 
 export const cta: DeepCtaContent = {
   label: "Sledeći korak",

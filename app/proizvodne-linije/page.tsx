@@ -11,7 +11,6 @@ import {
   Reasons,
   Requirements,
   BlockGrid,
-  RefTeaser,
   DeepCta,
 } from "@/components/deep/DeepSections";
 import { site } from "@/content/sr/site";
@@ -56,10 +55,6 @@ export default function ProizvodneLinijePage() {
         <DeepSection id="pl-why-section" tone="light-1" wide>
           <DeepHeader content={c.whyHeader} onLight />
           <Reasons cards={c.why} />
-        </DeepSection>
-
-        <DeepSection id="pl-ref" tone="light-3">
-          <RefTeaser content={c.refTeaser} />
         </DeepSection>
 
         <DeepSection id="pl-cta" tone="black" className="deep-cta">

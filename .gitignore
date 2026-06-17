@@ -39,6 +39,9 @@ next-env.d.ts
 /servoteh_content_migration_pack/
 # ulazni paket za automobilsku industriju (optimizovane slike su u public/assets/automobilska/)
 /servoteh_automotive_industry_page_pack/
+# ulazni materijali (sirove fotke, video, dokumenti) za nove stranice — optimizovane verzije idu u public/assets/
+/Frikom/
+/NIP Spasic/
 
 # poverljivi radni dokumenti spušteni u koren (ponude, tehničke specifikacije).
 # NE komitovati — javni deploy/git istorija. Zvanična brošura je u public/assets/brochures/.

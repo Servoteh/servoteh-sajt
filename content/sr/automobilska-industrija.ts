@@ -1,9 +1,8 @@
 import type {
   PageMeta, DeepHeroContent, DeepHeaderContent, DeepTrustItem,
-  DeepNumberedCard, DeepIconCard, DeepRefTeaser, DeepCtaContent,
+  DeepNumberedCard, DeepIconCard, DeepCtaContent,
   TechSectionContent,
 } from "@/lib/types";
-import { refTeaserTitle } from "@/content/sr/common";
 
 export const meta: PageMeta = {
   title: "Automobilska industrija — SERVOTEH",
@@ -134,11 +133,6 @@ export const references: DeepIconCard[] = [
   { icon: "activity", title: "Testne stanice i kontrola procesa", desc: "Namenske stanice za proveru funkcionalnosti, pozicioniranje, merenje i praćenje procesa." },
   { icon: "gear", title: "Namenske mašine, alati i oprema", desc: "Rešenja za poboljšanje proizvodnih operacija, ergonomije, takta i ponovljivosti kvaliteta." },
 ];
-
-export const refTeaser: DeepRefTeaser = {
-  title: refTeaserTitle,
-  body: "Pregled realizovanih sistema kroz tip rešenja, tehnološki opseg i oblasti primene — od industrije odbrane do drugih zahtevnih industrijskih procesa.",
-};
 
 export const cta: DeepCtaContent = {
   label: "Sledeći korak",

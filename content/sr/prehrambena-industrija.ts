@@ -1,8 +1,7 @@
 import type {
   PageMeta, DeepHeroContent, DeepHeaderContent, DeepTrustItem,
-  DeepBlock, DeepRefTeaser, DeepCtaContent, TechSectionContent,
+  DeepBlock, DeepCtaContent, TechSectionContent,
 } from "@/lib/types";
-import { refTeaserTitle } from "@/content/sr/common";
 
 export const meta: PageMeta = {
   title: "Prehrambena industrija — SERVOTEH",
@@ -67,11 +66,6 @@ export const types: DeepBlock[] = [
   { title: "Alati za ekstruziju proizvoda", desc: "Specijalni alati za ekstruziju i oblikovanje prehrambenih proizvoda, razvijeni prema konkretnom proizvodu i procesu." },
   { title: "Robotske ćelije i transportni sistemi", desc: "Robotizovano rukovanje i specijalni transportni sistemi za povezivanje operacija u usklađen i pouzdan proizvodni tok." },
 ];
-
-export const refTeaser: DeepRefTeaser = {
-  title: refTeaserTitle,
-  body: "Pregled realizovanih sistema kroz tip rešenja, tehnološki opseg i oblasti primene — od industrije odbrane do drugih zahtevnih industrijskih procesa.",
-};
 
 export const cta: DeepCtaContent = {
   label: "Sledeći korak",

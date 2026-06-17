@@ -10,7 +10,6 @@ import {
   ProcessSteps,
   Reasons,
   BlockGrid,
-  RefTeaser,
   DeepCta,
 } from "@/components/deep/DeepSections";
 import { Reveal } from "@/components/Reveal";
@@ -59,10 +58,6 @@ export default function IndustrijskaAutomatizacijaPage() {
         <DeepSection id="ia-why" tone="light-1" wide>
           <DeepHeader content={c.whyHeader} onLight />
           <Reasons cards={c.why} />
-        </DeepSection>
-
-        <DeepSection id="ia-ref" tone="light-3">
-          <RefTeaser content={c.refTeaser} />
         </DeepSection>
 
         <DeepSection id="ia-cta" tone="black" className="deep-cta">

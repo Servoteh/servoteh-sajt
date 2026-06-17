@@ -137,8 +137,8 @@ export const home: HomeContent = {
       { label: "Telefon", lines: ["+381 (11) 31-41-564"], href: "tel:+381113141564" },
     ],
     mapButtons: [
-      { label: "Otvorite mapu", href: "https://www.google.com/maps/search/?api=1&query=Ugrinova%C4%8Dka%20163%2C%2011272%20Dobanovci%2C%20Beograd%2C%20Srbija" },
-      { label: "Kako do nas", href: "https://www.google.com/maps/dir/?api=1&destination=Ugrinova%C4%8Dka%20163%2C%2011272%20Dobanovci%2C%20Beograd%2C%20Srbija" },
+      { label: "Otvorite mapu", href: "https://maps.app.goo.gl/QpYHMx895XfQDwGc6" },
+      { label: "Kako do nas", href: "https://www.google.com/maps/dir/?api=1&destination=44.8387507,20.21448" },
     ],
   },
 };

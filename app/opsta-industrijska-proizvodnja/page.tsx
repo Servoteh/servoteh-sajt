@@ -7,7 +7,6 @@ import {
   DeepHeader,
   IntroSplit,
   BlockGrid,
-  RefTeaser,
   DeepCta,
 } from "@/components/deep/DeepSections";
 import { YouTubeEmbed } from "@/components/ui/YouTubeEmbed";
@@ -64,10 +63,6 @@ export default function OpstaIndustrijskaProizvodnjaPage() {
         <DeepSection id="oi-types" tone="light-3" wide>
           <DeepHeader content={c.typesHeader} onLight />
           <BlockGrid blocks={c.types} />
-        </DeepSection>
-
-        <DeepSection id="oi-ref" tone="light-1">
-          <RefTeaser content={c.refTeaser} />
         </DeepSection>
 
         <DeepSection id="oi-cta" tone="black" className="deep-cta">
