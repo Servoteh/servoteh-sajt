@@ -56,8 +56,8 @@ export function Footer({ site, ui = uiSr }: { site: SiteContent; ui?: UiDict }) 
                 </span>
               ))}
             </address>{" "}
-            <a href={`mailto:${f.email}`} aria-label={`Email: ${f.email}`}>{f.email}</a>{" "}
-            <a href={f.phone.href} aria-label={`Telefon: ${f.phone.label}`}>{f.phone.label}</a>
+            <a href={`mailto:${f.email}`} aria-label={`${ui.footer.email}: ${f.email}`}>{f.email}</a>{" "}
+            <a href={f.phone.href} aria-label={`${ui.footer.phone}: ${f.phone.label}`}>{f.phone.label}</a>
             <div className="footer-map">
               {f.maps.map((m, i) => (
                 <a key={m.href} href={m.href} target="_blank" rel="noopener" className="footer-map-btn">

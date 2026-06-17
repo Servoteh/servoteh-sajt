@@ -14,6 +14,8 @@ export const ui: UiDict = {
   },
   footer: {
     officialSite: "Servoteh zvanična stranica",
+    email: "Email",
+    phone: "Telefon",
   },
   form: {
     name: "Ime i prezime",

@@ -50,7 +50,7 @@ export type SiteContent = {
  */
 export type UiDict = {
   header: { home: string; mainNav: string; openMenu: string; mobileNav: string; lang: string };
-  footer: { officialSite: string };
+  footer: { officialSite: string; email: string; phone: string };
   form: {
     name: string;
     company: string;
