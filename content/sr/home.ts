@@ -3,9 +3,9 @@ import { ctaInviteBody } from "@/content/sr/common";
 
 export const home: HomeContent = {
   meta: {
-    title: "SERVOTEH — Specijalne mašine i sistemi za industriju odbrane",
+    title: "SERVOTEH — Specijalne mašine, proizvodne linije i automatizacija",
     description:
-      "Servoteh — Inženjerska kompanija iz Dobanovaca. Specijalne mašine, proizvodne linije i automatizacija sa fokusom na industriju odbrane. Projekti po meri kupca od 2002. godine.",
+      "Servoteh — Inženjerska kompanija iz Dobanovaca. Specijalne mašine, proizvodne linije i industrijska automatizacija za zahtevne industrijske procese, uključujući industriju odbrane. Projekti po meri kupca od 2002. godine.",
   },
 
   hero: {
