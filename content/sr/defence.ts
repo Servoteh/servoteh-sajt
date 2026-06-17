@@ -178,11 +178,11 @@ export const detailBlocks: DetailBlock[] = [
 ];
 
 export const requirements = {
-  label: "Projektni zahtevi",
-  title: "Zahtevi koje sistem mora da ispuni",
-  body: "Svaki sistem koji Servoteh razvija za industriju odbrane mora da zadovolji pet ključnih inženjerskih zahteva koji određuju konstrukciju, izbor materijala i arhitekturu upravljanja.",
+  label: "Inženjerski kriterijumi",
+  title: "Kriterijumi koje sistem mora da ispuni",
+  body: "Svaki sistem koji Servoteh razvija za industriju odbrane mora da zadovolji pet ključnih inženjerskih kriterijuma koji određuju konstrukciju, izbor materijala i arhitekturu upravljanja.",
   cards: [
-    { title: "Preciznost", desc: "Tačnost dimenzija i ponovljivost rezultata kao temeljni projektni zahtev za svaki element sistema." },
+    { title: "Preciznost", desc: "Tačnost dimenzija i ponovljivost rezultata kao temeljni projektni kriterijum za svaki element sistema." },
     { title: "Pouzdanost", desc: "Stabilan rad u dugim serijama bez pada performansi — bez kompromisa u operativnim uslovima." },
     { title: "Kontrola procesa", desc: "Integrisani sistemi praćenja i verifikacije parametara procesa u realnom vremenu." },
     { title: "Bezbednost rada", desc: "Bezbednosna arhitektura integralna u konstrukciju sistema — ne naknadno dodata." },
@@ -192,7 +192,7 @@ export const requirements = {
 
 export const process = {
   label: "Proces realizacije",
-  title: "Od zahteva do puštanja u rad",
+  title: "Od koncepta do puštanja u rad",
   body: "Svaki sistem razvija se prema konkretnom proizvodnom zadatku — od analize zahteva i mašinskog projektovanja do integracije, puštanja u rad i podrške.",
   steps: [
     { num: "01", title: "Analiza zahteva i koncept", desc: "Detaljna analiza tehničkog zadatka, procesa i radnog okruženja. Definisanje konceptnog rešenja u saradnji sa kupcem." },
