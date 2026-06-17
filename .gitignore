@@ -43,6 +43,7 @@ next-env.d.ts
 /Frikom/
 /NIP Spasic/
 
-# poverljivi radni dokumenti spušteni u koren (ponude, tehničke specifikacije).
+# poverljivi radni dokumenti spušteni u koren (ponude, tehničke specifikacije, review docx).
 # NE komitovati — javni deploy/git istorija. Zvanična brošura je u public/assets/brochures/.
 /*.pdf
+/*.docx

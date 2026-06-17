@@ -9,8 +9,8 @@ export const meta: PageMeta = {
 
 export const hero = {
   eyebrow: "SERVOTEH / Reference",
-  titleLead: "Reference za zahtevne",
-  titleEm: "proizvodne procese",
+  titleLead: "Reference i",
+  titleEm: "realizovani projekti",
   leadPre: "Svaki projekat nastaje kao odgovor na konkretan tehnički zahtev. Reference obuhvataju sisteme za ",
   leadLink: { text: "industriju odbrane", href: "/defence" },
   leadPost: ", specijalne mašine, proizvodne linije i automatizovana rešenja za zahtevne industrijske procese.",
@@ -21,7 +21,7 @@ export const hero = {
 export const casesHeader = {
   label: "Primeri realizacije",
   title: "Izdvojeni projekti",
-  body: "Primeri projekata koji ilustruju inženjerski pristup i opseg realizacije — od sistema za industriju odbrane do rešenja za opštu industriju. Zbog poverljivosti pojedinih projekata, prikazujemo ih kroz tip rešenja i tehnološki opseg, a ne kroz nazive naručilaca.",
+  body: "Primeri projekata koji ilustruju inženjerski pristup i opseg realizacije — od sistema za industriju odbrane do rešenja za opštu industriju. Zbog poverljivosti pojedinih projekata, prikazujemo ih kroz tip rešenja i tehnološki opseg.",
 };
 
 export const caseGroups = [
@@ -29,13 +29,13 @@ export const caseGroups = [
     label: "Industrija odbrane",
     cases: [
       {
-        num: "01", featured: true, title: "Sistem za industriju odbrane",
-        desc: "Projektovanje i realizacija sistema razvijenog za visoke zahteve pouzdanosti, preciznosti i kontrole procesa u industriji odbrane. Projekat obuhvata mašinski razvoj, elektro inženjering, softversku integraciju i puštanje u rad.",
+        num: "01", featured: true, title: "Linije za municiju i komponente",
+        desc: "Namenske linije i specijalne mašine za proizvodnju municije i komponenti za različite kalibre — servo transfer prese, duboko izvlačenje, transfer sistemi i integrisana kontrola kvaliteta.",
         tags: [
-          { label: "Industrija odbrane" }, { label: "Po meri kupca" }, { label: "Ključ u ruke" },
-          { label: "Postprodajna podrška", neutral: true },
+          { label: "Industrija odbrane" }, { label: "Proizvodna linija" }, { label: "Transfer sistemi" },
+          { label: "Kontrola kvaliteta", neutral: true },
         ],
-        meta: "Obim: mašinski razvoj, elektro, softver, puštanje u rad",
+        meta: "Obim: proizvodnja municije za različite kalibre — od komponenti do finalizacije",
       },
       {
         num: "02", title: "Sistem za tela artiljerijskih projektila",
@@ -70,25 +70,16 @@ export const caseGroups = [
     label: "Specijalne mašine, linije i automatizacija",
     cases: [
       {
-        num: "05", title: "Proizvodna linija po meri kupca",
-        desc: "Kompletna proizvodna linija prilagođena konkretnom procesu, uz integraciju mehanike, automatike i upravljanja. Od koncepta do puštanja u rad.",
+        num: "05", title: "Mašina za perforaciju PVC profila",
+        desc: "Namenska automatska mašina za perforaciju PVC profila — razvijena za precizan i ponovljiv rezultat, uz prilagođavanje profilu, taktu i zahtevima procesa kupca.",
         tags: [
-          { label: "Proizvodna linija" }, { label: "Po meri kupca" },
-          { label: "Puštanje u rad", neutral: true }, { label: "Obuka osoblja", neutral: true },
+          { label: "Specijalne mašine" }, { label: "PVC profili" },
+          { label: "Automatizacija", neutral: true },
         ],
-        meta: "Tip: kompletna linija — od koncepta do isporuke",
+        meta: "Tip: namenska mašina za obradu PVC profila",
       },
       {
-        num: "06", title: "Automatizovano industrijsko rešenje",
-        desc: "Rešenje razvijeno za optimizaciju postojećeg proizvodnog procesa kroz integraciju elektro, softverskih i upravljačkih sistema. PLC programiranje, SCADA implementacija i HMI integracija.",
-        tags: [
-          { label: "Automatizacija" }, { label: "PLC / SCADA" },
-          { label: "Ključ u ruke", neutral: true }, { label: "Postprodajna podrška", neutral: true },
-        ],
-        meta: "Podrška: servisni ugovor, rezervni delovi i softverska ažuriranja",
-      },
-      {
-        num: "07", title: "Mašine za flow forming",
+        num: "06", title: "Mašine za flow forming",
         desc: "Vertikalne i horizontalne mašine za flow forming šupljih rotacionih delova — tehnologija koja daje bešavnu konstrukciju visoke čvrstoće, precizne profile i nižu masu gotovog dela.",
         tags: [
           { label: "Specijalne mašine" }, { label: "Flow forming" },
@@ -102,7 +93,7 @@ export const caseGroups = [
     label: "Opšta industrija",
     cases: [
       {
-        num: "08", title: "Automatska linija za punjenje i pakovanje",
+        num: "07", title: "Automatska linija za punjenje i pakovanje",
         desc: "Rešenje razvijeno za povećanje proizvodnog kapaciteta i rad sa različitim proizvodima u procesu punjenja i pakovanja, sa prilagođavanjem taktu i tipu proizvoda.",
         tags: [
           { label: "Opšta industrija" }, { label: "Automatska linija" },
@@ -111,7 +102,7 @@ export const caseGroups = [
         meta: "Cilj: veći kapacitet i fleksibilan rad sa različitim proizvodima",
       },
       {
-        num: "09", title: "Specijalne transportne linije",
+        num: "08", title: "Specijalne transportne linije",
         desc: "Konvejerska i transportna rešenja prilagođena proizvodnom toku, prostoru, tipu proizvoda i načinu manipulacije — kao deo šire linije ili kao samostalan sistem.",
         tags: [
           { label: "Opšta industrija" }, { label: "Transport i manipulacija" },
@@ -120,7 +111,7 @@ export const caseGroups = [
         meta: "Tip: namenska transportna rešenja prilagođena procesu",
       },
       {
-        num: "10", title: "Automatska linija za ispravljanje radijatorskih cevi",
+        num: "09", title: "Automatska linija za ispravljanje radijatorskih cevi",
         desc: "Namensko rešenje za korekciju deformacija bočnih cevi nakon zavarivanja, sa ciljem stabilnijeg kvaliteta i ponovljivosti procesa.",
         tags: [
           { label: "Opšta industrija" }, { label: "Namensko rešenje" },
@@ -129,7 +120,7 @@ export const caseGroups = [
         meta: "Obim: korekcija deformacija nakon zavarivanja",
       },
       {
-        num: "11", title: "Mašine za elektro industriju",
+        num: "10", title: "Mašine za elektro industriju",
         desc: "Automatske mašine za serijsku i masovnu proizvodnju komponenti za elektro industriju — vijčanih rednih stezaljki i kablovskih papučica — uz visoku preciznost obrade, ponovljivost i konstantan kvalitet svakog komada.",
         tags: [
           { label: "Opšta industrija" }, { label: "Elektro industrija" },

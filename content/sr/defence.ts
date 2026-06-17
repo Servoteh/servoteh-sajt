@@ -53,13 +53,13 @@ export const programs = [
   {
     num: "Program 02 — Municija",
     title: "Linije za proizvodnju municije i komponenti",
-    desc: "Namenske linije i specijalne mašine za proizvodnju municije i komponenti za različite kalibre — proizvodnja čanče, čaure i finalizacija zrna, uz transfer sisteme i kontrolu kvaliteta.",
+    desc: "Namenske linije i specijalne mašine za proizvodnju municije i komponenti za različite kalibre — proizvodnja predformi, čaure i finalizacija zrna, uz transfer sisteme i kontrolu kvaliteta.",
     label: "Program 02",
     img: "/assets/defence-tech/ammunition-production-line-overview.webp",
     alt: "Pregled linije za proizvodnju municije i komponenti",
   },
   {
-    num: "Program 03 — Platforme",
+    num: "Program 03 — Automatski punjači",
     title: "Automatski punjači i podsistemi za samohodne artiljerijske platforme",
     desc: "Servoteh razvija automatske punjače i povezane podsisteme za savremene samohodne artiljerijske platforme, sa fokusom na brže punjenje, veću operativnu pouzdanost i smanjenje opterećenja posade.",
     label: "Program 03",
@@ -129,7 +129,7 @@ export const detailBlocks: DetailBlock[] = [
     video: "u0UFlRB39wY",
     label: "Program 02",
     title: "Linije za proizvodnju municije i komponenti",
-    body: "Modularne linije i mašine za automatizovanu proizvodnju komponenti municije projektovane su za stabilan rad u uslovima visokog kapaciteta i stroge kontrole dimenzija. Rešenja obuhvataju proizvodnju čanče, proizvodnju čaure i finalizaciju zrna, uz mogućnost integracije transfer sistema, automatizovanog rukovanja i kontrole kvaliteta.",
+    body: "Modularne linije i mašine za automatizovanu proizvodnju komponenti municije projektovane su za stabilan rad u uslovima visokog kapaciteta i stroge kontrole dimenzija. Rešenja obuhvataju proizvodnju predformi, proizvodnju čaure i finalizaciju zrna, uz mogućnost integracije transfer sistema, automatizovanog rukovanja i kontrole kvaliteta.",
     bullets: [
       "Modularna arhitektura linija prilagodljiva različitim kalibrima i komponentama",
       "Servo Transfer presa za precizno taktno rukovanje komponentama",
@@ -169,8 +169,7 @@ export const detailBlocks: DetailBlock[] = [
       "Prese za navlačenje ojačavajuće čaure na cevi velikih kalibara",
       "Vertikalne i horizontalne mašine za flow forming šupljih rotacionih delova",
       "Univerzalne avionske modularne školske bombe",
-      "Pogon za proizvodnju balističkih ploča (hidraulične prese + SCADA)",
-      "Kompletan razvoj — od mašinskog projektovanja do montaže i integracije",
+      "Pogon za proizvodnju balističkih ploča (hidraulične prese + alati za formiranje + SCADA)",
     ],
     ctaGhostLight: false,
     hotspots: false,
@@ -382,7 +381,7 @@ export const tech04: TechSectionContent = {
   label: "Program 04 — tehnička rešenja",
   title: "Specijalne namenske mašine i podsistemi",
   intro:
-    "Izbor realizovanih namenskih mašina i pogona za industriju odbrane — prese velikih sila, mašine za flow forming i specijalni proizvodni pogoni. Svako rešenje pokriva mašinsko projektovanje, hidrauliku, elektro upravljanje i softver, sa izradom, montažom i integracijom u sopstvenim kapacitetima.",
+    "Izbor realizovanih namenskih mašina i pogona za industriju odbrane — prese velikih sila, mašine za flow forming i specijalni proizvodni pogoni. Svako rešenje pokriva mašinsko projektovanje, hidrauliku, elektro upravljanje i softver, sa izradom, montažom i integracijom, korišćenjem sopstvenih inženjerskih i proizvodnih kapaciteta.",
   cards: [
     {
       img: "/assets/defence-tech/development-tank-barrel-sleeve-press.webp",
@@ -390,17 +389,17 @@ export const tech04: TechSectionContent = {
       title: "Presa za navlačenje ojačavajuće čaure na tenkovsku cev",
       desc: "Specijalna horizontalna hidraulična presa za navlačenje ojačavajuće čaure na prednji deo tenkovske cevi kalibra 125 mm, sa kontrolisanom silom presovanja radi preciznog spoja i veće strukturne čvrstoće.",
       specs: [
-        "Horizontalna hidraulična konstrukcija",
+        "Horizontalna izvedba hidraulične prese",
         "Kalibar primene: 125 mm",
         "Sila presovanja: 600 t",
-        "Interferentni spoj: 0,5 mm",
+        "Preklop između cevi i navlake: 0,5 mm",
       ],
     },
     {
       img: "/assets/defence-tech/development-vertical-flow-forming-machine.webp",
       alt: "Vertikalna mašina za flow forming šupljih rotacionih delova",
       title: "Vertikalna mašina za flow forming",
-      desc: "Flow forming je napredna tehnologija oblikovanja šupljih rotacionih delova — daje bešavnu konstrukciju visoke čvrstoće, dobru otpornost na udar, precizne profile i nižu masu gotovog dela.",
+      desc: "Flow forming je napredna tehnologija oblikovanja šupljih rotacionih delova — daje bešavnu konstrukciju visoke čvrstoće, dobru otpornost na udar, precizne profile i nižu masu gotovog dela. Vertikalna izvedba pogodna je za proizvodne prostore u kojima je ograničena raspoloživa površina poda, a postoji dovoljna visina hale — uz efikasno iskorišćenje prostora, stabilan proces oblikovanja i jednostavan pristup radnoj zoni.",
       specs: [
         "Bešavna konstrukcija visoke čvrstoće",
         "Velika otpornost na udar i nosivost",
@@ -412,7 +411,7 @@ export const tech04: TechSectionContent = {
       img: "/assets/defence-tech/development-horizontal-flow-forming-machine.webp",
       alt: "Horizontalna mašina za flow forming šupljih rotacionih delova",
       title: "Horizontalna mašina za flow forming",
-      desc: "Isti tehnološki princip u horizontalnoj konfiguraciji, pogodnoj za određene geometrije i zahteve manipulacije. Sistem se projektuje prema dimenziji komada, profilu i proizvodnom taktu.",
+      desc: "Horizontalna izvedba flow forming mašine predstavlja optimalno rešenje za hale sa manjom visinom, ali većim raspoloživim prostorom na tlu. Ovakva konstrukcija omogućava lakše rukovanje dužim obradcima, jednostavniji pristup alatima i pregledan raspored opreme u proizvodnom prostoru.",
       specs: [
         "Bešavna konstrukcija visoke čvrstoće",
         "Otpornost na udar i opterećenje",
@@ -424,7 +423,7 @@ export const tech04: TechSectionContent = {
       img: "/assets/defence-tech/development-universal-aircraft-modular-practice-bomb.webp",
       alt: "Univerzalna avionska modularna školska bomba za obuku pilota",
       title: "Univerzalne avionske modularne školske bombe",
-      desc: "Modularna školska bomba namenjena obuci pilota, razvijena za jednostavnu adaptaciju i integraciju na različite tipove vazduhoplova. Performanse potvrđivane kroz integraciju sa avionima Orao, Super Galeb i MiG-21 BIS.",
+      desc: "Modularna školska bomba namenjena obuci pilota, razvijena za jednostavnu adaptaciju i integraciju na različite tipove vazduhoplova. Performanse potvrđivane kroz integraciju sa avionima Orao, Super Galeb i MiG-21 BIS. Namenjena je za višestruku upotrebu u trenažnim aktivnostima — robusna konstrukcija i izbor materijala omogućavaju otpornost na mehanička opterećenja tokom standardnih vežbovnih ciklusa, uz očuvanje funkcionalnosti nakon upotrebe.",
     },
     {
       img: "/assets/defence-tech/development-ballistic-plates-plant.webp",

@@ -11,6 +11,14 @@ import * as c from "@/content/sr/reference";
 
 export const metadata: Metadata = pageMetadata(c.meta, "/reference/");
 
+// Svaka projektna kartica vodi na odgovarajuću deep stranicu.
+function caseHref(groupLabel: string): string {
+  if (groupLabel === "Industrija odbrane") return "/defence";
+  if (groupLabel === "Opšta industrija") return "/opsta-industrijska-proizvodnja";
+  // Specijalne mašine, linije i automatizacija
+  return "/specijalne-masine";
+}
+
 export default function ReferencePage() {
   return (
     <>
@@ -78,6 +86,11 @@ export default function ReferencePage() {
                         ))}
                       </div>
                       <div className="ref-case-meta">{cs.meta}</div>
+                      <Link
+                        href={caseHref(group.label)}
+                        className="ref-case-overlay-link"
+                        aria-label={`${cs.title} — pogledajte`}
+                      />
                     </Reveal>
                   ))}
                 </div>
