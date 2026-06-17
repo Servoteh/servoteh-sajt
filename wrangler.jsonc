@@ -19,6 +19,8 @@
   // (Cloudflare → Worker → Settings → Variables → Add → Encrypt), NE ovde.
   // CONTACT_FROM promeniti na verifikovani servoteh.com domen kad bude spreman.
   "vars": {
-    "CONTACT_TO": "office@servoteh.com"
+    "CONTACT_TO": "office@servoteh.com",
+    // 'from' adresa za Resend — radi tek kad je domen servoteh.com verifikovan u Resend-u.
+    "CONTACT_FROM": "Servoteh <office@servoteh.com>"
   }
 }
