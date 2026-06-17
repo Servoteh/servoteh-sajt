@@ -32,12 +32,34 @@ type ContactPayload = {
 };
 
 /**
- * 301 redirect mapa: stari URL-ovi sa ranijeg (ručno kodiranog) sajta → nove rute.
- * Pokriva potvrđene `.html` putanje iz `_legacy/`. EN `.html` URL-ovi se dodaju
- * u Fazi 4 (EN još ne postoji). Sve nemapirane putanje hvata `not_found_handling`
- * iz `wrangler.jsonc` (→ 404 stranica) — namerno bez blanket 404→home.
+ * 301 redirect mapa: stari indeksirani URL-ovi servoteh.com → nove rute.
+ * Izvor: `www.servoteh.com/sitemap.xml` (8 URL-ova) + stariji indeksirani URL-ovi
+ * iz ranije strukture sajta (provereno preko Google-a 2026-06-17). Stari sajt je
+ * bio na engleskom; sve „defence" stranice (artillery_plant, ammunition,
+ * development, loaders) su defence sadržaj → vode na /defence/. Poddomen
+ * `automation.servoteh.com` je zaseban host → rešava se DNS/Cloudflare redirektom,
+ * NE ovde. Sve nemapirane putanje hvata `not_found_handling` iz `wrangler.jsonc`
+ * (→ 404 stranica) — namerno bez blanket 404→home. EN URL-ovi: Faza 4.
  */
 const REDIRECTS: Record<string, string> = {
+  // www.servoteh.com/sitemap.xml (bez ekstenzije)
+  "/about_us": "/#about",
+  "/defence": "/defence/",
+  "/artillery_plant": "/defence/",
+  "/ammunition": "/defence/",
+  "/development": "/defence/",
+  "/loaders": "/defence/",
+  "/contact": "/#cta",
+  // Stariji indeksirani URL-ovi (van sitemap-a, ranija struktura)
+  "/solutions": "/industrijska-automatizacija/",
+  "/solutions/electrical-control-systems": "/industrijska-automatizacija/",
+  "/sales": "/#aftersales",
+  "/sales-and-service": "/#aftersales",
+  "/forming-technology": "/proizvodne-linije/",
+  "/forming-technology/complete-production-lines": "/proizvodne-linije/",
+  "/industries/servoteh-in-automotive-industry/machine-tools-and-equipment": "/automobilska-industrija/",
+  "/industries/servoteh-custom-automation-solutions/automatic-drilling-machine/automatic-drilling-machine": "/specijalne-masine/",
+  // Zadržani `.html` slugovi iz _legacy/ rebuild-a (bezopasni)
   "/index.html": "/",
   "/defence.html": "/defence/",
   "/specijalne-masine.html": "/specijalne-masine/",
