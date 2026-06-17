@@ -1,0 +1,43 @@
+name: Deploy to Cloudflare Workers
+
+# Auto-deploy na svaki push na `main` (i ručno preko "Run workflow").
+# Gradi statički export (/out) i pokreće `wrangler deploy` (Worker + asseti).
+# Preduslov: u GitHub repo → Settings → Secrets and variables → Actions dodati
+#   CLOUDFLARE_API_TOKEN  — token sa ovlašćenjem "Edit Cloudflare Workers"
+# (opciono) CLOUDFLARE_ACCOUNT_ID — potrebno samo ako token vidi više naloga.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Spreči preklapanje deploy-ova; otkaži stariji u toku ako stigne nov push.
+concurrency:
+  group: deploy-main
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static export
+        run: npm run build
+
+      - name: Deploy to Cloudflare
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          # wrangler-action podrazumevano pokreće `wrangler deploy`.
+          # Ako deploy padne sa "account_id required" (token vidi više naloga),
+          # dodaj CLOUDFLARE_ACCOUNT_ID secret i otkomentariši liniju ispod:
+          # accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
