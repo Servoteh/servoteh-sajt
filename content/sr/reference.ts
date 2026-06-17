@@ -1,4 +1,5 @@
 import type { PageMeta } from "@/lib/types";
+import { ctaInviteBody } from "@/content/sr/common";
 
 export const meta: PageMeta = {
   title: "Reference — SERVOTEH",
@@ -188,5 +189,5 @@ export const international = {
 
 export const cta = {
   title: "Imate sličan proizvodni zahtev?",
-  body: "Pošaljite nam osnovne informacije o procesu, proizvodnoj potrebi ili tehničkom zahtevu, a naš tim će proceniti sledeće korake.",
+  body: ctaInviteBody,
 };

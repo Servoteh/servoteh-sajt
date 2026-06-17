@@ -1,4 +1,5 @@
 import type { HomeContent } from "@/lib/types";
+import { ctaInviteBody } from "@/content/sr/common";
 
 export const home: HomeContent = {
   meta: {
@@ -128,7 +129,7 @@ export const home: HomeContent = {
   cta: {
     label: "Sledeći korak",
     title: "Razgovarajmo o vašem projektu",
-    body: "Pošaljite nam osnovne informacije o procesu, proizvodnoj potrebi ili tehničkom zahtevu, a naš tim će vam predložiti sledeće korake.",
+    body: ctaInviteBody,
     primaryCta: { label: "Pošaljite upit", href: "mailto:office@servoteh.com" },
     phoneCta: { label: "+381 (11) 31-41-564", href: "tel:+381113141564" },
     contactHeading: "Kontakt",

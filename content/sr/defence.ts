@@ -1,5 +1,6 @@
 import type { PageMeta, TechSectionContent } from "@/lib/types";
 import type { Hotspot } from "@/components/deep/HotspotImage";
+import { ctaInviteBody } from "@/content/sr/common";
 
 export const meta: PageMeta = {
   title: "Sistemi za industriju odbrane — SERVOTEH",
@@ -208,7 +209,7 @@ export const refLink = {
 
 export const cta = {
   title: "Razgovarajmo o vašem tehničkom zahtevu",
-  body: "Pošaljite nam osnovne informacije o procesu, proizvodnoj potrebi ili sistemu koji treba razviti, a naš tim će proceniti sledeće korake.",
+  body: ctaInviteBody,
 };
 
 /* ============================================================
