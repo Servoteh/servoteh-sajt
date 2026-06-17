@@ -66,7 +66,6 @@ export const home: HomeContent = {
       "Kontrola kvaliteta, testiranje i priprema sistema za puštanje u rad",
     ],
     slides: [
-      { src: "/assets/servoteh-hale-render.webp", alt: "Grafički prikaz Servoteh kompleksa proizvodnih i razvojnih hala sa solarnim panelima na krovovima u Dobanovcima", caption: "Grafički prikaz Servoteh" },
       { src: "/assets/about-exterior-facility.webp", alt: "Spoljašnji pogled na razvojne i proizvodne hale Servoteh u Dobanovcima", caption: "Proizvodne hale" },
       { src: "/assets/about-production-hall-wide.webp", alt: "Glavna proizvodna hala Servoteh", caption: "Proizvodna hala" },
       { src: "/assets/about-robotic-cell.webp", alt: "Fiber lasersko sečenje u Servoteh pogonu", caption: "Fiber lasersko sečenje" },
