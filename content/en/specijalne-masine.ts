@@ -11,8 +11,8 @@ export const meta: PageMeta = {
 
 export const hero: DeepHeroContent = {
   eyebrow: "SERVOTEH / Special-purpose machines",
-  titleLead: "Special-purpose machines engineered",
-  titleEm: "for a specific process",
+  titleLead: "Special-purpose machines",
+  titleEm: "for specific processes",
   lead: "When standard equipment or existing solutions cannot meet the demands of a process, Servoteh engineers and adapts special-purpose machines around the workpiece, the operation and the working conditions — from concept to commissioning.",
   primaryCta: { label: "Send an enquiry", href: "mailto:office@servoteh.com" },
   secondaryCta: { label: "View references", href: "/en/references/" },

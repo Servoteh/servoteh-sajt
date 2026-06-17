@@ -13,7 +13,7 @@ export const hero: DeepHeroContent = {
   eyebrow: "SERVOTEH / General industrial production",
   titleLead: "Custom-engineered solutions for",
   titleEm: "general industry",
-  lead: "Custom-engineered machines, lines and automated solutions for various branches of general industry — for processes, capacities and quality levels that serial, catalogue equipment does not cover. We develop every solution to the specific operation, workpiece and production conditions.",
+  lead: "Custom-engineered machines, lines and automated solutions for various branches of general industry — for processes, capacities and quality levels that off-the-shelf equipment does not cover. We develop every solution to the specific operation, workpiece and production conditions.",
   primaryCta: { label: "Send an enquiry", href: "mailto:office@servoteh.com" },
   secondaryCta: { label: "View references", href: "/en/references/" },
 };
@@ -33,7 +33,7 @@ export const intro = {
 export const machinesHeader: DeepHeaderContent = {
   label: "Delivered machines",
   title: "Selected machines for general industry",
-  body: "Custom-engineered machines developed and commissioned for serial industrial production — with a high level of automation and consistent quality of every piece.",
+  body: "Custom-engineered machines developed and commissioned for series industrial production — with a high level of automation and consistent quality of every piece.",
 };
 
 type MachineCell = {
@@ -52,7 +52,7 @@ type MachineCell = {
 export const machines: MachineCell[] = [
   {
     title: "Machine for producing screw terminal blocks",
-    desc: "An automated machine for the serial production of screw terminal blocks intended for the electrical industry. It delivers high precision and repeatability in producing terminal blocks used in distribution cabinets, control panels and industrial installations. A high level of automation enables high productivity with minimal operator involvement.",
+    desc: "An automated machine for the series production of screw terminal blocks intended for the electrical industry. It delivers high precision and repeatability in producing terminal blocks used in distribution cabinets, control panels and industrial installations. A high level of automation enables high productivity with minimal operator involvement.",
     videoId: "UXyxcCz_PA8",
     videoTitle: "Machine for producing screw terminal blocks — Servoteh",
     highlights: [

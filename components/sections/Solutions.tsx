@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/Reveal";
-import type { HomeContent } from "@/lib/types";
+import { ui as uiSr } from "@/content/sr/ui";
+import type { HomeContent, UiDict } from "@/lib/types";
 
-export function Solutions({ content }: { content: HomeContent["solutions"] }) {
+export function Solutions({ content, ui = uiSr }: { content: HomeContent["solutions"]; ui?: UiDict }) {
   return (
     <section id="solutions">
       <Container wide>
@@ -25,7 +26,7 @@ export function Solutions({ content }: { content: HomeContent["solutions"] }) {
                 <h3>{card.title}</h3>
                 <p>{card.desc}</p>
                 <Link href={card.href} className="card-link">
-                  Saznajte više →
+                  {ui.solutions.learnMore}
                 </Link>
               </div>
             </Reveal>

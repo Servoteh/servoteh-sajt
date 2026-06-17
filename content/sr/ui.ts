@@ -51,4 +51,7 @@ export const ui: UiDict = {
     playVideo: "Pusti video",
     watchYoutube: "Pogledajte na YouTube-u",
   },
+  solutions: {
+    learnMore: "Saznajte više →",
+  },
 };

@@ -265,7 +265,7 @@ export function DeepCta({ content, ui = uiSr }: { content: DeepCtaContent; ui?: 
       <div className="cta-btns">
         <a href="mailto:office@servoteh.com" className="btn btn-primary">
           {ui.deep.sendEnquiry} <i className="arrow-icon">↗</i>
-        </a>
+        </a>{" "}
         <a href="tel:+381113141564" className="btn btn-secondary" aria-label={ui.deep.callAria}>
           +381 (11) 31-41-564
         </a>

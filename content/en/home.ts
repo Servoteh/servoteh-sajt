@@ -10,7 +10,7 @@ export const home: HomeContent = {
 
   hero: {
     eyebrow: "Belgrade, Serbia — a family-owned engineering company since 2002",
-    title: "Special-purpose machines, production lines and automated systems",
+    title: "Special-purpose machines, production lines and automation systems",
     subtitle:
       "We design, develop and deliver systems for demanding industrial processes — from concept design through to assembly, commissioning and long-term technical support.",
     primaryCta: { label: "Send an enquiry", href: "/en/#cta" },
@@ -27,10 +27,10 @@ export const home: HomeContent = {
 
   defenceIntro: {
     label: "Strategic focus",
-    titleLead: "A focus on ",
-    titleLink: { label: "the defence industry", href: "/en/defence/" },
+    titleLead: "Focused on ",
+    titleLink: { label: "defence", href: "/en/defence/" },
     titleAfterLink: ".",
-    titleSecond: "Capability for much more.",
+    titleSecond: "Built for demanding industry.",
     body: "In recent years, most of Servoteh's development and delivery work has been tied to the defence industry — a sector where reliability, precision and process control are essential, not optional. The same development capacity and engineering approach are applied to other demanding industrial projects, wherever standard equipment is not enough and a system has to be developed from the ground up.",
     cta: { label: "View references", href: "/en/references/" },
     cards: [
@@ -43,7 +43,7 @@ export const home: HomeContent = {
 
   about: {
     label: "About the company",
-    title: "Engineering built around the customer's requirement",
+    title: "Engineering around your process",
     body: "Servoteh is a family-owned engineering company based in Dobanovci, operating since 2002. We develop special-purpose machines, production lines and automated systems, primarily for the defence industry and other demanding industrial processes, with integrated mechanical, electrical and software development.",
     cta: { label: "Send an enquiry", href: "/en/#cta" },
     features: [
@@ -58,7 +58,7 @@ export const home: HomeContent = {
     label: "Capabilities",
     title: "In-house development and production capabilities",
     body: "Servoteh develops, manufactures, assembles and integrates systems in its own facilities in Dobanovci. This approach allows better quality control, shorter lead times and more reliable delivery of complex projects — from design, through manufacturing and assembly, to system integration and preparation for commissioning.",
-    body2: "In-house production covers CNC machining (milling, turning, grinding, EDM…), laser, plasma and oxy-fuel cutting, CNC bending, MIG/MAG and laser welding, as well as subassembly assembly. This keeps the key stages of a project under the control of the same team — from design and part manufacture to assembly, integration and final system inspection.",
+    body2: "In-house production covers CNC machining, cutting, bending, welding and assembly. Keeping these stages within one team gives us control over quality and lead times — from part manufacture to final system inspection.",
     points: [
       "10,000 m² of development, production and assembly facilities",
       "Design office for mechanical, electrical and software engineering",

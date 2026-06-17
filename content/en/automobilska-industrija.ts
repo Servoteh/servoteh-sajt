@@ -12,9 +12,9 @@ export const meta: PageMeta = {
 
 export const hero: DeepHeroContent = {
   eyebrow: "SERVOTEH / Automotive industry",
-  titleLead: "Purpose-built lines and machines for the",
-  titleEm: "automotive industry",
-  lead: "Servoteh develops, manufactures and commissions automatic and semi-automatic production lines, test stations, handling systems, custom-engineered machines, tooling and equipment for the automotive sector — engineered around the specific process, workpiece, cycle time and quality-control requirements.",
+  titleLead: "Automotive production lines",
+  titleEm: "and machines",
+  lead: "Servoteh develops and commissions automatic and semi-automatic lines, test stations, handling systems and purpose-built machines for the automotive sector. Each solution is engineered around the process, workpiece, cycle time and quality-control requirements.",
   primaryCta: { label: "Send an enquiry", href: "mailto:office@servoteh.com" },
   secondaryCta: { label: "View references", href: "/en/references/" },
 };
@@ -33,7 +33,7 @@ export const intro = {
 
 /** Proof strip — selected references (brands) for quick credibility. */
 export const proof = {
-  note: "Experience on projects for demanding automotive customers",
+  note: "Project experience with demanding automotive customers",
   brands: ["Robert Bosch", "ZF Group"],
 };
 
@@ -117,7 +117,7 @@ export const machines: TechSectionContent = {
 export const approachHeader: DeepHeaderContent = {
   label: "Solutions to requirement",
   title: "A purpose-built approach to a specific production process",
-  body: "Servoteh does not develop solutions on a catalogue-equipment basis, but to the customer's actual production requirement. From an early stage we analyse the workpiece, the operations, cycle time, inspection points, space, available infrastructure and the way operators work — and on that basis define the concept, the station layout, the level of automation and process control.",
+  body: "Servoteh does not work from off-the-shelf equipment, but to the customer's actual production requirement. From an early stage we analyse the workpiece, the operations, cycle time, inspection points, space, available infrastructure and the way operators work — and on that basis define the concept, the station layout, the level of automation and process control.",
 };
 
 export const approach: DeepNumberedCard[] = [
@@ -131,7 +131,7 @@ export const approach: DeepNumberedCard[] = [
 export const referencesHeader: DeepHeaderContent = {
   label: "References",
   title: "References in the automotive industry",
-  body: "Servoteh has delivered projects for demanding automotive customers, including Robert Bosch and ZF Group. Owing to the confidentiality of production processes, certain solutions are presented through the typology of systems, technologies and fields of application.",
+  body: "Servoteh has delivered projects for demanding automotive customers, including Robert Bosch and ZF Group. Because production processes are confidential, certain solutions are presented by system type, technology and field of application.",
 };
 
 export const references: DeepIconCard[] = [

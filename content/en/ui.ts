@@ -51,4 +51,7 @@ export const ui: UiDict = {
     playVideo: "Play video",
     watchYoutube: "Watch on YouTube",
   },
+  solutions: {
+    learnMore: "Learn more →",
+  },
 };

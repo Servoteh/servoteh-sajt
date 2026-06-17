@@ -11,8 +11,8 @@ export const meta: PageMeta = {
 
 export const hero: DeepHeroContent = {
   eyebrow: "SERVOTEH / Industrial automation",
-  titleLead: "Industrial automation for a stable",
-  titleEm: "and monitored production process",
+  titleLead: "Industrial automation",
+  titleEm: "for stable processes",
   lead: "Servoteh designs and integrates industrial automation systems — from control cabinets and PLC/HMI solutions, to the integration of sensors, robotics, hydraulics and technical support.",
   primaryCta: { label: "Send an enquiry", href: "mailto:office@servoteh.com" },
   secondaryCta: { label: "View references", href: "/en/references/" },

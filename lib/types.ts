@@ -74,6 +74,7 @@ export type UiDict = {
   deep: { sendEnquiry: string; callAria: string; referencesLabel: string; openReferences: string };
   slider: { gallery: string; prev: string; next: string; slide: string };
   media: { playVideo: string; watchYoutube: string };
+  solutions: { learnMore: string };
 };
 
 export type Stat = {

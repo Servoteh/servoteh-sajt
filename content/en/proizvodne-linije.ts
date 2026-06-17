@@ -11,8 +11,8 @@ export const meta: PageMeta = {
 
 export const hero: DeepHeroContent = {
   eyebrow: "SERVOTEH / Production lines",
-  titleLead: "Complete production lines",
-  titleEm: "for demanding industrial processes",
+  titleLead: "Production lines",
+  titleEm: "for demanding processes",
   lead: "Servoteh engineers and integrates complete production lines tailored to a specific process — from handling between operations, through control, quality assurance and commissioning.",
   primaryCta: { label: "Send an enquiry", href: "mailto:office@servoteh.com" },
   secondaryCta: { label: "View references", href: "/en/references/" },

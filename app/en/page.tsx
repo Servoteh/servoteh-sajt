@@ -28,7 +28,7 @@ export default function HomePageEn() {
         <DefenceIntro content={home.defenceIntro} />
         <About content={home.about} />
         <Kapaciteti content={home.kapaciteti} ui={ui} />
-        <Solutions content={home.solutions} />
+        <Solutions content={home.solutions} ui={ui} />
         <Aftersales content={home.aftersales} />
         <Industries content={home.industries} />
         <Trust content={home.trust} />

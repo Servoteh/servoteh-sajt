@@ -9,8 +9,8 @@ export const meta: PageMeta = {
 
 export const hero = {
   eyebrow: "SERVOTEH / References",
-  titleLead: "References and",
-  titleEm: "delivered projects",
+  titleLead: "Selected",
+  titleEm: "references",
   leadPre: "Every project begins as the answer to a specific technical requirement. Our references cover systems for the ",
   leadLink: { text: "defence industry", href: "/en/defence/" },
   leadPost: ", special-purpose machines, production lines and automated solutions for demanding industrial processes.",
@@ -21,7 +21,7 @@ export const hero = {
 export const casesHeader = {
   label: "Examples of delivery",
   title: "Selected projects",
-  body: "Examples that illustrate our engineering approach and the scope of what we deliver — from systems for the defence industry to solutions for general industry. As some projects are confidential, we present them by type of solution and technological scope.",
+  body: "Examples that illustrate our engineering approach and the scope of what we deliver — from systems for the defence industry to solutions for general industry. Because many production processes are confidential, selected solutions are presented by system type, technology and field of application.",
 };
 
 export const caseGroups = [
