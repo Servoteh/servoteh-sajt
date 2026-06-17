@@ -2,12 +2,21 @@ import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/Reveal";
 import { ContactForm } from "@/components/sections/ContactForm";
 import { PinIcon, MailIcon, PhoneIcon, NavigateIcon } from "@/components/icons";
-import type { HomeContent } from "@/lib/types";
+import { ui as uiSr } from "@/content/sr/ui";
+import type { HomeContent, UiDict } from "@/lib/types";
 
 const contactIcons = [<PinIcon key="pin" />, <MailIcon key="mail" />, <PhoneIcon key="phone" />];
 const mapIcons = [<PinIcon key="m-pin" />, <NavigateIcon key="m-nav" />];
 
-export function Cta({ content }: { content: HomeContent["cta"] }) {
+export function Cta({
+  content,
+  ui = uiSr,
+  privacyHref = "/politika-privatnosti",
+}: {
+  content: HomeContent["cta"];
+  ui?: UiDict;
+  privacyHref?: string;
+}) {
   return (
     <section id="cta">
       <Container>
@@ -16,7 +25,7 @@ export function Cta({ content }: { content: HomeContent["cta"] }) {
             <div className="section-label">{content.label}</div>
             <h2>{content.title}</h2>
             <p>{content.body}</p>
-            <ContactForm />
+            <ContactForm ui={ui} privacyHref={privacyHref} />
           </div>
 
           <div className="cta-contact-card">

@@ -1,14 +1,15 @@
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/Reveal";
 import { TechCardVideo } from "@/components/deep/TechCardVideo";
-import type { TechSectionContent } from "@/lib/types";
+import { ui as uiSr } from "@/content/sr/ui";
+import type { TechSectionContent, UiDict } from "@/lib/types";
 
 /**
  * Sekcija tehničkih kartica (slika + naslov + opis + opcione specifikacije).
  * Čisto prezentaciona; sadržaj dolazi iz content/<locale>/*.ts.
  * Koristi se kao dopuna dubinskih stranica (defence, solution strane).
  */
-export function TechSection({ content }: { content: TechSectionContent }) {
+export function TechSection({ content, ui = uiSr }: { content: TechSectionContent; ui?: UiDict }) {
   return (
     <section id={content.id} className={`tech-section tech-section--${content.tone}`}>
       <Container wide>
@@ -33,7 +34,7 @@ export function TechSection({ content }: { content: TechSectionContent }) {
                   // eslint-disable-next-line jsx-a11y/media-has-caption
                   <video src={card.videoSrc} poster={card.img} controls muted playsInline preload="metadata" />
                 ) : card.video ? (
-                  <TechCardVideo img={card.img} alt={card.alt} video={card.video} caption={card.caption} />
+                  <TechCardVideo img={card.img} alt={card.alt} video={card.video} caption={card.caption} ui={ui} />
                 ) : (
                   <>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -59,7 +60,7 @@ export function TechSection({ content }: { content: TechSectionContent }) {
                     target="_blank"
                     rel="noopener"
                   >
-                    Pogledajte na YouTube-u <i className="arrow-icon">↗</i>
+                    {ui.media.watchYoutube} <i className="arrow-icon">↗</i>
                   </a>
                 )}
               </div>

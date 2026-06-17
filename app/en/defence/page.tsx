@@ -1,0 +1,279 @@
+import type { Metadata } from "next";
+import { Fragment, type ReactElement } from "react";
+import Link from "next/link";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
+import { Container } from "@/components/ui/Container";
+import { Reveal } from "@/components/Reveal";
+import { HotspotImage } from "@/components/deep/HotspotImage";
+import { TechSection } from "@/components/deep/TechCards";
+import { TechCardVideo } from "@/components/deep/TechCardVideo";
+import { site } from "@/content/en/site";
+import { ui } from "@/content/en/ui";
+import { pageMetadata } from "@/lib/meta";
+import * as c from "@/content/en/defence";
+
+export const metadata: Metadata = pageMetadata(c.meta, "/en/defence/", "en");
+
+const A = "#e8401c";
+
+const reqIcons: ReactElement[] = [
+  <svg key="r1" width="20" height="20" viewBox="0 0 20 20" fill="none">
+    <circle cx="10" cy="10" r="3" stroke={A} strokeWidth="1.5" />
+    <path d="M10 2v2M10 16v2M2 10h2M16 10h2" stroke={A} strokeWidth="1.5" strokeLinecap="round" />
+    <path d="M4.22 4.22l1.42 1.42M14.36 14.36l1.42 1.42M4.22 15.78l1.42-1.42M14.36 5.64l1.42-1.42" stroke={A} strokeWidth="1.4" strokeLinecap="round" />
+  </svg>,
+  <svg key="r2" width="20" height="20" viewBox="0 0 20 20" fill="none">
+    <path d="M10 2L3 5v6c0 4 3 6.5 7 7.5 4-1 7-3.5 7-7.5V5l-7-3z" stroke={A} strokeWidth="1.5" strokeLinejoin="round" />
+    <path d="M7 10l2 2 4-4" stroke={A} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>,
+  <svg key="r3" width="20" height="20" viewBox="0 0 20 20" fill="none">
+    <rect x="2" y="3" width="16" height="11" rx="1.5" stroke={A} strokeWidth="1.5" />
+    <path d="M7 17h6M10 14v3" stroke={A} strokeWidth="1.5" strokeLinecap="round" />
+    <path d="M6 8l2 2 4-4" stroke={A} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>,
+  <svg key="r4" width="20" height="20" viewBox="0 0 20 20" fill="none">
+    <path d="M10 2l-7 3.5v5c0 3.5 3 6 7 7 4-1 7-3.5 7-7v-5L10 2z" stroke={A} strokeWidth="1.5" strokeLinejoin="round" />
+    <path d="M7 10l2 2 4-4" stroke={A} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>,
+  <svg key="r5" width="20" height="20" viewBox="0 0 20 20" fill="none">
+    <circle cx="10" cy="10" r="7" stroke={A} strokeWidth="1.5" />
+    <path d="M10 6v4l3 2" stroke={A} strokeWidth="1.5" strokeLinecap="round" />
+  </svg>,
+];
+
+const stepIcons: ReactElement[] = [
+  <svg key="s1" width="18" height="18" viewBox="0 0 18 18" fill="none">
+    <circle cx="9" cy="9" r="3.5" stroke={A} strokeWidth="1.4" />
+    <path d="M9 1v2M9 15v2M1 9h2M15 9h2M3.05 3.05l1.42 1.42M13.53 13.53l1.42 1.42M3.05 14.95l1.42-1.42M13.53 4.47l1.42-1.42" stroke={A} strokeWidth="1.4" strokeLinecap="round" />
+  </svg>,
+  <svg key="s2" width="18" height="18" viewBox="0 0 18 18" fill="none">
+    <path d="M9 2L2 6v6l7 4 7-4V6L9 2z" stroke={A} strokeWidth="1.4" strokeLinejoin="round" />
+    <path d="M2 6l7 4 7-4M9 10v6" stroke={A} strokeWidth="1.4" strokeLinecap="round" />
+  </svg>,
+  <svg key="s3" width="18" height="18" viewBox="0 0 18 18" fill="none">
+    <rect x="2" y="9" width="4" height="7" rx="1" stroke={A} strokeWidth="1.4" />
+    <rect x="7" y="6" width="4" height="10" rx="1" stroke={A} strokeWidth="1.4" />
+    <rect x="12" y="3" width="4" height="13" rx="1" stroke={A} strokeWidth="1.4" />
+  </svg>,
+  <svg key="s4" width="18" height="18" viewBox="0 0 18 18" fill="none">
+    <path d="M9 2L2 5v4c0 4.5 3 7 7 8 4-1 7-3.5 7-8V5L9 2z" stroke={A} strokeWidth="1.4" strokeLinejoin="round" />
+    <path d="M6 9l2 2 4-4" stroke={A} strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>,
+];
+
+export default function DefencePage() {
+  return (
+    <>
+      <Header site={site} ui={ui} />
+      <main>
+        {/* HERO */}
+        <section id="ds-hero" className="deep-hero">
+          <div className="ds-hero-bg" />
+          <div className="ds-hero-content hero-content">
+            <div className="ds-hero-eyebrow deep-hero-eyebrow">{c.hero.eyebrow}</div>
+            <h1 className="ds-hero-title">
+              {c.hero.titleLead}
+              <br />
+              <em>{c.hero.titleEm}</em>
+            </h1>
+            <p className="ds-hero-lead hero-lead">{c.hero.lead}</p>
+            <div className="ds-hero-cta hero-btns">
+              <a href="mailto:office@servoteh.com" className="btn btn-primary">
+                Send an enquiry <i className="arrow-icon">↗</i>
+              </a>
+              <Link href="/en/references/" className="btn btn-secondary">
+                View references
+              </Link>
+              <a href={c.hero.brochureHref} className="btn btn-ghost" target="_blank" rel="noopener" download>
+                {c.hero.brochureLabel}
+              </a>
+            </div>
+          </div>
+          <nav className="breadcrumb" aria-label="Breadcrumb">
+            {c.hero.breadcrumb.map((b, i) => (
+              <span key={b.label} style={{ display: "contents" }}>
+                {b.href ? <Link href={b.href}>{b.label}</Link> : <span className="breadcrumb-current">{b.label}</span>}
+                {i < c.hero.breadcrumb.length - 1 && <span className="breadcrumb-sep">/</span>}
+              </span>
+            ))}
+          </nav>
+        </section>
+
+        {/* INTRO */}
+        <section id="ds-intro">
+          <Container>
+            <div className="ds-intro-inner">
+              <Reveal>
+                <div className="section-label">{c.intro.label}</div>
+                <h2>{c.intro.title}</h2>
+                <p>{c.intro.body}</p>
+              </Reveal>
+              <Reveal delay={0.1} className="ds-trust-points">
+                {c.intro.points.map((p) => (
+                  <div className="ds-trust-point" key={p}>
+                    <div className="ds-trust-dot" />
+                    <span className="ds-trust-text">{p}</span>
+                  </div>
+                ))}
+              </Reveal>
+            </div>
+          </Container>
+        </section>
+
+        {/* PROGRAMMES */}
+        <section id="ds-programs">
+          <Container wide>
+            <Reveal className="ds-programs-header">
+              <div className="section-label">{c.programsHeader.label}</div>
+              <h2>{c.programsHeader.title}</h2>
+              <p>{c.programsHeader.body}</p>
+            </Reveal>
+            <div className="ds-prog-grid">
+              {c.programs.map((prog, i) => (
+                <Reveal
+                  key={prog.num}
+                  delay={i * 0.1}
+                  className={`ds-prog-card${prog.accent ? " ds-prog-card--p1" : ""}`}
+                >
+                  <div className={`ds-prog-visual ds-prog-visual--p${i + 1}`}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={prog.img} alt={prog.alt} className="ds-prog-img" loading="lazy" />
+                    <span className="ds-prog-visual-label">{prog.label}</span>
+                  </div>
+                  <div className="ds-prog-body">
+                    <div className="ds-prog-num">{prog.num}</div>
+                    <h3>{prog.title}</h3>
+                    <p>{prog.desc}</p>
+                  </div>
+                  <a className="ds-prog-link" href={`#program-${i + 1}`} aria-label={`${prog.title} — details`}>
+                    <span className="ds-prog-link-arrow" aria-hidden="true">↓</span>
+                  </a>
+                </Reveal>
+              ))}
+            </div>
+          </Container>
+        </section>
+
+        {/* DETAIL BLOCKS + technical sections (inserted per programme) */}
+        {c.detailBlocks.map((d, i) => {
+          const tech = [c.tech01, c.tech02, undefined, c.tech04][i];
+          return (
+            <Fragment key={d.label}>
+              <div id={`program-${i + 1}`} className={`ds-detail-block ds-detail-block--${d.tone}`}>
+                <Container wide>
+                  <div className={`ds-detail-inner${d.reverse ? " ds-detail-inner--reverse" : ""}`}>
+                    <Reveal>
+                      {d.hotspots ? (
+                        <HotspotImage src={d.img} alt={d.alt} hotspots={c.program1Hotspots} />
+                      ) : (
+                        <div className={`ds-media-placeholder ds-media-placeholder--${d.tone}`}>
+                          {d.video ? (
+                            <TechCardVideo img={d.img} alt={d.alt} video={d.video} />
+                          ) : (
+                            <>
+                              {/* eslint-disable-next-line @next/next/no-img-element */}
+                              <img src={d.img} alt={d.alt} className="ds-media-img" loading="lazy" />
+                            </>
+                          )}
+                        </div>
+                      )}
+                    </Reveal>
+                    <Reveal delay={0.1} className={`ds-detail-text ds-detail-text--${d.tone === "dark" ? "dark" : "light"}`}>
+                      <div className="section-label">{d.label}</div>
+                      <h2>{d.title}</h2>
+                      <p>{d.body}</p>
+                      <ul className="ds-detail-bullets">
+                        {d.bullets.map((b) => (
+                          <li key={b}>{b}</li>
+                        ))}
+                      </ul>
+                      <a
+                        href="mailto:office@servoteh.com"
+                        className={`${d.ctaGhostLight ? "btn-ghost-light" : "btn btn-ghost"} btn-sm`}
+                      >
+                        Send an enquiry <i className="arrow-icon">↗</i>
+                      </a>
+                      {d.video && (
+                        <a
+                          className="tech-card-video-link ds-detail-video-link"
+                          href={`https://www.youtube.com/watch?v=${d.video}`}
+                          target="_blank"
+                          rel="noopener"
+                        >
+                          Watch on YouTube <i className="arrow-icon">↗</i>
+                        </a>
+                      )}
+                    </Reveal>
+                  </div>
+                </Container>
+              </div>
+              {tech && <TechSection content={tech} ui={ui} />}
+            </Fragment>
+          );
+        })}
+
+        {/* REQUIREMENTS */}
+        <section id="ds-requirements">
+          <Container wide>
+            <Reveal className="section-intro-narrow">
+              <div className="section-label">{c.requirements.label}</div>
+              <h2 className="section-intro-h2">{c.requirements.title}</h2>
+              <p className="section-intro-p">{c.requirements.body}</p>
+            </Reveal>
+            <div className="ds-req-grid">
+              {c.requirements.cards.map((card, i) => (
+                <Reveal key={card.title} delay={(i % 5) * 0.08} className="ds-req-card">
+                  <div className="ds-req-icon">{reqIcons[i]}</div>
+                  <h4>{card.title}</h4>
+                  <p>{card.desc}</p>
+                </Reveal>
+              ))}
+            </div>
+          </Container>
+        </section>
+
+        {/* PROCESS */}
+        <section id="ds-process">
+          <Container wide>
+            <Reveal className="section-header-intro">
+              <div className="section-label">{c.process.label}</div>
+              <h2>{c.process.title}</h2>
+              <p>{c.process.body}</p>
+            </Reveal>
+            <div className="ds-steps-grid">
+              {c.process.steps.map((step, i) => (
+                <Reveal key={step.num} delay={i * 0.1} className="ds-step">
+                  <div className="ds-step-num">{step.num}</div>
+                  <div className="ds-step-icon">{stepIcons[i]}</div>
+                  <h4>{step.title}</h4>
+                  <p>{step.desc}</p>
+                </Reveal>
+              ))}
+            </div>
+          </Container>
+        </section>
+
+        {/* CTA */}
+        <section id="ds-cta">
+          <Container>
+            <Reveal className="ds-cta-inner">
+              <div className="section-label section-label--center">Next step</div>
+              <h2>{c.cta.title}</h2>
+              <p>{c.cta.body}</p>
+              <div className="cta-btns">
+                <a href="mailto:office@servoteh.com" className="btn btn-primary">
+                  Send an enquiry <i className="arrow-icon">↗</i>
+                </a>
+                <a href="tel:+381113141564" className="btn btn-secondary">
+                  +381 (11) 31-41-564
+                </a>
+              </div>
+            </Reveal>
+          </Container>
+        </section>
+      </main>
+      <Footer site={site} ui={ui} />
+    </>
+  );
+}

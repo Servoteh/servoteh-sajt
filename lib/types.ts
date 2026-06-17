@@ -43,6 +43,39 @@ export type SiteContent = {
   };
 };
 
+/**
+ * Locale UI rečnik — chrome/aria/forma stringovi koji su ranije bili hardkodirani
+ * u komponentama. Komponente primaju opcioni `ui` prop sa SR default-om
+ * (`content/sr/ui.ts`), pa SR strane ostaju nepromenjene; EN rute prosleđuju EN ui.
+ */
+export type UiDict = {
+  header: { home: string; mainNav: string; openMenu: string; mobileNav: string; lang: string };
+  footer: { officialSite: string };
+  form: {
+    name: string;
+    company: string;
+    email: string;
+    phone: string;
+    message: string;
+    website: string;
+    submit: string;
+    submitting: string;
+    consentPre: string;
+    privacyLink: string;
+    successTitle: string;
+    successBody: string;
+    newEnquiry: string;
+    errName: string;
+    errEmail: string;
+    errMessage: string;
+    errFailed: string;
+    errNetwork: string;
+  };
+  deep: { sendEnquiry: string; callAria: string; referencesLabel: string; openReferences: string };
+  slider: { gallery: string; prev: string; next: string; slide: string };
+  media: { playVideo: string; watchYoutube: string };
+};
+
 export type Stat = {
   value: string;
   suffix?: string;

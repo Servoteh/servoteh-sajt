@@ -3,9 +3,10 @@
 import { useRef, useState } from "react";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/Reveal";
-import type { HomeContent } from "@/lib/types";
+import { ui as uiSr } from "@/content/sr/ui";
+import type { HomeContent, UiDict } from "@/lib/types";
 
-export function Kapaciteti({ content }: { content: HomeContent["kapaciteti"] }) {
+export function Kapaciteti({ content, ui = uiSr }: { content: HomeContent["kapaciteti"]; ui?: UiDict }) {
   const slides = content.slides;
   const [current, setCurrent] = useState(0);
   const startX = useRef(0);
@@ -77,7 +78,7 @@ export function Kapaciteti({ content }: { content: HomeContent["kapaciteti"] }) 
               onTouchEnd={onTouchEnd}
               role="group"
               aria-roledescription="slajder"
-              aria-label="Galerija kapaciteta"
+              aria-label={ui.slider.gallery}
             >
               <div className="kap-slides" style={{ transform: `translateX(-${current * 100}%)` }}>
                 {slides.map((s, i) => (
@@ -91,7 +92,7 @@ export function Kapaciteti({ content }: { content: HomeContent["kapaciteti"] }) 
               <button
                 className="kap-arrow kap-arrow--prev"
                 onClick={() => goTo(current - 1)}
-                aria-label="Prethodna slika"
+                aria-label={ui.slider.prev}
               >
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
                   <path d="M11 14L6 9l5-5" stroke="rgba(255,255,255,0.9)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
@@ -100,7 +101,7 @@ export function Kapaciteti({ content }: { content: HomeContent["kapaciteti"] }) 
               <button
                 className="kap-arrow kap-arrow--next"
                 onClick={() => goTo(current + 1)}
-                aria-label="Sledeća slika"
+                aria-label={ui.slider.next}
               >
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
                   <path d="M7 4l5 5-5 5" stroke="rgba(255,255,255,0.9)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
@@ -113,7 +114,7 @@ export function Kapaciteti({ content }: { content: HomeContent["kapaciteti"] }) 
                   key={s.src}
                   className={i === current ? "kap-dot active" : "kap-dot"}
                   onClick={() => goTo(i)}
-                  aria-label={`Slajd ${i + 1}`}
+                  aria-label={`${ui.slider.slide} ${i + 1}`}
                 />
               ))}
             </div>

@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { PinIcon, NavigateIcon } from "@/components/icons";
-import type { SiteContent } from "@/lib/types";
+import { ui as uiSr } from "@/content/sr/ui";
+import type { SiteContent, UiDict } from "@/lib/types";
 
 const mapIcons = [<PinIcon key="pin" />, <NavigateIcon key="nav" />];
 
@@ -35,7 +36,7 @@ function FooterLink({ href, label, current }: { href: string; label: string; cur
   return <Link href={href}>{label}</Link>;
 }
 
-export function Footer({ site }: { site: SiteContent }) {
+export function Footer({ site, ui = uiSr }: { site: SiteContent; ui?: UiDict }) {
   const f = site.footer;
   const pathname = normalize(usePathname() ?? "/");
   return (
@@ -103,7 +104,7 @@ export function Footer({ site }: { site: SiteContent }) {
           </div>
           <div className="footer-bottom-right">
             {f.privacy && <Link href={f.privacy.href}>{f.privacy.label}</Link>}
-            <a href={f.siteUrl.href} aria-label="Servoteh zvanična stranica">
+            <a href={f.siteUrl.href} aria-label={ui.footer.officialSite}>
               {f.siteUrl.label}
             </a>
           </div>

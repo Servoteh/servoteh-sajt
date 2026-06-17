@@ -1,29 +1,48 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import { ui as uiSr } from "@/content/sr/ui";
+import type { UiDict } from "@/lib/types";
 
-// Validaciona šema — poruke na srpskom; usklađena sa proverama u worker/index.ts.
-const schema = z.object({
-  ime: z.string().min(2, "Unesite ime."),
-  kompanija: z.string().max(120).optional(),
-  email: z.string().email("Unesite ispravnu email adresu."),
-  telefon: z.string().max(40).optional(),
-  poruka: z.string().min(10, "Poruka je prekratka (najmanje 10 karaktera)."),
-  // honeypot — sakriveno polje; ljudi ga ne popunjavaju
-  website: z.string().max(0).optional(),
-});
-
-type FormValues = z.infer<typeof schema>;
+type FormValues = {
+  ime: string;
+  kompanija?: string;
+  email: string;
+  telefon?: string;
+  poruka: string;
+  website?: string;
+};
 
 type Status = "idle" | "submitting" | "success" | "error";
 
-export function ContactForm() {
+export function ContactForm({
+  ui = uiSr,
+  privacyHref = "/politika-privatnosti",
+}: {
+  ui?: UiDict;
+  privacyHref?: string;
+}) {
   const [status, setStatus] = useState<Status>("idle");
   const [serverError, setServerError] = useState<string>("");
+
+  // Validaciona šema — poruke iz `ui` rečnika; usklađena sa proverama u worker/index.ts.
+  const schema = useMemo(
+    () =>
+      z.object({
+        ime: z.string().min(2, ui.form.errName),
+        kompanija: z.string().max(120).optional(),
+        email: z.string().email(ui.form.errEmail),
+        telefon: z.string().max(40).optional(),
+        poruka: z.string().min(10, ui.form.errMessage),
+        // honeypot — sakriveno polje; ljudi ga ne popunjavaju
+        website: z.string().max(0).optional(),
+      }),
+    [ui],
+  );
 
   const {
     register,
@@ -47,11 +66,11 @@ export function ContactForm() {
         reset();
       } else {
         setStatus("error");
-        setServerError(data.error || "Slanje nije uspelo. Pokušajte ponovo.");
+        setServerError(data.error || ui.form.errFailed);
       }
     } catch {
       setStatus("error");
-      setServerError("Mreža trenutno nije dostupna. Pokušajte ponovo ili nam pišite na office@servoteh.com.");
+      setServerError(ui.form.errNetwork);
     }
   };
 
@@ -59,10 +78,10 @@ export function ContactForm() {
     return (
       <div className="cf-success" role="status">
         <div className="cf-success-icon">✓</div>
-        <h4>Hvala na upitu</h4>
-        <p>Vaša poruka je poslata. Naš tim će vam se javiti u najkraćem roku.</p>
+        <h4>{ui.form.successTitle}</h4>
+        <p>{ui.form.successBody}</p>
         <button type="button" className="btn btn-secondary" onClick={() => setStatus("idle")}>
-          Pošaljite novi upit
+          {ui.form.newEnquiry}
         </button>
       </div>
     );
@@ -72,48 +91,48 @@ export function ContactForm() {
     <form className="cf-form" onSubmit={handleSubmit(onSubmit)} noValidate>
       <div className="cf-row">
         <div className="cf-field">
-          <label htmlFor="cf-ime">Ime i prezime *</label>
+          <label htmlFor="cf-ime">{ui.form.name} *</label>
           <input id="cf-ime" type="text" autoComplete="name" {...register("ime")} aria-invalid={!!errors.ime} />
           {errors.ime && <span className="cf-error">{errors.ime.message}</span>}
         </div>
         <div className="cf-field">
-          <label htmlFor="cf-kompanija">Kompanija</label>
+          <label htmlFor="cf-kompanija">{ui.form.company}</label>
           <input id="cf-kompanija" type="text" autoComplete="organization" {...register("kompanija")} />
         </div>
       </div>
 
       <div className="cf-row">
         <div className="cf-field">
-          <label htmlFor="cf-email">Email *</label>
+          <label htmlFor="cf-email">{ui.form.email} *</label>
           <input id="cf-email" type="email" autoComplete="email" {...register("email")} aria-invalid={!!errors.email} />
           {errors.email && <span className="cf-error">{errors.email.message}</span>}
         </div>
         <div className="cf-field">
-          <label htmlFor="cf-telefon">Telefon</label>
+          <label htmlFor="cf-telefon">{ui.form.phone}</label>
           <input id="cf-telefon" type="tel" autoComplete="tel" {...register("telefon")} />
         </div>
       </div>
 
       <div className="cf-field">
-        <label htmlFor="cf-poruka">Poruka *</label>
+        <label htmlFor="cf-poruka">{ui.form.message} *</label>
         <textarea id="cf-poruka" rows={5} {...register("poruka")} aria-invalid={!!errors.poruka} />
         {errors.poruka && <span className="cf-error">{errors.poruka.message}</span>}
       </div>
 
       {/* honeypot — sakriveno od korisnika, vidljivo botovima */}
       <div className="cf-hp" aria-hidden="true">
-        <label htmlFor="cf-website">Website</label>
+        <label htmlFor="cf-website">{ui.form.website}</label>
         <input id="cf-website" type="text" tabIndex={-1} autoComplete="off" {...register("website")} />
       </div>
 
       {status === "error" && <div className="cf-server-error" role="alert">{serverError}</div>}
 
       <button type="submit" className="btn btn-primary cf-submit" disabled={status === "submitting"}>
-        {status === "submitting" ? "Slanje…" : <>Pošaljite upit <i className="arrow-icon">↗</i></>}
+        {status === "submitting" ? ui.form.submitting : <>{ui.form.submit} <i className="arrow-icon">↗</i></>}
       </button>
 
       <p className="cf-consent">
-        Slanjem upita prihvatate <Link href="/politika-privatnosti">Politiku privatnosti</Link>.
+        {ui.form.consentPre} <Link href={privacyHref}>{ui.form.privacyLink}</Link>.
       </p>
     </form>
   );

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { PageMeta } from "@/lib/types";
+import { pairBySr, pairByEn } from "@/lib/routes";
 
 /** Apsolutna baza sajta — koristi se za canonical i Open Graph URL. */
 export const SITE_URL = "https://servoteh.com";
@@ -12,19 +13,23 @@ export const SITE_URL = "https://servoteh.com";
 const OG_IMAGE = "/assets/hero-poster.webp";
 
 /**
- * Gradi `Metadata` za jednu stranicu: title/description + kanonski URL + Open
- * Graph i Twitter karticu. `path` je apsolutna putanja rute sa završnim „/"
- * (npr. "/defence/"); za naslovnu „/". EN verzija će kasnije dodati
- * `alternates.languages` (hreflang) preko ovog istog mesta.
+ * Gradi `Metadata` za jednu stranicu: title/description + kanonski URL + hreflang
+ * alternative (sr/en/x-default) + Open Graph i Twitter karticu. `path` je apsolutna
+ * putanja rute sa završnim „/" (npr. "/defence/" ili "/en/defence/"); za naslovnu
+ * „/" odn. „/en/". `locale` određuje OG locale i smer hreflang para.
  */
-export function pageMetadata(meta: PageMeta, path: string): Metadata {
+export function pageMetadata(meta: PageMeta, path: string, locale: "sr" | "en" = "sr"): Metadata {
+  const pair = locale === "en" ? pairByEn(path) : pairBySr(path);
+  const languages = pair
+    ? { "sr-RS": pair.sr, "en-GB": pair.en, "x-default": pair.sr }
+    : undefined;
   return {
     title: meta.title,
     description: meta.description,
-    alternates: { canonical: path },
+    alternates: { canonical: path, languages },
     openGraph: {
       type: "website",
-      locale: "sr_RS",
+      locale: locale === "en" ? "en_GB" : "sr_RS",
       siteName: "Servoteh",
       url: path,
       title: meta.title,

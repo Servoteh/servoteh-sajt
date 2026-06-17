@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/Reveal";
 import { deepIcons } from "@/components/deep/deepIcons";
+import { ui as uiSr } from "@/content/sr/ui";
 import type {
   DeepHeroContent,
   DeepHeaderContent,
@@ -13,6 +14,7 @@ import type {
   DeepRefTeaser,
   DeepRelatedCard,
   DeepCtaContent,
+  UiDict,
 } from "@/lib/types";
 
 type Tone = "black" | "dark" | "section" | "light-1" | "light-3";
@@ -210,17 +212,25 @@ export function BlockGrid({ blocks }: { blocks: DeepBlock[] }) {
 }
 
 /** Reference teaser kartica. */
-export function RefTeaser({ content }: { content: DeepRefTeaser }) {
+export function RefTeaser({
+  content,
+  ui = uiSr,
+  refHref = "/reference",
+}: {
+  content: DeepRefTeaser;
+  ui?: UiDict;
+  refHref?: string;
+}) {
   return (
     <Reveal className="ref-card">
       <div className="ref-card-text">
-        <div className="section-label">Reference</div>
+        <div className="section-label">{ui.deep.referencesLabel}</div>
         <h2>{content.title}</h2>
         <p>{content.body}</p>
       </div>
       <div className="ref-btn-wrap">
-        <Link href="/reference" className="btn btn-primary">
-          Otvorite reference <i className="arrow-icon">↗</i>
+        <Link href={refHref} className="btn btn-primary">
+          {ui.deep.openReferences} <i className="arrow-icon">↗</i>
         </Link>
       </div>
     </Reveal>
@@ -246,7 +256,7 @@ export function RelatedCard({ content }: { content: DeepRelatedCard }) {
 }
 
 /** Centrirani CTA na dnu dubinske stranice. */
-export function DeepCta({ content }: { content: DeepCtaContent }) {
+export function DeepCta({ content, ui = uiSr }: { content: DeepCtaContent; ui?: UiDict }) {
   return (
     <Reveal>
       <div className="section-label section-label--center">{content.label}</div>
@@ -254,9 +264,9 @@ export function DeepCta({ content }: { content: DeepCtaContent }) {
       <p>{content.body}</p>
       <div className="cta-btns">
         <a href="mailto:office@servoteh.com" className="btn btn-primary">
-          Pošaljite upit <i className="arrow-icon">↗</i>
+          {ui.deep.sendEnquiry} <i className="arrow-icon">↗</i>
         </a>
-        <a href="tel:+381113141564" className="btn btn-secondary" aria-label="Pozovite: +381 11 31 41 564">
+        <a href="tel:+381113141564" className="btn btn-secondary" aria-label={ui.deep.callAria}>
           +381 (11) 31-41-564
         </a>
       </div>
