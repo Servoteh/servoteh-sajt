@@ -22,7 +22,7 @@ export const hero: DeepHeroContent = {
 export const intro = {
   label: "Approach",
   title: "Solutions engineered for demanding automotive processes",
-  body: "The automotive industry demands high reliability, repeatable quality, short cycle times, sound ergonomics and stable equipment performance over a long service life. That is why every solution is engineered as a whole — from mechanics, pneumatic and hydraulic subsystems, through electrical control and software, to safety logic, the HMI, testing and commissioning. We develop solutions to each customer's specific requirement: for new processes, upgrades to existing lines, capacity increases or the automation of operations previously performed manually.",
+  body: "The automotive industry demands high reliability, repeatable quality, short cycle times, good ergonomics and stable equipment performance over a long service life. That is why every solution is engineered as a whole — from mechanics, pneumatic and hydraulic subsystems, through electrical control and software, to safety logic, the HMI, testing and commissioning. We develop solutions to each customer's specific requirement: for new processes, upgrades to existing lines, capacity increases or the automation of operations previously performed manually.",
   items: [
     { icon: "users", text: "Experience with demanding automotive customers" },
     { icon: "layers", text: "Automatic and semi-automatic lines" },

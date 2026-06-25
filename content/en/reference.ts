@@ -15,7 +15,7 @@ export const hero = {
   leadLink: { text: "defence industry", href: "/en/defence/" },
   leadPost: ", special-purpose machines, production lines and automated solutions for demanding industrial processes.",
   primaryCta: { label: "Send an enquiry", href: "/en/#cta" },
-  secondaryCta: { label: "View solutions", href: "/en/#solutions" },
+  secondaryCta: { label: "Explore solutions", href: "/en/#solutions" },
 };
 
 export const casesHeader = {
@@ -38,8 +38,8 @@ export const caseGroups = [
         meta: "Scope: ammunition production across a range of calibres — from components to finishing",
       },
       {
-        num: "02", title: "System for artillery projectile bodies",
-        desc: "A complete production flow for projectile bodies up to 155 mm — from induction heating, forging and drawing, through final nosing, to heat treatment, hydrostatic testing and hardness inspection, with robotic handling between operations.",
+        num: "02", title: "System for artillery shell bodies",
+        desc: "A complete production flow for shell bodies up to 155 mm — from induction heating, forging and drawing, through final nosing, to heat treatment, hydrostatic testing and hardness inspection, with robotic handling between operations.",
         tags: [
           { label: "Defence industry" }, { label: "Production system" },
           { label: "Heat treatment", neutral: true }, { label: "Quality control", neutral: true },
@@ -48,16 +48,16 @@ export const caseGroups = [
       },
       {
         num: "03", title: "Plant for ballistic protection",
-        desc: "A complete plant for the production of ballistic plates with hydraulic presses, thermal-engineering installation, temperature regulation and SCADA process monitoring.",
+        desc: "A complete plant for the production of ballistic plates with hydraulic presses, a heating and cooling installation, temperature regulation and SCADA process monitoring.",
         tags: [
           { label: "Defence industry" }, { label: "Hydraulic presses" },
-          { label: "SCADA monitoring", neutral: true }, { label: "Thermal engineering", neutral: true },
+          { label: "SCADA monitoring", neutral: true }, { label: "Thermal systems", neutral: true },
         ],
-        meta: "Scope: presses, thermal-engineering installation and control with SCADA monitoring",
+        meta: "Scope: presses, a heating and cooling installation and control with SCADA monitoring",
       },
       {
-        num: "04", title: "Autoloaders and subsystems",
-        desc: "Autoloaders and magazine subsystems for modern self-propelled artillery platforms — engineered for faster loading, higher reliability and reduced crew workload, adapted to the architecture of the specific platform.",
+        num: "04", title: "Automatic loaders and subsystems",
+        desc: "Automatic loaders and magazine subsystems for modern self-propelled artillery platforms — engineered for faster loading, higher reliability and reduced crew workload, adapted to the architecture of the specific platform.",
         tags: [
           { label: "Defence industry" }, { label: "155 mm platforms" },
           { label: "Mechanics + hydraulics", neutral: true }, { label: "Safety logic", neutral: true },

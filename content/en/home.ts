@@ -21,8 +21,8 @@ export const home: HomeContent = {
   stats: [
     { value: "24", suffix: "+", label: "Years of experience" },
     { value: "100", suffix: "+", label: "Machines and systems" },
-    { value: "25", suffix: "+", label: "Development engineers" },
-    { value: "10,000", suffix: " m²", label: "Development and production facilities", variant: "defence" },
+    { value: "25", suffix: "+", label: "Design and development engineers" },
+    { value: "10,000", suffix: " m²", label: "Development and production space", variant: "defence" },
   ],
 
   defenceIntro: {
@@ -30,7 +30,7 @@ export const home: HomeContent = {
     titleLead: "Focused on ",
     titleLink: { label: "defence", href: "/en/defence/" },
     titleAfterLink: ".",
-    titleSecond: "Built for demanding industry.",
+    titleSecond: "Engineered for demanding industries.",
     body: "In recent years, most of Servoteh's development and delivery work has been tied to the defence industry — a sector where reliability, precision and process control are essential, not optional. The same development capacity and engineering approach are applied to other demanding industrial projects, wherever standard equipment is not enough and a system has to be developed from the ground up.",
     cta: { label: "View references", href: "/en/references/" },
     cards: [
@@ -90,11 +90,11 @@ export const home: HomeContent = {
   aftersales: {
     label: "Support after commissioning",
     title: "A technical partner beyond delivery",
-    body: "Servoteh's work does not end with the delivery of a system. Support covers commissioning, training, diagnostics, interventions, spare parts and upgrades throughout the system's service life.",
+    body: "Servoteh's work does not end with the delivery of a system. Support covers commissioning, training, diagnostics, on-site service, spare parts and upgrades throughout the system's service life.",
     cta: { label: "Send an enquiry", href: "/en/#cta" },
     items: [
       { title: "Commissioning and training", desc: "Our team attends the first start-up and trains your operators." },
-      { title: "Diagnostics and interventions", desc: "Fast response and technical support on site or remotely." },
+      { title: "Diagnostics and service", desc: "Fast response and technical support on site or remotely." },
       { title: "Spare parts and upgrades", desc: "Original spare parts and possible system upgrades during service." },
     ],
   },
@@ -118,7 +118,7 @@ export const home: HomeContent = {
     cta: { label: "View references", href: "/en/references/" },
     points: [
       { title: "24+ years of experience", desc: "Decades of experience in developing and delivering specialised engineering systems" },
-      { title: "ISO 9001 certified", desc: "Quality management system to the international standard" },
+      { title: "ISO 9001 certified", desc: "Quality management certified to the ISO 9001 standard" },
       { title: "Global technology partners", desc: "Siemens, ABB, Rexroth, SKF, Aventics — proven technical partners" },
       { title: "Development and production centre", desc: "An integrated facility for development, manufacturing, assembly and system preparation" },
     ],
