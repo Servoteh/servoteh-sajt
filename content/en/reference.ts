@@ -48,12 +48,12 @@ export const caseGroups = [
       },
       {
         num: "03", title: "Plant for ballistic protection",
-        desc: "A complete plant for the production of ballistic plates with hydraulic presses, a heating and cooling installation, temperature regulation and SCADA process monitoring.",
+        desc: "A complete plant for the production of ballistic plates with hydraulic presses, a heating and cooling system, temperature regulation and SCADA process monitoring.",
         tags: [
           { label: "Defence industry" }, { label: "Hydraulic presses" },
           { label: "SCADA monitoring", neutral: true }, { label: "Thermal systems", neutral: true },
         ],
-        meta: "Scope: presses, a heating and cooling installation and control with SCADA monitoring",
+        meta: "Scope: presses, a heating and cooling system and control with SCADA monitoring",
       },
       {
         num: "04", title: "Automatic loaders and subsystems",

@@ -417,7 +417,7 @@ export const tech04: TechSectionContent = {
       img: "/assets/defence-tech/development-ballistic-plates-plant.webp",
       alt: "Plant for producing ballistic plates with hydraulic presses and SCADA control",
       title: "Plant for producing ballistic plates",
-      desc: "A complete plant with hydraulic presses, a heating and cooling installation, temperature regulation and SCADA control.",
+      desc: "A complete plant with hydraulic presses, a heating and cooling system, temperature regulation and SCADA control.",
       specs: [
         "Three hydraulic presses: 2 × 400 t + 600 t",
         "Four-section tools tempered with thermal oil",

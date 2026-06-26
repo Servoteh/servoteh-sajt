@@ -22,7 +22,7 @@ export const home: HomeContent = {
     { value: "24", suffix: "+", label: "Years of experience" },
     { value: "100", suffix: "+", label: "Machines and systems" },
     { value: "25", suffix: "+", label: "Design and development engineers" },
-    { value: "10,000", suffix: " m²", label: "Development and production space", variant: "defence" },
+    { value: "10,000", suffix: " m²", label: "Engineering, production and assembly space", variant: "defence" },
   ],
 
   defenceIntro: {
@@ -60,7 +60,7 @@ export const home: HomeContent = {
     body: "Servoteh develops, manufactures, assembles and integrates systems in its own facilities in Dobanovci. This approach allows better quality control, shorter lead times and more reliable delivery of complex projects — from design, through manufacturing and assembly, to system integration and preparation for commissioning.",
     body2: "In-house production covers CNC machining, cutting, bending, welding and assembly. Keeping these stages within one team gives us control over quality and lead times — from part manufacture to final system inspection.",
     points: [
-      "10,000 m² of development, production and assembly facilities",
+      "10,000 m² of engineering, production and assembly facilities",
       "Design office for mechanical, electrical and software engineering",
       "CNC machining, cutting, bending, welding and subassembly integration",
       "Quality control, testing and preparation of systems for commissioning",
