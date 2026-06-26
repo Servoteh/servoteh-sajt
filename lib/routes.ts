@@ -15,6 +15,7 @@ export const ROUTE_PAIRS: RoutePair[] = [
   { sr: "/prehrambena-industrija/", en: "/en/food-industry/" },
   { sr: "/opsta-industrijska-proizvodnja/", en: "/en/general-industrial-production/" },
   { sr: "/reference/", en: "/en/references/" },
+  { sr: "/karijera/", en: "/en/careers/" },
   { sr: "/politika-privatnosti/", en: "/en/privacy-policy/" },
 ];
 

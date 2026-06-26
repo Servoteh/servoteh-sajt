@@ -283,3 +283,66 @@ export type TechSectionContent = {
   cards: TechCard[];
   cta?: NavItem;
 };
+
+/* ============================================================
+   KARIJERA (careers) — oglasi za posao
+   ============================================================ */
+
+/** Jedan oglas za posao. */
+export type JobPosting = {
+  /** anchor/id pozicije (npr. "elektromonter") */
+  id: string;
+  title: string;
+  /** mesto rada, npr. "Dobanovci, Beograd" */
+  location: string;
+  /** tip angažovanja, npr. "Puno radno vreme" */
+  type: string;
+  /** oblast/tim (opciono), npr. "Elektro montaža" */
+  area?: string;
+  /** broj izvršilaca (opciono), npr. "1 izvršilac" */
+  count?: string;
+  summary: string;
+  responsibilities: string[];
+  requirements: string[];
+  /** „Nudimo" — pogodnosti (opciono) */
+  offer?: string[];
+};
+
+export type CareersContent = {
+  meta: PageMeta;
+  hero: {
+    eyebrow: string;
+    titleLead: string;
+    titleEm: string;
+    lead: string;
+    primaryCta: NavItem;
+    secondaryCta: NavItem;
+  };
+  why: {
+    label: string;
+    title: string;
+    body: string;
+    cards: TitleDesc[];
+  };
+  openingsHeader: { label: string; title: string; body: string };
+  openings: JobPosting[];
+  /** lokalizovane labele unutar oglasa */
+  labels: {
+    responsibilities: string;
+    requirements: string;
+    offer: string;
+    apply: string;
+    /** prefiks naslova mejla pri prijavi (npr. "Prijava — ") */
+    applySubjectPrefix: string;
+  };
+  apply: {
+    label: string;
+    title: string;
+    body: string;
+    email: string;
+    note: string;
+    privacyNote?: string;
+  };
+  /** prikaz kada nema otvorenih pozicija */
+  empty: { title: string; body: string };
+};
