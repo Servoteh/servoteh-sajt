@@ -11,20 +11,21 @@ export const careers: CareersContent = {
     eyebrow: "SERVOTEH / Careers",
     titleLead: "A career at",
     titleEm: "Servoteh",
-    lead: "Servoteh is a family-owned engineering company in Dobanovci, Serbia, developing special-purpose machines, production lines and automated systems since 2002 — for the defence industry and other demanding industrial processes. We are looking for people who want to work on serious projects, from concept to commissioning.",
+    lead: "Servoteh is a family-owned engineering company in Dobanovci, Serbia, developing special-purpose machines, production lines and automated systems since 2002 — for the defence industry and other demanding industrial processes. We are looking for people who want to work on technically demanding projects, from concept to commissioning.",
     primaryCta: { label: "Open positions", href: "#openings" },
-    secondaryCta: { label: "Send an application", href: "mailto:posao@servoteh.com" },
+    secondaryCta: { label: "Apply now", href: "mailto:posao@servoteh.com" },
   },
 
   why: {
     label: "Why Servoteh",
     title: "Why work with us",
-    body: "A dedicated team where results are visible — from design and part manufacture to assembly, integration and commissioning.",
+    body: "A dedicated team where you can see the results of your work — from design and part manufacture to assembly, integration and commissioning.",
     cards: [
-      { title: "Serious projects", desc: "Systems for the defence industry and demanding industrial processes — equipment developed from the ground up, not bought off the shelf." },
-      { title: "Integrated development", desc: "Mechanical, electrical and software engineering in one team — you see a product's whole path, from concept to delivery." },
+      { title: "Serious projects", desc: "Advanced systems for the defence industry and other demanding industrial applications — equipment developed from the ground up, not bought off the shelf." },
+      { title: "Integrated development", desc: "Mechanical, electrical and software engineering in one team — you are involved throughout the entire product lifecycle, from concept to commissioning." },
       { title: "In-house facilities", desc: "Development, production, assembly and integration across 10,000 m² in Dobanovci." },
-      { title: "Stable and long-term", desc: "A family-owned company since 2002 — continuous training, professional development and a clear path ahead." },
+      { title: "Stable and long-term", desc: "A family-owned company, engineering since 2002 — continuous learning, professional development and long-term career opportunities." },
+      { title: "International projects", desc: "Projects delivered and commissioned abroad — across South-Eastern Europe, North Africa and Asia — with on-site work for international customers." },
     ],
   },
 
@@ -37,7 +38,7 @@ export const careers: CareersContent = {
   openings: [
     {
       id: "electrical-fitter",
-      title: "Electrical fitter",
+      title: "Electrical assembly technician",
       location: "Dobanovci, Belgrade",
       type: "Full-time",
       area: "Electrical assembly",
@@ -45,7 +46,7 @@ export const careers: CareersContent = {
       summary:
         "Wiring control cabinets and assembling industrial electrical equipment to technical documentation — in the workshop and on site as required.",
       responsibilities: [
-        "Wiring of control cabinets",
+        "Assembly and wiring of industrial control cabinets",
         "Reading electrical schematics and working to technical documentation",
         "Installation and connection of industrial electrical equipment — automation and power cabinets",
         "On-site work as required",
@@ -70,11 +71,11 @@ export const careers: CareersContent = {
       type: "Full-time · 1st shift",
       area: "CNC programming",
       summary:
-        "Programming and optimisation of CNC machines (milling machines, machining centres, lathes) — from technical documentation to bringing programs into production, for maximum efficiency and machining quality.",
+        "Programming and optimisation of CNC machines (milling machines, machining centres, lathes) — from technical documentation to implementing the programs in production, for maximum efficiency and machining quality.",
       responsibilities: [
         "Writing CNC programs from technical documentation and drawings",
         "Preparing and optimising machining processes (milling machines, machining centres, lathes)",
-        "Tool selection and defining machining parameters",
+        "Selecting cutting tools and defining machining parameters",
         "Testing and commissioning programs together with the operators",
         "Technical support to production and resolving process stoppages",
       ],
@@ -117,7 +118,7 @@ export const careers: CareersContent = {
       offer: [
         "Work on modern, innovative projects (not series production)",
         "Additional technical training and development",
-        "Pay that reflects your results and is always on time",
+        "A competitive salary that reflects your results, always paid on time",
         "Excellent working conditions and a good atmosphere",
       ],
     },
@@ -134,11 +135,11 @@ export const careers: CareersContent = {
   apply: {
     label: "Apply",
     title: "How to apply",
-    body: "Send your CV (and a short cover note, optional) to posao@servoteh.com, with the position title in the subject line.",
+    body: "Send your CV (and a short cover letter, optional) to posao@servoteh.com, with the position title in the subject line.",
     email: "posao@servoteh.com",
     note: "Only shortlisted candidates will be contacted.",
     privacyNote:
-      "By sending an application you consent to the processing of your data for recruitment purposes, in line with our Privacy Policy.",
+      "By sending an application you consent to the processing of your personal data for recruitment purposes, in line with our Privacy Policy.",
   },
 
   empty: {

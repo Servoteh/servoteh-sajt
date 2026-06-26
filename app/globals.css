@@ -3105,9 +3105,11 @@ a.industry-card {
 .car-sec { padding: clamp(72px, 9vw, 120px) 0; }
 .car-sec--alt { background: var(--bg-section); }
 
-/* Zašto Servoteh — kartice */
-.car-why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+/* Zašto Servoteh — kartice (flex + centriranje: gracioozno hvata i 4 i 5 kartica) */
+.car-why-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
 .car-why-card {
+  flex: 1 1 230px;
+  max-width: 320px;
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -3194,11 +3196,10 @@ a.industry-card {
 .car-apply-note--fine { font-size: 12.5px; max-width: 560px; margin-left: auto; margin-right: auto; }
 
 @media (max-width: 1024px) {
-  .car-why-grid { grid-template-columns: repeat(2, 1fr); }
   .car-job-cols { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 768px) {
-  .car-why-grid { grid-template-columns: 1fr; }
+  .car-why-card { flex-basis: 100%; max-width: 420px; }
   .car-job-cols { grid-template-columns: 1fr; gap: 22px; }
   .car-job { padding: 26px 22px; }
 }

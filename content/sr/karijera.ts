@@ -25,6 +25,7 @@ export const careers: CareersContent = {
       { title: "Integrisan razvoj", desc: "Mašinski, elektro i softverski tim na jednom mestu — vidiš ceo put proizvoda, od ideje do isporuke." },
       { title: "Sopstveni kapaciteti", desc: "Razvoj, proizvodnja, montaža i integracija u 10.000 m² u Dobanovcima." },
       { title: "Dugoročno i stabilno", desc: "Porodična kompanija od 2002. — kontinuirana obuka, stručno usavršavanje i jasna perspektiva." },
+      { title: "Međunarodni projekti", desc: "Projekti i puštanje u rad u inostranstvu — jugoistočna Evropa, severna Afrika i Azija — uz rad na terenu kod inostranih kupaca." },
     ],
   },
 
