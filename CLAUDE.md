@@ -47,7 +47,7 @@ app/                  rute (App Router); SR na rootu, EN pod /en/ (engleski slug
   fonts/              self-hostovan Figtree woff2
 components/
   layout/             Header, Footer, LangSwitch
-  sections/           Hero, Stats, Cta (ContactForm), …
+  sections/           Hero, Stats, Cta (ContactForm), Careers (oglasi za posao), …
   deep/               DeepSections (dubinske strane), TechCards, HotspotImage
   ui/                 Container, …
   Reveal.tsx          Framer Motion scroll-reveal wrapper
@@ -133,6 +133,10 @@ Sajt je **live na `servoteh.com`** (SR root, EN pod `/en/`). `servoteh.rs` i
 - [x] **Pred-live** — SEO (canonical/OG/sitemap/robots), 301 redirect mapa starih URL-ova,
       pravni (PIB/MB u footeru + Politika privatnosti), perf (rekompresija slika),
       **go-live** (selidba DNS-a na Cloudflare, `.rs`/`.co.rs` redirekti, `automation` ugašen)
+- [x] **Post-launch (jun 2026)** — EN copy polish (native industrijski B2B: workpiece,
+      infeed, shell bodies, automatic loaders, ISO 9001…) + nova strana **Karijera**
+      (`/karijera`, EN `/en/careers`) sa oglasima: content-driven (`content/{sr,en}/karijera.ts`,
+      `CareersContent`/`JobPosting`), komponenta `Careers.tsx`, prijave → `mailto:posao@servoteh.com`
 - [ ] **Roadmap (kasnije):** Faza 6 Reference (+~10 detaljnih strana), namenska OG slika,
       Lighthouse/mobile QA (hero video već kompresovan 4.4→1.5 MB; hero LCP sređen)
 

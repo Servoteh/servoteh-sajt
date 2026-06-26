@@ -4,10 +4,9 @@
 > Ovaj dokument je jedinstveni izvor istine: šta je pušteno, kako radi infrastruktura,
 > i šta je plan za dalje.
 >
-> **Zamrzavanje promena:** trenutno stanje je stabilno; veće izmene se pauziraju.
-> Plan razvoja (dole) je za naredne faze, kad se odluči da se nastavi.
+> **Stanje:** stabilno u produkciji; razvoj se nastavlja po potrebi (vidi hronologiju, §6).
 >
-> Poslednje ažuriranje: 2026-06-18.
+> Poslednje ažuriranje: 2026-06-26.
 
 ---
 
@@ -37,13 +36,15 @@ Migracija ranijeg ručno kodiranog sajta u **Next.js**, verna 1:1, dvojezično (
 | Auto-deploy | ✅ Push na `main` → automatski deploy |
 | Privacy | ✅ Pregledao pravnik |
 | Defence sadržaj | ✅ Interno odobren za javno |
+| Karijera (`/karijera`, `/en/careers`) | ✅ Live — oglasi; prijave → `posao@servoteh.com` |
 
 **Rute (SR):** `/`, `/defence/`, `/reference/`, `/specijalne-masine/`, `/proizvodne-linije/`,
 `/industrijska-automatizacija/`, `/automobilska-industrija/`, `/prehrambena-industrija/`,
-`/opsta-industrijska-proizvodnja/`, `/politika-privatnosti/`.
+`/opsta-industrijska-proizvodnja/`, `/karijera/`, `/politika-privatnosti/`.
 **EN:** isto pod `/en/` sa engleskim slugovima (`/en/defence/`, `/en/special-purpose-machines/`,
 `/en/production-lines/`, `/en/industrial-automation/`, `/en/automotive-industry/`,
-`/en/food-industry/`, `/en/general-industrial-production/`, `/en/references/`, `/en/privacy-policy/`).
+`/en/food-industry/`, `/en/general-industrial-production/`, `/en/references/`, `/en/careers/`,
+`/en/privacy-policy/`).
 
 ## 4. Infrastruktura (reference)
 - **DNS:** na **Cloudflare-u** (preseljeno sa `cpanelhosting.rs`).
@@ -111,13 +112,26 @@ Migracija ranijeg ručno kodiranog sajta u **Next.js**, verna 1:1, dvojezično (
      faststart; rezolucija 1244×740 i 24fps netaknuti — prikaz identičan).
    - Worker — poruke o grešci forme lokalizovane (sr/en); `ContactForm` šalje
      `locale` iz putanje, `localeOf()` bira set poruka (fallback Referer → sr).
+10. **EN copy polish (2026-06-26)** (`8023bbd`, `f218d86`): doterivanje EN verzije na native
+    industrijski B2B — „thermal-engineering installation"→„heating and cooling system",
+    „piece"→„workpiece", „Autoloaders"→„Automatic loaders", „projectile bodies"→„shell bodies",
+    „in-feed"→„infeed", ISO 9001 formulacija + sitne stilske korekcije. Samo `content/en/*`,
+    SR rečnik netaknut.
+11. **Karijera — nova strana (2026-06-26)** (`f6ac3e7`): `/karijera` + `/en/careers`,
+    content-driven (`content/{sr,en}/karijera.ts`, tipovi `CareersContent`/`JobPosting`),
+    komponenta `components/sections/Careers.tsx`, nav+footer (`site.ts`), par u `routes.ts`,
+    `.car-*` stilovi. Oglasi: Elektromonter, Programer CNC mašina, Operater na CNC mašini
+    (EN prevod). Prijave preko `mailto:posao@servoteh.com` (CV iz kandidatovog mejla; bez
+    izmene Worker-a / forme).
 
 ## 7. Operativne napomene (kako uraditi)
 - **Izmena teksta:** `content/sr/*.ts` (i `content/en/*.ts` za EN) → commit → push → auto-deploy.
 - **Dizajn:** `app/globals.css` ili komponenta.
-- **Nova strana:** ruta u `app/...` + `app/en/...`, sadržaj u `content/{sr,en}/`,
-  par u `lib/routes.ts` (za hreflang+LangSwitch), unos u `app/sitemap.ts`,
-  metapodaci preko `pageMetadata(meta, "/putanja/")`.
+- **Nova strana:** ruta u `app/...` + `app/en/...`, sadržaj u `content/{sr,en}/`, par u
+  `lib/routes.ts` (odatle **automatski**: sitemap + hreflang + `fix-en-lang`), link u nav/footer
+  (`content/{sr,en}/site.ts`), metapodaci `pageMetadata(meta, "/putanja/", locale)`.
+- **Oglas za posao:** dodati objekat u niz `openings` u `content/{sr,en}/karijera.ts` (oba jezika,
+  šema `JobPosting`). Prijave idu na `posao@servoteh.com` (mailto, bez izmene Worker-a).
 - **Deploy:** samo `git push` na `main` (Action odradi). Ručno: `npm run build && npx wrangler deploy`.
 - **DNS izmene:** u **Cloudflare** dashboard-u (ne cPanel).
 - **Privacy izmene:** posle pravnika → `content/{sr,en}/privacy.ts`.
@@ -166,6 +180,8 @@ postojećih `Deep*` komponenti). Najbolje raditi kao zasebnu fazu sa pripremljen
 - [ ] Faza 6: References — ~10 detaljnih projektnih stranica (+ EN)
 - [x] Hero video kompresija (4.45→1.53 MB) — *opciono još: poster-only na mobilnom*
 - [x] Hero LCP (CSS ulazna animacija)
+- [x] EN copy polish — native industrijski B2B terminologija (2026-06)
+- [x] Karijera strana (`/karijera` + `/en/careers`) sa oglasima — prijave na `posao@servoteh.com`
 - [ ] Namenska OG slika 1200×630
 - [ ] PDF brošura kompresija
 - [ ] Lighthouse/mobile QA prolaz (meriti LCP/INP/CLS na živom URL-u)
